@@ -33,7 +33,7 @@
     if (self.childViewControllers.count>0)
     {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setImage:[UIImage imageNamed:@"icon_nav_bac"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"navi_returnBack"] forState:UIControlStateNormal];
         button.frame = CGRectMake(0, 0, 70, 30);
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         //        [button sizeToFit];
@@ -48,8 +48,7 @@
     [super pushViewController:viewController animated:animated];
 }
 
-- (void)back
-{
+- (void)back{
     [self popViewControllerAnimated:YES];
 }
 

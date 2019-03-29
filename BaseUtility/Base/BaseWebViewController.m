@@ -23,6 +23,7 @@ static CGFloat const progressViewHeight = 2;
     // Do any additional setup after loading the view.
 //    [self setIsExtendLayout:YES];
     self.edgesForExtendedLayout=UIRectEdgeBottom;
+    [self setNavigationLeftBarBtnItemWithImgName:@"" Action:@selector(popBackAction)];
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
@@ -74,6 +75,14 @@ static CGFloat const progressViewHeight = 2;
     [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
     [self.view addSubview:_wkWebView];
 //    [self.view addSubview:self.progressView];
+}
+
+- (void)popBackAction{
+    if ([self.wkWebView canGoBack]) {
+        [self.wkWebView goBack];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -142,6 +151,39 @@ static CGFloat const progressViewHeight = 2;
     // Dispose of any resources that can be recreated.
 }
 
+
+
+//delegate
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+    [webView evaluateJavaScript:@"document.title" completionHandler:^(NSString * _Nullable title, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([title isKindOfClass:[NSString class]]) {
+                self.title = title;
+            }
+        });
+    }];
+}
+
+
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+    
+    [CustomTools alertShowWithTitle:nil Message:message];
+    
+    if (completionHandler) {
+        completionHandler();
+    }
+    
+}
+
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
+    
+    [CustomTools alertShowWithTitle:nil Message:message];
+    
+    if (completionHandler) {
+        completionHandler(YES);
+    }
+}
 
 
 //清除web缓存

@@ -1,15 +1,14 @@
 //
-//  UIViewController+Current.m
-//  QQSK-Test
+//  UIViewController+CurrentViewController.m
+//  BaseTools
 //
-//  Created by Singularity on 2018/11/22.
-//  Copyright © 2018 李雪阳. All rights reserved.
+//  Created by 李雪阳 on 2019/3/29.
+//  Copyright © 2019 Singularity. All rights reserved.
 //
 
-#import "UIViewController+Current.h"
+#import "UIViewController+CurrentViewController.h"
 
-@implementation UIViewController (Current)
-
+@implementation UIViewController (CurrentViewController)
 
 + (UIViewController*)getCurrentViewController:(UIViewController*)VC {
     
