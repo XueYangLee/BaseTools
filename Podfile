@@ -4,5 +4,4 @@ pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
 pod 'MJRefresh'
-pod 'SDWebImage'
 end
