@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    _window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [_window makeKeyAndVisible];
+    _window.backgroundColor=[UIColor whiteColor];
+    RootViewController *root=[RootViewController new];
+    _window.rootViewController=root;
+    
+    
+    [SVProgressHUD setMinimumDismissTimeInterval:0.5];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setSuccessImage:nil];
+    [SVProgressHUD setInfoImage:nil];
+    [SVProgressHUD setErrorImage:nil];
+    [SVProgressHUD setCornerRadius:5.0];
+    
     return YES;
 }
 

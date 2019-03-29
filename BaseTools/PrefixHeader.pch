@@ -1,0 +1,25 @@
+//
+//  PrefixHeader.pch
+//  BaseTools
+//
+//  Created by 李雪阳 on 2019/3/27.
+//  Copyright © 2019 Singularity. All rights reserved.
+//
+
+
+#import "PchMacro.h"
+
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import <SVProgressHUD.h>
+#import <SDImageCache.h>
+#import <MJRefresh.h>
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//#import "PchMacro.h"
+
+
+#endif /* PrefixHeader_pch */
