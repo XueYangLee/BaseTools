@@ -28,9 +28,9 @@
 
 - (void)btnClick{
     TableViewController *table=[TableViewController new];
-//    NaviRoutePushToVC(table, YES);
-    [[UIViewController currentViewController].navigationController pushViewController:table animated:YES];
-    
+    NaviRoutePushToVC(table, YES);
+//    NaviRoutePresentToVC(table, YES);
+//    [[UIViewController currentViewController].navigationController pushViewController:table animated:YES];
 }
 
 /*

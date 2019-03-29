@@ -28,10 +28,10 @@
     self.interactivePopGestureRecognizer.delegate=(id)self;
 }
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if (self.childViewControllers.count>0)
-    {
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    
+    if (self.childViewControllers.count>0){
+        
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"navi_returnBack"] forState:UIControlStateNormal];
         button.frame = CGRectMake(0, 0, 70, 30);
@@ -41,10 +41,12 @@
         [button addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
-    if (self.viewControllers.count > 0)
-    {
+    
+    if (self.viewControllers.count > 0){
+        
         viewController.hidesBottomBarWhenPushed = YES;
     }
+    
     [super pushViewController:viewController animated:animated];
 }
 

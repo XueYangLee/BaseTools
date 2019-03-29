@@ -32,7 +32,12 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithHexString:@"eeeeee"]];//tabbar背景色
-    //    [UITabBar appearance].translucent = NO;//取消透明效果
+    
+    if ([IOS_VERSION isEqualToString:@"12.1"]) {
+        [UITabBar appearance].translucent = NO;
+    }
+//    [UITabBar appearance].translucent = NO;//取消透明效果/如果使用系统OS12.1 UINavigationController + UITabBarController（ UITabBar 磨砂），在popViewControllerAnimated 会遇到tabbar布局错乱的问题
+    
 }
 
 - (void)viewDidLoad {
@@ -43,8 +48,8 @@
     [self setupViewControls];
 }
 
-- (void)setupViewControls
-{
+- (void)setupViewControls{
+    
     HomeViewController *home=[[HomeViewController alloc]init];
     [self setupViewControl:home title:@"第一页" image:@"tabunselect1" selectedImage:@"tabselect1"];
     
@@ -53,8 +58,8 @@
     [self setupViewControl:mine title:@"第二页" image:@"tabunselect2" selectedImage:@"tabselect2"];
 }
 
-- (void)setupViewControl:(UIViewController *)viewControl title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
-{
+- (void)setupViewControl:(UIViewController *)viewControl title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+    
     viewControl.tabBarItem.title=title;
     viewControl.tabBarItem.image=[[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     viewControl.tabBarItem.selectedImage=[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

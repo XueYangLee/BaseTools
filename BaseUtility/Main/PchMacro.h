@@ -24,8 +24,8 @@
 #import "UIView+IBExtension.h"
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
-//#import "UINavigationController+currentNavigationController.h"
-//#import "BasePushActionConfig.h"
+#import "UINavigationController+currentNavigationController.h"
+#import "BasePushActionConfig.h"
 
 /****** Tools ******/
 #import "CustomNetWork.h"
@@ -171,13 +171,15 @@
 /** 获取Xcode的版本号 */
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 /** iOS系统版本 */
-#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define IOS_VERSION [[UIDevice currentDevice] systemVersion]
 /** 当前系统语言 */
 #define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
 /** app名字 */
 #define APP_NAME [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]
 /** 设备类型  返回 iPhone或当前其他设备 */
 #define DEVICE_TYPE [UIDevice currentDevice].model
+/** 电池电量  float */
+#define ELECTRIC_POWER  [[UIDevicecurrentDevice]batteryLevel]
 
 
 #pragma mark -------------- 功能宏
