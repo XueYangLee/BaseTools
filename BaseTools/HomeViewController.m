@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "TableViewController.h"
+#import "CollectionViewController.h"
 
 @interface HomeViewController ()
 
@@ -19,18 +20,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-    btn.backgroundColor=[UIColor blueColor];
-    [btn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    UIButton *table=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    table.backgroundColor=[UIColor blueColor];
+    table.tag=10;
+    [table addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:table];
+    
+    UIButton *collect=[[UIButton alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    collect.backgroundColor=[UIColor yellowColor];
+    collect.tag=11;
+    [collect addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:collect];
 }
 
 
-- (void)btnClick{
-    TableViewController *table=[TableViewController new];
-    NaviRoutePushToVC(table, YES);
-//    NaviRoutePresentToVC(table, YES);
-//    [[UIViewController currentViewController].navigationController pushViewController:table animated:YES];
+- (void)btnClick:(UIButton *)sender{
+    if (sender.tag==10) {
+        TableViewController *table=[TableViewController new];
+        NaviRoutePushToVC(table, YES);
+        //    NaviRoutePresentToVC(table, YES);
+        //    [[UIViewController currentViewController].navigationController pushViewController:table animated:YES];
+    }else if (sender.tag==11){
+        CollectionViewController *collect=[CollectionViewController new];
+        NaviRoutePushToVC(collect, YES);
+    }
+    
 }
 
 /*

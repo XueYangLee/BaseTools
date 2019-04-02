@@ -74,6 +74,7 @@
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
+		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +223,8 @@
 		F19FC8E5224E05D90044772B /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F19FC8E7224E05E80044772B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F19FC8E8224E05E80044772B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 				F19FC8E5224E05D90044772B /* MineViewController.m */,
 				F126C47B224E283900C24566 /* TableViewController.h */,
 				F126C47C224E283900C24566 /* TableViewController.m */,
+				F1D3C08F2253108B0008222A /* CollectionViewController.h */,
+				F1D3C0902253108B0008222A /* CollectionViewController.m */,
 				F187EBD8224B58D200293096 /* PrefixHeader.pch */,
 				F1354172224B603F00071241 /* Other */,
 			);
@@ -763,6 +768,7 @@
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,
+				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
 				F187EB78224B569100293096 /* UINavigationBar+Extension.m in Sources */,
 				F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */,

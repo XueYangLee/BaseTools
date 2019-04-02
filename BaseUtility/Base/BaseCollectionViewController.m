@@ -38,6 +38,7 @@
     }
     
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
+    collectionView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_collectionView = collectionView];
     collectionView.delegate = self;
     collectionView.dataSource = self;
