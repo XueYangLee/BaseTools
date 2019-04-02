@@ -154,8 +154,15 @@ static CGFloat const progressViewHeight = 2;
 
 
 //delegate
+
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
+//    NSLog(@"%@>>>>>>>>>>>>>开始导航时>.",webView.URL);
+}
+
+// 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    
+//    NSLog(@"%@>>>>>>>>>>>>>结束导航时>.",webView.URL);
     [webView evaluateJavaScript:@"document.title" completionHandler:^(NSString * _Nullable title, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if ([title isKindOfClass:[NSString class]]) {

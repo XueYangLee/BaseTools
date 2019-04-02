@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface BaseWebViewController : BaseViewController
+@interface BaseWebViewController : BaseViewController<WKNavigationDelegate, WKUIDelegate>
 
 /** webView */
 @property (nonatomic, strong) WKWebView *wkWebView;
