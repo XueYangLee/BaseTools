@@ -68,7 +68,8 @@
 /** 导航栏+状态栏总高 */
 #define NAVI_HEAD_HEIGHT  NAVI_HEIGHT+STATUS_HEIGHT
 /** 页面除过导航栏高度 */
-#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
+//#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
+#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
 /** iPhone X下HOME按键高度 */
 #define IPHONEX_HOME IS_IPHONEX==0?0:34
 /** iphoneX下底部高度 */
