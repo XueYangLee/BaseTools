@@ -35,6 +35,7 @@
 #import "GetUUID.h"
 #import "KeyChainStore.h"
 #import "TBCityIconFont.h"
+#import "SaveImageManager.h"
 //#import "WRNavigationBar.h"
 
 /****** View ******/

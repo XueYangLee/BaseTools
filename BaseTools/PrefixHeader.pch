@@ -13,6 +13,7 @@
 #import <MBProgressHUD.h>
 #import <SVProgressHUD.h>
 #import <MJRefresh.h>
+#import <SDImageCache.h>
 
 
 #ifndef PrefixHeader_pch

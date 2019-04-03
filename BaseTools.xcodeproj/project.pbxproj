@@ -74,6 +74,7 @@
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
+		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +224,8 @@
 		F19FC8E5224E05D90044772B /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F19FC8E7224E05E80044772B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F19FC8E8224E05E80044772B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageManager.m; sourceTree = "<group>"; };
+		F1B7451022544B8E00ED5A29 /* SaveImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageManager.h; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -380,6 +383,8 @@
 				F187EBC7224B56F700293096 /* CustomTools.m */,
 				F187EBC3224B56F600293096 /* DateOperation.h */,
 				F187EBC2224B56F600293096 /* DateOperation.m */,
+				F1B7451022544B8E00ED5A29 /* SaveImageManager.h */,
+				F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */,
 			);
 			path = ToolsClass;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				F187EB4F224B567F00293096 /* RootNavigationController.m in Sources */,
 				F187EB9A224B56A100293096 /* LXYQRCodeUtility.m in Sources */,
 				F187EBBD224B56C800293096 /* PWDInputView.m in Sources */,
+				F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */,
 				F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */,
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
