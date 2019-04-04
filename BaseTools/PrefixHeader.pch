@@ -14,6 +14,7 @@
 #import <SVProgressHUD.h>
 #import <MJRefresh.h>
 #import <SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 #ifndef PrefixHeader_pch

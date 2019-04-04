@@ -44,9 +44,13 @@
     collectionView.dataSource = self;
     
     if (@available(iOS 11.0, *)) {
-        collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+            collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+        }
+    } else {
+        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
     }
     
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];

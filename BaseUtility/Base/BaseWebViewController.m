@@ -16,6 +16,8 @@
 
 @implementation BaseWebViewController
 
+#define CUSTOM_UA @"custom_userAgent"
+
 static CGFloat const progressViewHeight = 2;
 
 - (void)viewDidLoad {
@@ -27,6 +29,7 @@ static CGFloat const progressViewHeight = 2;
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
+    [self setWebViewUA];
 }
 
 - (WKWebView *)wkWebView{
@@ -43,9 +46,19 @@ static CGFloat const progressViewHeight = 2;
         //不通过用户交互，是否可以打开窗口
         _config.preferences.javaScriptCanOpenWindowsAutomatically = NO;
         
-        _wkWebView=[[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-(STATUS_HEIGHT+44)) configuration:_config];
+        _wkWebView=[[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) configuration:_config];
         _wkWebView.UIDelegate=self;
         _wkWebView.navigationDelegate=self;//<WKNavigationDelegate, WKUIDelegate>
+        if (@available(iOS 11.0, *)) {
+            if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+                _wkWebView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+            }
+        } else {
+            if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+                self.automaticallyAdjustsScrollViewInsets = NO;
+            }
+        }
+        _wkWebView.allowsBackForwardNavigationGestures=YES;//webView中使用侧滑手势
         // KVO
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
     }
@@ -71,10 +84,48 @@ static CGFloat const progressViewHeight = 2;
     _wkWebView=[[WKWebView alloc]initWithFrame:frame configuration:_config];
     _wkWebView.UIDelegate=self;
     _wkWebView.navigationDelegate=self;//<WKNavigationDelegate, WKUIDelegate>
+    if (@available(iOS 11.0, *)) {
+        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+            _wkWebView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+        }
+    } else {
+        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+    }
+    _wkWebView.allowsBackForwardNavigationGestures=YES;
     // KVO
     [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
     [self.view addSubview:_wkWebView];
 //    [self.view addSubview:self.progressView];
+}
+
+//添加自定义userAgent/需要时打开
+- (void)setWebViewUA{
+    
+    if (@available(iOS 12.0, *)){
+        //由于iOS12的UA改为异步，所以不管在js还是客户端第一次加载都获取不到，所以此时需要先设置好再去获取（1、如下设置；2、先在AppDelegate中设置到本地）
+        NSString *userAgent = [self.wkWebView valueForKey:@"applicationNameForUserAgent"];
+        NSString *newUserAgent = [NSString stringWithFormat:@"%@%@",userAgent,CUSTOM_UA];
+        [self.wkWebView setValue:newUserAgent forKey:@"applicationNameForUserAgent"];
+    }
+    [self.wkWebView evaluateJavaScript:@"navigator.userAgent" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        NSString *userAgent = result;
+        
+        if ([userAgent rangeOfString:CUSTOM_UA].location != NSNotFound) {
+            return ;
+        }
+        NSString *newUserAgent = [userAgent stringByAppendingString:CUSTOM_UA];
+        //                NSLog(@"%@>>>%@>>>>>",userAgent,newUserAgent);
+        NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent", nil];
+        [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        if (@available(iOS 9.0, *)) {
+            [self.wkWebView setCustomUserAgent:newUserAgent];
+        } else {
+            [self.wkWebView setValue:newUserAgent forKey:@"applicationNameForUserAgent"];
+        }
+    }]; //加载请求必须同步在设置UA的后面
 }
 
 - (void)popBackAction{

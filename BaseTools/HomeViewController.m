@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "TableViewController.h"
 #import "CollectionViewController.h"
+#import "WKWebViewController.h"
 
 @interface HomeViewController ()
 
@@ -31,6 +32,12 @@
     collect.tag=11;
     [collect addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:collect];
+    
+    UIButton *web=[[UIButton alloc]initWithFrame:CGRectMake(0, 200, 100, 100)];
+    web.backgroundColor=[UIColor orangeColor];
+    web.tag=12;
+    [web addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:web];
 }
 
 
@@ -43,6 +50,9 @@
     }else if (sender.tag==11){
         CollectionViewController *collect=[CollectionViewController new];
         NaviRoutePushToVC(collect, YES);
+    }else if (sender.tag==12){
+        WKWebViewController *web=[WKWebViewController new];
+        NaviRoutePushToVC(web, YES);
     }
     
 }

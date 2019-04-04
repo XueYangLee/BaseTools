@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImageView *img=[[UIImageView alloc]initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH-125-5, (192-17)/2)];
+    [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
+    [img sd_setImageWithURL:[NSURL URLWithString:@"https://img.alicdn.com/tps/i4/TB1ijbpOCzqK1RjSZFHSuv3CpXa.jpg"]];
+    [self.view addSubview:img];
 }
 
 /*

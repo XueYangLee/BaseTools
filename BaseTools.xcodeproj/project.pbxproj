@@ -75,6 +75,7 @@
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
 		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
+		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +227,8 @@
 		F19FC8E8224E05E80044772B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageManager.m; sourceTree = "<group>"; };
 		F1B7451022544B8E00ED5A29 /* SaveImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageManager.h; sourceTree = "<group>"; };
+		F1D2CF0922560D6700E30B6E /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,6 +326,8 @@
 				F126C47C224E283900C24566 /* TableViewController.m */,
 				F1D3C08F2253108B0008222A /* CollectionViewController.h */,
 				F1D3C0902253108B0008222A /* CollectionViewController.m */,
+				F1D2CF0922560D6700E30B6E /* WKWebViewController.h */,
+				F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */,
 				F187EBD8224B58D200293096 /* PrefixHeader.pch */,
 				F1354172224B603F00071241 /* Other */,
 			);
@@ -784,6 +789,7 @@
 				F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */,
 				F187EBCA224B56F700293096 /* DateOperation.m in Sources */,
 				F187EB74224B569100293096 /* UIView+IBExtension.m in Sources */,
+				F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */,
 				F187EBD1224B570000293096 /* KeyChainStore.m in Sources */,
 				F187EBC8224B56F700293096 /* CustomNetWork.m in Sources */,
 				F187EB77224B569100293096 /* UIView+Extension.m in Sources */,

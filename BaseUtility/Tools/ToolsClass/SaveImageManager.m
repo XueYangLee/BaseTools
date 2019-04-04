@@ -19,7 +19,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             switch (status) {
                 case PHAuthorizationStatusAuthorized: //已获取权限
-                    [self downLoadImage:imageUrlArray];
+                    [self downLoadImageArray:imageUrlArray];
                     break;
                 case PHAuthorizationStatusDenied: //用户已经明确否认了这一照片数据的应用程序访问
                     [self authorizeRemind];
@@ -65,7 +65,7 @@
 }
 
 
-+ (void)downLoadImage:(NSArray <NSString *>*)imageUrlArray{
++ (void)downLoadImageArray:(NSArray <NSString *>*)imageUrlArray{
     NSMutableArray *imgSaveArray=[NSMutableArray array];
     
     for (NSInteger i=0; i<imageUrlArray.count; i++) {

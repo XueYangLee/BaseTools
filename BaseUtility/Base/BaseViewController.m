@@ -25,15 +25,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor=UIColorWithRGBA(247, 247, 247, 1);
     
-    if (@available(iOS 11.0, *)) {
-        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-           _base_tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
-        }
-    } else {
-        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-            self.automaticallyAdjustsScrollViewInsets = NO;
-        }
-    }
     [self hideNavigationBarShadowImage:NO];
     [self setEdgesExtendLayout:YES];
     
@@ -132,6 +123,15 @@
     _base_tableView.estimatedSectionFooterHeight = 0;
     _base_tableView.delegate=self;
     _base_tableView.dataSource=self;
+    if (@available(iOS 11.0, *)) {
+        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+            _base_tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+        }
+    } else {
+        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+    }
     return _base_tableView;
 }
 
