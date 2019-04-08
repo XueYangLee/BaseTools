@@ -25,7 +25,7 @@ static CGFloat const progressViewHeight = 2;
     // Do any additional setup after loading the view.
 //    [self setIsExtendLayout:YES];
     self.edgesForExtendedLayout=UIRectEdgeBottom;
-    [self setNavigationLeftBarBtnItemWithImgName:@"" Action:@selector(popBackAction)];
+    [self setNavigationLeftBarBtnItemWithImgName:@"navi_returnBack" Action:@selector(popBackAction)];
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
