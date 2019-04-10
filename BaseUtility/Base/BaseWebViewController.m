@@ -61,6 +61,7 @@ static CGFloat const progressViewHeight = 2;
         _wkWebView.allowsBackForwardNavigationGestures=YES;//webView中使用侧滑手势
         // KVO
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
+        [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew context:nil];
     }
     return _wkWebView;
 }
@@ -96,6 +97,7 @@ static CGFloat const progressViewHeight = 2;
     _wkWebView.allowsBackForwardNavigationGestures=YES;
     // KVO
     [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
+    [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:_wkWebView];
 //    [self.view addSubview:self.progressView];
 }
@@ -168,6 +170,8 @@ static CGFloat const progressViewHeight = 2;
                 [self.progressView setProgress:0.0 animated:NO];
             }];
         }
+    } else if ([keyPath isEqualToString:NSStringFromSelector(@selector(title))] && object == self.wkWebView){
+        self.title = self.wkWebView.title;
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -195,6 +199,7 @@ static CGFloat const progressViewHeight = 2;
 /// dealloc
 - (void)dealloc {
     [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress))];
+    [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(title))];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -214,13 +219,6 @@ static CGFloat const progressViewHeight = 2;
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
 //    NSLog(@"%@>>>>>>>>>>>>>结束导航时>.",webView.URL);
-    [webView evaluateJavaScript:@"document.title" completionHandler:^(NSString * _Nullable title, NSError * _Nullable error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if ([title isKindOfClass:[NSString class]]) {
-                self.title = title;
-            }
-        });
-    }];
 }
 
 

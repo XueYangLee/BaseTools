@@ -16,7 +16,6 @@
 /** 顶部进度条 */
 @property (nonatomic, strong) UIProgressView *progressView;
 
-
 /** 进度条颜色(默认绿色) */
 - (void)setProgressColor:(UIColor *)progressColor;
 
