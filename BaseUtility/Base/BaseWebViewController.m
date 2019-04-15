@@ -118,7 +118,7 @@ static CGFloat const progressViewHeight = 2;
             return ;
         }
         NSString *newUserAgent = [userAgent stringByAppendingString:CUSTOM_UA];
-        //                NSLog(@"%@>>>%@>>>>>",userAgent,newUserAgent);
+        //                DLog(@"%@>>>%@>>>>>",userAgent,newUserAgent);
         NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:newUserAgent,@"UserAgent", nil];
         [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -213,12 +213,12 @@ static CGFloat const progressViewHeight = 2;
 
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
-//    NSLog(@"%@>>>>>>>>>>>>>开始导航时>.",webView.URL);
+//    DLog(@"%@>>>>>>>>>>>>>开始导航时>.",webView.URL);
 }
 
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-//    NSLog(@"%@>>>>>>>>>>>>>结束导航时>.",webView.URL);
+//    DLog(@"%@>>>>>>>>>>>>>结束导航时>.",webView.URL);
 }
 
 
@@ -250,7 +250,7 @@ static CGFloat const progressViewHeight = 2;
         NSSet *websiteDataTypes = [WKWebsiteDataStore allWebsiteDataTypes];
         NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
         [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes modifiedSince:dateFrom completionHandler:^{
-            NSLog(@"清除缓存完成");
+            DLog(@"清除缓存完成");
         }];
     } else {
         // Fallback on earlier versions

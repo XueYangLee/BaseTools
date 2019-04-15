@@ -264,7 +264,7 @@
     [string enumerateSubstringsInRange:NSMakeRange(0, [string length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:
      ^(NSString *substring,NSRange substringRange,NSRange enclosingRange, BOOL *stop) {
          const unichar hs = [substring characterAtIndex:0];
-         //         NSLog(@"hs++++++++%04x",hs);
+         //         DLog(@"hs++++++++%04x",hs);
          if (0xd800 <= hs && hs <=0xdbff) {
              if (substring.length >1) {
                  const unichar ls = [substring characterAtIndex:1];
@@ -387,7 +387,7 @@
     NSData *base64ResultData = [[NSData alloc] initWithBase64EncodedString:base64String options:NSDataBase64DecodingIgnoreUnknownCharacters];
     // eg.图片类型
     //    UIImage *image = [UIImage imageWithData:base64ResultData];
-    //    NSLog(@"image-------- %@", image);
+    //    DLog(@"image-------- %@", image);
     NSString *decodeStr=[[NSString alloc]initWithData:base64ResultData encoding:NSUTF8StringEncoding];
     return decodeStr;
 }
@@ -535,7 +535,7 @@
     NSString *newVersion;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=%@",appId]];//这个URL地址是该app在iTunes connect里面的相关配置信息。其中id是该app在app store唯一的ID编号。
     NSString *jsonResponseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-//    NSLog(@"通过appStore获取的数据信息：%@",jsonResponseString);
+//    DLog(@"通过appStore获取的数据信息：%@",jsonResponseString);
     
     NSData *data = [jsonResponseString dataUsingEncoding:NSUTF8StringEncoding];
     //    解析json数据
@@ -545,7 +545,7 @@
     {
         newVersion = [dic valueForKey:@"version"];
     }
-//    NSLog(@"通过appStore获取的版本号是：%@",newVersion);
+//    DLog(@"通过appStore获取的版本号是：%@",newVersion);
     //获取本地软件的版本号
     NSString *localVersion = [[[NSBundle mainBundle]infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     NSString *message = [NSString stringWithFormat:@"您当前的版本是V%@，发现新版本V%@，是否下载新版本？",localVersion,newVersion];

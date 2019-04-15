@@ -28,7 +28,7 @@ static NSMutableArray *tasks;
 +(NSMutableArray *)tasks{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-//        NSLog(@"创建数组");
+//        DLog(@"创建数组");
         tasks = [[NSMutableArray alloc] init];
     });
     return tasks;
@@ -58,7 +58,7 @@ static NSMutableArray *tasks;
                              success:(LXYResponseSuccess)success
                                 fail:(LXYResponseFail)fail
                              showHUD:(BOOL)showHUD{
-    //    NSLog(@"请求地址----%@\n    请求参数----%@",url,params);
+    //    DLog(@"请求地址----%@\n    请求参数----%@",url,params);
     if (url==nil) {
         return nil;
     }
@@ -78,7 +78,7 @@ static NSMutableArray *tasks;
         sessionTask = [manager GET:urlStr parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //            NSLog(@"请求结果=%@",responseObject);
+            //            DLog(@"请求结果=%@",responseObject);
             if (success) {
                 success(responseObject);
             }
@@ -90,7 +90,7 @@ static NSMutableArray *tasks;
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //            NSLog(@"error=%@",error);
+            //            DLog(@"error=%@",error);
             if (fail) {
                 fail(error);
             }
@@ -108,8 +108,8 @@ static NSMutableArray *tasks;
         sessionTask = [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            //            NSLog(@"请求成功=%@",responseObject);
-//            NSLog(@"**********请求成功---URL:%@\nHeader:%@\nResponse:\n%@", sessionTask.currentRequest.URL,sessionTask.currentRequest.allHTTPHeaderFields,response);
+            //            DLog(@"请求成功=%@",responseObject);
+//            DLog(@"**********请求成功---URL:%@\nHeader:%@\nResponse:\n%@", sessionTask.currentRequest.URL,sessionTask.currentRequest.allHTTPHeaderFields,response);
             
             if (success) {
                 success(responseObject);
@@ -122,9 +122,9 @@ static NSMutableArray *tasks;
             }
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            //            NSLog(@"error=%@",error);
+            //            DLog(@"error=%@",error);
             
-            NSLog(@"**********请求失败---URL:%@\nHeader:%@\nError:\n%@", sessionTask.currentRequest.URL,sessionTask.currentRequest.allHTTPHeaderFields,error.description);
+            DLog(@"**********请求失败---URL:%@\nHeader:%@\nError:\n%@", sessionTask.currentRequest.URL,sessionTask.currentRequest.allHTTPHeaderFields,error.description);
             
             if (fail) {
                 fail(error);
@@ -159,7 +159,7 @@ static NSMutableArray *tasks;
                                 fail:(LXYResponseFail)fail
                              showHUD:(BOOL)showHUD{
     
-    NSLog(@"请求地址----%@\n    请求参数----%@",url,params);
+    DLog(@"请求地址----%@\n    请求参数----%@",url,params);
     if (url==nil) {
         return nil;
     }
@@ -188,12 +188,12 @@ static NSMutableArray *tasks;
         // 上传图片，以文件流的格式
         [formData appendPartWithFileData:imageData name:name fileName:imageFileName mimeType:@"image/jpeg"];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+        DLog(@"上传进度--%lld,总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
         if (progress) {
             progress(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
         }
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"上传图片成功=%@",responseObject);
+        DLog(@"上传图片成功=%@",responseObject);
         if (success) {
             success(responseObject);
         }
@@ -205,7 +205,7 @@ static NSMutableArray *tasks;
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"error=%@",error);
+        DLog(@"error=%@",error);
         if (fail) {
             fail(error);
         }
@@ -236,7 +236,7 @@ static NSMutableArray *tasks;
                               showHUD:(BOOL)showHUD{
     
     
-    NSLog(@"请求地址----%@\n    ",url);
+    DLog(@"请求地址----%@\n    ",url);
     if (url==nil) {
         return nil;
     }
@@ -251,7 +251,7 @@ static NSMutableArray *tasks;
     LXYURLSessionTask *sessionTask = nil;
     
     sessionTask = [manager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"下载进度--%.1f",1.0 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
+        DLog(@"下载进度--%.1f",1.0 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
         //回到主线程刷新UI
         dispatch_async(dispatch_get_main_queue(), ^{
             if (progressBlock) {
@@ -263,7 +263,7 @@ static NSMutableArray *tasks;
         if (!saveToPath) {
             
             NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-            NSLog(@"默认路径--%@",downloadURL);
+            DLog(@"默认路径--%@",downloadURL);
             return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
             
         }else{
@@ -272,7 +272,7 @@ static NSMutableArray *tasks;
         }
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        NSLog(@"下载文件成功");
+        DLog(@"下载文件成功");
         
         [[self tasks] removeObject:sessionTask];
         
@@ -336,21 +336,21 @@ static NSMutableArray *tasks;
         switch (status)
         {
             case AFNetworkReachabilityStatusUnknown: // 未知网络
-                NSLog(@"未知网络");
+                DLog(@"未知网络");
                 [CustomNetWork sharedCustomNetWork].networkStats=StatusUnknown;
                 
                 break;
             case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
-                NSLog(@"没有网络");
+                DLog(@"没有网络");
                 [CustomNetWork sharedCustomNetWork].networkStats=StatusNotReachable;
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
-                NSLog(@"手机自带网络");
+                DLog(@"手机自带网络");
                 [CustomNetWork sharedCustomNetWork].networkStats=StatusReachableViaWWAN;
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
                 [CustomNetWork sharedCustomNetWork].networkStats=StatusReachableViaWiFi;
-                NSLog(@"WIFI--%d",[CustomNetWork sharedCustomNetWork].networkStats);
+                DLog(@"WIFI--%d",[CustomNetWork sharedCustomNetWork].networkStats);
                 break;
         }
     }];

@@ -33,7 +33,7 @@
         [formatter setDateFormat:@"YYYY-MM-dd"];
     }
     
-    NSString *timeStr=[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timeStamp integerValue]/1000]];
+    NSString *timeStr=[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000]];
     return timeStr;
 }
 
@@ -63,6 +63,52 @@
     NSString *nowtimeStr = [formatter stringFromDate:datenow];
     return nowtimeStr;
 }
+
+
+#pragma mark 从开始时间的时间戳获取与当前时间的时间差
++ (void)intervalTimeFromTimeStamp:(NSString *)timeStamp Completion:(void(^)(NSString *year,NSString *month,NSString *day,NSString *hour,NSString *minute,NSString *second))comp{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
+    NSDate *nowDate = [NSDate date];
+    
+    NSDateComponents *components=[NSDate intervalTimeFromDate:date ToDate:nowDate];
+    
+    if (comp) {
+        comp(FORMATEInt(components.year),FORMATEInt(components.month),FORMATEInt(components.day),FORMATEInt(components.hour),FORMATEInt(components.minute),FORMATEInt(components.second));
+    }
+}
+
+
+#pragma mark 获取从时间的时间戳到当前时间相隔的时分秒
++ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)timeStamp{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
+    NSDate *nowDate = [NSDate date];
+    
+    NSInteger intervalTime=[NSDate secondIntervalSinceDate:date EndDate:nowDate];
+    
+    NSInteger hourInterval=intervalTime / 3600;
+    NSInteger minuteInterval=(intervalTime / 60) % 60;
+    NSInteger secondInterval=intervalTime % 60;
+    
+    NSString *intervalStr=[NSString stringWithFormat:@"%ld时%ld分%ld秒",hourInterval,minuteInterval,secondInterval];
+    return intervalStr;
+}
+
+#pragma mark 仅获取从时间的时间戳到当前时间相隔的分秒
++ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)timeStamp{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
+    NSDate *nowDate = [NSDate date];
+    
+    NSInteger intervalTime=[NSDate secondIntervalSinceDate:date EndDate:nowDate];
+    
+    NSInteger minuteInterval=intervalTime/60;
+    NSInteger secondInterval=intervalTime%60;
+    
+    NSString *intervalStr=[NSString stringWithFormat:@"%ld分%ld秒",minuteInterval,secondInterval];
+    return intervalStr;
+}
+
+
+
 
 #pragma mark 获取日期组成
 + (NSDateComponents *)getComponents
@@ -290,7 +336,7 @@
     
     NSDateComponents *localeComp = [localeCalendar components:unitFlags fromDate:date];
     
-    NSLog(@"%d_%d_%d  %@",localeComp.year,localeComp.month,localeComp.day, localeComp.date);
+    DLog(@"%d_%d_%d  %@",localeComp.year,localeComp.month,localeComp.day, localeComp.date);
     
     NSString *y_str = [chineseYears objectAtIndex:localeComp.year-1];
     NSString *m_str = [chineseMonths objectAtIndex:localeComp.month-1];

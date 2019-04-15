@@ -82,7 +82,7 @@
     [self setDotWithCount:pwdTotalStr.length];
     
     
-//        NSLog(@"_____total %@",pwdTotalStr);
+//        DLog(@"_____total %@",pwdTotalStr);
     
     if (pwdTotalStr.length == 6) {//输入完成
         

@@ -115,25 +115,25 @@
     return nowCmps.year == selfCmps.year;
 }
 
-#pragma mark 获得与当前时间的差距
-- (NSDateComponents *)deltaWithNow
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
-}
 
-
-#pragma mark 比较from和self的时间差值
-- (NSDateComponents *)deltaFrom:(NSDate *)from
-{
+#pragma mark 比较fromDate和toDate的时间差值
++ (NSDateComponents *)intervalTimeFromDate:(NSDate *)fromDate ToDate:(NSDate *)toDate{
     // 日历
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
     // 比较时间
     NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     
-    return [calendar components:unit fromDate:from toDate:self options:0];
+    NSDateComponents *components = [calendar components:unit fromDate:fromDate toDate:toDate options:0];
+//    DLog(@"差值%ld天,%ld小时%ld分%ld秒",components.day ,components.hour, components.minute,components.second);
+    return components;
+}
+
+
+#pragma mark 比较sinceDate和endDate的相隔秒数
++ (NSInteger)secondIntervalSinceDate:(NSDate *)sinceDate EndDate:(NSDate *)endDate{
+    NSTimeInterval intervalTime = [endDate timeIntervalSinceDate:sinceDate];
+    NSInteger second=intervalTime;
+    return second;
 }
 
 

@@ -222,9 +222,9 @@ shouldPrevent = NO; \
 //#endif
 
 #ifdef DEBUG //打印Jason unicode转中文
-#define NSLog( s, ... ) printf("class: <%p %s:(第%d行) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(s), ##__VA_ARGS__] UTF8String] );
+#define DLog( s, ... ) printf("class: <%p %s:(第%d行) > method: %s \n%s\n", self, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __PRETTY_FUNCTION__, [[NSString stringWithFormat:(s), ##__VA_ARGS__] UTF8String] );
 #else
-#define NSLog( s, ... )
+#define DLog( s, ... )
 #endif
 
 

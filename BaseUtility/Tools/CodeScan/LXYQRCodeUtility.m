@@ -52,7 +52,7 @@
             qrcodeResultString = qrcodeFeature.messageString;
         }
     }
-    NSLog(@"%@",qrcodeResultString);
+    DLog(@"%@",qrcodeResultString);
     
     return qrcodeResultString;
 }

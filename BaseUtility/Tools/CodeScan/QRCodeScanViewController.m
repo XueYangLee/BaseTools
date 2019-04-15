@@ -185,7 +185,7 @@
             NSString *strResponse = responseObj.stringValue;
             
             if (strResponse && ![strResponse isEqualToString:@""] && strResponse.length > 0) {
-                NSLog(@"qrcodestring==%@",strResponse);
+                DLog(@"qrcodestring==%@",strResponse);
                 
                 if ([strResponse hasPrefix:@"http"]) {
                     fail = NO;
@@ -217,7 +217,7 @@
     _lineTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 / 20 target:self selector:@selector(animationLine) userInfo:nil repeats:YES];
     [_qrSession startRunning];
     
-    NSLog(@"start reading");
+    DLog(@"start reading");
 }
 
 - (void)stopSYQRCodeReading {
@@ -233,14 +233,14 @@
         _qrSession = nil;
     }
     
-    NSLog(@"stop reading");
+    DLog(@"stop reading");
 }
 
 - (void)cancleSYQRCodeReading {
     [self stopSYQRCodeReading];
     
 #pragma mark ----------取消扫描----------
-    NSLog(@"cancle reading");
+    DLog(@"cancle reading");
 }
 
 #pragma mark - animationLine
@@ -281,11 +281,11 @@
         }
     }
     
-    //NSLog(@"_line.frame.origin.y==%f",_line.frame.origin.y);
+    //DLog(@"_line.frame.origin.y==%f",_line.frame.origin.y);
 }
 
 - (void)dealloc {
-    NSLog(@"SYQRCodeViewController dealloc");
+    DLog(@"SYQRCodeViewController dealloc");
     [self stopSYQRCodeReading];
 }
 

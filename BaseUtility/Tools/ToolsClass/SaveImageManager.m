@@ -161,7 +161,7 @@
                 comp(YES);
             }
         } else {
-            NSLog(@"%@->图片保存失败",error);
+            DLog(@"%@->图片保存失败",error);
             if (comp) {
                 comp(NO);
             }

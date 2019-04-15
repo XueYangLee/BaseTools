@@ -46,6 +46,35 @@
 
 
 /**
+ 从开始时间的时间戳获取与当前时间的时间差
+
+ @param timeStamp 开始时间的时间戳
+ @param comp 返回的时间
+ */
++ (void)intervalTimeFromTimeStamp:(NSString *)timeStamp Completion:(void(^)(NSString *year,NSString *month,NSString *day,NSString *hour,NSString *minute,NSString *second))comp;
+
+
+
+/**
+ 获取从时间的时间戳到当前时间相隔的时分秒
+
+ @param timeStamp 开始时间的时间戳
+ @return 时分秒
+ */
++ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)timeStamp;
+
+
+
+/**
+ 仅获取从时间的时间戳到当前时间相隔的分秒
+
+ @param timeStamp 开始时间的时间戳
+ @return 分秒
+ */
++ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)timeStamp;
+
+
+/**
  获取日期组成
  */
 + (NSDateComponents *)getComponents;

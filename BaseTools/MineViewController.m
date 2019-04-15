@@ -22,6 +22,14 @@
     [SDWebImageDownloader.sharedDownloader setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
     [img sd_setImageWithURL:[NSURL URLWithString:@"https://img.alicdn.com/tps/i4/TB1ijbpOCzqK1RjSZFHSuv3CpXa.jpg"]];
     [self.view addSubview:img];
+    
+    
+    [DateOperation intervalTimeFromTimeStamp:@"1555311009000" Completion:^(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second) {
+        DLog(@"%@>天>%@>时>>%@>分>>%@>秒>>",day,hour,minute,second);
+    }];
+    
+    NSString *secInterval=[DateOperation intervalTimeWithMinuteSecFromTimeStamp:@"1555316485000"];
+    DLog(@"%@>>>>>",secInterval);
 }
 
 /*

@@ -11,7 +11,7 @@
 @interface NSDate (Extension)
 
 
-/**
+/**  调用：[[NSDate date]dateDescription]
  日期描述
 
  @return
@@ -52,18 +52,26 @@
 - (BOOL)isThisYear;
 
 
+/**
+ 从fromDate(开始时间)的时间到toDate(结束时间)的时间差值
+
+ @param fromDate 开始时间
+ @param toDate 结束时间
+ @return compas.year年,compas.month月,compas.day日,compas.hour时,compas.minute分,compas.second秒
+ */
++ (NSDateComponents *)intervalTimeFromDate:(NSDate *)fromDate ToDate:(NSDate *)toDate;
+
+
 
 /**
- 获得与当前时间的差距
+ 比较sinceDate(开始时间)和endDate(结束时间)的相隔秒数
+
+ @param sinceDate 开始时间
+ @param endDate 结束时间
+ @return 相差的秒数
  */
-- (NSDateComponents *)deltaWithNow;
++ (NSInteger)secondIntervalSinceDate:(NSDate *)sinceDate EndDate:(NSDate *)endDate;
 
-
-
-/**
- 比较from和self的时间差值
- */
-- (NSDateComponents *)deltaFrom:(NSDate *)from;
 
 
 @end

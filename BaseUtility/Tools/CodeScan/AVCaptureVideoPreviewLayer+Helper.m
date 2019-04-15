@@ -18,7 +18,7 @@
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
     
     if (error){
-        NSLog(@"摄像头不可用-%@", error.localizedDescription);
+        DLog(@"摄像头不可用-%@", error.localizedDescription);
         return nil;
     }
     
