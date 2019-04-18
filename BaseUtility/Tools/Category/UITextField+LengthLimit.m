@@ -1,69 +1,61 @@
 //
-//  UITextField+LimitLength.m
-//  TextLengthLimitDemo
+//  UITextField+LengthLimit.m
+//  BaseTools
 //
-//  Created by Koson on 15-2-9.
-//  Copyright (c) 2015年 JJSHome. All rights reserved.
+//  Created by Singularity on 2019/4/17.
+//  Copyright © 2019 Singularity. All rights reserved.
 //
 
-#import "UITextField+LimitLength.h"
+#import "UITextField+LengthLimit.h"
 #import <objc/objc.h>
 #import <objc/runtime.h>
 
-@implementation UITextField (LimitLength)
+@implementation UITextField (LengthLimit)
 
 static NSString *kLimitTextLengthKey = @"kLimitTextLengthKey";
 
-- (void)limitTextLength:(int)length {
+- (void)setMaxLength:(int)length {
     objc_setAssociatedObject(self, (__bridge const void *)(kLimitTextLengthKey), [NSNumber numberWithInt:length], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    [self addTarget:self action:@selector(textFieldTextLengthLimit:) forControlEvents:UIControlEventEditingChanged];
+    [self addTarget:self action:@selector(textFieldMaxLengthLimit:) forControlEvents:UIControlEventEditingChanged];
 }
 
-- (void)textFieldTextLengthLimit:(id)sender {
+- (void)textFieldMaxLengthLimit:(id)textField {
     NSNumber *lengthNumber = objc_getAssociatedObject(self, (__bridge const void *)(kLimitTextLengthKey));
-    int length = [lengthNumber intValue];
+    int maxLength = [lengthNumber intValue];
     
-    // 下面是修改部分
-    bool isChinese; // 判断当前输入法是否是中文
-    NSArray *currentar = [UITextInputMode activeInputModes];
-    UITextInputMode *current = [currentar firstObject];
-    //[[UITextInputMode currentInputMode] primaryLanguage]，废弃的方法
-    if ([current.primaryLanguage isEqualToString:@"en-US"]) {
-        isChinese = false;
-    } else {
-        isChinese = true;
-    }
     
-    if(sender == self) {
-        // length是自己设置的位数
-        NSString *str = [[self text] stringByReplacingOccurrencesOfString:@"?" withString:@""];
-        if (isChinese) { //中文输入法下
-            UITextRange *selectedRange = [self markedTextRange];
+    if(textField == self) {
+        if (maxLength > 0) {
+            
+            NSString *toBeString = self.text;
+            
             //获取高亮部分
-            UITextPosition *position = [self positionFromPosition:selectedRange.start offset:0];
-            // 没有高亮选择的字，则对已输入的文字进行字数统计和限制
-            if (!position) {
-                if ( [str length] >= length) {
-                    NSString *strNew = [NSString stringWithString:str];
-                    [self setText:[strNew substringToIndex:length]];
-                    if ([str length] > length)
-                        [self shake];
+            UITextRange *selectedRange = [textField markedTextRange];
+            UITextPosition *position = [textField positionFromPosition:selectedRange.start offset:0];
+            if (!position || !selectedRange)
+            {
+                if (toBeString.length > maxLength)
+                {
+                    NSRange rangeIndex = [toBeString rangeOfComposedCharacterSequenceAtIndex:maxLength];
+                    if (rangeIndex.length == 1)
+                    {
+                        self.text = [toBeString substringToIndex:maxLength];
+                    }
+                    else
+                    {
+                        NSRange rangeRange = [toBeString rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, maxLength)];
+                        self.text = [toBeString substringWithRange:rangeRange];
+                    }
+                    //                [self shake];
                 }
-            } else  {
             }
-        }else{
-            if ([str length] >= length) {
-                NSString *strNew = [NSString stringWithString:str];
-                [self setText:[strNew substringToIndex:length]];
-                if ([str length] > length)
-                    [self shake];
-                
-            }
+            
         }
     }
     
 }
 
+//文字抖动
 - (void)shake {
     CAKeyframeAnimation *keyAn = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     [keyAn setDuration:0.5f];

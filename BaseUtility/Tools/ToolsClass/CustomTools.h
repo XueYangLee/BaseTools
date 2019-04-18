@@ -41,11 +41,10 @@
  
  @param lableText 要定义的文字内容
  @param sectionRange 改变属性的文字范围 例NSMakeRange(5, lableText.length-7)
- @param textFont 改变的字体大小
+ @param textFont 改变的字体属性及大小 常规字体 粗体等
  @param textColor 改变的字体颜色 不更改传nil
- @param isbold 是否粗体
  */
-+ (NSMutableAttributedString *_Nullable)labelDifferentAttributedWithText:(NSString *_Nullable)lableText Section:(NSRange)sectionRange Font:(NSInteger)textFont TextColor:(UIColor *_Nullable)textColor Bold:(BOOL)isbold;
++ (NSMutableAttributedString *_Nullable)labelDifferentAttributedWithText:(NSString *_Nullable)lableText Section:(NSRange)sectionRange Font:(UIFont *_Nonnull)textFont TextColor:(UIColor *_Nullable)textColor;
 
 
 /**
@@ -209,6 +208,13 @@
  拨打电话
  */
 + (void)callUpWithPhoneNumber:(NSString *_Nullable)phoneNum;
+
+
+
+/**
+ 复制文字并提示
+ */
++ (void)copyStringToPasteBoard:(NSString *_Nonnull)string;
 
 
 

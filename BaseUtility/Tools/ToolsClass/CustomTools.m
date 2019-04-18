@@ -62,15 +62,11 @@
 }
 
 #pragma mark 自定义文字大小及颜色
-+ (NSMutableAttributedString *)labelDifferentAttributedWithText:(NSString *)lableText Section:(NSRange)sectionRange Font:(NSInteger)textFont TextColor:(UIColor *)textColor Bold:(BOOL)isbold
++ (NSMutableAttributedString *)labelDifferentAttributedWithText:(NSString *)lableText Section:(NSRange)sectionRange Font:(UIFont *)textFont TextColor:(UIColor *)textColor
 {
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:lableText];
     
-    if (isbold) {
-        [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:textFont] range:sectionRange];
-    }else{
-        [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:textFont] range:sectionRange];//NSMakeRange(5, lableText.length-7)
-    }
+    [attributedStr addAttribute:NSFontAttributeName value:textFont range:sectionRange];//NSMakeRange(5, lableText.length-7)
     
     if (textColor != nil)
     {
@@ -462,6 +458,15 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNum]];
     }
 }
+
+
+#pragma mark 复制文字并提示
++ (void)copyStringToPasteBoard:(NSString *)string{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = string;
+    [SVProgressHUD showSuccessWithStatus:@"复制成功"];
+}
+
 
 #pragma mark 计算文字范围
 + (CGSize)boundingRectWithSize:(CGSize)size String:(NSString *)string Font:(NSInteger)font

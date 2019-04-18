@@ -14,7 +14,7 @@
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
 		F126C483224E29F700C24566 /* UINavigationController+currentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C481224E29F600C24566 /* UINavigationController+currentNavigationController.m */; };
-		F135417B224B770500071241 /* UITextField+LimitLength.m in Sources */ = {isa = PBXBuildFile; fileRef = F135417A224B770400071241 /* UITextField+LimitLength.m */; };
+		F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */; };
 		F187E9C6224B196A00293096 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C5224B196A00293096 /* AppDelegate.m */; };
 		F187E9C9224B196A00293096 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C8224B196A00293096 /* ViewController.m */; };
 		F187E9CC224B196A00293096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F187E9CA224B196A00293096 /* Main.storyboard */; };
@@ -77,6 +77,7 @@
 		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
 		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
+		F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +114,8 @@
 		F126C47C224E283900C24566 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		F126C481224E29F600C24566 /* UINavigationController+currentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+currentNavigationController.m"; sourceTree = "<group>"; };
 		F126C482224E29F600C24566 /* UINavigationController+currentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+currentNavigationController.h"; sourceTree = "<group>"; };
-		F1354179224B770400071241 /* UITextField+LimitLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LimitLength.h"; sourceTree = "<group>"; };
-		F135417A224B770400071241 /* UITextField+LimitLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LimitLength.m"; sourceTree = "<group>"; };
+		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
+		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F187E9C4224B196A00293096 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F187E9C5224B196A00293096 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -231,6 +232,8 @@
 		F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionAlignmentFlowLayout.h; sourceTree = "<group>"; };
+		F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionAlignmentFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +393,8 @@
 				F187EBC2224B56F600293096 /* DateOperation.m */,
 				F1B7451022544B8E00ED5A29 /* SaveImageManager.h */,
 				F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */,
+				F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */,
+				F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */,
 			);
 			path = ToolsClass;
 			sourceTree = "<group>";
@@ -418,8 +423,8 @@
 				F187EB52224B568A00293096 /* NSDictionary+LXY.m */,
 				F187EB56224B568B00293096 /* UIApplication+Extensions.h */,
 				F187EB5E224B568D00293096 /* UIApplication+Extensions.m */,
-				F1354179224B770400071241 /* UITextField+LimitLength.h */,
-				F135417A224B770400071241 /* UITextField+LimitLength.m */,
+				F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */,
+				F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */,
 				F187EB62224B568E00293096 /* UIColor+ColorHexadecimal.h */,
 				F187EB70224B569100293096 /* UIColor+ColorHexadecimal.m */,
 				F187EB55224B568B00293096 /* UIImage+Extension.h */,
@@ -750,7 +755,6 @@
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,
 				F187EBD0224B570000293096 /* GetUUID.m in Sources */,
 				F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */,
-				F135417B224B770500071241 /* UITextField+LimitLength.m in Sources */,
 				F187EBA8224B56AE00293096 /* TBCityIconFont.m in Sources */,
 				F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */,
 				F187EBAD224B56B800293096 /* MD5.m in Sources */,
@@ -762,6 +766,7 @@
 				F187EB94224B56A100293096 /* LXYQRCodeOverlayView.m in Sources */,
 				F187EB80224B569100293096 /* UIColor+ColorHexadecimal.m in Sources */,
 				F126C47D224E283900C24566 /* TableViewController.m in Sources */,
+				F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */,
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,
 				F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */,
@@ -781,6 +786,7 @@
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,
 				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
+				F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */,
 				F187EB78224B569100293096 /* UINavigationBar+Extension.m in Sources */,
 				F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */,
 				F187EBBF224B56C800293096 /* CustomTextView.m in Sources */,

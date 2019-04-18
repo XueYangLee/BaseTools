@@ -20,7 +20,7 @@
 #import "UIImage+WaterMark.h"
 #import "UINavigationBar+Extension.h"
 #import "UIScreen+Extension.h"
-#import "UITextField+LimitLength.h"
+#import "UITextField+LengthLimit.h"
 #import "UIView+IBExtension.h"
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
@@ -36,6 +36,7 @@
 #import "KeyChainStore.h"
 #import "TBCityIconFont.h"
 #import "SaveImageManager.h"
+#import "CollectionAlignmentFlowLayout.h"
 //#import "WRNavigationBar.h"
 
 /****** View ******/
@@ -67,7 +68,7 @@
 /** 状态栏高度 */
 #define STATUS_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 /** 导航栏+状态栏总高 */
-#define NAVI_HEAD_HEIGHT  NAVI_HEIGHT+STATUS_HEIGHT
+#define STATUS_NAVI_HEIGHT  NAVI_HEIGHT+STATUS_HEIGHT
 /** 页面除过导航栏高度 */
 //#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
 #define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
@@ -75,6 +76,8 @@
 #define IPHONEX_HOME IS_IPHONEX==0?0:34
 /** iphoneX下底部高度 */
 #define TABBAR_HEIGHT IS_IPHONEX==0?49:83
+/** 系统tabbar高度 */
+#define SYSTEM_TABBAR_HEIGHT self.tabBarController.tabBar.bounds.size.height
 
 
 
