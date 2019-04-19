@@ -38,6 +38,12 @@
     web.tag=12;
     [web addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:web];
+    
+    UIButton *alert=[[UIButton alloc]initWithFrame:CGRectMake(0, 300, 100, 100)];
+    alert.backgroundColor=[UIColor redColor];
+    alert.tag=13;
+    [alert addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:alert];
 }
 
 
@@ -53,6 +59,14 @@
     }else if (sender.tag==12){
         WKWebViewController *web=[WKWebViewController new];
         NaviRoutePushToVC(web, YES);
+    }else if (sender.tag==13){
+
+        [CustomAlert showCustomAlertAddTarget:self Title:nil TitleFont:FontRegular(12) TitleColor:[UIColor redColor] Message:@"内容内容内容内容内容内容内容内容" MessageFont:nil MessageColor:nil CancelBtnTitle:@"取消" CancelBtnColor:nil DefaultBtnTitle:@"确定" DefaultBtnColor:[UIColor purpleColor] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
+            DLog(@"%ld>>>>>>>>>>>>",actionIndex);
+            if (actionIndex==1) {
+                DLog(@"点击确定");
+            }
+        }];
     }
     
 }

@@ -224,7 +224,7 @@ static CGFloat const progressViewHeight = 2;
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     
-    [CustomTools alertShowWithTitle:nil Message:message];
+    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] Message:message];
     
     if (completionHandler) {
         completionHandler();
@@ -234,7 +234,7 @@ static CGFloat const progressViewHeight = 2;
 
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
     
-    [CustomTools alertShowWithTitle:nil Message:message];
+    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] Message:message];
     
     if (completionHandler) {
         completionHandler(YES);

@@ -31,6 +31,7 @@
 #import "CustomNetWork.h"
 #import "CustomTools.h"
 #import "DateOperation.h"
+#import "CustomAlert.h"
 #import "MD5.h"
 #import "GetUUID.h"
 #import "KeyChainStore.h"

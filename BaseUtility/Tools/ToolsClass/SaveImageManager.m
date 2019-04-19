@@ -57,11 +57,12 @@
 
 
 + (void)authorizeRemind{
-    [CustomTools alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私\"选项中，\r允许%@访问您照片的读取和写入以下载图片。",[UIDevice currentDevice].model,[[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]] actionHandler:^(UIAlertAction *action) {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-        
-    } Target:[UIViewController currentViewController]];
+    [CustomAlert showAlertAddTarget:[UIViewController currentViewController] Title:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私\"选项中，\r允许%@访问您照片的读取和写入以下载图片。",[UIDevice currentDevice].model,[[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
+        if (actionIndex==1) {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+        }
+    }];
 }
 
 

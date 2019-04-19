@@ -14,19 +14,19 @@
 /**
  自定义Label
  */
-+ (UILabel *_Nullable)labelWithTitle:(NSString *_Nullable)text Font:(NSInteger)font textColor:(UIColor *_Nullable)color;
++ (UILabel *_Nullable)labelWithTitle:(NSString *_Nullable)text Font:(UIFont *_Nonnull)font textColor:(UIColor *_Nullable)color;
 
 
 /**
  自定义button
  */
-+ (UIButton *_Nullable)buttonWithTitle:(NSString *_Nullable)title font:(NSInteger)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIViewController *_Nullable)vc;
++ (UIButton *_Nullable)buttonWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIViewController *_Nullable)vc;
 
 
 /**
  自定义View层上button
  */
-+ (UIButton *_Nullable)buttonFromViewWithTitle:(NSString *_Nullable)title font:(NSInteger)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIView *_Nullable)vc;
++ (UIButton *_Nullable)buttonFromViewWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIView *_Nullable)vc;
 
 
 /**
@@ -45,30 +45,6 @@
  @param textColor 改变的字体颜色 不更改传nil
  */
 + (NSMutableAttributedString *_Nullable)labelDifferentAttributedWithText:(NSString *_Nullable)lableText Section:(NSRange)sectionRange Font:(UIFont *_Nonnull)textFont TextColor:(UIColor *_Nullable)textColor;
-
-
-/**
- 信息提示弹出框
- */
-+ (void)showAlert:(NSString *_Nullable)message Target:(UIViewController *_Nonnull)viewController;
-
-
-/**
- 任何情况下的信息提示弹出框
- */
-+ (void)alertShowWithTitle:(NSString *_Nullable)title Message:(NSString *_Nullable)message;
-
-
-/**
- 信息提示弹框带有操作事件
- */
-+ (void)alertActionWithTitle:(NSString *_Nullable)title Message:(NSString *_Nullable)message actionHandler:(void (^ __nullable)(UIAlertAction * _Nullable action))handler Target:(UIViewController *_Nonnull)viewController;
-
-
-/**
- HUD读取框
- */
-+ (void)showHUDMessageTitle:(NSString *_Nullable)title Target:(UIViewController *_Nonnull)viewController;
 
 
 /**
@@ -225,7 +201,7 @@
  @param string 文字内容
  @param font 文字大小
  */
-+ (CGSize)boundingRectWithSize:(CGSize)size String:(NSString *_Nullable)string Font:(NSInteger)font;
++ (CGSize)boundingRectWithSize:(CGSize)size String:(NSString *_Nullable)string Font:(UIFont *_Nonnull)font;
 
 
 
@@ -236,7 +212,7 @@
  @param font 大小
  @param textWidth 文字宽度（控件总宽-文字外部分）
  */
-+ (CGFloat)rectTextHeightWithString:(NSString *_Nullable)string Font:(NSInteger)font TextWidth:(CGFloat)textWidth;
++ (CGFloat)rectTextHeightWithString:(NSString *_Nullable)string Font:(UIFont *_Nonnull)font TextWidth:(CGFloat)textWidth;
 
 
 
@@ -247,7 +223,7 @@
  @param font 大小
  @param textHeight 文字高度（控件总高-文字外部分）
  */
-+ (CGFloat)rectTextWidthWithString:(NSString *_Nullable)string Font:(NSInteger)font TextHeight:(CGFloat)textHeight;
++ (CGFloat)rectTextWidthWithString:(NSString *_Nullable)string Font:(UIFont *_Nonnull)font TextHeight:(CGFloat)textHeight;
 
 
 /**

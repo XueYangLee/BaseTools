@@ -17,21 +17,21 @@
 @implementation CustomTools
 
 #pragma mark 自定义Label
-+ (UILabel *)labelWithTitle:(NSString *)text Font:(NSInteger)font textColor:(UIColor *)color
++ (UILabel *)labelWithTitle:(NSString *)text Font:(UIFont *)font textColor:(UIColor *)color
 {
     UILabel *label=[UILabel new];
     label.text=text;
-    label.font=[UIFont systemFontOfSize:font];
+    label.font=font;
     label.textColor=color;
-    label.textAlignment=NSTextAlignmentLeft;
+    label.textAlignment=NSTextAlignmentNatural;
     return label;
 }
 
 #pragma mark 自定义button
-+ (UIButton *)buttonWithTitle:(NSString *)title font:(NSInteger)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIViewController *)vc
++ (UIButton *)buttonWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIViewController *)vc
 {
     UIButton *btn=[UIButton new];
-    btn.titleLabel.font=[UIFont systemFontOfSize:font];
+    btn.titleLabel.font=font;
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:color forState:UIControlStateNormal];
     [btn addTarget:vc action:btnSelect forControlEvents:UIControlEventTouchUpInside];
@@ -39,10 +39,10 @@
 }
 
 #pragma mark 自定义View层上button
-+ (UIButton *)buttonFromViewWithTitle:(NSString *)title font:(NSInteger)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIView *)vc
++ (UIButton *)buttonFromViewWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIView *)vc
 {
     UIButton *btn=[UIButton new];
-    btn.titleLabel.font=[UIFont systemFontOfSize:font];
+    btn.titleLabel.font=font;
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:color forState:UIControlStateNormal];
     [btn addTarget:vc action:btnSelect forControlEvents:UIControlEventTouchUpInside];
@@ -75,48 +75,6 @@
     return attributedStr;
 }
 
-
-
-#pragma mark 弹出框
-+ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController
-{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:confirm];
-    [viewController presentViewController:alert animated:YES completion:nil];
-}
-
-#pragma mark 任何情况下的弹出框
-+ (void)alertShowWithTitle:(NSString *)title Message:(NSString *)message
-{
-    UIAlertView *alertView=[[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-    [alertView show];
-}
-
-#pragma mark 弹框事件
-+ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController
-{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:handler];
-    [alert addAction:confirm];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancel];
-    [viewController presentViewController:alert animated:YES completion:nil];
-}
-
-
-//#pragma mark 读取框
-//+ (void)showHUDMessageTitle:(NSString *)title Target:(UIViewController *)viewController
-//{
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
-//    hud.mode = MBProgressHUDModeText;
-//    hud.labelText = title;
-//    hud.margin = 10.f;
-//    hud.yOffset = 200.f;
-//    hud.removeFromSuperViewOnHide = YES;
-//    [hud hide:YES afterDelay:2];
-//}
 
 #pragma mark  判断座机号
 +(BOOL)isTelephoneNumber:(NSString *)telephone{
@@ -469,9 +427,9 @@
 
 
 #pragma mark 计算文字范围
-+ (CGSize)boundingRectWithSize:(CGSize)size String:(NSString *)string Font:(NSInteger)font
++ (CGSize)boundingRectWithSize:(CGSize)size String:(NSString *)string Font:(UIFont *)font
 {
-    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:font]};
+    NSDictionary *attribute = @{NSFontAttributeName:font};
     CGSize retSize = [string boundingRectWithSize:size
                                           options:\
                       NSStringDrawingTruncatesLastVisibleLine |
@@ -483,18 +441,18 @@
 }
 
 #pragma mark 获取文字高度
-+ (CGFloat)rectTextHeightWithString:(NSString *)string Font:(NSInteger)font TextWidth:(CGFloat)textWidth
++ (CGFloat)rectTextHeightWithString:(NSString *)string Font:(UIFont *)font TextWidth:(CGFloat)textWidth
 {
-    NSDictionary *attributes=@{NSFontAttributeName:[UIFont systemFontOfSize:font]};
+    NSDictionary *attributes=@{NSFontAttributeName:font};
     CGSize size=[string boundingRectWithSize:CGSizeMake(textWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil].size;
     
     return size.height;
 }
 
 #pragma mark 获取文字宽度
-+ (CGFloat)rectTextWidthWithString:(NSString *)string Font:(NSInteger)font TextHeight:(CGFloat)textHeight
++ (CGFloat)rectTextWidthWithString:(NSString *)string Font:(UIFont *)font TextHeight:(CGFloat)textHeight
 {
-    NSDictionary *attributes=@{NSFontAttributeName:[UIFont systemFontOfSize:font]};
+    NSDictionary *attributes=@{NSFontAttributeName:font};
     CGSize size=[string boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, textHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attributes context:nil].size;
     
     return size.width;

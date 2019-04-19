@@ -78,6 +78,7 @@
 		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
 		F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */; };
+		F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39F2269BF49002774B1 /* CustomAlert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionAlignmentFlowLayout.h; sourceTree = "<group>"; };
 		F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionAlignmentFlowLayout.m; sourceTree = "<group>"; };
+		F1F7C39E2269BF49002774B1 /* CustomAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
+		F1F7C39F2269BF49002774B1 /* CustomAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +392,8 @@
 				F187EBC0224B56F600293096 /* CustomNetWork.m */,
 				F187EBC4224B56F700293096 /* CustomTools.h */,
 				F187EBC7224B56F700293096 /* CustomTools.m */,
+				F1F7C39E2269BF49002774B1 /* CustomAlert.h */,
+				F1F7C39F2269BF49002774B1 /* CustomAlert.m */,
 				F187EBC3224B56F600293096 /* DateOperation.h */,
 				F187EBC2224B56F600293096 /* DateOperation.m */,
 				F1B7451022544B8E00ED5A29 /* SaveImageManager.h */,
@@ -766,6 +771,7 @@
 				F187EB94224B56A100293096 /* LXYQRCodeOverlayView.m in Sources */,
 				F187EB80224B569100293096 /* UIColor+ColorHexadecimal.m in Sources */,
 				F126C47D224E283900C24566 /* TableViewController.m in Sources */,
+				F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */,
 				F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */,
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,
