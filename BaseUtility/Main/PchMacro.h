@@ -24,7 +24,6 @@
 #import "UIView+IBExtension.h"
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
-#import "UINavigationController+currentNavigationController.h"
 #import "BasePushActionConfig.h"
 
 /****** Tools ******/

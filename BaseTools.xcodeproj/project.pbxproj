@@ -13,7 +13,6 @@
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
-		F126C483224E29F700C24566 /* UINavigationController+currentNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C481224E29F600C24566 /* UINavigationController+currentNavigationController.m */; };
 		F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */; };
 		F187E9C6224B196A00293096 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C5224B196A00293096 /* AppDelegate.m */; };
 		F187E9C9224B196A00293096 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C8224B196A00293096 /* ViewController.m */; };
@@ -113,8 +112,6 @@
 		F126C47A224E270900C24566 /* BasePushActionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePushActionConfig.h; sourceTree = "<group>"; };
 		F126C47B224E283900C24566 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F126C47C224E283900C24566 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		F126C481224E29F600C24566 /* UINavigationController+currentNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+currentNavigationController.m"; sourceTree = "<group>"; };
-		F126C482224E29F600C24566 /* UINavigationController+currentNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+currentNavigationController.h"; sourceTree = "<group>"; };
 		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
 		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -448,8 +445,6 @@
 				F187EB59224B568C00293096 /* UIView+IBExtension.m */,
 				F126C474224E24B600C24566 /* UIViewController+CurrentViewController.h */,
 				F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */,
-				F126C482224E29F600C24566 /* UINavigationController+currentNavigationController.h */,
-				F126C481224E29F600C24566 /* UINavigationController+currentNavigationController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -780,7 +775,6 @@
 				F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */,
 				F187EB51224B567F00293096 /* BaseViewController.m in Sources */,
 				F187EB97224B56A100293096 /* QRCodeScanViewController.m in Sources */,
-				F126C483224E29F700C24566 /* UINavigationController+currentNavigationController.m in Sources */,
 				F187EB50224B567F00293096 /* RootViewController.m in Sources */,
 				F187EB4F224B567F00293096 /* RootNavigationController.m in Sources */,
 				F187EB9A224B56A100293096 /* LXYQRCodeUtility.m in Sources */,

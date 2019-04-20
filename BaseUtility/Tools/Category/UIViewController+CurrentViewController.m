@@ -21,28 +21,31 @@
         
         // Return right hand side
         UISplitViewController* svc = (UISplitViewController*) VC;
-        if (svc.viewControllers.count > 0)
+        if (svc.viewControllers.count > 0){
             return [self getCurrentViewController:svc.viewControllers.lastObject];
-        else
+        }else{
             return VC;
+        }
         
     } else if ([VC isKindOfClass:[UINavigationController class]]) {
         
         // Return top view
         UINavigationController* svc = (UINavigationController*) VC;
-        if (svc.viewControllers.count > 0)
+        if (svc.viewControllers.count > 0){
             return [self getCurrentViewController:svc.topViewController];
-        else
+        }else{
             return VC;
+        }
         
     } else if ([VC isKindOfClass:[UITabBarController class]]) {
         
         // Return visible view
         UITabBarController* svc = (UITabBarController*) VC;
-        if (svc.viewControllers.count > 0)
+        if (svc.viewControllers.count > 0){
             return [self getCurrentViewController:svc.selectedViewController];
-        else
+        }else{
             return VC;
+        }
         
     } else {
         
@@ -58,7 +61,6 @@
     // Find best view controller
     UIViewController* viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     return [self getCurrentViewController:viewController];
-    
 }
 
 @end
