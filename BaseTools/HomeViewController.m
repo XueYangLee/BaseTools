@@ -51,7 +51,7 @@
     if (sender.tag==10) {
         TableViewController *table=[TableViewController new];
         NaviRoutePushToVC(table, YES);
-        //    NaviRoutePresentToVC(table, YES);
+//            NaviRoutePresentToVC(table);
         //    [[UIViewController currentViewController].navigationController pushViewController:table animated:YES];
     }else if (sender.tag==11){
         CollectionViewController *collect=[CollectionViewController new];
@@ -60,8 +60,8 @@
         WKWebViewController *web=[WKWebViewController new];
         NaviRoutePushToVC(web, YES);
     }else if (sender.tag==13){
-
-        [CustomAlert showCustomAlertAddTarget:self Title:nil TitleFont:FontRegular(12) TitleColor:[UIColor redColor] Message:@"内容内容内容内容内容内容内容内容" MessageFont:nil MessageColor:nil CancelBtnTitle:@"取消" CancelBtnColor:nil DefaultBtnTitle:@"确定" DefaultBtnColor:[UIColor purpleColor] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
+        
+        [CustomAlert showCustomAlertAddTarget:self Title:nil TitleFont:FontRegular(12) TitleColor:[UIColor redColor] Message:@"内容内容内容内容内容内容内容内容" MessageFont:nil MessageColor:nil MessageAlignment:NSTextAlignmentCenter CancelBtnTitle:@"取消" CancelBtnColor:nil DefaultBtnTitle:@"确定" DefaultBtnColor:[UIColor purpleColor] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
             DLog(@"%ld>>>>>>>>>>>>",actionIndex);
             if (actionIndex==1) {
                 DLog(@"点击确定");

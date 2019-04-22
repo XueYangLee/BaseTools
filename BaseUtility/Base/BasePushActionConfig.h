@@ -48,7 +48,7 @@ UINavigationController *navi = [UIViewController currentViewController].navigati
 
 
 /** navi使用Present样式出现页面  从下到上动画出现 */
-#define NaviRoutePresentToVC(ViewController,beAnimated)\
+#define NaviRoutePresentToVC(ViewController)\
 UINavigationController *navi = [UIViewController currentViewController].navigationController;\
 CATransition *transition = [CATransition animation];\
 transition.duration = 0.35f;\
@@ -56,11 +56,11 @@ transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimi
 transition.type = kCATransitionMoveIn;\
 transition.subtype = kCATransitionFromTop;\
 [navi.view.layer addAnimation:transition forKey:nil];\
-[navi pushViewController:ViewController animated:beAnimated];\
+[navi pushViewController:ViewController animated:NO];\
 
 
 /** navi使用Present样式离开页面  从上到下动画离开 */
-#define NaviRouteDismissToVC(beAnimated)\
+#define NaviRouteDismissToVC\
 UINavigationController *navi = [UIViewController currentViewController].navigationController;\
 CATransition *transition = [CATransition animation];\
 transition.duration = 0.35f;\
@@ -68,7 +68,7 @@ transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimi
 transition.type = kCATransitionReveal;\
 transition.subtype = kCATransitionFromBottom;\
 [navi.view.layer addAnimation:transition forKey:nil];\
-[navi popViewControllerAnimated:beAnimated];\
+[navi popViewControllerAnimated:NO];\
 
 
 

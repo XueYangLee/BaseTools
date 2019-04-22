@@ -158,13 +158,8 @@
     UILabel *titleLabel = subView5.subviews[0];
     UILabel *messageLabel = subView5.subviews[1];
     
-    if (titleAlignment) {
-        titleLabel.textAlignment = titleAlignment;
-    }
-    
-    if (messageAlignment) {
-        messageLabel.textAlignment = messageAlignment;
-    }
+    titleLabel.textAlignment = titleAlignment;
+    messageLabel.textAlignment = messageAlignment;
     
     if (cancelBtnTitle) {
         __weak typeof(alert) weakAlert = alert;
@@ -193,9 +188,18 @@
 }
 
 
-+ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title TitleFont:(UIFont *)titleFont TitleColor:(UIColor *)titleColor Message:(NSString *)message MessageFont:(UIFont *)messageFont MessageColor:(UIColor *)messageColor CancelBtnTitle:(NSString *)cancelBtnTitle CancelBtnColor:(UIColor *)cancelBtnColor DefaultBtnTitle:(NSString *)defaultBtnTitle DefaultBtnColor:(UIColor *)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title TitleFont:(UIFont *)titleFont TitleColor:(UIColor *)titleColor Message:(NSString *)message MessageFont:(UIFont *)messageFont MessageColor:(UIColor *)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *)cancelBtnTitle CancelBtnColor:(UIColor *)cancelBtnColor DefaultBtnTitle:(NSString *)defaultBtnTitle DefaultBtnColor:(UIColor *)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIView *subView1 = alert.view.subviews[0];
+    UIView *subView2 = subView1.subviews[0];
+    UIView *subView3 = subView2.subviews[0];
+    UIView *subView4 = subView3.subviews[0];
+    UIView *subView5 = subView4.subviews[0];
+    
+    UILabel *messageLabel = subView5.subviews[1];
+    
     
     if (title) {
         
@@ -211,6 +215,7 @@
         }
         
         [alert setValue:attributedTitStr forKey:@"attributedTitle"];
+        
     }
     
     if (message) {
@@ -228,6 +233,8 @@
         
         
         [alert setValue:attributedMesStr forKey:@"attributedMessage"];
+        
+        messageLabel.textAlignment = messageAlignment;
     }
     
     

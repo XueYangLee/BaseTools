@@ -108,7 +108,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-
 /**
  自定义alert 文字大小及颜色
 
@@ -119,13 +118,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param message 内容
  @param messageFont 内容文字属性
  @param messageColor 内容颜色
+ @param messageAlignment 内容校准
  @param cancelBtnTitle 取消按钮文字
  @param cancelBtnColor 取消按钮文字颜色
  @param defaultBtnTitle 默认按钮文字
  @param defaultBtnColor 默认按钮文字颜色
  @param actionHandle 操作
  */
-+ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title TitleFont:(UIFont *_Nullable)titleFont TitleColor:(UIColor *_Nullable)titleColor Message:(NSString *_Nullable)message MessageFont:(UIFont *_Nullable)messageFont MessageColor:(UIColor *_Nullable)messageColor CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle CancelBtnColor:(UIColor *_Nullable)cancelBtnColor DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle DefaultBtnColor:(UIColor *_Nullable)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title TitleFont:(UIFont *_Nullable)titleFont TitleColor:(UIColor *_Nullable)titleColor Message:(NSString *_Nullable)message MessageFont:(UIFont *_Nullable)messageFont MessageColor:(UIColor *_Nullable)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle CancelBtnColor:(UIColor *_Nullable)cancelBtnColor DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle DefaultBtnColor:(UIColor *_Nullable)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 @end

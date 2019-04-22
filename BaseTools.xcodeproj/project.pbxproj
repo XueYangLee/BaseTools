@@ -31,7 +31,6 @@
 		F187EB74224B569100293096 /* UIView+IBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB59224B568C00293096 /* UIView+IBExtension.m */; };
 		F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5A224B568C00293096 /* CALayer+XibBorderColor.m */; };
 		F187EB77224B569100293096 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5C224B568C00293096 /* UIView+Extension.m */; };
-		F187EB78224B569100293096 /* UINavigationBar+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5D224B568D00293096 /* UINavigationBar+Extension.m */; };
 		F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5E224B568D00293096 /* UIApplication+Extensions.m */; };
 		F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5F224B568D00293096 /* UIImage+Extension.m */; };
 		F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB61224B568D00293096 /* UIImage+WaterMark.m */; };
@@ -149,10 +148,8 @@
 		F187EB59224B568C00293096 /* UIView+IBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IBExtension.m"; sourceTree = "<group>"; };
 		F187EB5A224B568C00293096 /* CALayer+XibBorderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibBorderColor.m"; sourceTree = "<group>"; };
 		F187EB5C224B568C00293096 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		F187EB5D224B568D00293096 /* UINavigationBar+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Extension.m"; sourceTree = "<group>"; };
 		F187EB5E224B568D00293096 /* UIApplication+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Extensions.m"; sourceTree = "<group>"; };
 		F187EB5F224B568D00293096 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
-		F187EB60224B568D00293096 /* UINavigationBar+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Extension.h"; sourceTree = "<group>"; };
 		F187EB61224B568D00293096 /* UIImage+WaterMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WaterMark.m"; sourceTree = "<group>"; };
 		F187EB62224B568E00293096 /* UIColor+ColorHexadecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorHexadecimal.h"; sourceTree = "<group>"; };
 		F187EB63224B568E00293096 /* UIScreen+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Extension.h"; sourceTree = "<group>"; };
@@ -435,8 +432,6 @@
 				F187EB6A224B568F00293096 /* UIImage+ScreenShot.m */,
 				F187EB57224B568B00293096 /* UIImage+WaterMark.h */,
 				F187EB61224B568D00293096 /* UIImage+WaterMark.m */,
-				F187EB60224B568D00293096 /* UINavigationBar+Extension.h */,
-				F187EB5D224B568D00293096 /* UINavigationBar+Extension.m */,
 				F187EB63224B568E00293096 /* UIScreen+Extension.h */,
 				F187EB53224B568A00293096 /* UIScreen+Extension.m */,
 				F187EB58224B568C00293096 /* UIView+Extension.h */,
@@ -787,7 +782,6 @@
 				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
 				F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */,
-				F187EB78224B569100293096 /* UINavigationBar+Extension.m in Sources */,
 				F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */,
 				F187EBBF224B56C800293096 /* CustomTextView.m in Sources */,
 				F187EB98224B56A100293096 /* AVCaptureVideoPreviewLayer+Helper.m in Sources */,

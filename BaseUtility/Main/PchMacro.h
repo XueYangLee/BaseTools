@@ -18,7 +18,6 @@
 #import "UIImage+Extension.h"
 #import "UIImage+ScreenShot.h"
 #import "UIImage+WaterMark.h"
-#import "UINavigationBar+Extension.h"
 #import "UIScreen+Extension.h"
 #import "UITextField+LengthLimit.h"
 #import "UIView+IBExtension.h"
