@@ -40,19 +40,19 @@
 #pragma mark 获取当前时间时间戳
 + (NSString *)getCurrentTimeStamp
 {
-    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];
-    NSTimeInterval stamp=[date timeIntervalSince1970];
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval stamp=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
     NSString*timeString = [NSString stringWithFormat:@"%0.f", stamp];//转为字符型
     return timeString;
 }
 
 
 #pragma mark 获取当前时间
-+ (NSString *)currentTimeIsYes:(BOOL)isShow{
++ (NSString *)currentTimeIsShowExactTime:(BOOL)isShowExact{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
-    if (isShow) {
+    if (isShowExact) {
         [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     }else{
         [formatter setDateFormat:@"YYYY-MM-dd"];

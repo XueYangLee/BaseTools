@@ -70,6 +70,7 @@
 		F187EBD1224B570000293096 /* KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBCF224B56FF00293096 /* KeyChainStore.m */; };
 		F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD2224B570800293096 /* WRCustomNavigationBar.m */; };
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
+		F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */; };
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
 		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
@@ -217,6 +218,8 @@
 		F187EBD4224B570800293096 /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
 		F187EBD5224B570800293096 /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
 		F187EBD8224B58D200293096 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F18FB1E2226EF67A00C77619 /* UIImage+ImageSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageSize.h"; sourceTree = "<group>"; };
+		F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageSize.m"; sourceTree = "<group>"; };
 		F19FC8E4224E05D90044772B /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F19FC8E5224E05D90044772B /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F19FC8E7224E05E80044772B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				F187EB70224B569100293096 /* UIColor+ColorHexadecimal.m */,
 				F187EB55224B568B00293096 /* UIImage+Extension.h */,
 				F187EB5F224B568D00293096 /* UIImage+Extension.m */,
+				F18FB1E2226EF67A00C77619 /* UIImage+ImageSize.h */,
+				F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */,
 				F187EB65224B568E00293096 /* UIImage+ScreenShot.h */,
 				F187EB6A224B568F00293096 /* UIImage+ScreenShot.m */,
 				F187EB57224B568B00293096 /* UIImage+WaterMark.h */,
@@ -745,6 +750,7 @@
 				F187EBBC224B56C800293096 /* OppositeBtn.m in Sources */,
 				F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */,
 				F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */,
+				F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */,
 				F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */,
 				F187EB81224B569100293096 /* MBProgressHUD+MBExtension.m in Sources */,
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,

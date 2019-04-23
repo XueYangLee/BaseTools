@@ -459,14 +459,6 @@
 }
 
 
-#pragma mark 获取网络图片尺寸
-+(CGSize)imageSizeWithImageUrl:(NSString *)imgUrl{
-
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]];
-    UIImage *image = [UIImage imageWithData:data];
-    return image.size;
-}
-
 #pragma mark 遍历文件夹获得文件夹大小，返回多少M
 + (float)folderSizeAtPath:(NSString *)folderPath
 {

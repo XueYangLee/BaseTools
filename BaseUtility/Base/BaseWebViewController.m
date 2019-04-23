@@ -241,6 +241,15 @@ static CGFloat const progressViewHeight = 2;
     }
 }
 
+//加载不受信任的https  https在某些情况下造成网页或者网页内的图片无法显示可使用  同时确保 NSAllowsArbitraryLoads设为YES
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler{
+    
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        NSURLCredential *card = [[NSURLCredential alloc]initWithTrust:challenge.protectionSpace.serverTrust];
+        completionHandler(NSURLSessionAuthChallengeUseCredential,card);
+    }
+}
+
 
 //清除web缓存
 - (void)removeWebCache {

@@ -69,6 +69,35 @@
 + (void)downLoadImageArray:(NSArray <NSString *>*)imageUrlArray{
     NSMutableArray *imgSaveArray=[NSMutableArray array];
     
+    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        [SVProgressHUD showWithStatus:@"保存中"];
+        for (NSInteger i=0; i<imageUrlArray.count; i++) {
+            
+            [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageUrlArray[i]] options:SDWebImageDownloaderAllowInvalidSSLCertificates progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+                
+                [imgSaveArray addObject:image];
+                if (i==imageUrlArray.count-1) {
+                    dispatch_semaphore_signal(sem);
+                }
+            }];
+        }
+        
+    });
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+        
+        [self downLoadImages:imgSaveArray Completion:^(BOOL success) {
+            if (success) {
+                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"保存失败"];
+            }
+        }];
+    });
+    
+    /* 某类https情况下会造成data获取为null
     for (NSInteger i=0; i<imageUrlArray.count; i++) {
         NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlArray[i]]];
         UIImage *image = [UIImage imageWithData:data];
@@ -82,7 +111,7 @@
         }else{
             [SVProgressHUD showErrorWithStatus:@"保存失败"];
         }
-    }];
+    }];*/
     
 }
 
@@ -114,6 +143,20 @@
 
 //保存单张图片
 + (void)downLoadSingleImage:(NSString *)imageUrl{
+    
+    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageUrl] options:SDWebImageDownloaderAllowInvalidSSLCertificates progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        
+        [SVProgressHUD showWithStatus:@"保存中"];
+        [self writeImage:image Completion:^(BOOL success) {
+            if (success) {
+                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"保存失败"];
+            }
+        }];
+    }];
+    
+    /* 某类https情况下会造成data获取为null
     NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]];
     UIImage *image = [UIImage imageWithData:data];
     
@@ -124,7 +167,7 @@
         }else{
             [SVProgressHUD showErrorWithStatus:@"保存失败"];
         }
-    }];
+    }];*/
 }
 
 

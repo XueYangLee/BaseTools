@@ -16,6 +16,7 @@
 #import "UIApplication+Extensions.h"
 #import "UIColor+ColorHexadecimal.h"
 #import "UIImage+Extension.h"
+#import "UIImage+ImageSize.h"
 #import "UIImage+ScreenShot.h"
 #import "UIImage+WaterMark.h"
 #import "UIScreen+Extension.h"

@@ -39,9 +39,9 @@
 /**
  获取当前时间
  
- @param isShow 是返回详细到时分秒 否返回年月日
+ @param isShowExact 是返回详细到时分秒 否返回年月日
  */
-+ (NSString *)currentTimeIsYes:(BOOL)isShow;
++ (NSString *)currentTimeIsShowExactTime:(BOOL)isShowExact;
 
 
 

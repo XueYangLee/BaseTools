@@ -226,12 +226,6 @@
 + (CGFloat)rectTextWidthWithString:(NSString *_Nullable)string Font:(UIFont *_Nonnull)font TextHeight:(CGFloat)textHeight;
 
 
-/**
- 获取网络图片尺寸
- */
-+ (CGSize)imageSizeWithImageUrl:(NSString *_Nullable)imgUrl;
-
-
 
 /**
  遍历文件夹获得文件夹大小，返回多少M
