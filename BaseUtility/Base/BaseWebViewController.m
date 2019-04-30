@@ -14,17 +14,28 @@
 
 @end
 
-@implementation BaseWebViewController
 
 #define CUSTOM_UA @"custom_userAgent"
 
 static CGFloat const progressViewHeight = 2;
 
+@implementation BaseWebViewController
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.wkWebView reload];//从其他页面返回时重新刷新
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self setIsExtendLayout:YES];
-    self.edgesForExtendedLayout=UIRectEdgeBottom;
     [self setNavigationLeftBarBtnItemWithImgName:@"navi_returnBack" Action:@selector(popBackAction)];
     
     [self.view addSubview:self.wkWebView];

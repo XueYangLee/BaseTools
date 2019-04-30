@@ -28,24 +28,13 @@
 }
 
 #pragma mark 自定义button
-+ (UIButton *)buttonWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIViewController *)vc
++ (UIButton *)buttonWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(id)target
 {
     UIButton *btn=[UIButton new];
     btn.titleLabel.font=font;
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:color forState:UIControlStateNormal];
-    [btn addTarget:vc action:btnSelect forControlEvents:UIControlEventTouchUpInside];
-    return btn;
-}
-
-#pragma mark 自定义View层上button
-+ (UIButton *)buttonFromViewWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(UIView *)vc
-{
-    UIButton *btn=[UIButton new];
-    btn.titleLabel.font=font;
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:color forState:UIControlStateNormal];
-    [btn addTarget:vc action:btnSelect forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:target action:btnSelect forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
 

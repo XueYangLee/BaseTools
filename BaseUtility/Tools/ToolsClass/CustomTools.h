@@ -20,13 +20,8 @@
 /**
  自定义button
  */
-+ (UIButton *_Nullable)buttonWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIViewController *_Nullable)vc;
++ (UIButton *_Nullable)buttonWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(id _Nonnull )target;
 
-
-/**
- 自定义View层上button
- */
-+ (UIButton *_Nullable)buttonFromViewWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(UIView *_Nullable)vc;
 
 
 /**
