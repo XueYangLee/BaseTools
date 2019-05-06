@@ -72,10 +72,10 @@
 /** 页面除过导航栏高度 */
 //#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
 #define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
-/** iPhone X下HOME按键高度 */
-#define IPHONEX_HOME IS_IPHONEX==0?0:34
-/** iphoneX下底部高度 */
-#define TABBAR_HEIGHT IS_IPHONEX==0?49:83
+/** iPhone X等异形屏下HOME按键高度 */
+#define IPHONEX_BOTTOM ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?34:0)
+/** iphoneX等异形屏下tabbar高度 */
+#define TABBAR_HEIGHT ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?83:49)
 /** 系统tabbar高度 */
 #define SYSTEM_TABBAR_HEIGHT self.tabBarController.tabBar.bounds.size.height
 
