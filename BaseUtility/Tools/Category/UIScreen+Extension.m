@@ -10,15 +10,15 @@
 
 @implementation UIScreen (Extension)
 
-+ (CGSize)scrn_screenSize {
++ (CGSize)scrnSize {
     return [UIScreen mainScreen].bounds.size;
 }
 
-+ (BOOL)scrn_isRetina {
-    return [UIScreen scrn_scale] >= 2;
++ (BOOL)isRetinaScrn {
+    return [UIScreen scrnScale] >= 2;
 }
 
-+ (CGFloat)scrn_scale {//屏幕分辨率
++ (CGFloat)scrnScale {//屏幕分辨率
     return [UIScreen mainScreen].scale;
 }
 

@@ -525,6 +525,17 @@
     return NO;
 }
 
+#pragma mark 价格有小数且不为0显示几位小数 没有则显示整数
++ (NSString *)formatPriceWithFloat:(float)price {
+    if (fmodf(price, 1)==0) {
+        return [NSString stringWithFormat:@"%.0f",price];
+    } else if (fmodf(price*10, 1)==0) {//如果有一位小数点
+        return [NSString stringWithFormat:@"%.1f",price];
+    } else {//如果有两位小数点
+        return [NSString stringWithFormat:@"%.2f",price];
+    }
+}
+
 #pragma mark 数字每三位用逗号分隔
 + (NSString *)separateNumberUseCommaWithNumber:(NSString *)number Prefix:(NSString *)prefix Suffix:(NSString *)suffix{
 //    // 前缀
@@ -581,6 +592,17 @@
     return newNumber;
 }
 
+
+#pragma mark 去除字符串前后空格及回车符
++ (NSString *)trimWhiteSpaceAndNewLine:(NSString *)string{
+    /*whitespaceCharacterSet 前后空格
+     newlineCharacterSet 前后回车符
+     whitespaceAndNewlineCharacterSet 前后空格及回车符*/
+    NSString *trimStr=[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return trimStr;
+}
+
+
 #pragma mark 大图片缩放
 + (UIImage *)scaleImage:(UIImage *)image newSize:(CGSize)newSize
 {
@@ -618,5 +640,32 @@
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     return jsonString;
 }
+
+
+
+#pragma mark 获取颜色的rgb
++ (NSArray *)getRGBWithColor:(UIColor *)color{
+    CGFloat red = 0.0;
+    CGFloat green = 0.0;
+    CGFloat blue = 0.0;
+    CGFloat alpha = 0.0;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    return @[@(red*255),@(green*255),@(blue*255),@(alpha)];
+}
+
+#pragma mark 根据偏移量或进度获取梯度过渡颜色
++ (UIColor *)colorGradientWithBeginColor:(UIColor *)beginColor EndColor:(UIColor *)endColor Progress:(CGFloat)progress{
+    NSArray *beginColorArr=[self getRGBWithColor:beginColor];
+    NSArray *endColorArr=[self getRGBWithColor:endColor];
+    CGFloat red=[beginColorArr[0] floatValue] + ([endColorArr[0] floatValue] - [beginColorArr[0] floatValue]) * progress;
+    CGFloat green=[beginColorArr[1] floatValue] + ([endColorArr[1] floatValue] - [beginColorArr[1] floatValue]) * progress;
+    CGFloat blue=[beginColorArr[2] floatValue] + ([endColorArr[2] floatValue] - [beginColorArr[2] floatValue]) * progress;
+    
+    UIColor *color=[UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:1];
+
+    return color;
+}
+
 
 @end

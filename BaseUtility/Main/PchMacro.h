@@ -17,7 +17,6 @@
 #import "UIColor+ColorHexadecimal.h"
 #import "UIImage+Extension.h"
 #import "UIImage+ImageSize.h"
-#import "UIImage+ScreenShot.h"
 #import "UIImage+WaterMark.h"
 #import "UIScreen+Extension.h"
 #import "UITextField+LengthLimit.h"
@@ -36,6 +35,7 @@
 #import "KeyChainStore.h"
 #import "TBCityIconFont.h"
 #import "SaveImageManager.h"
+#import "DownloadVideo.h"
 #import "CollectionAlignmentFlowLayout.h"
 //#import "WRNavigationBar.h"
 
@@ -70,8 +70,8 @@
 /** 导航栏+状态栏总高 */
 #define STATUS_NAVI_HEIGHT  NAVI_HEIGHT+STATUS_HEIGHT
 /** 页面除过导航栏高度 */
-//#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
-#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
+#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
+//#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
 /** iPhone X等异形屏下HOME按键高度 */
 #define IPHONEX_BOTTOM ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?34:0)
 /** iphoneX等异形屏下tabbar高度 */

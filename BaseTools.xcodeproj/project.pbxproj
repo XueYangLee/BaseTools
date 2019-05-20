@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
+		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
 		F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46C224E170E00C24566 /* BaseViewModel.m */; };
 		F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46F224E1C0E00C24566 /* BaseTableViewController.m */; };
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
@@ -34,7 +35,6 @@
 		F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5E224B568D00293096 /* UIApplication+Extensions.m */; };
 		F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB5F224B568D00293096 /* UIImage+Extension.m */; };
 		F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB61224B568D00293096 /* UIImage+WaterMark.m */; };
-		F187EB7D224B569100293096 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB6A224B568F00293096 /* UIImage+ScreenShot.m */; };
 		F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB6C224B569000293096 /* NSArray+LXY.m */; };
 		F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB6F224B569000293096 /* NSDate+Extension.m */; };
 		F187EB80224B569100293096 /* UIColor+ColorHexadecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EB70224B569100293096 /* UIColor+ColorHexadecimal.m */; };
@@ -101,6 +101,8 @@
 		0E169E40CCC4E780F8D7460A /* Pods-BaseTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.release.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.release.xcconfig"; sourceTree = "<group>"; };
 		2B14B0D25CB62361C4CE8704 /* Pods-BaseTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.debug.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.debug.xcconfig"; sourceTree = "<group>"; };
 		5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F104D92622844D87004D340F /* DownloadVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideo.h; sourceTree = "<group>"; };
+		F104D92722844D87004D340F /* DownloadVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideo.m; sourceTree = "<group>"; };
 		F126C46B224E170E00C24566 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		F126C46C224E170E00C24566 /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		F126C46E224E1C0E00C24566 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
@@ -154,11 +156,9 @@
 		F187EB61224B568D00293096 /* UIImage+WaterMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WaterMark.m"; sourceTree = "<group>"; };
 		F187EB62224B568E00293096 /* UIColor+ColorHexadecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorHexadecimal.h"; sourceTree = "<group>"; };
 		F187EB63224B568E00293096 /* UIScreen+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+Extension.h"; sourceTree = "<group>"; };
-		F187EB65224B568E00293096 /* UIImage+ScreenShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScreenShot.h"; sourceTree = "<group>"; };
 		F187EB67224B568F00293096 /* CALayer+XibBorderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibBorderColor.h"; sourceTree = "<group>"; };
 		F187EB68224B568F00293096 /* MBProgressHUD+MBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MBExtension.h"; sourceTree = "<group>"; };
 		F187EB69224B568F00293096 /* NSArray+LXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LXY.h"; sourceTree = "<group>"; };
-		F187EB6A224B568F00293096 /* UIImage+ScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShot.m"; sourceTree = "<group>"; };
 		F187EB6B224B568F00293096 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		F187EB6C224B569000293096 /* NSArray+LXY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LXY.m"; sourceTree = "<group>"; };
 		F187EB6D224B569000293096 /* NSDictionary+LXY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LXY.h"; sourceTree = "<group>"; };
@@ -395,6 +395,8 @@
 				F187EBC2224B56F600293096 /* DateOperation.m */,
 				F1B7451022544B8E00ED5A29 /* SaveImageManager.h */,
 				F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */,
+				F104D92622844D87004D340F /* DownloadVideo.h */,
+				F104D92722844D87004D340F /* DownloadVideo.m */,
 				F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */,
 				F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */,
 			);
@@ -433,8 +435,6 @@
 				F187EB5F224B568D00293096 /* UIImage+Extension.m */,
 				F18FB1E2226EF67A00C77619 /* UIImage+ImageSize.h */,
 				F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */,
-				F187EB65224B568E00293096 /* UIImage+ScreenShot.h */,
-				F187EB6A224B568F00293096 /* UIImage+ScreenShot.m */,
 				F187EB57224B568B00293096 /* UIImage+WaterMark.h */,
 				F187EB61224B568D00293096 /* UIImage+WaterMark.m */,
 				F187EB63224B568E00293096 /* UIScreen+Extension.h */,
@@ -772,7 +772,6 @@
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,
 				F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */,
-				F187EB7D224B569100293096 /* UIImage+ScreenShot.m in Sources */,
 				F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */,
 				F187EB51224B567F00293096 /* BaseViewController.m in Sources */,
 				F187EB97224B56A100293096 /* QRCodeScanViewController.m in Sources */,
@@ -791,6 +790,7 @@
 				F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */,
 				F187EBBF224B56C800293096 /* CustomTextView.m in Sources */,
 				F187EB98224B56A100293096 /* AVCaptureVideoPreviewLayer+Helper.m in Sources */,
+				F104D92822844D88004D340F /* DownloadVideo.m in Sources */,
 				F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */,
 				F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */,
 				F187EBCA224B56F700293096 /* DateOperation.m in Sources */,

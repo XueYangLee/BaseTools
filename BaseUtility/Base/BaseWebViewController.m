@@ -24,7 +24,6 @@ static CGFloat const progressViewHeight = 2;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.wkWebView reload];//从其他页面返回时重新刷新
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -41,6 +40,9 @@ static CGFloat const progressViewHeight = 2;
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
     [self setWebViewUA];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(windowDidBecomeHidden) name:UIWindowDidBecomeHiddenNotification object:nil];
 }
 
 - (WKWebView *)wkWebView{
@@ -168,6 +170,11 @@ static CGFloat const progressViewHeight = 2;
 
 
 
+- (void)windowDidBecomeHidden{
+    //在网页内打开视频或其他覆盖整个window的操作后状态栏消失问题的处理
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+}
+
 /// KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:NSStringFromSelector(@selector(estimatedProgress))] && object == self.wkWebView) {
@@ -211,6 +218,7 @@ static CGFloat const progressViewHeight = 2;
 - (void)dealloc {
     [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress))];
     [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(title))];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

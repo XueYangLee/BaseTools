@@ -66,11 +66,14 @@
 
 
 #pragma mark 从开始时间的时间戳获取与当前时间的时间差
-+ (void)intervalTimeFromTimeStamp:(NSString *)timeStamp Completion:(void(^)(NSString *year,NSString *month,NSString *day,NSString *hour,NSString *minute,NSString *second))comp{
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
-    NSDate *nowDate = [NSDate date];
++ (void)intervalTimeFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp Completion:(void(^)(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second))comp{
+    NSDate* fromDate = [NSDate dateWithTimeIntervalSince1970:[fromTimeStamp doubleValue]/1000];
+    NSDate *toDate = [NSDate date];
+    if (toTimeStamp.length!=0) {
+        toDate= [NSDate dateWithTimeIntervalSince1970:[toTimeStamp doubleValue]/1000];
+    }
     
-    NSDateComponents *components=[NSDate intervalTimeFromDate:date ToDate:nowDate];
+    NSDateComponents *components=[NSDate intervalTimeFromDate:fromDate ToDate:toDate];
     
     if (comp) {
         comp(FORMATEInt(components.year),FORMATEInt(components.month),FORMATEInt(components.day),FORMATEInt(components.hour),FORMATEInt(components.minute),FORMATEInt(components.second));
@@ -79,11 +82,14 @@
 
 
 #pragma mark 获取从时间的时间戳到当前时间相隔的时分秒
-+ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)timeStamp{
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
-    NSDate *nowDate = [NSDate date];
++ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp{
+    NSDate* fromDate = [NSDate dateWithTimeIntervalSince1970:[fromTimeStamp doubleValue]/1000];
+    NSDate *toDate = [NSDate date];
+    if (toTimeStamp.length!=0) {
+        toDate= [NSDate dateWithTimeIntervalSince1970:[toTimeStamp doubleValue]/1000];
+    }
     
-    NSInteger intervalTime=[NSDate secondIntervalSinceDate:date EndDate:nowDate];
+    NSInteger intervalTime=[NSDate secondIntervalSinceDate:fromDate EndDate:toDate];
     
     NSInteger hourInterval=intervalTime / 3600;
     NSInteger minuteInterval=(intervalTime / 60) % 60;
@@ -93,12 +99,17 @@
     return intervalStr;
 }
 
+
+
 #pragma mark 仅获取从时间的时间戳到当前时间相隔的分秒
-+ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)timeStamp{
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000];
-    NSDate *nowDate = [NSDate date];
++ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp{
+    NSDate* fromDate = [NSDate dateWithTimeIntervalSince1970:[fromTimeStamp doubleValue]/1000];
+    NSDate *toDate = [NSDate date];
+    if (toTimeStamp.length!=0) {
+        toDate=[NSDate dateWithTimeIntervalSince1970:[toTimeStamp doubleValue]/1000];
+    }
     
-    NSInteger intervalTime=[NSDate secondIntervalSinceDate:date EndDate:nowDate];
+    NSInteger intervalTime=[NSDate secondIntervalSinceDate:fromDate EndDate:toDate];
     
     NSInteger minuteInterval=intervalTime/60;
     NSInteger secondInterval=intervalTime%60;
@@ -106,6 +117,85 @@
     NSString *intervalStr=[NSString stringWithFormat:@"%ld分%ld秒",minuteInterval,secondInterval];
     return intervalStr;
 }
+
+
+
+#pragma mark 秒数倒计时 验证码获取
++ (void)countdownSecWithMaxSec:(int)maxSec Completion:(void (^)(BOOL isReturnZero, NSString *countdownSec))comp{
+    
+    __block int timeout=maxSec;//倒计时时间
+    dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0){//倒计时结束,关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if (comp) {
+                    comp(YES,nil);
+                }
+            });
+        }else{
+            int seconds = timeout;
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if (comp) {
+                    comp(NO,strTime);
+                }
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
+
+
+#pragma mark 时间倒计时 活动倒计时
++ (void)countdownTimeWithStartTimeStamp:(NSString *)startTimeStamp EndTimeStamp:(NSString *)endTimeStamp Completion:(void (^)(BOOL isReturnZero, NSString *day, NSString *hour, NSString *minute, NSString *second))comp{
+    
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[startTimeStamp doubleValue]/1000];
+    NSDate* endDate = [NSDate date];
+    if (endTimeStamp.length!=0) {
+        endDate=[NSDate dateWithTimeIntervalSince1970:[endTimeStamp doubleValue]/1000];
+    }
+    
+    NSInteger intervalTime=[NSDate secondIntervalSinceDate:startDate EndDate:endDate];
+    
+    
+    __block NSInteger timeout=intervalTime;//倒计时时间
+    dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER,0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL,0),1.0*NSEC_PER_SEC,0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0){//倒计时结束,关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if (comp) {
+                    comp(YES,nil,nil,nil,nil);
+                }
+            });
+        }else{
+            NSInteger days = (NSInteger)(timeout/(3600*24));
+            NSInteger hours = (NSInteger)((timeout-days*24*3600)/3600);
+            NSInteger minute = (NSInteger)(timeout-days*24*3600-hours*3600)/60;
+            NSInteger second = timeout-days*24*3600-hours*3600-minute*60;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if (comp) {
+                    comp(NO,FORMATEInt(days),FORMATEInt(hours),FORMATEInt(minute),FORMATEInt(second));
+                }
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
+
+
 
 
 

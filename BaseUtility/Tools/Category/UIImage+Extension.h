@@ -41,4 +41,24 @@
  * 圆形图片
  */
 - (UIImage *)circleImage;
+
+
+
+/**
+ 根据View转成UIImage
+
+ @param view 需要转成image的view
+ */
++ (UIImage *)imageCreateFromView:(UIView *)view;
+
+
+
+/**
+ *  获取屏幕截图
+ *
+ *  @return 屏幕截图图像
+ */
++ (UIImage *)screenShot;
+
+
 @end

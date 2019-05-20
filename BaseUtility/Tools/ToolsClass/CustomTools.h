@@ -261,6 +261,15 @@
 
 
 /**
+ 价格有小数且不为0则显示几位小数 没有则显示整数
+ 
+ @param price 价格
+ */
++ (NSString *_Nonnull)formatPriceWithFloat:(float)price;
+
+
+
+/**
  数字每三位用逗号分隔
 
  @param number 需改变的数字
@@ -268,6 +277,16 @@
  @param suffix 后缀 如@“元” 没有传nil
  */
 + (NSString *_Nullable)separateNumberUseCommaWithNumber:(NSString *_Nullable)number Prefix:(NSString *_Nullable)prefix Suffix:(NSString *_Nullable)suffix;
+
+
+
+
+/**
+ 去除字符串前后空格及回车符
+ 
+ @param string 需要修剪的字符串
+ */
++ (NSString *_Nonnull)trimWhiteSpaceAndNewLine:(NSString *_Nonnull)string;
 
 
 
@@ -291,6 +310,28 @@
 /**
  数组转成json字符串
  */
-+ (NSString *)transformToJsonStrWithArray:(NSArray *)array;
++ (NSString *_Nullable)transformToJsonStrWithArray:(NSArray *_Nullable)array;
+
+
+
+
+/**
+ 获取颜色的rgb
+ 
+ @return 返回数组 r g b a
+ */
++ (NSArray *_Nonnull)getRGBWithColor:(UIColor *_Nonnull)color;
+
+
+
+
+/**
+ 根据偏移量或进度获取梯度过渡颜色 在scrollViewDidScroll中调用
+
+ @param beginColor 过渡起始颜色
+ @param endColor 过渡结束颜色
+ @param progress 偏移比例 0-1
+ */
++ (UIColor *_Nonnull)colorGradientWithBeginColor:(UIColor *_Nonnull)beginColor EndColor:(UIColor *_Nonnull)endColor Progress:(CGFloat)progress;
 
 @end

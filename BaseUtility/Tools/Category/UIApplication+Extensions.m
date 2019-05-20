@@ -28,7 +28,7 @@
         CGSize size = CGSizeFromString(dict[@"UILaunchImageSize"]);
         
         // 2. 与当前屏幕进行比较
-        if (CGSizeEqualToSize(size, [UIScreen scrn_screenSize])) {
+        if (CGSizeEqualToSize(size, [UIScreen scrnSize])) {
             NSString *filename = dict[@"UILaunchImageName"];
             image = [UIImage imageNamed:filename];
             

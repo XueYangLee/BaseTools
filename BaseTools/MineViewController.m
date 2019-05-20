@@ -24,11 +24,11 @@
     [self.view addSubview:img];
     
     
-    [DateOperation intervalTimeFromTimeStamp:@"1555311009000" Completion:^(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second) {
+    [DateOperation intervalTimeFromTimeStamp:@"1555311009000" ToTimeStamp:nil Completion:^(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second) {
         DLog(@"%@>天>%@>时>>%@>分>>%@>秒>>",day,hour,minute,second);
     }];
     
-    NSString *secInterval=[DateOperation intervalTimeWithMinuteSecFromTimeStamp:@"1555316485000"];
+    NSString *secInterval=[DateOperation intervalTimeWithMinuteSecFromTimeStamp:@"1555316485000" ToTimeStamp:nil];
     DLog(@"%@>>>>>",secInterval);
 }
 

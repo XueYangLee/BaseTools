@@ -10,8 +10,13 @@
 
 @interface UIScreen (Extension)
 
-+ (CGSize)scrn_screenSize;
-+ (BOOL)scrn_isRetina;
-+ (CGFloat)scrn_scale;
+/** 返回屏幕尺寸 */
++ (CGSize)scrnSize;
+
+/** 判断是否是retina屏幕 */
++ (BOOL)isRetinaScrn;
+
+/** 返回屏幕分辨率比例 */
++ (CGFloat)scrnScale;
 
 @end

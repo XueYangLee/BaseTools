@@ -46,32 +46,64 @@
 
 
 /**
- 从开始时间的时间戳获取与当前时间的时间差
+ 从开始时间的时间戳获取与目标时间（nil则为当前时间）的时间差
 
- @param timeStamp 开始时间的时间戳
+ @param fromTimeStamp 开始时间的时间戳
+ @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @param comp 返回的时间
  */
-+ (void)intervalTimeFromTimeStamp:(NSString *)timeStamp Completion:(void(^)(NSString *year,NSString *month,NSString *day,NSString *hour,NSString *minute,NSString *second))comp;
++ (void)intervalTimeFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp Completion:(void(^)(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second))comp;
+
 
 
 
 /**
- 获取从时间的时间戳到当前时间相隔的时分秒
+ 获取从时间的时间戳到目标时间（nil则为当前时间）相隔的时分秒
 
- @param timeStamp 开始时间的时间戳
+ @param fromTimeStamp 开始时间的时间戳
+ @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @return 时分秒
  */
-+ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)timeStamp;
++ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp;
+
 
 
 
 /**
- 仅获取从时间的时间戳到当前时间相隔的分秒
+ 仅获取从时间的时间戳到目标时间（nil则为当前时间）相隔的分秒
 
- @param timeStamp 开始时间的时间戳
+ @param fromTimeStamp 开始时间的时间戳
+ @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @return 分秒
  */
-+ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)timeStamp;
++ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp;
+
+
+
+
+/**
+ 秒数倒计时 验证码获取
+ 
+ @param maxSec 最大秒数
+ @param comp isReturnZero 倒计时是否归零   countdownSec 倒计时每秒的秒数
+ */
++ (void)countdownSecWithMaxSec:(int)maxSec Completion:(void (^)(BOOL isReturnZero, NSString *countdownSec))comp;
+
+
+
+
+/**
+ 时间倒计时 活动开始时间到结束时间（nil则为当前时间）的倒计时
+
+ @param startTimeStamp 开始时间的时间戳
+ @param endTimeStamp 结束时间的时间戳 传nil默认为当前时间
+ @param comp 返回的时间
+ */
++ (void)countdownTimeWithStartTimeStamp:(NSString *)startTimeStamp EndTimeStamp:(NSString *)endTimeStamp Completion:(void (^)(BOOL isReturnZero, NSString *day, NSString *hour, NSString *minute, NSString *second))comp;
+
+
+
+
 
 
 /**
