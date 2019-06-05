@@ -87,7 +87,7 @@
  @param maxSec 最大秒数
  @param comp isReturnZero 倒计时是否归零   countdownSec 倒计时每秒的秒数
  */
-+ (void)countdownSecWithMaxSec:(int)maxSec Completion:(void (^)(BOOL isReturnZero, NSString *countdownSec))comp;
++ (void)countdownSecWithMaxSec:(NSInteger)maxSec Completion:(void (^)(BOOL isReturnZero, NSString *countdownSec))comp;
 
 
 

@@ -62,15 +62,6 @@ static CGFloat const progressViewHeight = 2;
         _wkWebView=[[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) configuration:_config];
         _wkWebView.UIDelegate=self;
         _wkWebView.navigationDelegate=self;//<WKNavigationDelegate, WKUIDelegate>
-        if (@available(iOS 11.0, *)) {
-            if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-                _wkWebView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
-            }
-        } else {
-            if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-                self.automaticallyAdjustsScrollViewInsets = NO;
-            }
-        }
         _wkWebView.allowsBackForwardNavigationGestures=YES;//webView中使用侧滑手势
         // KVO
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
@@ -78,6 +69,17 @@ static CGFloat const progressViewHeight = 2;
     }
     return _wkWebView;
 }
+
+/*
+ if (@available(iOS 11.0, *)) {
+ if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+ _wkWebView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+ }
+ } else {
+ if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+ self.automaticallyAdjustsScrollViewInsets = NO;
+ }
+ }*/
 
 - (void)wkWebViewFrame:(CGRect)frame{
     [_wkWebView removeFromSuperview];
@@ -98,15 +100,6 @@ static CGFloat const progressViewHeight = 2;
     _wkWebView=[[WKWebView alloc]initWithFrame:frame configuration:_config];
     _wkWebView.UIDelegate=self;
     _wkWebView.navigationDelegate=self;//<WKNavigationDelegate, WKUIDelegate>
-    if (@available(iOS 11.0, *)) {
-        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-            _wkWebView.scrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
-        }
-    } else {
-        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-            self.automaticallyAdjustsScrollViewInsets = NO;
-        }
-    }
     _wkWebView.allowsBackForwardNavigationGestures=YES;
     // KVO
     [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
