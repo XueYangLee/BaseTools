@@ -8,6 +8,9 @@
 
 #import "DateOperation.h"
 
+
+#define TimeCountDownInt(Method)   [NSString stringWithFormat:@"%.2ld",Method]
+
 @implementation DateOperation
 
 #pragma mark 转化自定义格式日期
@@ -76,7 +79,7 @@
     NSDateComponents *components=[NSDate intervalTimeFromDate:fromDate ToDate:toDate];
     
     if (comp) {
-        comp(FORMATEInt(components.year),FORMATEInt(components.month),FORMATEInt(components.day),FORMATEInt(components.hour),FORMATEInt(components.minute),FORMATEInt(components.second));
+        comp(TimeCountDownInt(components.year),TimeCountDownInt(components.month),TimeCountDownInt(components.day),TimeCountDownInt(components.hour),TimeCountDownInt(components.minute),TimeCountDownInt(components.second));
     }
 }
 
@@ -186,7 +189,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 if (comp) {
-                    comp(NO,FORMATEInt(days),FORMATEInt(hours),FORMATEInt(minute),FORMATEInt(second));
+                    comp(NO,TimeCountDownInt(days),TimeCountDownInt(hours),TimeCountDownInt(minute),TimeCountDownInt(second));
                 }
             });
             timeout--;

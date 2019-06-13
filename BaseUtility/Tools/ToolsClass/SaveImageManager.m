@@ -77,7 +77,10 @@
             
             [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageUrlArray[i]] options:SDWebImageDownloaderAllowInvalidSSLCertificates progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
                 
-                [imgSaveArray addObject:image];
+                if (finished) {
+                    [imgSaveArray addObject:image];
+                }
+                
                 if (i==imageUrlArray.count-1) {
                     dispatch_semaphore_signal(sem);
                 }

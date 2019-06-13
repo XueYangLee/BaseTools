@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
 		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
+		F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F114D4A722AF8A480074377E /* CustomProgressView.m */; };
 		F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46C224E170E00C24566 /* BaseViewModel.m */; };
 		F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46F224E1C0E00C24566 /* BaseTableViewController.m */; };
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
@@ -103,6 +104,8 @@
 		5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F104D92622844D87004D340F /* DownloadVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideo.h; sourceTree = "<group>"; };
 		F104D92722844D87004D340F /* DownloadVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideo.m; sourceTree = "<group>"; };
+		F114D4A622AF8A480074377E /* CustomProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProgressView.h; sourceTree = "<group>"; };
+		F114D4A722AF8A480074377E /* CustomProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProgressView.m; sourceTree = "<group>"; };
 		F126C46B224E170E00C24566 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		F126C46C224E170E00C24566 /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		F126C46E224E1C0E00C24566 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
@@ -500,6 +503,8 @@
 				F187EBB4224B56C700293096 /* PWDInputView.m */,
 				F187EBB5224B56C700293096 /* SkyRadiusView.h */,
 				F187EBB6224B56C700293096 /* SkyRadiusView.m */,
+				F114D4A622AF8A480074377E /* CustomProgressView.h */,
+				F114D4A722AF8A480074377E /* CustomProgressView.m */,
 			);
 			path = PublicView;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 			files = (
 				F187EBBC224B56C800293096 /* OppositeBtn.m in Sources */,
 				F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */,
+				F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */,
 				F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */,
 				F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */,
 				F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */,
