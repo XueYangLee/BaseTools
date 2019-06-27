@@ -68,7 +68,7 @@
 /** 状态栏高度 */
 #define STATUS_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 /** 导航栏+状态栏总高 */
-#define STATUS_NAVI_HEIGHT  NAVI_HEIGHT+STATUS_HEIGHT
+#define STATUS_NAVI_HEIGHT  (NAVI_HEIGHT+STATUS_HEIGHT)
 /** 页面除过导航栏高度 */
 #define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
 //#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))

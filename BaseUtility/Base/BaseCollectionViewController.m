@@ -37,15 +37,15 @@
         layout.minimumInteritemSpacing= 10;
     }
     
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
-    collectionView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_collectionView = collectionView];
-    collectionView.delegate = self;
-    collectionView.dataSource = self;
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [self.view addSubview:_collectionView];
     
     if (@available(iOS 11.0, *)) {
         if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-            collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+            _collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
         }
     } else {
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
@@ -53,7 +53,7 @@
         }
     }
     
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
+    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
 }
 
 
