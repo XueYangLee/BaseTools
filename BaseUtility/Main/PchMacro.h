@@ -36,6 +36,7 @@
 #import "TBCityIconFont.h"
 #import "SaveImageManager.h"
 #import "DownloadVideo.h"
+#import "VideoCompress.h"
 #import "CollectionAlignmentFlowLayout.h"
 //#import "WRNavigationBar.h"
 
