@@ -40,7 +40,7 @@
             [manager createDirectoryAtPath:CompressionVideoPaht withIntermediateDirectories:YES attributes:nil error:nil];
         }
         
-        resultPath = [CompressionVideoPaht stringByAppendingPathComponent:[NSString stringWithFormat:@"outputVideo-%@.mov", [formater stringFromDate:[NSDate date]]]];
+        resultPath = [CompressionVideoPaht stringByAppendingPathComponent:[NSString stringWithFormat:@"outputVideo-%@.mp4", [formater stringFromDate:[NSDate date]]]];
         DLog(@"压缩文件路径 resultPath = %@",resultPath);
         
         exportSession.outputURL = [NSURL fileURLWithPath:resultPath];

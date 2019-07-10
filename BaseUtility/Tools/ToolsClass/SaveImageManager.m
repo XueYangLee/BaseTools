@@ -240,8 +240,7 @@
 
 #pragma mark -----SDWebImage下载多张图片-----
 + (void)downloadWebImages:(NSArray<NSString *> *)imgsArray completion:(void(^)(NSArray *imageArray))comp {
-    SDWebImageDownloader *manager = [SDWebImageDownloader sharedDownloader];
-    manager.downloadTimeout = 20;
+    SDWebImageDownloader *manager = [SDWebImageDownloader sharedDownloader];//默认超时15秒
     __block NSMutableDictionary *resultDict = [NSMutableDictionary new];
     for(int i=0;i<imgsArray.count;i++) {
         NSString *imgUrl = [imgsArray objectAtIndex:i];
