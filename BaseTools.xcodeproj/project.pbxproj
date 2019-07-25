@@ -10,6 +10,7 @@
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
 		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
 		F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = F1129AE822CCC99E00540259 /* VideoCompress.m */; };
+		F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */ = {isa = PBXBuildFile; fileRef = F113F1E622E9A408004F49A7 /* CustomRadianView.m */; };
 		F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F114D4A722AF8A480074377E /* CustomProgressView.m */; };
 		F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46C224E170E00C24566 /* BaseViewModel.m */; };
 		F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46F224E1C0E00C24566 /* BaseTableViewController.m */; };
@@ -107,6 +108,8 @@
 		F104D92722844D87004D340F /* DownloadVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideo.m; sourceTree = "<group>"; };
 		F1129AE722CCC99D00540259 /* VideoCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCompress.h; sourceTree = "<group>"; };
 		F1129AE822CCC99E00540259 /* VideoCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCompress.m; sourceTree = "<group>"; };
+		F113F1E622E9A408004F49A7 /* CustomRadianView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRadianView.m; sourceTree = "<group>"; };
+		F113F1E722E9A408004F49A7 /* CustomRadianView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRadianView.h; sourceTree = "<group>"; };
 		F114D4A622AF8A480074377E /* CustomProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProgressView.h; sourceTree = "<group>"; };
 		F114D4A722AF8A480074377E /* CustomProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProgressView.m; sourceTree = "<group>"; };
 		F126C46B224E170E00C24566 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
@@ -508,6 +511,8 @@
 				F187EBB4224B56C700293096 /* PWDInputView.m */,
 				F187EBB5224B56C700293096 /* SkyRadiusView.h */,
 				F187EBB6224B56C700293096 /* SkyRadiusView.m */,
+				F113F1E722E9A408004F49A7 /* CustomRadianView.h */,
+				F113F1E622E9A408004F49A7 /* CustomRadianView.m */,
 				F114D4A622AF8A480074377E /* CustomProgressView.h */,
 				F114D4A722AF8A480074377E /* CustomProgressView.m */,
 			);
@@ -767,6 +772,7 @@
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,
 				F187EBD0224B570000293096 /* GetUUID.m in Sources */,
 				F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */,
+				F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */,
 				F187EBA8224B56AE00293096 /* TBCityIconFont.m in Sources */,
 				F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */,
 				F187EBAD224B56B800293096 /* MD5.m in Sources */,
