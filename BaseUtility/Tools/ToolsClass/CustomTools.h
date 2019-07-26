@@ -240,6 +240,17 @@
 
 
 
+
+/**
+ 读取本地JSON文件
+
+ @param name 文件名
+ @return 返回Dictionary结果
+ */
++ (NSDictionary *)readLocalJsonFileWithFileName:(NSString *_Nonnull)name;
+
+
+
 /**
  检测APP版本号
 
