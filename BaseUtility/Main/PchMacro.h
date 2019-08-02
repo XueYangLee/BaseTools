@@ -176,7 +176,7 @@
 #pragma mark -------------- 版本信息
 /** 获取Xcode的版本号 */
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-/** iOS系统版本 */
+/** iOS系统版本  NSString类型*/
 #define IOS_SYSTEM_VERSION [[UIDevice currentDevice] systemVersion]
 /** 当前系统语言 */
 #define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
