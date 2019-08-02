@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取网络图片尺寸
 
- @param imageURL 图片网址
+ @param imageURL 图片网址或url字符串
  @return 返回的尺寸
  */
 + (CGSize)imageSizeWithImageUrl:(id)imageURL;
