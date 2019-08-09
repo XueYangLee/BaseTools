@@ -223,7 +223,7 @@
             if (comp) {
                 comp(YES);
             }
-        } else {
+        } else {//如果保存失败优先检查appName是否存在，保存需要建立在以APP名字建立的相册上
             DLog(@"%@->图片保存失败",error);
             if (comp) {
                 comp(NO);

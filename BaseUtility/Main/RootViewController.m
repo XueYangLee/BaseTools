@@ -33,7 +33,7 @@
     
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithHexString:@"eeeeee"]];//tabbar背景色
     
-    if ([IOS_VERSION isEqualToString:@"12.1"]) {
+    if ([IOS_SYSTEM_VERSION isEqualToString:@"12.1"]) {
         [UITabBar appearance].translucent = NO;
     }
 //    [UITabBar appearance].translucent = NO;//取消透明效果/如果使用系统OS12.1 UINavigationController + UITabBarController（ UITabBar 磨砂），在popViewControllerAnimated 会遇到tabbar布局错乱的问题

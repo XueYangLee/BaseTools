@@ -59,6 +59,15 @@
     }else if (sender.tag==12){
         WKWebViewController *web=[WKWebViewController new];
         NaviRoutePushToVC(web, YES);
+        
+//        [SVProgressHUD showWithStatus:@"保存中"];
+//        [[SaveImageManager sharedSaveImage]saveImage:@"https://file.wchoosemall.com/platform/manager/pic/20190325/7448903938448587.jpg" Completion:^(BOOL success) {
+//            if (success) {
+//                [SVProgressHUD showSuccessWithStatus:@"保存成功啊啊啊啊"];
+//            }else{
+//                [SVProgressHUD showErrorWithStatus:@"保存失败啊啊啊啊"];
+//            }
+//        }];
     }else if (sender.tag==13){
         
         [CustomAlert showCustomAlertAddTarget:self Title:nil TitleFont:FontRegular(12) TitleColor:[UIColor redColor] Message:@"内容内容内容内容内容内容内容内容" MessageFont:nil MessageColor:nil MessageAlignment:NSTextAlignmentCenter CancelBtnTitle:@"取消" CancelBtnColor:nil DefaultBtnTitle:@"确定" DefaultBtnColor:[UIColor purpleColor] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
