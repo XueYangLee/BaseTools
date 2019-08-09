@@ -10,24 +10,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^SaveImageCompletion)(BOOL success);
+
+
 @interface SaveImageManager : NSObject
+
+/** 图片保存单例 */
++ (instancetype)sharedSaveImage;
+
 
 
 /**
  保存多张图片并创建APP相册到本地
- 
+
  @param imageArray 图片数组
+ @param comp 保存结果 进行后续操作
  */
-+ (void)saveImages:(NSArray <NSString *>*)imageArray;
+- (void)saveImages:(NSArray <NSString *>*)imageArray Completion:(SaveImageCompletion)comp;
 
 
 
 /**
  保存单张图片并创建APP相册到本地
- 
+
  @param imageUrl 图片Url
+ @param comp 保存结果 进行后续操作
  */
-+ (void)saveImage:(NSString *)imageUrl;
+- (void)saveImage:(NSString *)imageUrl Completion:(SaveImageCompletion)comp;
+
+
 
 
 
@@ -37,9 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param image 图片
  @param comp 回调
  */
-+ (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp;
-
-
+- (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp;
 
 
 /**
@@ -48,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param imgsArray 图片数组Url
  @param comp 回调 返回image数组
  */
-+ (void)downloadWebImages:(NSArray<NSString *> *)imgsArray completion:(void(^)(NSArray *imageArray))comp;
+- (void)downloadWebImages:(NSArray<NSString *> *)imgsArray completion:(void(^)(NSArray *imageArray))comp;
 
 @end
 
