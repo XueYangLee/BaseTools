@@ -56,6 +56,11 @@
     }else if (sender.tag==11){
         CollectionViewController *collect=[CollectionViewController new];
         NaviRoutePushToVC(collect, YES);
+        
+//        [SVProgressHUD showWithStatus:@"保存中"];
+//        [[DownloadVideo sharedDownloadVideo]videoDownloadWithUrl:@"https://file.wegoomall.cn/video/20190625/8033690822046423.mp4" Completion:^(BOOL success) {
+//            [SVProgressHUD showSuccessWithStatus:success?@"成功啊啊啊":@"失败啦啦"];
+//        }];
     }else if (sender.tag==12){
         WKWebViewController *web=[WKWebViewController new];
         NaviRoutePushToVC(web, YES);

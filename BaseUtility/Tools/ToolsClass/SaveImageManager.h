@@ -26,7 +26,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param imageArray 图片数组
  @param comp 保存结果 进行后续操作
  */
-- (void)saveImages:(NSArray <NSString *>*)imageArray Completion:(SaveImageCompletion)comp;
+- (void)saveImages:(NSArray <NSString *>*)imageArray Completion:(nullable SaveImageCompletion)comp;
 
 
 
@@ -36,7 +36,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param imageUrl 图片Url
  @param comp 保存结果 进行后续操作
  */
-- (void)saveImage:(NSString *)imageUrl Completion:(SaveImageCompletion)comp;
+- (void)saveImage:(NSString *)imageUrl Completion:(nullable SaveImageCompletion)comp;
 
 
 

@@ -8,14 +8,27 @@
 
 #import "DownloadVideo.h"
 
+@interface DownloadVideo ()
+
+@property (nonatomic,copy) DownloadVideoCompletion downloadCompletion;
+
+@end
+
 @implementation DownloadVideo
+
++ (instancetype)sharedDownloadVideo {
+    static DownloadVideo *sharedDownloadVideo = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedDownloadVideo = [[DownloadVideo alloc]init];
+    });
+    return sharedDownloadVideo;
+}
 
 
 //-----下载视频--
-+ (void)videoDownloadWithUrl:(NSString *)videoUrl{
-    
-    
-    [SVProgressHUD showWithStatus:@"保存中"];
+- (void)videoDownloadWithUrl:(NSString *)videoUrl Completion:(DownloadVideoCompletion)comp{
+    self.downloadCompletion=comp;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -37,7 +50,7 @@
 }
 
 //videoPath为视频下载到本地之后的本地路径
-+ (void)saveVideo:(NSString *)videoPath{
+- (void)saveVideo:(NSString *)videoPath{
     
     if (videoPath) {
         NSURL *url = [NSURL URLWithString:videoPath];
@@ -51,13 +64,17 @@
 
 
 //保存视频完成之后的回调
-+ (void)savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
+- (void)savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
     if (error) {
 //        DLog(@"保存视频失败%@", error.localizedDescription);
-        [SVProgressHUD showErrorWithStatus:@"视频保存失败"];
+        if (self.downloadCompletion) {
+            self.downloadCompletion(NO);
+        }
     }else {
 //        DLog(@"保存视频成功");
-        [SVProgressHUD showSuccessWithStatus:@"视频保存成功"];
+        if (self.downloadCompletion) {
+            self.downloadCompletion(YES);
+        }
     }
 }
 
