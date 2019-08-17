@@ -1,0 +1,74 @@
+//
+//  UITextField+FuncChains.h
+//  BaseTools
+//
+//  Created by Singularity on 2019/8/17.
+//  Copyright © 2019 Singularity. All rights reserved.
+//
+//
+/** UITextField *textField=UITextField.func_init.func_frame(CGRectMake(10, 200, 200, 40)).func_text(@"textField").func_placeholder(@"placeholder").func_borderStyle(UITextBorderStyleLine).func_clearButtonMode(UITextFieldViewModeWhileEditing);
+    [self.view addSubview:textField];
+ 或
+     UITextField *textField=[UITextField new].func_frame(CGRectMake(10, 200, 200, 40)).func_text(@"textField").func_placeholder(@"placeholder").func_borderStyle(UITextBorderStyleLine).func_clearButtonMode(UITextFieldViewModeWhileEditing);
+     [self.view addSubview:textField];
+ 
+ */
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface UITextField (FuncChains)
+
+/** 初始化 不使用此初始化则需要[UITextField new]*/
++ (UITextField *)func_init;
+
+/** 范围大小 */
+- (UITextField * (^)(CGRect frame))func_frame;
+
+/** 背景色 */
+- (UITextField * (^)(UIColor *backgroundColor))func_backgroundColor;
+
+/** 文本 */
+- (UITextField * (^)(NSString *text))func_text;
+
+/** 文本颜色 */
+- (UITextField * (^)(UIColor *textColor))func_textColor;
+
+/** 占位文本 */
+- (UITextField * (^)(NSString *placeholder))func_placeholder;
+
+/** 字体 */
+- (UITextField * (^)(UIFont *font))func_font;
+
+/** 对齐方式 */
+- (UITextField * (^)(NSTextAlignment textAlignment))func_textAlignment;
+
+/** 光标颜色 */
+- (UITextField * (^)(UIColor *tintColor))func_tintColor;
+
+/** 输入框能否编辑 */
+- (UITextField * (^)(BOOL enable))func_enable;
+
+/** 编辑框中的内容密码显示 */
+- (UITextField * (^)(BOOL secureTextEntry))func_secureTextEntry;
+
+/** 边框样式 默认的样式为UITextBorderStyleNone */
+- (UITextField * (^)(UITextBorderStyle borderStyle))func_borderStyle;
+
+/** 清除按钮的模式 默认样式为UITextFieldViewModeNever */
+- (UITextField * (^)(UITextFieldViewMode clearButtonMode))func_clearButtonMode;
+
+/** 返回键的类型 */
+- (UITextField * (^)(UIReturnKeyType returnKeyType))func_returnKeyType;
+
+/** 键盘类型 */
+- (UITextField * (^)(UIKeyboardType keyboardType))func_keyboardType;
+
+
+
+
+
+@end
+
+NS_ASSUME_NONNULL_END

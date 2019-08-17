@@ -8,6 +8,9 @@
 
 
 /****** Category ******/
+#import "UILabel+FuncChains.h"
+#import "UIButton+FuncChains.h"
+#import "UITextField+FuncChains.h"
 #import "CALayer+XibBorderColor.h"
 #import "MBProgressHUD+MBExtension.h"
 #import "NSArray+LXY.h"

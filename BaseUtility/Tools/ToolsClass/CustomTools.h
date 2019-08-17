@@ -25,13 +25,6 @@
 
 
 /**
- 自定义textfield
- */
-+ (UITextField *_Nullable)textFieldWithPlaceHolder:(NSString *_Nullable)placeHolder textFont:(NSInteger)font textColor:(UIColor *_Nullable)color;
-
-
-
-/**
  自定义文字属性大小及颜色 label.attributedText
  
  @param lableText 要定义的文字内容

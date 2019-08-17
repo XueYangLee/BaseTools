@@ -26,15 +26,16 @@
 - (void)prepareLayout
 {
     [super prepareLayout];
-    //    self.cache = [NSCache new];
+    self.cache = [NSCache new];
 }
 
 - (void)invalidateLayout
 {
     [super invalidateLayout];
-    //    self.cache = [NSCache new];
+    self.cache = [NSCache new];
 }
 
+/* ios9以下同时设置代理cgsize跟itemsize有崩溃现象
 - (BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes
 {
     return YES;
@@ -43,7 +44,7 @@
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
     return YES;
-}
+}*/
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {

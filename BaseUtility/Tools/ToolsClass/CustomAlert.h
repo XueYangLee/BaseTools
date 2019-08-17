@@ -92,19 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-/**
- alert弹框内容布局显示
-
- @param viewController 来源视图
- @param title 标题
- @param titleAlignment 标题校准
- @param message 内容
- @param messageAlignment 内容校准
- @param cancelBtnTitle 取消按钮文字
- @param defaultBtnTitle 默认按钮文字
- @param actionHandle 操作
- */
-+ (void)showAlertContentAlignmentAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title TitleAlignment:(NSTextAlignment)titleAlignment Message:(NSString *_Nullable)message MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 
@@ -118,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param message 内容
  @param messageFont 内容文字属性
  @param messageColor 内容颜色
- @param messageAlignment 内容校准
+ @param messageAlignment 内容对齐方式
  @param cancelBtnTitle 取消按钮文字
  @param cancelBtnColor 取消按钮文字颜色
  @param defaultBtnTitle 默认按钮文字
@@ -126,6 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param actionHandle 操作
  */
 + (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title TitleFont:(UIFont *_Nullable)titleFont TitleColor:(UIColor *_Nullable)titleColor Message:(NSString *_Nullable)message MessageFont:(UIFont *_Nullable)messageFont MessageColor:(UIColor *_Nullable)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle CancelBtnColor:(UIColor *_Nullable)cancelBtnColor DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle DefaultBtnColor:(UIColor *_Nullable)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
+
 
 
 @end

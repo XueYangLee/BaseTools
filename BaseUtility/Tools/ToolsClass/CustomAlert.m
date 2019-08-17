@@ -145,61 +145,13 @@
 }
 
 
-+ (void)showAlertContentAlignmentAddTarget:(UIViewController *)viewController Title:(NSString *)title TitleAlignment:(NSTextAlignment)titleAlignment Message:(NSString *)message MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *)cancelBtnTitle DefaultBtnTitle:(NSString *)defaultBtnTitle ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
-    
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIView *subView1 = alert.view.subviews[0];
-    UIView *subView2 = subView1.subviews[0];
-    UIView *subView3 = subView2.subviews[0];
-    UIView *subView4 = subView3.subviews[0];
-    UIView *subView5 = subView4.subviews[0];
-    
-    UILabel *titleLabel = subView5.subviews[0];
-    UILabel *messageLabel = subView5.subviews[1];
-    
-    titleLabel.textAlignment = titleAlignment;
-    messageLabel.textAlignment = messageAlignment;
-    
-    if (cancelBtnTitle) {
-        __weak typeof(alert) weakAlert = alert;
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelBtnTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            __strong typeof(weakAlert) alert = weakAlert;
-            if (actionHandle) {
-                actionHandle([alert.actions indexOfObject:action], action.title);
-            }
-        }];
-        [alert addAction:cancelAction];
-    }
-    
-    if (defaultBtnTitle) {
-        __weak typeof(alert) weakAlert = alert;
-        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:defaultBtnTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            __strong typeof(weakAlert) alert = weakAlert;
-            if (actionHandle) {
-                actionHandle([alert.actions indexOfObject:action], action.title);
-            }
-        }];
-        [alert addAction:defaultAction];
-    }
-    
-    [viewController presentViewController:alert animated:YES completion:nil];
-    
-}
+
+
 
 
 + (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title TitleFont:(UIFont *)titleFont TitleColor:(UIColor *)titleColor Message:(NSString *)message MessageFont:(UIFont *)messageFont MessageColor:(UIColor *)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *)cancelBtnTitle CancelBtnColor:(UIColor *)cancelBtnColor DefaultBtnTitle:(NSString *)defaultBtnTitle DefaultBtnColor:(UIColor *)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIView *subView1 = alert.view.subviews[0];
-    UIView *subView2 = subView1.subviews[0];
-    UIView *subView3 = subView2.subviews[0];
-    UIView *subView4 = subView3.subviews[0];
-    UIView *subView5 = subView4.subviews[0];
-    
-    UILabel *messageLabel = subView5.subviews[1];
-    
     
     if (title) {
         
@@ -220,21 +172,21 @@
     
     if (message) {
         
-        NSMutableAttributedString *attributedMesStr = [[NSMutableAttributedString alloc] initWithString:message];
+        NSMutableAttributedString *attributedMsgStr = [[NSMutableAttributedString alloc] initWithString:message];
         //设置颜色
         if (messageColor) {
-            [attributedMesStr addAttribute:NSForegroundColorAttributeName value:messageColor range:NSMakeRange(0, attributedMesStr.length)];
+            [attributedMsgStr addAttribute:NSForegroundColorAttributeName value:messageColor range:NSMakeRange(0, attributedMsgStr.length)];
         }
         
         //设置大小
         if (messageFont) {
-            [attributedMesStr addAttribute:NSFontAttributeName value:messageFont range:NSMakeRange(0, attributedMesStr.length)];
+            [attributedMsgStr addAttribute:NSFontAttributeName value:messageFont range:NSMakeRange(0, attributedMsgStr.length)];
         }
+        //文字对齐校准  需接入YYText
+//        attributedMsgStr.alignment=messageAlignment;
         
+        [alert setValue:attributedMsgStr forKey:@"attributedMessage"];
         
-        [alert setValue:attributedMesStr forKey:@"attributedMessage"];
-        
-        messageLabel.textAlignment = messageAlignment;
     }
     
     

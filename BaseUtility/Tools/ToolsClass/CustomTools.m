@@ -38,18 +38,6 @@
     return btn;
 }
 
-
-
-#pragma mark 自定义textfield
-+ (UITextField *)textFieldWithPlaceHolder:(NSString *)placeHolder textFont:(NSInteger)font textColor:(UIColor *)color
-{
-    UITextField *text=[UITextField new];
-    text.placeholder=placeHolder;
-    text.font=[UIFont systemFontOfSize:font];
-    text.textColor=color;
-    return text;
-}
-
 #pragma mark 自定义文字大小及颜色
 + (NSMutableAttributedString *)labelDifferentAttributedWithText:(NSString *)lableText Section:(NSRange)sectionRange Font:(UIFont *)textFont TextColor:(UIColor *)textColor
 {

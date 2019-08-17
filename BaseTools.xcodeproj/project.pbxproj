@@ -17,6 +17,9 @@
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
+		F12D6C562307CE3700AAC2CF /* UITextField+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */; };
+		F12D6C592307CE5A00AAC2CF /* UILabel+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */; };
+		F12D6C5D2307CE9500AAC2CF /* UIButton+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */; };
 		F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */; };
 		F187E9C6224B196A00293096 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C5224B196A00293096 /* AppDelegate.m */; };
 		F187E9C9224B196A00293096 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C8224B196A00293096 /* ViewController.m */; };
@@ -123,6 +126,12 @@
 		F126C47A224E270900C24566 /* BasePushActionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePushActionConfig.h; sourceTree = "<group>"; };
 		F126C47B224E283900C24566 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F126C47C224E283900C24566 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F12D6C542307CE3700AAC2CF /* UITextField+FuncChains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+FuncChains.h"; sourceTree = "<group>"; };
+		F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+FuncChains.m"; sourceTree = "<group>"; };
+		F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+FuncChains.h"; sourceTree = "<group>"; };
+		F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FuncChains.m"; sourceTree = "<group>"; };
+		F12D6C5B2307CE9500AAC2CF /* UIButton+FuncChains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+FuncChains.h"; sourceTree = "<group>"; };
+		F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FuncChains.m"; sourceTree = "<group>"; };
 		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
 		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,6 +465,12 @@
 				F187EB59224B568C00293096 /* UIView+IBExtension.m */,
 				F126C474224E24B600C24566 /* UIViewController+CurrentViewController.h */,
 				F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */,
+				F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */,
+				F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */,
+				F12D6C5B2307CE9500AAC2CF /* UIButton+FuncChains.h */,
+				F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */,
+				F12D6C542307CE3700AAC2CF /* UITextField+FuncChains.h */,
+				F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -778,6 +793,7 @@
 				F187EBAD224B56B800293096 /* MD5.m in Sources */,
 				F19FC8E6224E05D90044772B /* MineViewController.m in Sources */,
 				F187EBA9224B56AE00293096 /* TBCityIconInfo.m in Sources */,
+				F12D6C562307CE3700AAC2CF /* UITextField+FuncChains.m in Sources */,
 				F187E9C9224B196A00293096 /* ViewController.m in Sources */,
 				F187EBBE224B56C800293096 /* SkyRadiusView.m in Sources */,
 				F187EBBA224B56C800293096 /* CustomBtn.m in Sources */,
@@ -801,12 +817,14 @@
 				F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */,
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
+				F12D6C5D2307CE9500AAC2CF /* UIButton+FuncChains.m in Sources */,
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,
 				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
 				F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */,
 				F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */,
 				F187EBBF224B56C800293096 /* CustomTextView.m in Sources */,
+				F12D6C592307CE5A00AAC2CF /* UILabel+FuncChains.m in Sources */,
 				F187EB98224B56A100293096 /* AVCaptureVideoPreviewLayer+Helper.m in Sources */,
 				F104D92822844D88004D340F /* DownloadVideo.m in Sources */,
 				F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */,

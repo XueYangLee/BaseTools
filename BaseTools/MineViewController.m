@@ -30,7 +30,21 @@
     
     NSString *secInterval=[DateOperation intervalTimeWithMinuteSecFromTimeStamp:@"1555316485000" ToTimeStamp:nil];
     DLog(@"%@>>>>>",secInterval);
+    
+    
+    UITextField *textField=UITextField.func_init.func_frame(CGRectMake(10, 200, 200, 40)).func_text(@"textField").func_placeholder(@"placeholder").func_borderStyle(UITextBorderStyleLine).func_clearButtonMode(UITextFieldViewModeWhileEditing);
+    [self.view addSubview:textField];
+    
+    
+    UIButton *btn=[UIButton new].func_frame(CGRectMake(10, 250, 100, 100)).func_backgroundColor([UIColor blueColor]).func_title(@"默认文字").func_title_state(@"点击文案",UIControlStateSelected).func_font(FontLight(12)).func_addTarget_action(self,@selector(btnClick:));
+    [self.view addSubview:btn];
+    
 }
+
+- (void)btnClick:(UIButton *)sender{
+    sender.selected=!sender.selected;
+}
+
 
 /*
 #pragma mark - Navigation
