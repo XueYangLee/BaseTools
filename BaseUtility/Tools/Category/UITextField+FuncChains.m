@@ -43,6 +43,13 @@
     };
 }
 
+- (UITextField * _Nonnull (^)(UIFont * _Nonnull))func_font{
+    return ^id(UIFont *font){
+        self.font=font;
+        return self;
+    };
+}
+
 - (UITextField * _Nonnull (^)(NSString * _Nonnull))func_placeholder{
     return ^id(NSString *placeholder){
         self.placeholder=placeholder;
@@ -50,9 +57,16 @@
     };
 }
 
-- (UITextField * _Nonnull (^)(UIFont * _Nonnull))func_font{
-    return ^id(UIFont *font){
-        self.font=font;
+- (UITextField * _Nonnull (^)(UIColor * _Nonnull))func_placeholderColor{
+    return ^id(UIColor *placeholderColor){
+        [self setValue:placeholderColor forKeyPath:@"_placeholderLabel.textColor"];
+        return self;
+    };
+}
+
+- (UITextField * _Nonnull (^)(UIFont * _Nonnull))func_placeholderFont{
+    return ^id(UIFont *placeholderFont){
+        [self setValue:placeholderFont forKeyPath:@"_placeholderLabel.font"];
         return self;
     };
 }

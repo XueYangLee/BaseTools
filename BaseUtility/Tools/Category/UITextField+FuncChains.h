@@ -35,11 +35,17 @@ NS_ASSUME_NONNULL_BEGIN
 /** 文本颜色 */
 - (UITextField * (^)(UIColor *textColor))func_textColor;
 
+/** 字体 */
+- (UITextField * (^)(UIFont *font))func_font;
+
 /** 占位文本 */
 - (UITextField * (^)(NSString *placeholder))func_placeholder;
 
-/** 字体 */
-- (UITextField * (^)(UIFont *font))func_font;
+/** 占位文本颜色 */
+- (UITextField * (^)(UIColor *placeholderColor))func_placeholderColor;
+
+/** 占位文本字体 */
+- (UITextField * (^)(UIFont *placeholderFont))func_placeholderFont;
 
 /** 对齐方式 */
 - (UITextField * (^)(NSTextAlignment textAlignment))func_textAlignment;

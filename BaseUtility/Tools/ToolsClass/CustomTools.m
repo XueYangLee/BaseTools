@@ -16,27 +16,6 @@
 
 @implementation CustomTools
 
-#pragma mark 自定义Label
-+ (UILabel *)labelWithTitle:(NSString *)text Font:(UIFont *)font textColor:(UIColor *)color
-{
-    UILabel *label=[UILabel new];
-    label.text=text;
-    label.font=font;
-    label.textColor=color;
-    label.textAlignment=NSTextAlignmentNatural;
-    return label;
-}
-
-#pragma mark 自定义button
-+ (UIButton *)buttonWithTitle:(NSString *)title font:(UIFont *)font titleColor:(UIColor *)color Selector:(SEL)btnSelect Target:(id)target
-{
-    UIButton *btn=[UIButton new];
-    btn.titleLabel.font=font;
-    [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:color forState:UIControlStateNormal];
-    [btn addTarget:target action:btnSelect forControlEvents:UIControlEventTouchUpInside];
-    return btn;
-}
 
 #pragma mark 自定义文字大小及颜色
 + (NSMutableAttributedString *)labelDifferentAttributedWithText:(NSString *)lableText Section:(NSRange)sectionRange Font:(UIFont *)textFont TextColor:(UIColor *)textColor

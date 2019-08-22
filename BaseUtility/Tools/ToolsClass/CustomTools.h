@@ -11,18 +11,6 @@
 @interface CustomTools : NSObject
 
 
-/**
- 自定义Label
- */
-+ (UILabel *_Nullable)labelWithTitle:(NSString *_Nullable)text Font:(UIFont *_Nonnull)font textColor:(UIColor *_Nullable)color;
-
-
-/**
- 自定义button
- */
-+ (UIButton *_Nullable)buttonWithTitle:(NSString *_Nullable)title font:(UIFont *_Nonnull)font titleColor:(UIColor *_Nullable)color Selector:(SEL _Nullable )btnSelect Target:(id _Nonnull )target;
-
-
 
 /**
  自定义文字属性大小及颜色 label.attributedText
