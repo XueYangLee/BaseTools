@@ -32,7 +32,7 @@
     DLog(@"%@>>>>>",secInterval);
     
     
-    UITextField *textField=UITextField.func_init.func_frame(CGRectMake(10, 200, 200, 40)).func_text(@"textField").func_placeholder(@"placeholder").func_borderStyle(UITextBorderStyleLine).func_clearButtonMode(UITextFieldViewModeWhileEditing);
+    UITextField *textField=UITextField.func_init.func_frame(CGRectMake(10, 200, 200, 40)).func_text(@"textField").func_placeholder(@"placeholder").func_placeholderColor([UIColor blueColor]).func_borderStyle(UITextBorderStyleLine).func_clearButtonMode(UITextFieldViewModeWhileEditing);
     [self.view addSubview:textField];
     
     

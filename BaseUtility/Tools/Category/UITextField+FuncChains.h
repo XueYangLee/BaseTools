@@ -41,10 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 占位文本 */
 - (UITextField * (^)(NSString *placeholder))func_placeholder;
 
-/** 占位文本颜色 */
+/** 占位文本颜色  *需写在占位文本后 */
 - (UITextField * (^)(UIColor *placeholderColor))func_placeholderColor;
 
-/** 占位文本字体 */
+/** 占位文本字体  *需写在占位文本后 默认占位文本字体跟随文体字体 iOS11后不与占位文本颜色同时存在 */
 - (UITextField * (^)(UIFont *placeholderFont))func_placeholderFont;
 
 /** 对齐方式 */
