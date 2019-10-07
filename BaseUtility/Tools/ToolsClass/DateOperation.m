@@ -29,11 +29,11 @@
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     if (showSecond==YES)
     {
-        [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     }
     else
     {
-        [formatter setDateFormat:@"YYYY-MM-dd"];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
     }
     
     NSString *timeStr=[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000]];
@@ -56,9 +56,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
     if (isShowExact) {
-        [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+        [formatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     }else{
-        [formatter setDateFormat:@"YYYY-MM-dd"];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
     }
     //现在时间,你可以输出来看下是什么格式
     NSDate *datenow = [NSDate date];
