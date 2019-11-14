@@ -365,8 +365,8 @@
 + (void)callUpWithPhoneNumber:(NSString *)phoneNum
 {
     NSString *telNum=[NSString stringWithFormat:@"telprompt://%@",phoneNum];
-    CGFloat version = [[[UIDevice currentDevice]systemVersion]floatValue];
-    if (version >= 10.0) {
+//    CGFloat version = [[[UIDevice currentDevice]systemVersion]floatValue];
+    if (@available(iOS 10.0, *)) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNum] options:@{} completionHandler:nil];
     } else {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNum]];
