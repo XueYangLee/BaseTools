@@ -135,6 +135,13 @@
     };
 }
 
+- (UITextField * _Nonnull (^)(id _Nonnull, SEL _Nonnull, UIControlEvents))func_addTarget_action_events{
+    return ^id(id target,SEL action,UIControlEvents controlEvents){
+        [self addTarget:target action:action forControlEvents:controlEvents];
+        return self;
+    };
+}
+
 /* 看作执行的了一个block  block中再返回了一个对象
 - (UITextField * (^)(NSString *text))func_text{
     UITextField *(^textFieldBlock)(NSString *text)=^(NSString *text){

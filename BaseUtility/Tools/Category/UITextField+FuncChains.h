@@ -71,7 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 键盘类型 */
 - (UITextField * (^)(UIKeyboardType keyboardType))func_keyboardType;
 
-
+/** 操作事件 (target,action,controlEvents) */
+- (UITextField * (^)(id target,SEL action,UIControlEvents controlEvents))func_addTarget_action_events;
 
 
 
