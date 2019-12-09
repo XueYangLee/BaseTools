@@ -71,7 +71,7 @@
     
 }
 
-
+//在 Info.plist 文件中添加 View controller-based status bar appearance 设置为 YES 否则不生效
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return self.statusBarStyle;
 }
