@@ -10,14 +10,12 @@
 
 @interface UIImage (Extension)
 
-/**
- *  返回拉伸图片
- */
+/** 返回拉伸图片 */
 + (UIImage *)resizedImage:(NSString *)name;
-/**
- *  用颜色返回一张图片
- */
+
+/** 用颜色返回一张图片 */
 + (UIImage *)imageWithColor:(UIColor*)color Alpha:(CGFloat)alpha;
+
 /**
  *  带边框的图片
  *
@@ -37,9 +35,8 @@
  */
 + (instancetype)imageViewWithImageName:(NSString *)imageName;
 
-/**
- * 圆形图片
- */
+
+/** 圆形图片 */
 - (UIImage *)circleImage;
 
 
@@ -59,6 +56,11 @@
  *  @return 屏幕截图图像
  */
 + (UIImage *)screenShot;
+
+
+
+/** 获取启动图 */
++ (UIImage *)getLaunchImage;
 
 
 @end
