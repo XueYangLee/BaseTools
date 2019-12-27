@@ -77,6 +77,20 @@
     };
 }
 
+- (UIButton * _Nonnull (^)(UIControlContentVerticalAlignment))func_contentVerticalAlignment{
+    return ^id(UIControlContentVerticalAlignment contentVerticalAlignment){
+        self.contentVerticalAlignment=contentVerticalAlignment;
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(UIControlContentHorizontalAlignment))func_contentHorizontalAlignment{
+    return ^id(UIControlContentHorizontalAlignment contentHorizontalAlignment){
+        self.contentHorizontalAlignment=contentHorizontalAlignment;
+        return self;
+    };
+}
+
 - (UIButton * _Nonnull (^)(UIColor * _Nonnull))func_backgroundColor{
     return ^id(UIColor *backgroundColor){
         self.backgroundColor=backgroundColor;

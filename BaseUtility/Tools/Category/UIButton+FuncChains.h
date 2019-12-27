@@ -42,10 +42,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** 图片及按钮状态 (image,state) */
 - (UIButton * (^)(UIImage *image,UIControlState state))func_image_state;
 
+/** 按钮内容垂直对齐方式 */
+- (UIButton * (^)(UIControlContentVerticalAlignment contentVerticalAlignment))func_contentVerticalAlignment;
+
+/** 按钮内容水平对齐方式 */
+- (UIButton * (^)(UIControlContentHorizontalAlignment contentHorizontalAlignment))func_contentHorizontalAlignment;
+
 /** 背景色 */
 - (UIButton * (^)(UIColor *backgroundColor))func_backgroundColor;
 
-/** 按钮点击动作及触发对象 (target,action) */
+/** 按钮点击触发对象及点击事件 (target,action) */
 - (UIButton * (^)(id target,SEL action))func_addTarget_action;
 
 
