@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */; };
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
 		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
 		F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = F1129AE822CCC99E00540259 /* VideoCompress.m */; };
@@ -106,6 +107,8 @@
 /* Begin PBXFileReference section */
 		0E169E40CCC4E780F8D7460A /* Pods-BaseTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.release.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.release.xcconfig"; sourceTree = "<group>"; };
 		2B14B0D25CB62361C4CE8704 /* Pods-BaseTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.debug.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.debug.xcconfig"; sourceTree = "<group>"; };
+		3D43964B23B9A76200C0244A /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
+		3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SwizzleMethod.m"; sourceTree = "<group>"; };
 		5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F104D92622844D87004D340F /* DownloadVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadVideo.h; sourceTree = "<group>"; };
 		F104D92722844D87004D340F /* DownloadVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadVideo.m; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				F187EB5C224B568C00293096 /* UIView+Extension.m */,
 				F187EB54224B568B00293096 /* UIView+IBExtension.h */,
 				F187EB59224B568C00293096 /* UIView+IBExtension.m */,
+				3D43964B23B9A76200C0244A /* NSObject+SwizzleMethod.h */,
+				3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */,
 				F126C474224E24B600C24566 /* UIViewController+CurrentViewController.h */,
 				F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */,
 				F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */,
@@ -838,6 +843,7 @@
 				F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */,
 				F187EB4E224B567F00293096 /* BaseWebViewController.m in Sources */,
 				F187EB72224B569100293096 /* NSDictionary+LXY.m in Sources */,
+				3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

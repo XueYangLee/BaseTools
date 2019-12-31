@@ -27,6 +27,7 @@
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
 #import "BasePushActionConfig.h"
+#import "NSObject+SwizzleMethod.h"
 
 /****** Tools ******/
 #import "CustomNetWork.h"
