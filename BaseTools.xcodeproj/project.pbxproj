@@ -18,6 +18,7 @@
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
+		F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */ = {isa = PBXBuildFile; fileRef = F12CB25624289CB6005BEAB0 /* NSArray+Sudoku.m */; };
 		F12D6C562307CE3700AAC2CF /* UITextField+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */; };
 		F12D6C592307CE5A00AAC2CF /* UILabel+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */; };
 		F12D6C5D2307CE9500AAC2CF /* UIButton+FuncChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */; };
@@ -129,6 +130,8 @@
 		F126C47A224E270900C24566 /* BasePushActionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePushActionConfig.h; sourceTree = "<group>"; };
 		F126C47B224E283900C24566 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F126C47C224E283900C24566 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F12CB25524289CB5005BEAB0 /* NSArray+Sudoku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Sudoku.h"; sourceTree = "<group>"; };
+		F12CB25624289CB6005BEAB0 /* NSArray+Sudoku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Sudoku.m"; sourceTree = "<group>"; };
 		F12D6C542307CE3700AAC2CF /* UITextField+FuncChains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+FuncChains.h"; sourceTree = "<group>"; };
 		F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+FuncChains.m"; sourceTree = "<group>"; };
 		F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+FuncChains.h"; sourceTree = "<group>"; };
@@ -466,6 +469,8 @@
 				F187EB5C224B568C00293096 /* UIView+Extension.m */,
 				F187EB54224B568B00293096 /* UIView+IBExtension.h */,
 				F187EB59224B568C00293096 /* UIView+IBExtension.m */,
+				F12CB25524289CB5005BEAB0 /* NSArray+Sudoku.h */,
+				F12CB25624289CB6005BEAB0 /* NSArray+Sudoku.m */,
 				3D43964B23B9A76200C0244A /* NSObject+SwizzleMethod.h */,
 				3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */,
 				F126C474224E24B600C24566 /* UIViewController+CurrentViewController.h */,
@@ -735,18 +740,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BaseTools/Pods-BaseTools-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-BaseTools/Pods-BaseTools-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-BaseTools/Pods-BaseTools-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -814,6 +812,7 @@
 				F187EB51224B567F00293096 /* BaseViewController.m in Sources */,
 				F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */,
 				F187EB97224B56A100293096 /* QRCodeScanViewController.m in Sources */,
+				F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */,
 				F187EB50224B567F00293096 /* RootViewController.m in Sources */,
 				F187EB4F224B567F00293096 /* RootNavigationController.m in Sources */,
 				F187EB9A224B56A100293096 /* LXYQRCodeUtility.m in Sources */,

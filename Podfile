@@ -5,4 +5,5 @@ pod 'MBProgressHUD'
 pod 'SVProgressHUD'
 pod 'MJRefresh'
 pod 'SDWebImage'
+pod 'Masonry'
 end
