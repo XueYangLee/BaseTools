@@ -28,6 +28,8 @@
 #import "UIViewController+CurrentViewController.h"
 #import "BasePushActionConfig.h"
 #import "NSObject+SwizzleMethod.h"
+#import "UIView+CustomCornerRadius.h"
+#import "UIView+CustomCornerBorder.h"
 #import "NSArray+Sudoku.h"
 
 /****** Tools ******/

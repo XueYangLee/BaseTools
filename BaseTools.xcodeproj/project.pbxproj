@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
+		046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */; };
 		3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */; };
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
 		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
@@ -106,6 +108,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046B988724581E9000979059 /* UIView+CustomCornerBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerBorder.h"; sourceTree = "<group>"; };
+		046B988824581E9000979059 /* UIView+CustomCornerBorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomCornerBorder.m"; sourceTree = "<group>"; };
+		046B988A24581F0C00979059 /* UIView+CustomCornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerRadius.h"; sourceTree = "<group>"; };
+		046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomCornerRadius.m"; sourceTree = "<group>"; };
 		0E169E40CCC4E780F8D7460A /* Pods-BaseTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.release.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.release.xcconfig"; sourceTree = "<group>"; };
 		2B14B0D25CB62361C4CE8704 /* Pods-BaseTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.debug.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.debug.xcconfig"; sourceTree = "<group>"; };
 		3D43964B23B9A76200C0244A /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
@@ -286,6 +292,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046B988524581DB900979059 /* FuncControl */ = {
+			isa = PBXGroup;
+			children = (
+				F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */,
+				F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */,
+				F12D6C5B2307CE9500AAC2CF /* UIButton+FuncChains.h */,
+				F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */,
+				F12D6C542307CE3700AAC2CF /* UITextField+FuncChains.h */,
+				F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */,
+			);
+			path = FuncControl;
+			sourceTree = "<group>";
+		};
+		046B988624581E4C00979059 /* CustomCorner */ = {
+			isa = PBXGroup;
+			children = (
+				046B988724581E9000979059 /* UIView+CustomCornerBorder.h */,
+				046B988824581E9000979059 /* UIView+CustomCornerBorder.m */,
+				046B988A24581F0C00979059 /* UIView+CustomCornerRadius.h */,
+				046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */,
+			);
+			path = CustomCorner;
+			sourceTree = "<group>";
+		};
 		0BCE883EE62F8C70747FED58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +471,8 @@
 		F187EAAF224B55ED00293096 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				046B988624581E4C00979059 /* CustomCorner */,
+				046B988524581DB900979059 /* FuncControl */,
 				F187EB67224B568F00293096 /* CALayer+XibBorderColor.h */,
 				F187EB5A224B568C00293096 /* CALayer+XibBorderColor.m */,
 				F187EB68224B568F00293096 /* MBProgressHUD+MBExtension.h */,
@@ -475,12 +507,6 @@
 				3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */,
 				F126C474224E24B600C24566 /* UIViewController+CurrentViewController.h */,
 				F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */,
-				F12D6C572307CE5A00AAC2CF /* UILabel+FuncChains.h */,
-				F12D6C582307CE5A00AAC2CF /* UILabel+FuncChains.m */,
-				F12D6C5B2307CE9500AAC2CF /* UIButton+FuncChains.h */,
-				F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */,
-				F12D6C542307CE3700AAC2CF /* UITextField+FuncChains.h */,
-				F12D6C552307CE3700AAC2CF /* UITextField+FuncChains.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -788,6 +814,7 @@
 				F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */,
 				F187EB81224B569100293096 /* MBProgressHUD+MBExtension.m in Sources */,
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,
+				046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */,
 				F187EBD0224B570000293096 /* GetUUID.m in Sources */,
 				F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */,
 				F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */,
@@ -808,6 +835,7 @@
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,
 				F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */,
+				046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */,
 				F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */,
 				F187EB51224B567F00293096 /* BaseViewController.m in Sources */,
 				F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */,
