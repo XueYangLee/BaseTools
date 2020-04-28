@@ -2,7 +2,7 @@
 //  UIView+CustomCornerRadius.h
 //  BaseTools
 //
-//  Created by mac on 2020/4/28.
+//  Created by Singularity on 2020/4/28.
 //  Copyright © 2020 Singularity. All rights reserved.
 //
 /** 切圆角工具 mask */
@@ -11,6 +11,8 @@
 
 #define CornerClipTypeTopBoth (CornerClipTypeTopLeft | CornerClipTypeTopRight)
 #define CornerClipTypeBottomBoth (CornerClipTypeBottomLeft | CornerClipTypeBottomRight)
+#define CornerClipTypeLeftBoth (CornerClipTypeTopLeft | CornerClipTypeBottomLeft)
+#define CornerClipTypeRightBoth (CornerClipTypeTopRight | CornerClipTypeBottomRight)
 
 typedef NS_OPTIONS (NSUInteger, CornerClipType) {
     CornerClipTypeNone = 0,  //不切

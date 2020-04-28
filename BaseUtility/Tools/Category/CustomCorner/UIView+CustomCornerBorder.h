@@ -2,7 +2,7 @@
 //  UIView+CustomCornerBorder.h
 //  BaseTools
 //
-//  Created by mac on 2020/4/28.
+//  Created by Singularity on 2020/4/28.
 //  Copyright © 2020 Singularity. All rights reserved.
 //
 /**  加边框模式  addSubLayer */
