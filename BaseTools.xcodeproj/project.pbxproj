@@ -15,7 +15,6 @@
 		F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = F1129AE822CCC99E00540259 /* VideoCompress.m */; };
 		F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */ = {isa = PBXBuildFile; fileRef = F113F1E622E9A408004F49A7 /* CustomRadianView.m */; };
 		F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F114D4A722AF8A480074377E /* CustomProgressView.m */; };
-		F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46C224E170E00C24566 /* BaseViewModel.m */; };
 		F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46F224E1C0E00C24566 /* BaseTableViewController.m */; };
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
@@ -84,6 +83,7 @@
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
 		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
+		F1B9297D2462D3E90077969A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B9297C2462D3E90077969A /* BaseViewModel.m */; };
 		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
 		F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */; };
@@ -125,8 +125,6 @@
 		F113F1E722E9A408004F49A7 /* CustomRadianView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRadianView.h; sourceTree = "<group>"; };
 		F114D4A622AF8A480074377E /* CustomProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProgressView.h; sourceTree = "<group>"; };
 		F114D4A722AF8A480074377E /* CustomProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProgressView.m; sourceTree = "<group>"; };
-		F126C46B224E170E00C24566 /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
-		F126C46C224E170E00C24566 /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		F126C46E224E1C0E00C24566 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		F126C46F224E1C0E00C24566 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		F126C471224E20BC00C24566 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -256,6 +254,8 @@
 		F19FC8E8224E05E80044772B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageManager.m; sourceTree = "<group>"; };
 		F1B7451022544B8E00ED5A29 /* SaveImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageManager.h; sourceTree = "<group>"; };
+		F1B9297B2462D3E90077969A /* BaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
+		F1B9297C2462D3E90077969A /* BaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		F1D2CF0922560D6700E30B6E /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
@@ -609,10 +609,10 @@
 			children = (
 				F187EB44224B567D00293096 /* BaseViewController.h */,
 				F187EB4C224B567E00293096 /* BaseViewController.m */,
+				F1B9297B2462D3E90077969A /* BaseViewModel.h */,
+				F1B9297C2462D3E90077969A /* BaseViewModel.m */,
 				F187EB47224B567D00293096 /* BaseWebViewController.h */,
 				F187EB45224B567D00293096 /* BaseWebViewController.m */,
-				F126C46B224E170E00C24566 /* BaseViewModel.h */,
-				F126C46C224E170E00C24566 /* BaseViewModel.m */,
 				F126C46E224E1C0E00C24566 /* BaseTableViewController.h */,
 				F126C46F224E1C0E00C24566 /* BaseTableViewController.m */,
 				F126C471224E20BC00C24566 /* BaseCollectionViewController.h */,
@@ -807,10 +807,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F187EBBC224B56C800293096 /* OppositeBtn.m in Sources */,
-				F126C46D224E170E00C24566 /* BaseViewModel.m in Sources */,
 				F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */,
 				F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */,
 				F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */,
+				F1B9297D2462D3E90077969A /* BaseViewModel.m in Sources */,
 				F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */,
 				F187EB81224B569100293096 /* MBProgressHUD+MBExtension.m in Sources */,
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,

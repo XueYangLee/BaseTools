@@ -10,24 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** 带有数据及信息文案返回 */
+typedef void(^VMDataCompletion)(BOOL success, id data, NSString *msg);
 
-/**
- 带数据VMComp
+/** 仅带有信息文案返回 */
+typedef void(^VMMsgCompletion)(BOOL success, NSString *msg);
 
- @param data 数据
- @param msg 信息
- */
-typedef void (^VMDataCompletion) (id data, NSString *msg);
+/** 带有数据、信息文案及刷新数据结果（有无更多数据）返回 */
+typedef void(^VMDataRefreshCompletion)(BOOL success, id data, NSString *msg, BOOL noMoreData);
+
+/** 仅带有信息文案及刷新数据结果（有无更多数据）返回 */
+typedef void(^VMMsgRefreshCompletion)(BOOL success, NSString *msg, BOOL noMoreData);
 
 
-/**
- 带数据及分页结果判定VMComp
 
- @param data 数据
- @param msg 信息
- @param noMoreData 有无更多数据
- */
-typedef void (^VMDataRefreshCompletion) (id data, NSString *msg, BOOL noMoreData);
 
 @interface BaseViewModel : NSObject
 
