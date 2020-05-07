@@ -1,5 +1,5 @@
 //
-//  CollectionAlignmentFlowLayout.h
+//  CustomFlowLayout.h
 //  BaseTools
 //
 //  Created by Singularity on 2019/4/18.
@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, FlowLayoutAlignment) {
 };
 
 
-@interface CollectionAlignmentFlowLayout : UICollectionViewFlowLayout
+@interface CustomFlowLayout : UICollectionViewFlowLayout
 
 /** collectionViewCell 布局  居中、居左、居右 */
 @property (assign, nonatomic) FlowLayoutAlignment alignment;
@@ -43,5 +43,4 @@ typedef NS_ENUM(NSInteger, FlowLayoutAlignment) {
 @property(nonatomic,assign)NSInteger noExpandIndex;
 
 @end
-
 NS_ASSUME_NONNULL_END

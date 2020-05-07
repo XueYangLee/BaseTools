@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */; };
 		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
 		046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */; };
 		3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */; };
@@ -86,7 +87,6 @@
 		F1B9297D2462D3E90077969A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B9297C2462D3E90077969A /* BaseViewModel.m */; };
 		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
-		F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */; };
 		F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39F2269BF49002774B1 /* CustomAlert.m */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0454C7E92463F8220092F6FE /* CustomFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
+		0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		046B988724581E9000979059 /* UIView+CustomCornerBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerBorder.h"; sourceTree = "<group>"; };
 		046B988824581E9000979059 /* UIView+CustomCornerBorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomCornerBorder.m"; sourceTree = "<group>"; };
 		046B988A24581F0C00979059 /* UIView+CustomCornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerRadius.h"; sourceTree = "<group>"; };
@@ -260,8 +262,6 @@
 		F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
-		F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionAlignmentFlowLayout.h; sourceTree = "<group>"; };
-		F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionAlignmentFlowLayout.m; sourceTree = "<group>"; };
 		F1F7C39E2269BF49002774B1 /* CustomAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
 		F1F7C39F2269BF49002774B1 /* CustomAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -453,8 +453,8 @@
 				F104D92722844D87004D340F /* DownloadVideo.m */,
 				F1129AE722CCC99D00540259 /* VideoCompress.h */,
 				F1129AE822CCC99E00540259 /* VideoCompress.m */,
-				F1F7C39B22689D1A002774B1 /* CollectionAlignmentFlowLayout.h */,
-				F1F7C39C22689D1A002774B1 /* CollectionAlignmentFlowLayout.m */,
+				0454C7E92463F8220092F6FE /* CustomFlowLayout.h */,
+				0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */,
 			);
 			path = ToolsClass;
 			sourceTree = "<group>";
@@ -831,11 +831,11 @@
 				F187EB80224B569100293096 /* UIColor+ColorHexadecimal.m in Sources */,
 				F126C47D224E283900C24566 /* TableViewController.m in Sources */,
 				F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */,
-				F1F7C39D22689D1A002774B1 /* CollectionAlignmentFlowLayout.m in Sources */,
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,
 				F187EB7A224B569100293096 /* UIImage+Extension.m in Sources */,
 				046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */,
+				0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */,
 				F187EB79224B569100293096 /* UIApplication+Extensions.m in Sources */,
 				F187EB51224B567F00293096 /* BaseViewController.m in Sources */,
 				F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */,

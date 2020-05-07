@@ -1,21 +1,21 @@
 //
-//  CollectionAlignmentFlowLayout.m
+//  CustomFlowLayout.m
 //  BaseTools
 //
 //  Created by Singularity on 2019/4/18.
 //  Copyright © 2019 Singularity. All rights reserved.
 //
 
-#import "CollectionAlignmentFlowLayout.h"
+#import "CustomFlowLayout.h"
 
-@interface CollectionAlignmentFlowLayout ()
+@interface CustomFlowLayout ()
 
 @property (strong, nonatomic) NSCache *cache;
 
 @end
 
-@implementation CollectionAlignmentFlowLayout
 
+@implementation CustomFlowLayout
 
 - (void)setAlignment:(FlowLayoutAlignment)alignment
 {
@@ -303,7 +303,6 @@
     //    return (viewheight + (height + self.minimumLineSpacing));
     
 }
-
 
 
 

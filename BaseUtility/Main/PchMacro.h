@@ -44,7 +44,7 @@
 #import "SaveImageManager.h"
 #import "DownloadVideo.h"
 #import "VideoCompress.h"
-#import "CollectionAlignmentFlowLayout.h"
+#import "CustomFlowLayout.h"
 //#import "WRNavigationBar.h"
 
 /****** View ******/
