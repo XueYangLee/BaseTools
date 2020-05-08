@@ -8,10 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CustomTextViewDelegate <NSObject>
+
+- (void)customTextViewDidChange:(UITextView *)textView;
+
+@end
+
+
 @interface CustomTextView : UITextView<UITextViewDelegate>
+
 /** 占位文字 */
 @property (nonatomic, copy) NSString *placeholder;
 /** 占位文字颜色 */
 @property (nonatomic, strong) UIColor *placeholderColor;
+/** 最大字数 默认200 */
+@property (nonatomic,assign) NSInteger maxNumber;
+
+
+@property (nonatomic,weak) id<CustomTextViewDelegate>textViewDelegate;
 
 @end
