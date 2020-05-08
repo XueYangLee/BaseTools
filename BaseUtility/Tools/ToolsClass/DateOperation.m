@@ -68,6 +68,34 @@
 }
 
 
+#pragma mark 秒数转为时分秒
++ (NSString *)getHHMMSSFromSS:(NSInteger)seconds{
+    //format of hour
+    NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds/3600];
+    //format of minute
+    NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds%3600)/60];
+    //format of second
+    NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds%60];
+    //format of time
+    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];
+
+    return format_time;
+}
+
+
+#pragma mark 秒数转为分秒
++ (NSString *)getMMSSFromSS:(NSInteger)seconds{
+    //format of minute
+    NSString *str_minute = [NSString stringWithFormat:@"%ld",seconds/60];
+    //format of second
+    NSString *str_second = [NSString stringWithFormat:@"%ld",seconds%60];
+    //format of time
+    NSString *format_time = [NSString stringWithFormat:@"%@分钟%@秒",str_minute,str_second];
+
+    return format_time;
+}
+
+
 #pragma mark 从开始时间的时间戳获取与当前时间的时间差
 + (void)intervalTimeFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp Completion:(void(^)(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second))comp{
     NSDate* fromDate = [NSDate dateWithTimeIntervalSince1970:[fromTimeStamp doubleValue]/1000];

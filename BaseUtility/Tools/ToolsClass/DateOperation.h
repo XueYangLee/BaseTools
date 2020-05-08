@@ -44,6 +44,13 @@
 + (NSString *)currentTimeIsShowExactTime:(BOOL)isShowExact;
 
 
+/** 秒数转为时分秒   **:**:** */
++ (NSString *)getHHMMSSFromSS:(NSInteger)seconds;
+
+
+/** 秒数转为分秒     **分钟**秒 */
++ (NSString *)getMMSSFromSS:(NSInteger)seconds;
+
 
 /**
  从开始时间的时间戳获取与目标时间（nil则为当前时间）的时间差
