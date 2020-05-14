@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045358BB246CECD600A32204 /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 045358BA246CECD600A32204 /* CustomSlider.m */; };
 		045493FF24692A94009D17ED /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045493FE24692A94009D17ED /* BaseTableViewCell.m */; };
 		0454940224693390009D17ED /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454940124693390009D17ED /* BaseCollectionViewCell.m */; };
 		0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */; };
@@ -110,6 +111,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045358B9246CECD600A32204 /* CustomSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
+		045358BA246CECD600A32204 /* CustomSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
 		045493FD24692A94009D17ED /* BaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
 		045493FE24692A94009D17ED /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		0454940024693390009D17ED /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -572,6 +575,8 @@
 				F113F1E622E9A408004F49A7 /* CustomRadianView.m */,
 				F114D4A622AF8A480074377E /* CustomProgressView.h */,
 				F114D4A722AF8A480074377E /* CustomProgressView.m */,
+				045358B9246CECD600A32204 /* CustomSlider.h */,
+				045358BA246CECD600A32204 /* CustomSlider.m */,
 			);
 			path = PublicView;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 				046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */,
 				F187EBD0224B570000293096 /* GetUUID.m in Sources */,
 				F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */,
+				045358BB246CECD600A32204 /* CustomSlider.m in Sources */,
 				F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */,
 				F187EBA8224B56AE00293096 /* TBCityIconFont.m in Sources */,
 				F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */,
