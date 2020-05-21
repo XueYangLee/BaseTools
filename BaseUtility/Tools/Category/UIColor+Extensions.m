@@ -1,17 +1,16 @@
 //
-//  UIColor+ColorHexadecimal.m
-//  moneyhll
+//  UIColor+Extensions.m
+//  BaseTools
 //
-//  Created by 李雪阳 on 16/12/20.
-//  Copyright © 2016年 浙江龙之游旅游开发有限公司. All rights reserved.
+//  Created by 李雪阳 on 2020/5/21.
+//  Copyright © 2020 Singularity. All rights reserved.
 //
 
-#import "UIColor+ColorHexadecimal.h"
+#import "UIColor+Extensions.h"
 
-@implementation UIColor (ColorHexadecimal)
+@implementation UIColor (Extensions)
 
-+ (UIColor *) colorWithHexString: (NSString *)color
-{
++ (UIColor *)colorWithHexString:(NSString *)color{
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
@@ -43,5 +42,23 @@
     
     return [UIColor colorWithRed:((float) r / 255.0f) green:((float) g / 255.0f) blue:((float) b / 255.0f) alpha:1.0f];
 }
+
+
++ (UIColor *)colorWithDarkColor:(UIColor *)darkModeColor DefaultColor:(UIColor *)defaultModeColor{
+    if (@available(iOS 13.0, *)) {
+        UIColor *dyColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trainCollection) {
+            if ([trainCollection userInterfaceStyle] == UIUserInterfaceStyleDark) {
+                return darkModeColor;
+            }else {
+                return defaultModeColor;
+            }
+        }];
+        
+        return dyColor;
+    } else {
+        return defaultModeColor;
+    }
+}
+
 
 @end

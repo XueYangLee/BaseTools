@@ -17,7 +17,7 @@
 #import "NSDictionary+LXY.h"
 #import "NSDate+Extension.h"
 #import "UIApplication+Extensions.h"
-#import "UIColor+ColorHexadecimal.h"
+#import "UIColor+Extensions.h"
 #import "UIImage+Extension.h"
 #import "UIImage+ImageSize.h"
 #import "UIImage+WaterMark.h"
@@ -104,8 +104,9 @@
 
 #pragma mark -------------- 字体相关
 /** 自定义颜色 */
-#define UIColorWithRGBA(r,g,b,a)        [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define UIColorWithHex(a)               [UIColor colorWithHexString:a]
+#define UIColorWithRGBA(r,g,b,a)                       [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define UIColorWithHex(a)                              [UIColor colorWithHexString:a]
+#define UIColorWithDarkAdapt(darkColor,defaultColor)   [UIColor colorWithDarkColor:darkColor DefaultColor:defaultColor]
 
 
 /** 字体设置 */
