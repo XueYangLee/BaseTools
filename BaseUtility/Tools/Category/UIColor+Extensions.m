@@ -61,4 +61,13 @@
 }
 
 
++ (UIColor *)colorWithDarkAdaptColorName:(NSString *)colorName DefaultColor:(UIColor *)defaultModeColor{
+    if (@available(iOS 13.0, *)) {
+        return [UIColor colorNamed:colorName];
+    }else{
+        return defaultModeColor;
+    }
+}
+
+
 @end

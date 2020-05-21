@@ -16,8 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)colorWithHexString:(NSString *)color;
 
 
-/** 暗黑及常规模式颜色适应 */
+/** 适配暗黑及常规模式颜色 */
 + (UIColor *)colorWithDarkColor:(UIColor *)darkModeColor DefaultColor:(UIColor *)defaultModeColor;
+
+
+/** 根据color set中的colorName适配暗黑及常规模式颜色 */
++ (UIColor *)colorWithDarkAdaptColorName:(NSString *)colorName DefaultColor:(UIColor *)defaultModeColor;
 
 @end
 
