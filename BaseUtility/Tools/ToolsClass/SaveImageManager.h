@@ -40,6 +40,20 @@ typedef void(^SaveImageCompletion)(BOOL success);
 
 
 
+/**
+ 保存单张UIImage图片并创建APP相册到本地
+ 
+ @param localImage  需要保存的UIimage
+ @param comp 保存结果 进行后续操作
+ */
+- (void)saveLocalImage:(UIImage *)localImage Completion:(SaveImageCompletion)comp;
+
+
+/** 相册读写权限弹框 */
+- (void)authorizeRemind;
+
+
+
 
 
 /**

@@ -23,6 +23,7 @@
 #import "UIImage+WaterMark.h"
 #import "UIScreen+Extension.h"
 #import "UITextField+LengthLimit.h"
+#import "UIButton+AdjustInsets.h"
 #import "UIView+IBExtension.h"
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
@@ -39,7 +40,7 @@
 #import "CustomAlert.h"
 #import "CustomFlowLayout.h"
 #import "MD5.h"
-#import "GetUUID.h"
+#import "UUID.h"
 #import "KeyChainStore.h"
 #import "TBCityIconFont.h"
 #import "SaveImageManager.h"
@@ -79,7 +80,7 @@
 /** 导航栏+状态栏总高 */
 #define STATUS_NAVI_HEIGHT  (NAVI_HEIGHT+STATUS_HEIGHT)
 /** 页面除过导航栏高度 */
-#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+44))
+#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+NAVI_HEIGHT))
 //#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
 /** iPhone X等异形屏下HOME按键高度 */
 #define IPHONEX_BOTTOM ([[UIApplication sharedApplication] statusBarFrame].size.height > 20?34:0)
@@ -190,7 +191,7 @@
 #define IOS_SYSTEM_VERSION [[UIDevice currentDevice] systemVersion]
 /** 当前系统语言 */
 #define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
-/** app名字 */
+/** app名字 （如果发现获取到的appName为空，查看plist下以前默认创建的Bundle display name是否存在 不存在需在info.plist文件下添加 【Bundle display name   ${PRODUCT_NAME} 】） */
 #define APP_NAME [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]
 /** 设备类型  返回 iPhone或当前其他设备 */
 #define DEVICE_TYPE [UIDevice currentDevice].model
@@ -204,7 +205,7 @@
 /** NSNotificationCenter */
 #define NOTIFY_CENTER [NSNotificationCenter defaultCenter]
 /** weak self */
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+#define WS(weakSelf)  __weak typeof(self) weakSelf = self;
 
 /** class与string的转变 */
 #define stringFromClass(CLASS_NAME) NSStringFromClass([CLASS_NAME class])

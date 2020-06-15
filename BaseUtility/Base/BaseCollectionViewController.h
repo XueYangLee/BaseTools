@@ -12,9 +12,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseCollectionViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
+
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+/** 修改collectionView的UICollectionViewFlowLayout */
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
+
+
+/** 是否显示刷新控件刷新头（下拉刷新）  默认不显示 */
+@property (nonatomic, assign) BOOL showRefreshHeader;
+
+/** 是否显示刷新控件刷新尾（上拉加载）  默认不显示 */
+@property (nonatomic, assign) BOOL showRefreshFooter;
+
+
+/** 页码 */
+@property (nonatomic, assign) NSInteger base_pages;
+/** 数据总数 */
+@property (nonatomic, assign) NSInteger base_totalCount;
+
 
 @end
 

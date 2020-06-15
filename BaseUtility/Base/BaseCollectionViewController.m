@@ -19,11 +19,7 @@
     // Do any additional setup after loading the view.
     
     [self initCollectionView];
-}
-
-- (void)setFlowLayout:(UICollectionViewFlowLayout *)flowLayout {
-    _flowLayout = flowLayout;
-    self.collectionView.collectionViewLayout = flowLayout;
+    [self initRefreshControl];
 }
 
 - (void)initCollectionView {
@@ -39,10 +35,10 @@
     
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
     _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionView.showsVerticalScrollIndicator=NO;
+    _collectionView.showsHorizontalScrollIndicator=NO;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    [self.view addSubview:_collectionView];
-    
     if (@available(iOS 11.0, *)) {
         if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
             _collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
@@ -52,13 +48,26 @@
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
+    [self.view addSubview:_collectionView];
+    
     
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
+}
+
+- (void)setFlowLayout:(UICollectionViewFlowLayout *)flowLayout {
+    _flowLayout = flowLayout;
+    self.collectionView.collectionViewLayout = flowLayout;
+}
+
+
+- (void)initRefreshControl{
+    
 }
 
 
 
 
+#pragma mark - collectionView delegate & dataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }

@@ -28,12 +28,33 @@
     // Do any additional setup after loading the view.
     
     [self initTableView];
+    [self initRefreshControl];
+    
 }
 
 - (void)initTableView{
     [self.tableView removeFromSuperview];
     
-    UITableView *tableView=[self tableViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) Style:self.tableViewStyle];
+    UITableView *tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) style:self.tableViewStyle];
+    tableView.backgroundColor = [UIColor clearColor];
+    tableView.showsVerticalScrollIndicator=NO;
+    tableView.showsHorizontalScrollIndicator=NO;
+    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    tableView.sectionFooterHeight = 0;
+    tableView.estimatedRowHeight = 0;
+    tableView.estimatedSectionHeaderHeight = 0;
+    tableView.estimatedSectionFooterHeight = 0;
+    tableView.delegate=self;
+    tableView.dataSource=self;
+    if (@available(iOS 11.0, *)) {
+        if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
+            tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+        }
+    } else {
+        if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
+    }
     [self.view addSubview:tableView];
     
     _tableView=tableView;
@@ -47,6 +68,12 @@
         [self initTableView];
     }
 }
+
+
+- (void)initRefreshControl{
+    
+}
+
 
 
 #pragma mark - tableView delegate & dataSource

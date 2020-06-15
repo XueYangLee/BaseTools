@@ -243,7 +243,7 @@
 
 
 /**
- 判断当前app版本和AppStore最新app版本大小
+ 判断当前app版本和AppStore最新app版本大小  新版版本号比旧版版本号大返回yes
 
  @param newVersion 线上新版本
  @param oldVersion 老版本

@@ -487,8 +487,8 @@
 }
 
 #pragma mark 判断当前app版本和AppStore最新app版本大小
-+ (BOOL)judgeNewVersion:(NSString *)newVersion withOldVersion:(NSString *)oldVersion
-{
++ (BOOL)judgeNewVersion:(NSString *)newVersion withOldVersion:(NSString *)oldVersion {
+    /*
     NSArray *newArray = [newVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
     NSArray *oldArray = [oldVersion componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"."]];
     for (NSInteger i = 0; i < newArray.count; i ++) {
@@ -500,7 +500,13 @@
             
         }
     }
-    return NO;
+    return NO;*/
+    NSComparisonResult result = [newVersion compare:oldVersion options:NSNumericSearch];
+    if (result==NSOrderedDescending) {//newVersion>oldVersion
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 #pragma mark 价格有小数且不为0显示几位小数 没有则显示整数

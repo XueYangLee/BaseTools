@@ -76,6 +76,29 @@
 }
 
 
+- (void)saveLocalImage:(UIImage *)localImage Completion:(SaveImageCompletion)comp{
+    self.saveCompletion=comp;
+    
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            switch (status) {
+                case PHAuthorizationStatusAuthorized: //已获取权限
+                    [self downLoadLocalImage:localImage];
+                    break;
+                case PHAuthorizationStatusDenied: //用户已经明确否认了这一照片数据的应用程序访问
+                    [self authorizeRemind];
+                    break;
+                case PHAuthorizationStatusRestricted://此应用程序没有被授权访问的照片数据。可能是家长控制权限
+                    [SVProgressHUD showErrorWithStatus:@"因为系统原因, 无法访问相册"];
+                    break;
+                default://其他。。。
+                    break;
+            }
+        });
+    }];
+}
+
+
 - (void)authorizeRemind{
     [CustomAlert showAlertAddTarget:[UIViewController currentViewController] Title:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私\"选项中，\r允许%@访问您照片的读取和写入以下载图片。",[UIDevice currentDevice].model,[[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
         if (actionIndex==1) {
@@ -190,6 +213,18 @@
 }
 
 
+//保存单张本地图片 UIImage
+- (void)downLoadLocalImage:(UIImage *)localImage{
+    
+    [self writeImage:localImage Completion:^(BOOL success) {
+        
+        if (self.saveCompletion) {
+            self.saveCompletion(success);
+        }
+    }];
+}
+
+
 #pragma mark -----保存单张图片并创建APP相册到本地-----
 - (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp{
     //修改系统相册用PHPhotoLibrary单粒,调用performChanges,否则苹果会报错,并提醒你使用
@@ -197,6 +232,8 @@
         // 调用判断是否已有该名称相册
         NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
         //以项目名字命名相册
+        /** 如果发现获取到的appName为空，查看plist下以前默认创建的Bundle display name是否存在
+        #info.plist文件下添加 Bundle display name   ${PRODUCT_NAME} */
         NSString *app_Name = [infoDictionary objectForKey:@"CFBundleDisplayName"];
         PHAssetCollection *assetCollection = [self fetchAssetColletion:app_Name];
         //创建一个操作图库的对象

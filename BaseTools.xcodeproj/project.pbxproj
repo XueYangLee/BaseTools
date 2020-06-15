@@ -11,6 +11,8 @@
 		045493FF24692A94009D17ED /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045493FE24692A94009D17ED /* BaseTableViewCell.m */; };
 		0454940224693390009D17ED /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454940124693390009D17ED /* BaseCollectionViewCell.m */; };
 		0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */; };
+		04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04557C8E24920FFE00A2DA0B /* UIButton+AdjustInsets.m */; };
+		0456FA07248F96F400030075 /* UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456FA06248F96F400030075 /* UUID.m */; };
 		046333492476590E000A0A40 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046333482476590E000A0A40 /* UIColor+Extensions.m */; };
 		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
 		046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */; };
@@ -71,7 +73,6 @@
 		F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBA7224B56AE00293096 /* UIImage+TBCityIconFont.m */; };
 		F187EBAD224B56B800293096 /* MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBAB224B56B700293096 /* MD5.m */; };
 		F187EBBA224B56C800293096 /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBAE224B56C600293096 /* CustomBtn.m */; };
-		F187EBBC224B56C800293096 /* OppositeBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBB2224B56C600293096 /* OppositeBtn.m */; };
 		F187EBBD224B56C800293096 /* PWDInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBB4224B56C700293096 /* PWDInputView.m */; };
 		F187EBBE224B56C800293096 /* SkyRadiusView.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBB6224B56C700293096 /* SkyRadiusView.m */; };
 		F187EBBF224B56C800293096 /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBB8224B56C700293096 /* CustomTextView.m */; };
@@ -79,7 +80,6 @@
 		F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBC1224B56F600293096 /* ChineseToPinyin.m */; };
 		F187EBCA224B56F700293096 /* DateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBC2224B56F600293096 /* DateOperation.m */; };
 		F187EBCB224B56F700293096 /* CustomTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBC7224B56F700293096 /* CustomTools.m */; };
-		F187EBD0224B570000293096 /* GetUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBCC224B56FF00293096 /* GetUUID.m */; };
 		F187EBD1224B570000293096 /* KeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBCF224B56FF00293096 /* KeyChainStore.m */; };
 		F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD2224B570800293096 /* WRCustomNavigationBar.m */; };
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
@@ -119,6 +119,10 @@
 		0454940124693390009D17ED /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewCell.m; sourceTree = "<group>"; };
 		0454C7E92463F8220092F6FE /* CustomFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
 		0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
+		04557C8E24920FFE00A2DA0B /* UIButton+AdjustInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AdjustInsets.m"; sourceTree = "<group>"; };
+		04557C8F24920FFE00A2DA0B /* UIButton+AdjustInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AdjustInsets.h"; sourceTree = "<group>"; };
+		0456FA05248F96F400030075 /* UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UUID.h; sourceTree = "<group>"; };
+		0456FA06248F96F400030075 /* UUID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUID.m; sourceTree = "<group>"; };
 		046333472476590E000A0A40 /* UIColor+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
 		046333482476590E000A0A40 /* UIColor+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		046B988724581E9000979059 /* UIView+CustomCornerBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerBorder.h"; sourceTree = "<group>"; };
@@ -232,8 +236,6 @@
 		F187EBAC224B56B800293096 /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
 		F187EBAE224B56C600293096 /* CustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
 		F187EBB0224B56C600293096 /* CustomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
-		F187EBB1224B56C600293096 /* OppositeBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OppositeBtn.h; sourceTree = "<group>"; };
-		F187EBB2224B56C600293096 /* OppositeBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OppositeBtn.m; sourceTree = "<group>"; };
 		F187EBB3224B56C700293096 /* PWDInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDInputView.h; sourceTree = "<group>"; };
 		F187EBB4224B56C700293096 /* PWDInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDInputView.m; sourceTree = "<group>"; };
 		F187EBB5224B56C700293096 /* SkyRadiusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyRadiusView.h; sourceTree = "<group>"; };
@@ -248,8 +250,6 @@
 		F187EBC5224B56F700293096 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
 		F187EBC6224B56F700293096 /* CustomNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNetWork.h; sourceTree = "<group>"; };
 		F187EBC7224B56F700293096 /* CustomTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTools.m; sourceTree = "<group>"; };
-		F187EBCC224B56FF00293096 /* GetUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUUID.m; sourceTree = "<group>"; };
-		F187EBCD224B56FF00293096 /* GetUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUUID.h; sourceTree = "<group>"; };
 		F187EBCE224B56FF00293096 /* KeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainStore.h; sourceTree = "<group>"; };
 		F187EBCF224B56FF00293096 /* KeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyChainStore.m; sourceTree = "<group>"; };
 		F187EBD2224B570800293096 /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
@@ -496,6 +496,8 @@
 				F187EB5E224B568D00293096 /* UIApplication+Extensions.m */,
 				F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */,
 				F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */,
+				04557C8F24920FFE00A2DA0B /* UIButton+AdjustInsets.h */,
+				04557C8E24920FFE00A2DA0B /* UIButton+AdjustInsets.m */,
 				046333472476590E000A0A40 /* UIColor+Extensions.h */,
 				046333482476590E000A0A40 /* UIColor+Extensions.m */,
 				F187EB55224B568B00293096 /* UIImage+Extension.h */,
@@ -565,8 +567,6 @@
 				F187EBAE224B56C600293096 /* CustomBtn.m */,
 				F187EBB7224B56C700293096 /* CustomTextView.h */,
 				F187EBB8224B56C700293096 /* CustomTextView.m */,
-				F187EBB1224B56C600293096 /* OppositeBtn.h */,
-				F187EBB2224B56C600293096 /* OppositeBtn.m */,
 				F187EBB3224B56C700293096 /* PWDInputView.h */,
 				F187EBB4224B56C700293096 /* PWDInputView.m */,
 				F187EBB5224B56C700293096 /* SkyRadiusView.h */,
@@ -595,8 +595,8 @@
 		F187EAFC224B55EE00293096 /* UUID */ = {
 			isa = PBXGroup;
 			children = (
-				F187EBCD224B56FF00293096 /* GetUUID.h */,
-				F187EBCC224B56FF00293096 /* GetUUID.m */,
+				0456FA05248F96F400030075 /* UUID.h */,
+				0456FA06248F96F400030075 /* UUID.m */,
 				F187EBCE224B56FF00293096 /* KeyChainStore.h */,
 				F187EBCF224B56FF00293096 /* KeyChainStore.m */,
 			);
@@ -821,7 +821,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F187EBBC224B56C800293096 /* OppositeBtn.m in Sources */,
 				F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */,
 				F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */,
 				F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */,
@@ -831,7 +830,6 @@
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,
 				046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */,
 				046333492476590E000A0A40 /* UIColor+Extensions.m in Sources */,
-				F187EBD0224B570000293096 /* GetUUID.m in Sources */,
 				F187EBAA224B56AE00293096 /* UIImage+TBCityIconFont.m in Sources */,
 				045358BB246CECD600A32204 /* CustomSlider.m in Sources */,
 				F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */,
@@ -883,9 +881,11 @@
 				F187EB74224B569100293096 /* UIView+IBExtension.m in Sources */,
 				F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */,
 				F187EBD1224B570000293096 /* KeyChainStore.m in Sources */,
+				04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */,
 				F187EBC8224B56F700293096 /* CustomNetWork.m in Sources */,
 				F187EB77224B569100293096 /* UIView+Extension.m in Sources */,
 				F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */,
+				0456FA07248F96F400030075 /* UUID.m in Sources */,
 				F187EB4E224B567F00293096 /* BaseWebViewController.m in Sources */,
 				F187EB72224B569100293096 /* NSDictionary+LXY.m in Sources */,
 				3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */,
