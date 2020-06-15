@@ -7,10 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "BaseDataRefreshProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface BaseTableViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,BaseDataRefreshProtocol>
 
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,9 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 页码 */
-@property (nonatomic, assign) NSInteger base_pages;
-/** 数据总数 */
-@property (nonatomic, assign) NSInteger base_totalCount;
+@property (nonatomic, assign) NSInteger pages;
 
 
 @end

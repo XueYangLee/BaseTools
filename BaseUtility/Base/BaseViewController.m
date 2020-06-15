@@ -14,7 +14,7 @@
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *statusBarView;
 
-@property (nonatomic, strong) UITableView *base_tableView;
+@property (nonatomic, strong) UIScrollView *base_scrollView;
 
 @end
 
@@ -109,31 +109,33 @@
 
 //初始化tableview（需添加代理）
 - (UITableView *)tableViewWithFrame:(CGRect)frame Style:(UITableViewStyle)style{
-    _base_tableView=[[UITableView alloc]initWithFrame:frame style:style];
-    _base_tableView.showsVerticalScrollIndicator=NO;
-    _base_tableView.showsHorizontalScrollIndicator=NO;
-    _base_tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    _base_tableView.sectionFooterHeight = 0;
-    _base_tableView.estimatedRowHeight = 0;
-    _base_tableView.estimatedSectionHeaderHeight = 0;
-    _base_tableView.estimatedSectionFooterHeight = 0;
-    _base_tableView.delegate=self;
-    _base_tableView.dataSource=self;
+    UITableView *tableView=[[UITableView alloc]initWithFrame:frame style:style];
+    tableView.showsVerticalScrollIndicator=NO;
+    tableView.showsHorizontalScrollIndicator=NO;
+    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    tableView.sectionFooterHeight = 0;
+    tableView.estimatedRowHeight = 0;
+    tableView.estimatedSectionHeaderHeight = 0;
+    tableView.estimatedSectionFooterHeight = 0;
+    tableView.delegate=self;
+    tableView.dataSource=self;
     if (@available(iOS 11.0, *)) {
         if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-            _base_tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+            tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
         }
     } else {
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
-    return _base_tableView;
+    return tableView;
 }
 
 
 //数据刷新
 - (void)refreshData:(NSMutableArray *)dataArray ScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter{
+    
+    self.base_scrollView=scrollView;
     WS(weakSelf)
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [dataArray removeAllObjects];
@@ -146,11 +148,14 @@
     
     if (showFooter) {
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            DLog(@"%ld>>>%ld>>>step1",weakSelf.totalCount,dataArray.count)
             if (weakSelf.totalCount == dataArray.count) {
                 scrollView.mj_footer.state = MJRefreshStateNoMoreData;
                 return ;
             }
             weakSelf.totalCount = dataArray.count;
+            
+            DLog(@"%ld>>>%ld>>>step2",weakSelf.totalCount,dataArray.count)
             if (dataArray.count == 0) {
                 weakSelf.pages = 0;
                 [weakSelf setData];
@@ -169,8 +174,7 @@
 }
 
 
-
-
+#pragma mark - touch
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 //    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];

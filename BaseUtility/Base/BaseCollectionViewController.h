@@ -7,10 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "BaseDataRefreshProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseCollectionViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface BaseCollectionViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource,BaseDataRefreshProtocol>
 
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -27,9 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 页码 */
-@property (nonatomic, assign) NSInteger base_pages;
-/** 数据总数 */
-@property (nonatomic, assign) NSInteger base_totalCount;
+@property (nonatomic, assign) NSInteger pages;
 
 
 @end

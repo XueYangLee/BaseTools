@@ -161,6 +161,7 @@
 		F12D6C5C2307CE9500AAC2CF /* UIButton+FuncChains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FuncChains.m"; sourceTree = "<group>"; };
 		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
 		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
+		F15D3AF92497BE6A00A36F0C /* BaseDataRefreshProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDataRefreshProtocol.h; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F187E9C4224B196A00293096 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F187E9C5224B196A00293096 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -632,6 +633,7 @@
 				F126C472224E20BC00C24566 /* BaseCollectionViewController.m */,
 				0454940024693390009D17ED /* BaseCollectionViewCell.h */,
 				0454940124693390009D17ED /* BaseCollectionViewCell.m */,
+				F15D3AF92497BE6A00A36F0C /* BaseDataRefreshProtocol.h */,
 				F126C47A224E270900C24566 /* BasePushActionConfig.h */,
 			);
 			path = Base;

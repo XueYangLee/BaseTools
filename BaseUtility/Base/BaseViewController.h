@@ -86,10 +86,6 @@
 - (void)refreshData:(NSMutableArray *)dataArray ScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter;
 
 
-/**
- 数据源
- */
-- (void)setData;
 
 
 @end

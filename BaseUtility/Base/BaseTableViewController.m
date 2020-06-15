@@ -30,6 +30,8 @@
     [self initTableView];
     [self initRefreshControl];
     
+    [self.tableView.mj_header setHidden:!self.showRefreshHeader];
+    [self.tableView.mj_footer setHidden:!self.showRefreshFooter];
 }
 
 - (void)initTableView{
@@ -71,9 +73,23 @@
 
 
 - (void)initRefreshControl{
+    WS(weakSelf)
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.pages = 0;
+        [weakSelf setData];
+    }];
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    self.tableView.mj_header=header;
     
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        weakSelf.pages++;
+        [weakSelf setData];
+    }];
+    [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+    self.tableView.mj_footer=footer;
 }
-
 
 
 #pragma mark - tableView delegate & dataSource
@@ -95,6 +111,49 @@
     return 0.001f;
 }
 
+
+#pragma mark - refresh
+- (void)setShowRefreshHeader:(BOOL)showRefreshHeader{
+    _showRefreshHeader=showRefreshHeader;
+    [self.tableView.mj_header setHidden:!self.showRefreshHeader];
+}
+
+- (void)setShowRefreshFooter:(BOOL)showRefreshFooter{
+    _showRefreshFooter=showRefreshFooter;
+    [self.tableView.mj_footer setHidden:!self.showRefreshFooter];
+}
+
+#pragma mark - data refresh protocol
+- (void)setData{
+    
+}
+
+- (void)endRefreshInHeader{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView.mj_footer setHidden:NO];
+        self.tableView.mj_footer.state = MJRefreshStateIdle;
+    });
+    [self.tableView.mj_header endRefreshing];
+}
+
+- (void)endRefreshInFooter{
+    [self.tableView.mj_footer endRefreshing];
+}
+
+- (void)endRefreshData{
+    [self endRefreshInHeader];
+    [self endRefreshInFooter];
+}
+
+
+- (void)beginRefreshing{
+    if (self.showRefreshFooter) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView.mj_footer setHidden:YES];
+        });
+    }
+    [self.tableView.mj_header beginRefreshing];
+}
 
 
 /*
