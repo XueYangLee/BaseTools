@@ -10,16 +10,26 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** 带有数据及信息文案返回 */
-typedef void(^VMDataCompletion)(BOOL success, id data, NSString *msg);
 
-/** 仅带有信息文案返回 */
+/** 数据结果 */
+typedef void(^VMCompletion)(BOOL success);
+
+/** 数据结果  数据data */
+typedef void(^VMDataCompletion)(BOOL success, id data);
+
+/** 数据结果  数据data及信息文案 */
+typedef void(^VMDataMsgCompletion)(BOOL success, id data, NSString *msg);
+
+/** 数据结果  信息文案 */
 typedef void(^VMMsgCompletion)(BOOL success, NSString *msg);
 
-/** 带有数据、信息文案及刷新数据结果（有无更多数据）返回 */
-typedef void(^VMDataRefreshCompletion)(BOOL success, id data, NSString *msg, BOOL noMoreData);
+/** 数据结果  刷新数据结果（有无更多数据） */
+typedef void(^VMRefreshCompletion)(BOOL success, BOOL noMoreData);
 
-/** 仅带有信息文案及刷新数据结果（有无更多数据）返回 */
+/** 数据结果  数据data  信息文案及刷新数据结果（有无更多数据） */
+typedef void(^VMDataMsgRefreshCompletion)(BOOL success, id data, NSString *msg, BOOL noMoreData);
+
+/** 数据结果  信息文案及刷新数据结果（有无更多数据） */
 typedef void(^VMMsgRefreshCompletion)(BOOL success, NSString *msg, BOOL noMoreData);
 
 

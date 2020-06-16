@@ -13,6 +13,7 @@
 		0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */; };
 		04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04557C8E24920FFE00A2DA0B /* UIButton+AdjustInsets.m */; };
 		0456FA07248F96F400030075 /* UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456FA06248F96F400030075 /* UUID.m */; };
+		045B8CFE2498CD3600647FC5 /* CustomWaterLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */; };
 		046333492476590E000A0A40 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046333482476590E000A0A40 /* UIColor+Extensions.m */; };
 		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
 		046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */; };
@@ -123,6 +124,8 @@
 		04557C8F24920FFE00A2DA0B /* UIButton+AdjustInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AdjustInsets.h"; sourceTree = "<group>"; };
 		0456FA05248F96F400030075 /* UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UUID.h; sourceTree = "<group>"; };
 		0456FA06248F96F400030075 /* UUID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUID.m; sourceTree = "<group>"; };
+		045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWaterLayout.h; sourceTree = "<group>"; };
+		045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWaterLayout.m; sourceTree = "<group>"; };
 		046333472476590E000A0A40 /* UIColor+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
 		046333482476590E000A0A40 /* UIColor+Extensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
 		046B988724581E9000979059 /* UIView+CustomCornerBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerBorder.h"; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				F1129AE822CCC99E00540259 /* VideoCompress.m */,
 				0454C7E92463F8220092F6FE /* CustomFlowLayout.h */,
 				0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */,
+				045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */,
+				045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */,
 			);
 			path = ToolsClass;
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 				F187EBBA224B56C800293096 /* CustomBtn.m in Sources */,
 				F187EB94224B56A100293096 /* LXYQRCodeOverlayView.m in Sources */,
 				F126C47D224E283900C24566 /* TableViewController.m in Sources */,
+				045B8CFE2498CD3600647FC5 /* CustomWaterLayout.m in Sources */,
 				F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */,
 				F187EBC9224B56F700293096 /* ChineseToPinyin.m in Sources */,
 				F187EBCB224B56F700293096 /* CustomTools.m in Sources */,

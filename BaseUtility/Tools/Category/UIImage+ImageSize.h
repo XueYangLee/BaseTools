@@ -12,13 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIImage (ImageSize)
 
+/** 获取网络图片尺寸并缓存（SDWebImage方式下载缓存）首次加载图片会在block中返回尺寸 */
++ (CGSize)imageSizeInCacheWithImageUrl:(id)imageURL Completion:(void (^__nullable)(CGSize imageSize))completion;
 
-/**
- 获取网络图片尺寸
 
- @param imageURL 图片网址或url字符串
- @return 返回的尺寸
- */
+/** 获取网络图片尺寸 */
 + (CGSize)imageSizeWithImageUrl:(id)imageURL;
 
 @end

@@ -136,7 +136,7 @@
     WS(weakSelf)
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.base_pages = 0;
-        [weakSelf setBaseRefreshData];
+        [weakSelf loadBaseRefreshData];
     }];
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
@@ -151,7 +151,7 @@
             }
             weakSelf.totalCount = dataArray.count;*/
             weakSelf.base_pages++;
-            [weakSelf setBaseRefreshData];
+            [weakSelf loadBaseRefreshData];
         }];
         [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
         scrollView.mj_footer=footer;
@@ -159,7 +159,7 @@
 }
 
 //刷新数据源
-- (void)setBaseRefreshData{
+- (void)loadBaseRefreshData{
 }
 
 

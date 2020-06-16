@@ -82,8 +82,8 @@
  */
 - (void)refreshDataWithScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter;
 
-/** 刷新数据源 */
-- (void)setBaseRefreshData;
+/** 刷新数据源（基类） */
+- (void)loadBaseRefreshData;
 
 
 

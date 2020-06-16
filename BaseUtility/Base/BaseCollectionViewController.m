@@ -68,7 +68,7 @@
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         weakSelf.refreshPages = 0;
-        [weakSelf setData];
+        [weakSelf loadRefreshData];
     }];
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
@@ -77,7 +77,7 @@
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
         weakSelf.refreshPages++;
-        [weakSelf setData];
+        [weakSelf loadRefreshData];
     }];
     [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
     self.collectionView.mj_footer=footer;
@@ -127,7 +127,7 @@
 }
 
 #pragma mark - data refresh protocol
-- (void)setData{
+- (void)loadRefreshData{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self endRefreshing];
     });

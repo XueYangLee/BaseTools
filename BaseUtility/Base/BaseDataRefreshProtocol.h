@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-/** 数据源 */
-- (void)setData;
+/** 刷新数据源处理 */
+- (void)loadRefreshData;
 
 /** 结束下拉刷新 下拉加载动作 */
 - (void)endRefreshing;

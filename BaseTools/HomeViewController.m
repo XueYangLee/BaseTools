@@ -86,6 +86,21 @@
 }
 
 /*
+ {
+     "success" = 1;
+     "data" = {
+     "list" = (
+ );
+ };
+     "debugInfo" = {
+     "url" = http://www.wchoosemall.com:80/doc/api/common/indexCustomConfig/indexCustomConfigV1.json?data=%7B%22appPlatform%22%3A1%2C%22configType%22%3A2%7D&Metadata=AppStore_iOS_13.4.1_1.9.2;
+     "data" = {"appPlatform":1,"configType":2};
+ };
+     "timestamp" = 1592281654062;
+ }
+ */
+
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

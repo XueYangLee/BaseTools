@@ -38,7 +38,6 @@
 #import "CustomTools.h"
 #import "DateOperation.h"
 #import "CustomAlert.h"
-#import "CustomFlowLayout.h"
 #import "MD5.h"
 #import "UUID.h"
 #import "KeyChainStore.h"
@@ -47,6 +46,8 @@
 #import "DownloadVideo.h"
 #import "VideoCompress.h"
 #import "CustomSlider.h"
+#import "CustomFlowLayout.h"
+#import "CustomWaterLayout.h"
 //#import "WRNavigationBar.h"
 
 /****** View ******/

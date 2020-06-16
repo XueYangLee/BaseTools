@@ -3,7 +3,7 @@ target "BaseTools" do
 pod 'AFNetworking'
 pod 'MBProgressHUD'
 pod 'SVProgressHUD'
-pod 'MJRefresh'
 pod 'SDWebImage'
+pod 'MJRefresh'
 pod 'Masonry'
 end

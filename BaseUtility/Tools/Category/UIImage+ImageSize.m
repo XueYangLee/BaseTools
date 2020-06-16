@@ -8,8 +8,41 @@
 
 #import "UIImage+ImageSize.h"
 #import <ImageIO/ImageIO.h>
+#import <SDWebImage/SDImageCache.h>
+
+static SDImageCache *ImageCache;
 
 @implementation UIImage (ImageSize)
+
++ (CGSize)imageSizeInCacheWithImageUrl:(id)imageURL Completion:(void (^__nullable)(CGSize imageSize))completion {
+    NSURL * URL = nil;
+    if ([imageURL isKindOfClass:[NSURL class]]) {
+        URL = imageURL;
+    }
+    if ([imageURL isKindOfClass:[NSString class]]) {
+        URL = [NSURL URLWithString:imageURL];
+    }
+    if (!imageURL) {
+        return CGSizeMake(SCREEN_WIDTH, 0.01);
+    }
+    if (!ImageCache) {
+        SDImageCacheConfig *config = [[SDImageCacheConfig alloc] init];
+        ImageCache = [[SDImageCache alloc] initWithNamespace:@"WebImageNameSpace" diskCacheDirectory:nil config:config];
+    }
+    
+    UIImage *image = [ImageCache imageFromCacheForKey:URL.absoluteString];
+    if (image) {
+        return image.size;
+    } else {
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:URL options:SDWebImageDownloaderHighPriority|SDWebImageDownloaderAllowInvalidSSLCertificates progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (!error) {
+                [ImageCache storeImage:image imageData:data forKey:URL.absoluteString cacheType:SDImageCacheTypeAll completion:nil];
+                completion(image.size);
+            }
+        }];
+        return CGSizeMake(SCREEN_WIDTH, 0.01);
+    }
+}
 
 
 // 根据图片url获取图片尺寸

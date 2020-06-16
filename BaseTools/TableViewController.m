@@ -21,12 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setData];
+    [self loadRefreshData];
     self.showRefreshHeader=YES;
     self.showRefreshFooter=YES;
 }
 
-- (void)setData{
+- (void)loadRefreshData{
     [self endRefreshing];
     
     if (self.refreshPages==0) {
