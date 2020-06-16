@@ -21,24 +21,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.dataArray=[NSMutableArray arrayWithArray:@[@"1111",@"222",@"333"]];
     [self setData];
     self.showRefreshHeader=YES;
     self.showRefreshFooter=YES;
-    [self beginRefreshing];
 }
 
 - (void)setData{
     [self endRefreshData];
-    if (!self.isEnd && self.pages!=0) {
-        [self.dataArray addObjectsFromArray:@[@"1",@"2",@"3"]];
+    
+    if (self.refreshPages==0) {
+        [self.dataArray removeAllObjects];
+        self.isEnd=NO;
+    }
+    self.dataArray=[NSMutableArray arrayWithArray:@[@"1",@"2",@"3"]];
+    if (!self.isEnd && self.refreshPages!=0) {
+        [self.dataArray addObjectsFromArray:@[@"4",@"5",@"6"]];
         if (self.dataArray.count!=3) {
             self.isEnd=YES;
+            [self noMoreData];
         }else{
             self.isEnd=NO;
         }
-        
-//        [self noMoreData];
     }
     [self.tableView reloadData];
     

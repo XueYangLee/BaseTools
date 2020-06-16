@@ -20,6 +20,9 @@
     
     [self initCollectionView];
     [self initRefreshControl];
+    
+    self.showRefreshHeader=NO;
+    self.showRefreshFooter=NO;
 }
 
 - (void)initCollectionView {
@@ -61,10 +64,24 @@
 
 
 - (void)initRefreshControl{
+    WS(weakSelf)
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        weakSelf.refreshPages = 0;
+        [weakSelf setData];
+    }];
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    self.collectionView.mj_header=header;
     
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        weakSelf.refreshPages++;
+        [weakSelf setData];
+    }];
+    [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
+    self.collectionView.mj_footer=footer;
 }
-
-
 
 
 #pragma mark - collectionView delegate & dataSource
@@ -96,6 +113,73 @@
     self.collectionView.delegate = nil;
     self.collectionView.dataSource = nil;
 }
+
+
+#pragma mark - setRefresh
+- (void)setShowRefreshHeader:(BOOL)showRefreshHeader{
+    _showRefreshHeader=showRefreshHeader;
+    [self.collectionView.mj_header setHidden:!self.showRefreshHeader];
+}
+
+- (void)setShowRefreshFooter:(BOOL)showRefreshFooter{
+    _showRefreshFooter=showRefreshFooter;
+    [self.collectionView.mj_footer setHidden:!self.showRefreshFooter];
+}
+
+#pragma mark - data refresh protocol
+- (void)setData{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self endRefreshData];
+    });
+}
+
+- (void)endRefreshInHeader{
+    if (self.showRefreshFooter) {
+        [self resetFooterState];
+    }
+    [self.collectionView.mj_header endRefreshing];
+}
+
+- (void)endRefreshInFooter{
+    [self.collectionView.mj_footer endRefreshing];
+}
+
+- (void)endRefreshData{
+    [self endRefreshInHeader];
+    [self endRefreshInFooter];
+}
+
+- (void)resetFooterState{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView.mj_footer setHidden:NO];
+        self.collectionView.mj_footer.state = MJRefreshStateIdle;
+    });
+}
+
+- (void)noMoreData{
+    if (self.showRefreshFooter) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView.mj_footer setHidden:NO];
+            self.collectionView.mj_footer.state = MJRefreshStateNoMoreData;
+        });
+    }
+}
+
+- (void)noneData{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.collectionView.mj_footer setHidden:YES];
+    });
+}
+
+- (void)beginRefreshing{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.showRefreshFooter) {
+            [self.collectionView.mj_footer setHidden:YES];
+        }
+        [self.collectionView.mj_header beginRefreshing];
+    });
+}
+
 
 
 

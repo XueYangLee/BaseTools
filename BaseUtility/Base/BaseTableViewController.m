@@ -30,8 +30,8 @@
     [self initTableView];
     [self initRefreshControl];
     
-    [self.tableView.mj_header setHidden:!self.showRefreshHeader];
-    [self.tableView.mj_footer setHidden:!self.showRefreshFooter];
+    self.showRefreshHeader=NO;
+    self.showRefreshFooter=NO;
 }
 
 - (void)initTableView{
@@ -75,7 +75,8 @@
 - (void)initRefreshControl{
     WS(weakSelf)
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        weakSelf.pages = 0;
+        
+        weakSelf.refreshPages = 0;
         [weakSelf setData];
     }];
     header.automaticallyChangeAlpha = YES;
@@ -84,7 +85,7 @@
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        weakSelf.pages++;
+        weakSelf.refreshPages++;
         [weakSelf setData];
     }];
     [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
@@ -112,7 +113,7 @@
 }
 
 
-#pragma mark - refresh
+#pragma mark - setRefresh
 - (void)setShowRefreshHeader:(BOOL)showRefreshHeader{
     _showRefreshHeader=showRefreshHeader;
     [self.tableView.mj_header setHidden:!self.showRefreshHeader];
@@ -125,14 +126,15 @@
 
 #pragma mark - data refresh protocol
 - (void)setData{
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self endRefreshData];
+    });
 }
 
 - (void)endRefreshInHeader{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView.mj_footer setHidden:NO];
-        self.tableView.mj_footer.state = MJRefreshStateIdle;
-    });
+    if (self.showRefreshFooter) {
+        [self resetFooterState];
+    }
     [self.tableView.mj_header endRefreshing];
 }
 
@@ -145,14 +147,35 @@
     [self endRefreshInFooter];
 }
 
+- (void)resetFooterState{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView.mj_footer setHidden:NO];
+        self.tableView.mj_footer.state = MJRefreshStateIdle;
+    });
+}
 
-- (void)beginRefreshing{
+- (void)noMoreData{
     if (self.showRefreshFooter) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView.mj_footer setHidden:YES];
+            [self.tableView.mj_footer setHidden:NO];
+            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
         });
     }
-    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)noneData{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView.mj_footer setHidden:YES];
+    });
+}
+
+- (void)beginRefreshing{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.showRefreshFooter) {
+            [self.tableView.mj_footer setHidden:YES];
+        }
+        [self.tableView.mj_header beginRefreshing];
+    });
 }
 
 

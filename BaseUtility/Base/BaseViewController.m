@@ -14,8 +14,6 @@
 @property (nonatomic, assign) BOOL statusBarHidden;
 @property (nonatomic, strong) UIView *statusBarView;
 
-@property (nonatomic, strong) UIScrollView *base_scrollView;
-
 @end
 
 @implementation BaseViewController
@@ -133,44 +131,35 @@
 
 
 //数据刷新
-- (void)refreshData:(NSMutableArray *)dataArray ScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter{
+- (void)refreshDataWithScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter{
     
-    self.base_scrollView=scrollView;
     WS(weakSelf)
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [dataArray removeAllObjects];
-        weakSelf.pages = 0;
-        weakSelf.totalCount = 0;
-        [weakSelf setData];
+        weakSelf.base_pages = 0;
+        [weakSelf setBaseRefreshData];
     }];
     header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
     scrollView.mj_header=header;
     
     if (showFooter) {
         MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            DLog(@"%ld>>>%ld>>>step1",weakSelf.totalCount,dataArray.count)
-            if (weakSelf.totalCount == dataArray.count) {
+            /*
+             if (weakSelf.totalCount == dataArray.count) {
                 scrollView.mj_footer.state = MJRefreshStateNoMoreData;
                 return ;
             }
-            weakSelf.totalCount = dataArray.count;
-            
-            DLog(@"%ld>>>%ld>>>step2",weakSelf.totalCount,dataArray.count)
-            if (dataArray.count == 0) {
-                weakSelf.pages = 0;
-                [weakSelf setData];
-                return;
-            }
-            weakSelf.pages++;
-            [weakSelf setData];
+            weakSelf.totalCount = dataArray.count;*/
+            weakSelf.base_pages++;
+            [weakSelf setBaseRefreshData];
         }];
         [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
         scrollView.mj_footer=footer;
     }
 }
 
-//数据源
-- (void)setData{
+//刷新数据源
+- (void)setBaseRefreshData{
 }
 
 

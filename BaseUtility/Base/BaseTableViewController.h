@@ -20,15 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) UITableViewStyle tableViewStyle;
 
 
+
 /** 是否显示刷新控件刷新头（下拉刷新）  默认不显示 */
 @property (nonatomic, assign) BOOL showRefreshHeader;
 
 /** 是否显示刷新控件刷新尾（上拉加载）  默认不显示 */
 @property (nonatomic, assign) BOOL showRefreshFooter;
 
-
 /** 页码 */
-@property (nonatomic, assign) NSInteger pages;
+@property (nonatomic, assign) NSInteger refreshPages;
 
 
 @end

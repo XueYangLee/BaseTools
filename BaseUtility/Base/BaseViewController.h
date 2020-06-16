@@ -63,7 +63,6 @@
 
 
 
-
 /**
  初始化tableview（需添加代理）
  */
@@ -71,20 +70,20 @@
 
 
 
+
 /** 页码 */
-@property (nonatomic, assign) NSInteger pages;
-/** 数据总数 */
-@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, assign) NSInteger base_pages;
 
 /**
- 数据刷新  数据加载完成结束头部及脚步的刷新
+ 添加数据刷新
 
- @param dataArray 数组
  @param scrollView 使用的滚动视图
  @param showFooter YES 使用翻页   NO 不使用翻页
  */
-- (void)refreshData:(NSMutableArray *)dataArray ScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter;
+- (void)refreshDataWithScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter;
 
+/** 刷新数据源 */
+- (void)setBaseRefreshData;
 
 
 
