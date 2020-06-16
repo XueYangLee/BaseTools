@@ -27,7 +27,7 @@
 }
 
 - (void)setData{
-    [self endRefreshData];
+    [self endRefreshing];
     
     if (self.refreshPages==0) {
         [self.dataArray removeAllObjects];

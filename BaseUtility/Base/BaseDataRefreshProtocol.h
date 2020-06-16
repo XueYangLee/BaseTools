@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setData;
 
 /** 结束下拉刷新 下拉加载动作 */
-- (void)endRefreshData;
+- (void)endRefreshing;
 
 /** 结束下拉刷新动作（刷新头） */
 - (void)endRefreshInHeader;
