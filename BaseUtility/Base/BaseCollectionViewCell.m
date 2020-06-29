@@ -15,13 +15,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        [self setUI];
+        [self initUI];
     }
     return self;
 }
 
 
-- (void)setUI{
+- (void)initUI{
     
 }
 

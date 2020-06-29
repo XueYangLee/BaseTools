@@ -71,20 +71,4 @@
 
 
 
-/** 页码 */
-@property (nonatomic, assign) NSInteger base_pages;
-
-/**
- 添加数据刷新
-
- @param scrollView 使用的滚动视图
- @param showFooter YES 使用翻页   NO 不使用翻页
- */
-- (void)refreshDataWithScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter;
-
-/** 刷新数据源（基类） */
-- (void)loadBaseRefreshData;
-
-
-
 @end

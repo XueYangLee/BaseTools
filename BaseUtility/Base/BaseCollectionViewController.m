@@ -34,27 +34,28 @@
         layout = [UICollectionViewFlowLayout new];
         layout.minimumLineSpacing= 10;
         layout.minimumInteritemSpacing= 10;
+        layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
     }
     
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
-    _collectionView.backgroundColor = [UIColor clearColor];
-    _collectionView.showsVerticalScrollIndicator=NO;
-    _collectionView.showsHorizontalScrollIndicator=NO;
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.showsVerticalScrollIndicator=NO;
+    self.collectionView.showsHorizontalScrollIndicator=NO;
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
     if (@available(iOS 11.0, *)) {
         if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-            _collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+            self.collectionView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
         }
     } else {
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
-    [self.view addSubview:_collectionView];
+    [self.view addSubview:self.collectionView];
     
     
-    [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
 }
 
 - (void)setFlowLayout:(UICollectionViewFlowLayout *)flowLayout {

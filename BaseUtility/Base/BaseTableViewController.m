@@ -37,29 +37,28 @@
 - (void)initTableView{
     [self.tableView removeFromSuperview];
     
-    UITableView *tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) style:self.tableViewStyle];
-    tableView.backgroundColor = [UIColor clearColor];
-    tableView.showsVerticalScrollIndicator=NO;
-    tableView.showsHorizontalScrollIndicator=NO;
-    tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    tableView.sectionFooterHeight = 0;
-    tableView.estimatedRowHeight = 0;
-    tableView.estimatedSectionHeaderHeight = 0;
-    tableView.estimatedSectionFooterHeight = 0;
-    tableView.delegate=self;
-    tableView.dataSource=self;
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) style:self.tableViewStyle];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.showsVerticalScrollIndicator=NO;
+    self.tableView.showsHorizontalScrollIndicator=NO;
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     if (@available(iOS 11.0, *)) {
         if ([self respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]){
-            tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+            self.tableView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
         }
     } else {
         if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
             self.automaticallyAdjustsScrollViewInsets = NO;
         }
     }
-    [self.view addSubview:tableView];
+    [self.view addSubview:self.tableView];
     
-    _tableView=tableView;
 }
 
 
@@ -84,7 +83,12 @@
     self.tableView.mj_header=header;
     
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
+        /* MJRefreshStateNoMoreData
+         if (self.totalCount == dataArray.count) {
+            scrollView.mj_footer.state = MJRefreshStateNoMoreData;
+            return ;
+        }
+        self.totalCount = dataArray.count;*/
         weakSelf.refreshPages++;
         [weakSelf loadRefreshData];
     }];

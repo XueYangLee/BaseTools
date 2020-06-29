@@ -36,12 +36,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle=UITableViewCellSelectionStyleNone;
-        [self setUI];
+        [self initUI];
     }
     return self;
 }
 
-- (void)setUI{
+- (void)initUI{
     
 }
 

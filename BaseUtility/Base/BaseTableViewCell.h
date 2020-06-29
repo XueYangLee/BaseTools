@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)createCellWithTableView:(UITableView *)tableView;
 
 /** 设置cell相关UI */
-- (void)setUI;
+- (void)initUI;
 
 
 @end

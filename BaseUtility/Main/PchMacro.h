@@ -8,9 +8,6 @@
 
 
 /****** Category ******/
-#import "UILabel+FuncChains.h"
-#import "UIButton+FuncChains.h"
-#import "UITextField+FuncChains.h"
 #import "CALayer+XibBorderColor.h"
 #import "MBProgressHUD+MBExtension.h"
 #import "NSArray+LXY.h"
@@ -32,6 +29,18 @@
 #import "UIView+CustomCornerRadius.h"
 #import "UIView+CustomCornerBorder.h"
 #import "NSArray+Sudoku.h"
+
+/** FuncControl */
+#import "UILabel+FuncChains.h"
+#import "UIButton+FuncChains.h"
+#import "UITextField+FuncChains.h"
+
+/** SafeObject */
+#import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
+#import "NSDictionary+Safe.h"
+#import "NSMutableDictionary+Safe.h"
+#import "NSMutableString+Safe.h"
 
 /****** Tools ******/
 #import "CustomNetWork.h"
@@ -59,7 +68,7 @@
 #define PchMacro_h
 
 
-#pragma mark -------------- 常用尺寸宏
+#pragma mark - 常用尺寸宏
 /** 屏幕尺寸 */
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -92,7 +101,7 @@
 
 
 
-#pragma mark -------------- 字符串类型转换
+#pragma mark - 字符串类型转换
 /** 输出类型转换 */
 #define FORMATEString(Method)    ([[NSString stringWithFormat:@"%@",Method] isKindOfClass:[NSNull class]] || [[NSString stringWithFormat:@"%@",Method] isEqualToString:@"<null>"] || [[NSString stringWithFormat:@"%@",Method] isEqualToString:@"(null)"]) ? @"" : [NSString stringWithFormat:@"%@",Method]
 #define FORMATEPRICE(Method)   [NSString stringWithFormat:@"%.2f",Method]
@@ -104,7 +113,7 @@
 #define isEmptyString(x)      (isNull(x) || [x isEqual:@""] || [x isEqual:@"(null)"] || [x isEqual:@"<null>"])
 
 
-#pragma mark -------------- 字体相关
+#pragma mark - 字体相关
 /** 自定义颜色 */
 #define UIColorWithRGBA(r,g,b,a)                         [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define UIColorWithHex(a)                                [UIColor colorWithHexString:a]
@@ -141,7 +150,7 @@
 
 
 
-#pragma mark -------------- view尺寸宏
+#pragma mark - view尺寸宏
 /** View 坐标(x,y)和宽高(width,height) */
 #define X(v)               (v).frame.origin.x
 #define Y(v)               (v).frame.origin.y
@@ -162,7 +171,7 @@
 #define radio(NUM)  NUM*screen_ratio
 
 
-#pragma mark -------------- 图片路径、加载
+#pragma mark - 图片路径、加载
 /** PNG JPG 图片路径 */
 #define PNGPATH(NAME)           [[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:NAME] ofType:@"png"]
 #define JPGPATH(NAME)           [[NSBundle mainBundle] pathForResource:[NSString stringWithUTF8String:NAME] ofType:@"jpg"]
@@ -176,7 +185,7 @@
 
 
 
-#pragma mark -------------- 获取设备
+#pragma mark - 获取设备
 //是否Retina屏
 #define IS_RETINA ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) :NO)
 #define IS_IPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
@@ -185,7 +194,7 @@
 
 
 
-#pragma mark -------------- 版本信息
+#pragma mark - 版本信息
 /** 获取Xcode的版本号 */
 #define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 /** iOS系统版本  NSString类型*/
@@ -200,7 +209,7 @@
 #define ELECTRIC_POWER  [[UIDevicecurrentDevice]batteryLevel]
 
 
-#pragma mark -------------- 功能宏
+#pragma mark - 功能宏
 /** NSUSerDefault */
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
 /** NSNotificationCenter */
@@ -211,6 +220,19 @@
 /** class与string的转变 */
 #define stringFromClass(CLASS_NAME) NSStringFromClass([CLASS_NAME class])
 #define classFromString(STRING_NAME) NSClassFromString(STRING_NAME)
+
+/** 注册collectionViewCell */
+#define RegisterCollectionViewCellWithClassName(CollectionView,ClassName)    [CollectionView registerClass:[ClassName class] forCellWithReuseIdentifier:NSStringFromClass([ClassName class])]
+/** 注册collectionViewHeader */
+#define RegisterCollectionViewHeaderWithClassName(CollectionView,ClassName)  [CollectionView registerClass:[ClassName class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:NSStringFromClass([ClassName class])]
+/** 注册collectionViewFooter */
+#define RegisterCollectionViewFooterWithClassName(CollectionView,ClassName)  [CollectionView registerClass:[ClassName class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:NSStringFromClass([ClassName class])]
+
+/** 注册tableViewCell */
+#define RegisterTableViewCellWithClassName(TableView,ClassName)           [TableView registerClass:[ClassName class] forCellReuseIdentifier:NSStringFromClass([ClassName class])]
+/** 注册tableViewHeaderFooter */
+#define RegisterTableViewHeaderFooterWithClassName(TableView,ClassName)   [TableView registerClass:[ClassName class] forHeaderFooterViewReuseIdentifier:NSStringFromClass([ClassName class])];
+
 
 /** View 圆角及边框 */
 #define ViewBorderRadius(View, Radius, Width, Color)\

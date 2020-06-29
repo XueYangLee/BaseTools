@@ -13,6 +13,11 @@
 		0454C7EB2463F8220092F6FE /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */; };
 		04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04557C8E24920FFE00A2DA0B /* UIButton+AdjustInsets.m */; };
 		0456FA07248F96F400030075 /* UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0456FA06248F96F400030075 /* UUID.m */; };
+		045724AF24A9A0AF00432039 /* NSArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045724AE24A9A0AF00432039 /* NSArray+Safe.m */; };
+		045724B224A9D25100432039 /* NSMutableArray+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045724B124A9D25100432039 /* NSMutableArray+Safe.m */; };
+		045724B524A9D74100432039 /* NSMutableString+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045724B424A9D74100432039 /* NSMutableString+Safe.m */; };
+		045724B824A9DBC300432039 /* NSMutableDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045724B724A9DBC300432039 /* NSMutableDictionary+Safe.m */; };
+		045724BB24A9DDCF00432039 /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 045724BA24A9DDCF00432039 /* NSDictionary+Safe.m */; };
 		045B8CFE2498CD3600647FC5 /* CustomWaterLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */; };
 		046333492476590E000A0A40 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046333482476590E000A0A40 /* UIColor+Extensions.m */; };
 		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
@@ -124,6 +129,16 @@
 		04557C8F24920FFE00A2DA0B /* UIButton+AdjustInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AdjustInsets.h"; sourceTree = "<group>"; };
 		0456FA05248F96F400030075 /* UUID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UUID.h; sourceTree = "<group>"; };
 		0456FA06248F96F400030075 /* UUID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UUID.m; sourceTree = "<group>"; };
+		045724AD24A9A0AF00432039 /* NSArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Safe.h"; sourceTree = "<group>"; };
+		045724AE24A9A0AF00432039 /* NSArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Safe.m"; sourceTree = "<group>"; };
+		045724B024A9D25100432039 /* NSMutableArray+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Safe.h"; sourceTree = "<group>"; };
+		045724B124A9D25100432039 /* NSMutableArray+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Safe.m"; sourceTree = "<group>"; };
+		045724B324A9D74100432039 /* NSMutableString+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+Safe.h"; sourceTree = "<group>"; };
+		045724B424A9D74100432039 /* NSMutableString+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+Safe.m"; sourceTree = "<group>"; };
+		045724B624A9DBC300432039 /* NSMutableDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Safe.h"; sourceTree = "<group>"; };
+		045724B724A9DBC300432039 /* NSMutableDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Safe.m"; sourceTree = "<group>"; };
+		045724B924A9DDCF00432039 /* NSDictionary+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Safe.h"; sourceTree = "<group>"; };
+		045724BA24A9DDCF00432039 /* NSDictionary+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomWaterLayout.h; sourceTree = "<group>"; };
 		045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomWaterLayout.m; sourceTree = "<group>"; };
 		046333472476590E000A0A40 /* UIColor+Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
@@ -305,6 +320,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045724AC24A99F3B00432039 /* SafeObject */ = {
+			isa = PBXGroup;
+			children = (
+				045724AD24A9A0AF00432039 /* NSArray+Safe.h */,
+				045724AE24A9A0AF00432039 /* NSArray+Safe.m */,
+				045724B024A9D25100432039 /* NSMutableArray+Safe.h */,
+				045724B124A9D25100432039 /* NSMutableArray+Safe.m */,
+				045724B924A9DDCF00432039 /* NSDictionary+Safe.h */,
+				045724BA24A9DDCF00432039 /* NSDictionary+Safe.m */,
+				045724B624A9DBC300432039 /* NSMutableDictionary+Safe.h */,
+				045724B724A9DBC300432039 /* NSMutableDictionary+Safe.m */,
+				045724B324A9D74100432039 /* NSMutableString+Safe.h */,
+				045724B424A9D74100432039 /* NSMutableString+Safe.m */,
+			);
+			path = SafeObject;
+			sourceTree = "<group>";
+		};
 		046B988524581DB900979059 /* FuncControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +518,7 @@
 		F187EAAF224B55ED00293096 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				045724AC24A99F3B00432039 /* SafeObject */,
 				046B988624581E4C00979059 /* CustomCorner */,
 				046B988524581DB900979059 /* FuncControl */,
 				F187EB67224B568F00293096 /* CALayer+XibBorderColor.h */,
@@ -829,9 +862,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */,
+				045724AF24A9A0AF00432039 /* NSArray+Safe.m in Sources */,
 				F187EB7E224B569100293096 /* NSArray+LXY.m in Sources */,
 				F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */,
 				F1B9297D2462D3E90077969A /* BaseViewModel.m in Sources */,
+				045724B524A9D74100432039 /* NSMutableString+Safe.m in Sources */,
 				F187EB7B224B569100293096 /* UIImage+WaterMark.m in Sources */,
 				F187EB81224B569100293096 /* MBProgressHUD+MBExtension.m in Sources */,
 				F187EB7F224B569100293096 /* NSDate+Extension.m in Sources */,
@@ -847,6 +882,7 @@
 				F187EBA9224B56AE00293096 /* TBCityIconInfo.m in Sources */,
 				F12D6C562307CE3700AAC2CF /* UITextField+FuncChains.m in Sources */,
 				F187E9C9224B196A00293096 /* ViewController.m in Sources */,
+				045724BB24A9DDCF00432039 /* NSDictionary+Safe.m in Sources */,
 				F187EBBE224B56C800293096 /* SkyRadiusView.m in Sources */,
 				F187EBBA224B56C800293096 /* CustomBtn.m in Sources */,
 				F187EB94224B56A100293096 /* LXYQRCodeOverlayView.m in Sources */,
@@ -867,6 +903,7 @@
 				045493FF24692A94009D17ED /* BaseTableViewCell.m in Sources */,
 				F187EB4F224B567F00293096 /* RootNavigationController.m in Sources */,
 				F187EB9A224B56A100293096 /* LXYQRCodeUtility.m in Sources */,
+				045724B824A9DBC300432039 /* NSMutableDictionary+Safe.m in Sources */,
 				F187EBBD224B56C800293096 /* PWDInputView.m in Sources */,
 				F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */,
 				F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */,
@@ -892,6 +929,7 @@
 				04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */,
 				F187EBC8224B56F700293096 /* CustomNetWork.m in Sources */,
 				F187EB77224B569100293096 /* UIView+Extension.m in Sources */,
+				045724B224A9D25100432039 /* NSMutableArray+Safe.m in Sources */,
 				F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */,
 				0456FA07248F96F400030075 /* UUID.m in Sources */,
 				F187EB4E224B567F00293096 /* BaseWebViewController.m in Sources */,

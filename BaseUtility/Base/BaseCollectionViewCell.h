@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseCollectionViewCell : UICollectionViewCell
 
 /** 设置cell相关UI */
-- (void)setUI;
+- (void)initUI;
 
 @end
 

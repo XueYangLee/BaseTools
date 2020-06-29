@@ -130,38 +130,6 @@
 }
 
 
-//数据刷新
-- (void)refreshDataWithScrollView:(UIScrollView *)scrollView RefreshFooter:(BOOL)showFooter{
-    
-    WS(weakSelf)
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        weakSelf.base_pages = 0;
-        [weakSelf loadBaseRefreshData];
-    }];
-    header.automaticallyChangeAlpha = YES;
-    header.lastUpdatedTimeLabel.hidden = YES;
-    scrollView.mj_header=header;
-    
-    if (showFooter) {
-        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            /*
-             if (weakSelf.totalCount == dataArray.count) {
-                scrollView.mj_footer.state = MJRefreshStateNoMoreData;
-                return ;
-            }
-            weakSelf.totalCount = dataArray.count;*/
-            weakSelf.base_pages++;
-            [weakSelf loadBaseRefreshData];
-        }];
-        [footer setTitle:@"没有更多数据了" forState:MJRefreshStateNoMoreData];
-        scrollView.mj_footer=footer;
-    }
-}
-
-//刷新数据源
-- (void)loadBaseRefreshData{
-}
-
 
 #pragma mark - touch
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
