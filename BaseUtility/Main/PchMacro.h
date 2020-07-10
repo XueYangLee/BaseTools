@@ -183,6 +183,7 @@
 #define JPGkImg(NAME)          [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(NAME) ofType:@"jpg"]]
 #define kImg(NAME, EXT)        [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(NAME) ofType:(EXT)]]
 
+#define UIImageName(imageName)  [UIImage imageNamed:imageName]
 
 
 #pragma mark - 获取设备

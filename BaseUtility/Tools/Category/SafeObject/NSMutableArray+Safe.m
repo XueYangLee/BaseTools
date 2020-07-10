@@ -7,6 +7,7 @@
 //
 
 #import "NSMutableArray+Safe.h"
+#import "NSObject+SwizzleMethod.h"
 
 @implementation NSMutableArray (Safe)
 
@@ -28,6 +29,12 @@
         
         /** objectAtIndexedSubscript */
         [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(objectAtIndexedSubscript:) SwizzleNewSEL:@selector(safe_mutable_objectAtIndexedSubscript:)];
+        
+        /** replaceObjectAtIndex:withObject: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(replaceObjectAtIndex:withObject:) SwizzleNewSEL:@selector(safe_replaceObjectAtIndex:withObject:)];
+        
+        /** exchangeObjectAtIndex:withObjectAtIndex: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(exchangeObjectAtIndex:withObjectAtIndex:) SwizzleNewSEL:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
     });
 }
 
@@ -92,6 +99,25 @@
         return nil;
     }
     return [self safe_mutable_objectAtIndexedSubscript:idx];
+}
+
+- (void)safe_replaceObjectAtIndex:(NSUInteger)index withObject:(id<NSCopying>)anObject{
+    if (index >= self.count) {
+        return;
+    }
+    
+    if (!anObject) {
+        return;
+    }
+    return [self safe_replaceObjectAtIndex:index withObject:anObject];
+}
+
+- (void)safe_exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2{
+    if (idx1 >= self.count || idx2 >= self.count) {
+        return;
+    }
+    
+    return [self safe_exchangeObjectAtIndex:idx1 withObjectAtIndex:idx2];
 }
 
 @end

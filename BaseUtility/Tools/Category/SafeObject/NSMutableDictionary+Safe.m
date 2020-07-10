@@ -7,6 +7,7 @@
 //
 
 #import "NSMutableDictionary+Safe.h"
+#import "NSObject+SwizzleMethod.h"
 
 @implementation NSMutableDictionary (Safe)
 

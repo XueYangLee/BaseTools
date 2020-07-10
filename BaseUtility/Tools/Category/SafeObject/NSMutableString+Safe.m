@@ -7,6 +7,7 @@
 //
 
 #import "NSMutableString+Safe.h"
+#import "NSObject+SwizzleMethod.h"
 
 @implementation NSMutableString (Safe)
 
@@ -29,6 +30,18 @@
         
         /** appendString */
         [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(appendString:) SwizzleNewSEL:@selector(safe_appendString:)];
+        
+        /** stringByReplacingCharactersInRange:withString: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(stringByReplacingCharactersInRange:withString:) SwizzleNewSEL:@selector(safe_stringByReplacingCharactersInRange:withString:)];
+        
+        /** replaceCharactersInRange:withString: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(replaceCharactersInRange:withString:) SwizzleNewSEL:@selector(safe_replaceCharactersInRange:withString:)];
+        
+        /** insertString:atIndex: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(insertString:atIndex:) SwizzleNewSEL:@selector(safe_insertString:atIndex:)];
+        
+        /** deleteCharactersInRange: */
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(deleteCharactersInRange:) SwizzleNewSEL:@selector(safe_deleteCharactersInRange:)];
     });
 }
 
@@ -97,6 +110,75 @@
         return;
     }
     return [self safe_appendString:aString];
+}
+
+/** 字符串替换 */
+- (NSString *)safe_stringByReplacingCharactersInRange:(NSRange)range withString:(NSString *)replacement{
+    if (range.location > self.length) {
+        return nil;
+    }
+    
+    if (range.length > self.length) {
+        return nil;
+    }
+    
+    if ((range.location + range.length) > self.length) {
+        return nil;
+    }
+    
+    if (!replacement) {
+        return nil;
+    }
+    return [self safe_stringByReplacingCharactersInRange:range withString:replacement];
+}
+
+
+- (void)safe_replaceCharactersInRange:(NSRange)range withString:(NSString *)aString{
+    if (range.location > self.length) {
+        return;
+    }
+    
+    if (range.length > self.length) {
+        return;
+    }
+    
+    if ((range.location + range.length) > self.length) {
+        return;
+    }
+    
+    if (!aString) {
+        return;
+    }
+    
+    return [self safe_replaceCharactersInRange:range withString:aString];
+}
+
+
+- (void)safe_insertString:(NSString *)aString atIndex:(NSUInteger)loc{
+    if (loc > self.length) {
+        return;
+    }
+    
+    if (!aString) {
+        return;
+    }
+    return [self safe_insertString:aString atIndex:loc];
+}
+
+
+- (void)safe_deleteCharactersInRange:(NSRange)range{
+    if (range.location > self.length) {
+        return;
+    }
+    
+    if (range.length > self.length) {
+        return;
+    }
+    
+    if ((range.location + range.length) > self.length) {
+        return;
+    }
+    return [self safe_deleteCharactersInRange:range];
 }
 
 @end

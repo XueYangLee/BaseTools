@@ -7,6 +7,7 @@
 //
 
 #import "NSArray+Safe.h"
+#import "NSObject+SwizzleMethod.h"
 
 @implementation NSArray (Safe)
 
