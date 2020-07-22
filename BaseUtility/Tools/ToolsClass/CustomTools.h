@@ -326,4 +326,19 @@
  */
 + (UIColor *_Nonnull)colorGradientWithBeginColor:(UIColor *_Nonnull)beginColor EndColor:(UIColor *_Nonnull)endColor Progress:(CGFloat)progress;
 
+
+
+
+/**
+ 给视图添加渐变色
+ 
+ @param view 要添加渐变色的视图
+ @param startColor 起始颜色
+ @param endColor 结束颜色
+ @param startPoint 渐变起始点
+ @param endPoint 渐变结束点
+ */
++ (void)colorGradientWithView:(UIView *_Nonnull)view StartColor:(UIColor *_Nonnull)startColor EndColor:(UIColor *_Nonnull)endColor StartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint;
+
+
 @end

@@ -30,9 +30,9 @@
     return theImage;
 }
 
-+ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor {
++ (instancetype)circleImageWithImageName:(NSString *)imageName borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor {
     // 1.加载原图
-    UIImage *oldImage = [UIImage imageNamed:name];
+    UIImage *oldImage = [UIImage imageNamed:imageName];
     
     // 2.开启上下文
     CGFloat imageW = oldImage.size.width + 2 * borderWidth;
@@ -159,6 +159,23 @@
         }
     }
     return [UIImage imageNamed:launchImage];
+}
+
+
+/** 获取视频首帧图 */
++ (UIImage*)getVideoFirstFPSImage:(NSURL *)videoUrl {
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoUrl options:nil];
+    AVAssetImageGenerator *assetGen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    assetGen.appliesPreferredTrackTransform = YES;
+    CMTime time = CMTimeMakeWithSeconds(0, 1);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [assetGen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *videoImage = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return videoImage;
 }
 
 

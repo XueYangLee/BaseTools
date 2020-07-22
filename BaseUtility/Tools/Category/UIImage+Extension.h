@@ -16,51 +16,26 @@
 /** 用颜色返回一张图片 */
 + (UIImage *)imageWithColor:(UIColor*)color Alpha:(CGFloat)alpha;
 
-/**
- *  带边框的图片
- *
- *  @param name        图片
- *  @param borderWidth 边框宽度
- *  @param borderColor 边框颜色
- */
-+ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+/** 带边框的图片 */
++ (instancetype)circleImageWithImageName:(NSString *)imageName borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
-
-/**
- *  使用图像名创建图像视图
- *
- *  @param imageName 图像名称
- *
- *  @return UIImageView
- */
+/** 使用图像名创建图像视图 */
 + (instancetype)imageViewWithImageName:(NSString *)imageName;
-
 
 /** 圆形图片 */
 - (UIImage *)circleImage;
 
-
-
-/**
- 根据View转成UIImage
-
- @param view 需要转成image的view
- */
+/** 根据View转成UIImage */
 + (UIImage *)imageCreateFromView:(UIView *)view;
 
-
-
-/**
- *  获取屏幕截图
- *
- *  @return 屏幕截图图像
- */
+/** 获取屏幕截图 */
 + (UIImage *)screenShot;
-
-
 
 /** 获取启动图 */
 + (UIImage *)getLaunchImage;
+
+/** 获取视频首帧图 */
++ (UIImage*)getVideoFirstFPSImage:(NSURL *)videoUrl;
 
 
 @end

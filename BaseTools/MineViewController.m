@@ -73,6 +73,7 @@
         } Completion:^(BOOL success, NSURLResponse * _Nonnull response, NSURL * _Nullable filePath) {
             if (success) {
                 DLog(@"%@>response>>\n>%@>>>filePath",response,filePath.absoluteString)
+                // file:///Users/mac/Library/Developer/CoreSimulator/Devices/9A53D572-F5E0-42B3-84B3-88076DED4F1C/data/Containers/Data/Application/C5253674-522A-413F-A93C-FBBA46A126F1/Documents/testDownload.mp4
             }
         }];
         self.downloadTask=task;

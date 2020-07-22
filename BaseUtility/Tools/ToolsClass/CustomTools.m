@@ -651,5 +651,17 @@
     return color;
 }
 
+#pragma mark 给视图添加渐变色
++ (void)colorGradientWithView:(UIView *)view StartColor:(UIColor *)startColor EndColor:(UIColor *)endColor StartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint{
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)startColor.CGColor, (__bridge id)endColor.CGColor];
+    //  设置颜色变化点，取值范围 0.0~1.0
+    gradientLayer.locations = @[@0.0, @1.0];
+    gradientLayer.startPoint = startPoint;
+    gradientLayer.endPoint = endPoint;
+    gradientLayer.frame = view.bounds;
+    [view.layer addSublayer:gradientLayer];
+}
+
 
 @end

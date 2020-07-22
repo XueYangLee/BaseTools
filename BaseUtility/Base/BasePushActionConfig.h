@@ -60,7 +60,7 @@ transition.subtype = kCATransitionFromTop;\
 
 
 /** navi使用Present样式离开页面  从上到下动画离开 */
-#define NaviRouteDismissToVC\
+#define NaviRouteDismissVC \
 UINavigationController *navi = [UIViewController currentViewController].navigationController;\
 CATransition *transition = [CATransition animation];\
 transition.duration = 0.35f;\

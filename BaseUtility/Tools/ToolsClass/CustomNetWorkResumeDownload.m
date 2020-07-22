@@ -72,13 +72,11 @@
             
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
             if (fileName) {
-                DLog(@"11111")
                 NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
                 // 要检查的文件目录
                 NSString *filePath = [localPath  stringByAppendingPathComponent:fileName];
                 return [NSURL fileURLWithPath:filePath isDirectory:NO];
             }else{
-                DLog(@"22222")
                 NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
                 return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
             }
@@ -108,13 +106,11 @@
             
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
             if (fileName) {
-                DLog(@"11111")
                 NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
                 // 要检查的文件目录
                 NSString *filePath = [localPath  stringByAppendingPathComponent:fileName];
                 return [NSURL fileURLWithPath:filePath isDirectory:NO];
             }else{
-                DLog(@"222222")
                 NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
                 return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
             }

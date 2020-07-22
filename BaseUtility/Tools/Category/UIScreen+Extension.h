@@ -10,7 +10,10 @@
 
 @interface UIScreen (Extension)
 
-/** 返回屏幕尺寸 */
+/** 返回屏幕尺寸  [[UIScreen mainScreen]bounds]*/
++ (CGRect)scrnBounds;
+
+/** 返回屏幕尺寸  [UIScreen mainScreen].bounds.size*/
 + (CGSize)scrnSize;
 
 /** 判断是否是retina屏幕 */

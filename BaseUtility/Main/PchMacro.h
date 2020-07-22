@@ -70,8 +70,13 @@
 
 #pragma mark - 常用尺寸宏
 /** 屏幕尺寸 */
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define SCREEN_WIDTH ([UIScreen scrnSize].width)
+#define SCREEN_HEIGHT ([UIScreen scrnSize].height)
+
+/**   从横屏切换到竖屏的时候会出现[UIScreen mainScreen].bounds的高宽颠倒问题
+ #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+ #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+ */
 
 /** 获取当前屏幕的高度 applicationFrame就是app显示的区域，不包含状态栏 */
 #define APP_SCREEN_WIDTH  ([UIScreen mainScreen].applicationFrame.size.width)
@@ -82,13 +87,15 @@
 #define  KEY_WINDOW  [UIApplication sharedApplication].keyWindow
 
 /** 判断是否是iPhone X */
-#define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ((NSInteger)(([[UIScreen mainScreen] currentMode].size.height/[[UIScreen mainScreen] currentMode].size.width)*100) == 216) : NO)
 /** 导航栏高度 */
 #define NAVI_HEIGHT 44
 /** 状态栏高度 */
 #define STATUS_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+#define STATUS_BAR_HEIGHT  (IS_IPHONEX?44:20)
 /** 导航栏+状态栏总高 */
 #define STATUS_NAVI_HEIGHT  (NAVI_HEIGHT+STATUS_HEIGHT)
+#define STATUS_NAVI_BAR_HEIGHT  (NAVI_HEIGHT+STATUS_BAR_HEIGHT)
 /** 页面除过导航栏高度 */
 #define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-(STATUS_HEIGHT+NAVI_HEIGHT))
 //#define SCREEN_WINDOW_HEIGHT (SCREEN_HEIGHT-CGRectGetMaxY(self.navigationController.navigationBar.frame))
@@ -167,8 +174,8 @@
 #define MaxY(v)            CGRectGetMaxY((v).frame) //纵坐标加上控件的高度
 
 /** 以屏幕为比例的数值   比例基准由UI使用的机型宽度为准 */
-#define screen_ratio      [[UIScreen mainScreen] bounds].size.width/375.0
-#define radio(NUM)  NUM*screen_ratio
+#define screen_ratio      ([UIScreen scrnSize].width/375.0)
+#define radio(NUM)        NUM*screen_ratio
 
 
 #pragma mark - 图片路径、加载

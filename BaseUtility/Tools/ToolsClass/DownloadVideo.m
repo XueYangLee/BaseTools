@@ -8,27 +8,14 @@
 
 #import "DownloadVideo.h"
 
-@interface DownloadVideo ()
-
-@property (nonatomic,copy) DownloadVideoCompletion downloadCompletion;
-
-@end
-
 @implementation DownloadVideo
 
-+ (instancetype)sharedDownloadVideo {
-    static DownloadVideo *sharedDownloadVideo = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedDownloadVideo = [[DownloadVideo alloc]init];
-    });
-    return sharedDownloadVideo;
-}
+static DownloadVideoCompletion _downloadCompletion;
 
 
 //-----下载视频--
-- (void)videoDownloadWithUrl:(NSString *)videoUrl Completion:(DownloadVideoCompletion)comp{
-    self.downloadCompletion=comp;
++ (void)videoDownloadWithUrl:(NSString *)videoUrl Progress:(void(^)(NSProgress *progress, double downloadProgress))progress Completion:(DownloadVideoCompletion)comp{
+    _downloadCompletion=comp;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -39,7 +26,11 @@
     NSString  *fullPath = [NSString stringWithFormat:@"%@/%@", documentsDirectory, urlSuffix.lastObject];
     NSURL *urlNew = [NSURL URLWithString:videoUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:urlNew];
-    NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+    NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        if (progress) {
+            progress(downloadProgress,downloadProgress.fractionCompleted);
+        }
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         return [NSURL fileURLWithPath:fullPath];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         
@@ -50,7 +41,7 @@
 }
 
 //videoPath为视频下载到本地之后的本地路径
-- (void)saveVideo:(NSString *)videoPath{
++ (void)saveVideo:(NSString *)videoPath{
     
     if (videoPath) {
         NSURL *url = [NSURL URLWithString:videoPath];
@@ -64,16 +55,16 @@
 
 
 //保存视频完成之后的回调
-- (void)savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
++ (void)savedPhotoImage:(UIImage*)image didFinishSavingWithError: (NSError *)error contextInfo: (void *)contextInfo {
     if (error) {
 //        DLog(@"保存视频失败%@", error.localizedDescription);
-        if (self.downloadCompletion) {
-            self.downloadCompletion(NO);
+        if (_downloadCompletion) {
+            _downloadCompletion(NO);
         }
     }else {
 //        DLog(@"保存视频成功");
-        if (self.downloadCompletion) {
-            self.downloadCompletion(YES);
+        if (_downloadCompletion) {
+            _downloadCompletion(YES);
         }
     }
 }

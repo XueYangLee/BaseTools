@@ -11,27 +11,13 @@
 
 #import "SDWebImageDownloader.h"
 
-@interface SaveImageManager ()
-
-@property (nonatomic,copy) SaveImageCompletion saveCompletion;
-
-@end
-
-
 @implementation SaveImageManager
 
-+ (instancetype)sharedSaveImage {
-    static SaveImageManager *sharedSaveImage = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedSaveImage = [[SaveImageManager alloc]init];
-    });
-    return sharedSaveImage;
-}
+static SaveImageCompletion _saveCompletion;
 
 
-- (void)saveImages:(NSArray <NSString *>*)imageUrlArray Completion:(SaveImageCompletion)comp{
-    self.saveCompletion=comp;
++ (void)saveImages:(NSArray <NSString *>*)imageUrlArray Completion:(SaveImageCompletion)comp{
+    _saveCompletion=comp;
     
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -53,8 +39,8 @@
 }
 
 
-- (void)saveImage:(NSString *)imageUrl Completion:(SaveImageCompletion)comp{
-    self.saveCompletion=comp;
++ (void)saveImage:(NSString *)imageUrl Completion:(SaveImageCompletion)comp{
+    _saveCompletion=comp;
     
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -76,8 +62,8 @@
 }
 
 
-- (void)saveLocalImage:(UIImage *)localImage Completion:(SaveImageCompletion)comp{
-    self.saveCompletion=comp;
++ (void)saveLocalImage:(UIImage *)localImage Completion:(SaveImageCompletion)comp{
+    _saveCompletion=comp;
     
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -99,7 +85,7 @@
 }
 
 
-- (void)authorizeRemind{
++ (void)authorizeRemind{
     [CustomAlert showAlertAddTarget:[UIViewController currentViewController] Title:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私\"选项中，\r允许%@访问您照片的读取和写入以下载图片。",[UIDevice currentDevice].model,[[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
         if (actionIndex==1) {
             
@@ -109,7 +95,7 @@
 }
 
 
-- (void)downLoadImageArray:(NSArray <NSString *>*)imageUrlArray{
++ (void)downLoadImageArray:(NSArray <NSString *>*)imageUrlArray{
     NSMutableArray *imgSaveArray=[NSMutableArray array];
     
     dispatch_semaphore_t sem = dispatch_semaphore_create(0);
@@ -135,8 +121,8 @@
         
         [self downLoadImages:imgSaveArray Completion:^(BOOL success) {
             
-            if (self.saveCompletion) {
-                self.saveCompletion(success);
+            if (_saveCompletion) {
+                _saveCompletion(success);
             }
         }];
     });
@@ -161,7 +147,7 @@
 
 
 //保存多张图片
-- (void)downLoadImages:(NSMutableArray *)images Completion:(void (^__nullable)(BOOL success))comp {
++ (void)downLoadImages:(NSMutableArray *)images Completion:(void (^__nullable)(BOOL success))comp {
     if ([images count] == 0) {
         if (comp) {
             comp(YES);
@@ -186,14 +172,14 @@
 
 
 //保存单张图片
-- (void)downLoadSingleImage:(NSString *)imageUrl{
++ (void)downLoadSingleImage:(NSString *)imageUrl{
     
     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageUrl] options:SDWebImageDownloaderAllowInvalidSSLCertificates progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
         
         [self writeImage:image Completion:^(BOOL success) {
             
-            if (self.saveCompletion) {
-                self.saveCompletion(success);
+            if (_saveCompletion) {
+                _saveCompletion(success);
             }
         }];
     }];
@@ -214,19 +200,19 @@
 
 
 //保存单张本地图片 UIImage
-- (void)downLoadLocalImage:(UIImage *)localImage{
++ (void)downLoadLocalImage:(UIImage *)localImage{
     
     [self writeImage:localImage Completion:^(BOOL success) {
         
-        if (self.saveCompletion) {
-            self.saveCompletion(success);
+        if (_saveCompletion) {
+            _saveCompletion(success);
         }
     }];
 }
 
 
 #pragma mark -----保存单张图片并创建APP相册到本地-----
-- (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp{
++ (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp{
     //修改系统相册用PHPhotoLibrary单粒,调用performChanges,否则苹果会报错,并提醒你使用
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
         // 调用判断是否已有该名称相册
@@ -272,7 +258,7 @@
 
 //该方法获取在图库中是否已经创建该App的相册
 //该方法的作用,获取系统中所有的相册,进行遍历,若是已有相册,返回该相册,若是没有返回nil,参数为需要创建  的相册名称
-- (PHAssetCollection *)fetchAssetColletion:(NSString *)albumTitle{
++ (PHAssetCollection *)fetchAssetColletion:(NSString *)albumTitle{
     // 获取所有的相册
     PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     //遍历相册数组,是否已创建该相册
@@ -292,7 +278,7 @@
 
 
 #pragma mark -----SDWebImage下载多张图片-----
-- (void)downloadWebImages:(NSArray<NSString *> *)imgsArray completion:(void(^)(NSArray *imageArray))comp {
++ (void)downloadWebImages:(NSArray<NSString *> *)imgsArray completion:(void(^)(NSArray *imageArray))comp {
     SDWebImageDownloader *manager = [SDWebImageDownloader sharedDownloader];//默认超时15秒
     __block NSMutableDictionary *resultDict = [NSMutableDictionary new];
     for(int i=0;i<imgsArray.count;i++) {
@@ -320,7 +306,7 @@
     }
 }
 
-- (NSArray *)createDownloadResultArray:(NSDictionary *)dict count:(NSInteger)count {
++ (NSArray *)createDownloadResultArray:(NSDictionary *)dict count:(NSInteger)count {
     NSMutableArray *resultArray = [NSMutableArray new];
     for(int i=0;i<count;i++) {
         NSObject *obj = [dict objectForKey:@(i)];

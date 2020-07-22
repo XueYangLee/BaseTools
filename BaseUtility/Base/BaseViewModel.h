@@ -12,16 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /** 数据结果 */
-typedef void(^VMCompletion)(BOOL success);
+typedef void(^__nullable VMCompletion)(BOOL success);
 
 /** 数据结果  数据data */
-typedef void(^VMDataCompletion)(BOOL success, id data);
+typedef void(^__nullable VMDataCompletion)(BOOL success, id data);
 
 /** 数据结果  数据data及信息文案 */
-typedef void(^VMDataMsgCompletion)(BOOL success, id data, NSString *msg);
+typedef void(^__nullable VMDataMsgCompletion)(BOOL success, id data, NSString *msg);
 
 /** 数据结果  信息文案 */
-typedef void(^VMMsgCompletion)(BOOL success, NSString *msg);
+typedef void(^__nullable VMMsgCompletion)(BOOL success, NSString *msg);
 
 /** 数据结果  刷新数据结果（有无更多数据） */
 typedef void(^VMRefreshCompletion)(BOOL success, BOOL noMoreData);

@@ -15,16 +15,12 @@ typedef void(^DownloadVideoCompletion)(BOOL success);
 
 @interface DownloadVideo : NSObject
 
-
-/** 视频下载单例 */
-+ (instancetype)sharedDownloadVideo;
-
 /**
  下载网络视频
 
  @param videoUrl 视频网络地址
  */
-- (void)videoDownloadWithUrl:(NSString *)videoUrl Completion:(nullable DownloadVideoCompletion)comp;
++ (void)videoDownloadWithUrl:(NSString *)videoUrl Progress:(void(^__nullable)(NSProgress *progress, double downloadProgress))progress Completion:(DownloadVideoCompletion)comp;
 
 @end
 
