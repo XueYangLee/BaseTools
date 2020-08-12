@@ -23,6 +23,8 @@
 		046333492476590E000A0A40 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 046333482476590E000A0A40 /* UIColor+Extensions.m */; };
 		046B988924581E9000979059 /* UIView+CustomCornerBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988824581E9000979059 /* UIView+CustomCornerBorder.m */; };
 		046B988C24581F0C00979059 /* UIView+CustomCornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */; };
+		046FF5BA24E3DC810057888D /* CustomSectionColorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FF5B924E3DC810057888D /* CustomSectionColorLayout.m */; };
+		046FF5CF24E3EC230057888D /* CustomFlowLayoutPrimeval.m in Sources */ = {isa = PBXBuildFile; fileRef = 046FF5CE24E3EC230057888D /* CustomFlowLayoutPrimeval.m */; };
 		3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D43964C23B9A76200C0244A /* NSObject+SwizzleMethod.m */; };
 		89F356C42DAD80ACEE975460 /* libPods-BaseTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D5EFE9DF16FD4ED1B74B4B1 /* libPods-BaseTools.a */; };
 		F104D92822844D88004D340F /* DownloadVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = F104D92722844D87004D340F /* DownloadVideo.m */; };
@@ -150,6 +152,10 @@
 		046B988824581E9000979059 /* UIView+CustomCornerBorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomCornerBorder.m"; sourceTree = "<group>"; };
 		046B988A24581F0C00979059 /* UIView+CustomCornerRadius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomCornerRadius.h"; sourceTree = "<group>"; };
 		046B988B24581F0C00979059 /* UIView+CustomCornerRadius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomCornerRadius.m"; sourceTree = "<group>"; };
+		046FF5B824E3DC810057888D /* CustomSectionColorLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSectionColorLayout.h; sourceTree = "<group>"; };
+		046FF5B924E3DC810057888D /* CustomSectionColorLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSectionColorLayout.m; sourceTree = "<group>"; };
+		046FF5CD24E3EC230057888D /* CustomFlowLayoutPrimeval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayoutPrimeval.h; sourceTree = "<group>"; };
+		046FF5CE24E3EC230057888D /* CustomFlowLayoutPrimeval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayoutPrimeval.m; sourceTree = "<group>"; };
 		0E169E40CCC4E780F8D7460A /* Pods-BaseTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.release.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.release.xcconfig"; sourceTree = "<group>"; };
 		2B14B0D25CB62361C4CE8704 /* Pods-BaseTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseTools.debug.xcconfig"; path = "Target Support Files/Pods-BaseTools/Pods-BaseTools.debug.xcconfig"; sourceTree = "<group>"; };
 		3D43964B23B9A76200C0244A /* NSObject+SwizzleMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SwizzleMethod.h"; sourceTree = "<group>"; };
@@ -340,6 +346,51 @@
 			path = SafeObject;
 			sourceTree = "<group>";
 		};
+		0458A28424DD3D4E00000D1C /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				0458A28524DD3D4E00000D1C /* ViewModel */,
+				0458A28624DD3D4E00000D1C /* Controller */,
+				0458A28724DD3D4E00000D1C /* Model */,
+				0458A28824DD3D4E00000D1C /* View */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		0458A28524DD3D4E00000D1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0458A28624DD3D4E00000D1C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F126C47B224E283900C24566 /* TableViewController.h */,
+				F126C47C224E283900C24566 /* TableViewController.m */,
+				F1D3C08F2253108B0008222A /* CollectionViewController.h */,
+				F1D3C0902253108B0008222A /* CollectionViewController.m */,
+				F1D2CF0922560D6700E30B6E /* WKWebViewController.h */,
+				F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0458A28724DD3D4E00000D1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0458A28824DD3D4E00000D1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		046B988524581DB900979059 /* FuncControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,13 +478,8 @@
 				F19FC8E8224E05E80044772B /* HomeViewController.m */,
 				F19FC8E4224E05D90044772B /* MineViewController.h */,
 				F19FC8E5224E05D90044772B /* MineViewController.m */,
-				F126C47B224E283900C24566 /* TableViewController.h */,
-				F126C47C224E283900C24566 /* TableViewController.m */,
-				F1D3C08F2253108B0008222A /* CollectionViewController.h */,
-				F1D3C0902253108B0008222A /* CollectionViewController.m */,
-				F1D2CF0922560D6700E30B6E /* WKWebViewController.h */,
-				F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */,
 				F187EBD8224B58D200293096 /* PrefixHeader.pch */,
+				0458A28424DD3D4E00000D1C /* Example */,
 				F1354172224B603F00071241 /* Other */,
 			);
 			path = BaseTools;
@@ -507,6 +553,10 @@
 				0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */,
 				045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */,
 				045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */,
+				046FF5CD24E3EC230057888D /* CustomFlowLayoutPrimeval.h */,
+				046FF5CE24E3EC230057888D /* CustomFlowLayoutPrimeval.m */,
+				046FF5B824E3DC810057888D /* CustomSectionColorLayout.h */,
+				046FF5B924E3DC810057888D /* CustomSectionColorLayout.m */,
 			);
 			path = ToolsClass;
 			sourceTree = "<group>";
@@ -916,6 +966,7 @@
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
 				F12D6C5D2307CE9500AAC2CF /* UIButton+FuncChains.m in Sources */,
+				046FF5BA24E3DC810057888D /* CustomSectionColorLayout.m in Sources */,
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,
 				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
@@ -934,6 +985,7 @@
 				F187EBD1224B570000293096 /* KeyChainStore.m in Sources */,
 				04557C9024920FFE00A2DA0B /* UIButton+AdjustInsets.m in Sources */,
 				F187EBC8224B56F700293096 /* CustomNetWork.m in Sources */,
+				046FF5CF24E3EC230057888D /* CustomFlowLayoutPrimeval.m in Sources */,
 				F187EB77224B569100293096 /* UIView+Extension.m in Sources */,
 				045724B224A9D25100432039 /* NSMutableArray+Safe.m in Sources */,
 				F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */,

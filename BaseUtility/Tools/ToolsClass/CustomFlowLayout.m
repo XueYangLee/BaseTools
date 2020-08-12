@@ -8,9 +8,45 @@
 
 #import "CustomFlowLayout.h"
 
+
+#pragma mark - section背景色相关
+
+#define kDecorationReuseIdentifier @"kUICollectionSectionColorIdentifier"
+
+@interface UICollectionSectionColorLayoutAttributes : UICollectionViewLayoutAttributes
+
+@property (nonatomic, strong) UIColor *sectionBgColor;
+
+@end
+
+@implementation UICollectionSectionColorLayoutAttributes
+
+@end
+
+@interface UICollectionSectionColorReusableView : UICollectionReusableView
+
+@end
+
+@implementation UICollectionSectionColorReusableView
+
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [super applyLayoutAttributes:layoutAttributes];
+    
+    if ([layoutAttributes isKindOfClass:[UICollectionSectionColorLayoutAttributes class]]) {
+        self.backgroundColor = [(UICollectionSectionColorLayoutAttributes *)layoutAttributes sectionBgColor];
+    }
+}
+
+@end
+
+#pragma mark section背景色相关 -
+
+
 @interface CustomFlowLayout ()
 
 @property (strong, nonatomic) NSCache *cache;
+
+@property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *decorationViewAttrs;
 
 @end
 
@@ -27,6 +63,7 @@
 {
     [super prepareLayout];
     self.cache = [NSCache new];
+    [self sectionColorPrepare];
 }
 
 - (void)invalidateLayout
@@ -34,6 +71,58 @@
     [super invalidateLayout];
     self.cache = [NSCache new];
 }
+
+#pragma mark - section Color
+- (void)sectionColorPrepare {
+    NSInteger numberOfSections = self.collectionView.numberOfSections;
+    if (numberOfSections == 0) {
+        return;
+    }
+    
+    [self registerClass:[UICollectionSectionColorReusableView class] forDecorationViewOfKind:kDecorationReuseIdentifier];
+    
+    if (!self.decorationViewAttrs) {
+        self.decorationViewAttrs = [NSMutableArray array];
+    }
+    else{
+        [self.decorationViewAttrs removeAllObjects];
+    }
+    
+    for (int i = 0; i < numberOfSections; i++) {
+        NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:i];
+        if (numberOfItems == 0 || ![self.collectionView.delegate conformsToProtocol:@protocol(CustomFlowLayout)]) {
+            continue;
+        }
+        
+        UICollectionViewLayoutAttributes *firstAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+        UICollectionViewLayoutAttributes *lastAttr = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForRow:numberOfItems-1 inSection:i]];
+        CGRect sectionFrame = CGRectUnion(firstAttr.frame, lastAttr.frame);
+        sectionFrame.origin.x -= self.sectionInset.left;
+        sectionFrame.origin.y -= self.sectionInset.top;
+        if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+            sectionFrame.size.width += self.sectionInset.left + self.sectionInset.right;
+            sectionFrame.size.height = self.collectionView.frame.size.height;
+        }
+        else{
+            sectionFrame.size.width = self.collectionView.frame.size.width;
+            sectionFrame.size.height += self.sectionInset.top + self.sectionInset.bottom;
+        }
+        
+        UICollectionSectionColorLayoutAttributes *decorationAttributes =
+        [UICollectionSectionColorLayoutAttributes layoutAttributesForDecorationViewOfKind:kDecorationReuseIdentifier
+                                                                            withIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]];
+        decorationAttributes.frame = sectionFrame;
+        decorationAttributes.zIndex = -1;
+        UIColor *sectionBgColor = nil;
+        if ([self.collectionView.delegate respondsToSelector:@selector(collectionView:layout:backgroundColorForSection:)]) {
+            id<CustomFlowLayout> delegate = (id<CustomFlowLayout>)self.collectionView.delegate;
+            sectionBgColor = [delegate collectionView:self.collectionView layout:self backgroundColorForSection:i];
+        }
+        decorationAttributes.sectionBgColor = sectionBgColor;
+        [self.decorationViewAttrs addObject:decorationAttributes];
+    }
+}
+
 
 /* ios9以下同时设置代理cgsize跟itemsize有崩溃现象
 - (BOOL)shouldInvalidateLayoutForPreferredLayoutAttributes:(UICollectionViewLayoutAttributes *)preferredAttributes withOriginalAttributes:(UICollectionViewLayoutAttributes *)originalAttributes
@@ -49,15 +138,15 @@
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSArray<UICollectionViewLayoutAttributes *> *attributes = [super layoutAttributesForElementsInRect:rect].copy;
-    if (self.alignment == FlowLayoutAlignmentJustyfied) {
+    if (self.alignment == FlowLayoutAlignmentJustify) {
         return attributes;
     }
-    return [self layoutAttributesForElements:attributes];
+    return [self layoutAttributesForElements:attributes rect:rect];
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.alignment == FlowLayoutAlignmentJustyfied) {
+    if (self.alignment == FlowLayoutAlignmentJustify) {
         return [super layoutAttributesForItemAtIndexPath:indexPath];
     }
     return [self attributesAtIndexPath:indexPath];
@@ -65,7 +154,7 @@
 
 #pragma mark - Private
 
-- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElements:(NSArray<UICollectionViewLayoutAttributes *> *)attributes
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElements:(NSArray<UICollectionViewLayoutAttributes *> *)attributes rect:(CGRect)rect
 {
     NSMutableArray<UICollectionViewLayoutAttributes *> *alignedAttributes = [NSMutableArray new];
     
@@ -74,6 +163,12 @@
             [alignedAttributes addObject:item];
         } else {
             [alignedAttributes addObject:[self layoutAttributesForItem:item atIndexPath:item.indexPath]];
+        }
+    }
+    //sectionColor
+    for (UICollectionSectionColorLayoutAttributes *attr in self.decorationViewAttrs) {
+        if (CGRectIntersectsRect(rect, attr.frame)) {
+            [alignedAttributes addObject:attr];
         }
     }
     

@@ -54,13 +54,13 @@
 
 
 //左侧导航栏按钮
-- (void)setNavigationLeftBarBtnItemWithImgName:(NSString *)imageName Action:(SEL)selector{
+- (void)setNavigationLeftBarBtnItemWithImageName:(NSString *)imageName action:(SEL)selector{
     UIImage *searchImg=[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:searchImg style:UIBarButtonItemStylePlain target:self action:selector];
 }
 
 //右侧导航栏按钮
-- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title ImgName:(NSString *)imageName Action:(SEL)selector{
+- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName action:(SEL)selector{
     if (imageName) {
         UIImage *searchImg=[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:searchImg style:UIBarButtonItemStylePlain target:self action:selector];
@@ -106,7 +106,7 @@
 
 
 //初始化tableview（需添加代理）
-- (UITableView *)tableViewWithFrame:(CGRect)frame Style:(UITableViewStyle)style{
+- (UITableView *)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     UITableView *tableView=[[UITableView alloc]initWithFrame:frame style:style];
     tableView.showsVerticalScrollIndicator=NO;
     tableView.showsHorizontalScrollIndicator=NO;

@@ -17,31 +17,31 @@
     dispatch_once(&onceToken, ^{//保证方法替换只被执行一次
 
         /** substringFromIndex */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(substringFromIndex:) SwizzleNewSEL:@selector(safe_substringFromIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(substringFromIndex:) swizzleNewSEL:@selector(safe_substringFromIndex:)];
         
         /** substringToIndex */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(substringToIndex:) SwizzleNewSEL:@selector(safe_substringToIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(substringToIndex:) swizzleNewSEL:@selector(safe_substringToIndex:)];
         
         /** substringWithRange */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(substringWithRange:) SwizzleNewSEL:@selector(safe_substringWithRange:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(substringWithRange:) swizzleNewSEL:@selector(safe_substringWithRange:)];
         
         /** rangeOfString: options:range: locale: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(rangeOfString:options:range:locale:) SwizzleNewSEL:@selector(safe_rangeOfString:options:range:locale:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(rangeOfString:options:range:locale:) swizzleNewSEL:@selector(safe_rangeOfString:options:range:locale:)];
         
         /** appendString */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(appendString:) SwizzleNewSEL:@selector(safe_appendString:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(appendString:) swizzleNewSEL:@selector(safe_appendString:)];
         
         /** stringByReplacingCharactersInRange:withString: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(stringByReplacingCharactersInRange:withString:) SwizzleNewSEL:@selector(safe_stringByReplacingCharactersInRange:withString:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(stringByReplacingCharactersInRange:withString:) swizzleNewSEL:@selector(safe_stringByReplacingCharactersInRange:withString:)];
         
         /** replaceCharactersInRange:withString: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(replaceCharactersInRange:withString:) SwizzleNewSEL:@selector(safe_replaceCharactersInRange:withString:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(replaceCharactersInRange:withString:) swizzleNewSEL:@selector(safe_replaceCharactersInRange:withString:)];
         
         /** insertString:atIndex: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(insertString:atIndex:) SwizzleNewSEL:@selector(safe_insertString:atIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(insertString:atIndex:) swizzleNewSEL:@selector(safe_insertString:atIndex:)];
         
         /** deleteCharactersInRange: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") OriginalSEL:@selector(deleteCharactersInRange:) SwizzleNewSEL:@selector(safe_deleteCharactersInRange:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSCFString") originalSEL:@selector(deleteCharactersInRange:) swizzleNewSEL:@selector(safe_deleteCharactersInRange:)];
     });
 }
 

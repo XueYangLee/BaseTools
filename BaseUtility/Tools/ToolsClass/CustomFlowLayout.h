@@ -13,11 +13,19 @@ NS_ASSUME_NONNULL_BEGIN
 @class CalculateData;
 
 typedef NS_ENUM(NSInteger, FlowLayoutAlignment) {
-    FlowLayoutAlignmentJustyfied,
+    FlowLayoutAlignmentJustify,
     FlowLayoutAlignmentLeft,
     FlowLayoutAlignmentCenter,
     FlowLayoutAlignmentRight
 };
+
+
+@protocol CustomFlowLayout <UICollectionViewDelegateFlowLayout>
+//section背景色   @interface ViewController ()<CustomSectionColorLayout>
+@optional
+- (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout backgroundColorForSection:(NSInteger)section;
+
+@end
 
 
 @interface CustomFlowLayout : UICollectionViewFlowLayout
@@ -37,10 +45,10 @@ typedef NS_ENUM(NSInteger, FlowLayoutAlignment) {
 
 @interface CalculateData : NSObject
 
-@property(nonatomic,assign)CGFloat expandHeight;
-@property(nonatomic,assign)CGFloat notExpandHeight;
-@property(nonatomic,assign)BOOL canExpand;
-@property(nonatomic,assign)NSInteger noExpandIndex;
+@property (nonatomic,assign) CGFloat expandHeight;
+@property (nonatomic,assign) CGFloat notExpandHeight;
+@property (nonatomic,assign) BOOL canExpand;
+@property (nonatomic,assign) NSInteger noExpandIndex;
 
 @end
 NS_ASSUME_NONNULL_END

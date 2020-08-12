@@ -28,7 +28,7 @@
 
  @param imageName 图片名
  */
-- (void)setNavigationLeftBarBtnItemWithImgName:(NSString *)imageName Action:(SEL)selector;
+- (void)setNavigationLeftBarBtnItemWithImageName:(NSString *)imageName action:(SEL)selector;
 
 
 /**
@@ -37,7 +37,7 @@
  @param title 标题（无传nil）
  @param imageName 图片名（无传nil）
  */
-- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title ImgName:(NSString *)imageName Action:(SEL)selector;
+- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName action:(SEL)selector;
 
 
 /**
@@ -66,7 +66,7 @@
 /**
  初始化tableview（需添加代理）
  */
-- (UITableView *)tableViewWithFrame:(CGRect)frame Style:(UITableViewStyle)style;
+- (UITableView *)tableViewWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
 
 

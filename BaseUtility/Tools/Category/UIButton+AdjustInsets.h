@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
     AdjustLeftImageRightTitle,//图片在左 文案在右
-    AdjustLeftTitleRightimage,//文案在左 图片在右
+    AdjustLeftTitleRightImage,//文案在左 图片在右
     AdjustTopImageBottomTitle,//图片在上 文案在下
     AdjustTopTitleBottomImage,//文案在上 图片在下
 } AdjustInsetsStyle;
@@ -38,7 +38,7 @@ typedef enum : NSUInteger {
 
 
 /** 自定义调整图片及文案位置及间隔 */
-- (void)adjustButtonInsetsWithAdjustStyle:(AdjustInsetsStyle)adjustStyle Interval:(CGFloat)interval;
+- (void)adjustButtonInsetsWithAdjustStyle:(AdjustInsetsStyle)adjustStyle interval:(CGFloat)interval;
 
 @end
 

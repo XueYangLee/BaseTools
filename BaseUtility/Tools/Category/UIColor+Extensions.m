@@ -44,7 +44,7 @@
 }
 
 
-+ (UIColor *)colorWithDarkColor:(UIColor *)darkModeColor DefaultColor:(UIColor *)defaultModeColor{
++ (UIColor *)colorWithDarkColor:(UIColor *)darkModeColor defaultColor:(UIColor *)defaultModeColor{
     if (@available(iOS 13.0, *)) {
         UIColor *dyColor = [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trainCollection) {
             if ([trainCollection userInterfaceStyle] == UIUserInterfaceStyleDark) {
@@ -61,7 +61,7 @@
 }
 
 
-+ (UIColor *)colorWithDarkAdaptColorName:(NSString *)colorName DefaultColor:(UIColor *)defaultModeColor{
++ (UIColor *)colorWithDarkAdaptColorName:(NSString *)colorName defaultColor:(UIColor *)defaultModeColor{
     if (@available(iOS 13.0, *)) {
         return [UIColor colorNamed:colorName];
     }else{

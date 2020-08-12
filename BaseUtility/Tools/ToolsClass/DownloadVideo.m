@@ -27,9 +27,11 @@ static DownloadVideoCompletion _downloadCompletion;
     NSURL *urlNew = [NSURL URLWithString:videoUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:urlNew];
     NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-        if (progress) {
-            progress(downloadProgress,downloadProgress.fractionCompleted);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progress) {
+                progress(downloadProgress,downloadProgress.fractionCompleted);
+            }
+        });
     } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         return [NSURL fileURLWithPath:fullPath];
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {

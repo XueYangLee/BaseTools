@@ -17,12 +17,12 @@
     dispatch_once(&onceToken, ^{//保证方法替换只被执行一次
         
         /** objectAtIndex */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArray0") OriginalSEL:@selector(objectAtIndex:) SwizzleNewSEL:@selector(safe_empty_objectAtIndex:)];//空数组情况
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayI") OriginalSEL:@selector(objectAtIndex:) SwizzleNewSEL:@selector(safe_objectAtIndex:)];//正常数组情况
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSSingleObjectArrayI") OriginalSEL:@selector(objectAtIndex:) SwizzleNewSEL:@selector(safe_single_objectAtIndex:)];//数组只存在一个值的情况
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArray0") originalSEL:@selector(objectAtIndex:) swizzleNewSEL:@selector(safe_empty_objectAtIndex:)];//空数组情况
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayI") originalSEL:@selector(objectAtIndex:) swizzleNewSEL:@selector(safe_objectAtIndex:)];//正常数组情况
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSSingleObjectArrayI") originalSEL:@selector(objectAtIndex:) swizzleNewSEL:@selector(safe_single_objectAtIndex:)];//数组只存在一个值的情况
         
         /** objectAtIndexedSubscript */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayI") OriginalSEL:@selector(objectAtIndexedSubscript:) SwizzleNewSEL:@selector(safe_objectAtIndexedSubscript:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayI") originalSEL:@selector(objectAtIndexedSubscript:) swizzleNewSEL:@selector(safe_objectAtIndexedSubscript:)];
         
     });
 }

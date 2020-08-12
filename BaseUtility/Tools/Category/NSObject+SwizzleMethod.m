@@ -11,7 +11,7 @@
 
 @implementation NSObject (SwizzleMethod)
 
-+ (void)swizzleInstanceMethodWithOriginalSEL:(SEL)originalSel SwizzleNewSEL:(SEL)newSel {
++ (void)swizzleInstanceMethodWithOriginalSEL:(SEL)originalSel swizzleNewSEL:(SEL)newSel {
     
     Method originalMethod = class_getInstanceMethod(self, originalSel);
     Method newMethod = class_getInstanceMethod(self, newSel);
@@ -29,7 +29,7 @@
     
 }
 
-+ (void)swizzleInstanceMethodWithClass:(Class)class OriginalSEL:(SEL)originalSel SwizzleNewSEL:(SEL)newSel {
++ (void)swizzleInstanceMethodWithClass:(Class)class originalSEL:(SEL)originalSel swizzleNewSEL:(SEL)newSel {
     
     Method originalMethod = class_getInstanceMethod(class, originalSel);
     Method newMethod = class_getInstanceMethod(class, newSel);
@@ -50,7 +50,7 @@
 
 
 
-+ (void)swizzleClassMethodWithOriginalSEL:(SEL)originalSel SwizzleNewSEL:(SEL)newSel {
++ (void)swizzleClassMethodWithOriginalSEL:(SEL)originalSel swizzleNewSEL:(SEL)newSel {
     Class class = object_getClass(self);
     Method originalMethod = class_getInstanceMethod(class, originalSel);
     Method newMethod = class_getInstanceMethod(class, newSel);
@@ -68,7 +68,7 @@
 }
 
 
-+ (void)swizzleClassMethodWithClass:(Class)class OriginalSEL:(SEL)originalSel SwizzleNewSEL:(SEL)newSel {
++ (void)swizzleClassMethodWithClass:(Class)class originalSEL:(SEL)originalSel swizzleNewSEL:(SEL)newSel {
     
     Method originalMethod = class_getInstanceMethod(class, originalSel);
     Method newMethod = class_getInstanceMethod(class, newSel);

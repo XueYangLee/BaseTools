@@ -16,25 +16,25 @@
     dispatch_once(&onceToken, ^{//保证方法替换只被执行一次
         
         /** objectAtIndex */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(objectAtIndex:) SwizzleNewSEL:@selector(safe_mutable_objectAtIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(objectAtIndex:) swizzleNewSEL:@selector(safe_mutable_objectAtIndex:)];
         
         /** removeObjectsInRange */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(removeObjectsInRange:) SwizzleNewSEL:@selector(safe_mutable_removeObjectsInRange:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(removeObjectsInRange:) swizzleNewSEL:@selector(safe_mutable_removeObjectsInRange:)];
         
         /** removeObject: inRange: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(removeObject:inRange:) SwizzleNewSEL:@selector(safe_mutable_removeObject:inRange:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(removeObject:inRange:) swizzleNewSEL:@selector(safe_mutable_removeObject:inRange:)];
         
         /** insertObject: atIndex: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(insertObject:atIndex:) SwizzleNewSEL:@selector(safe_mutable_insertObject:atIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(insertObject:atIndex:) swizzleNewSEL:@selector(safe_mutable_insertObject:atIndex:)];
         
         /** objectAtIndexedSubscript */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(objectAtIndexedSubscript:) SwizzleNewSEL:@selector(safe_mutable_objectAtIndexedSubscript:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(objectAtIndexedSubscript:) swizzleNewSEL:@selector(safe_mutable_objectAtIndexedSubscript:)];
         
         /** replaceObjectAtIndex:withObject: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(replaceObjectAtIndex:withObject:) SwizzleNewSEL:@selector(safe_replaceObjectAtIndex:withObject:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(replaceObjectAtIndex:withObject:) swizzleNewSEL:@selector(safe_replaceObjectAtIndex:withObject:)];
         
         /** exchangeObjectAtIndex:withObjectAtIndex: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") OriginalSEL:@selector(exchangeObjectAtIndex:withObjectAtIndex:) SwizzleNewSEL:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSArrayM") originalSEL:@selector(exchangeObjectAtIndex:withObjectAtIndex:) swizzleNewSEL:@selector(safe_exchangeObjectAtIndex:withObjectAtIndex:)];
     });
 }
 

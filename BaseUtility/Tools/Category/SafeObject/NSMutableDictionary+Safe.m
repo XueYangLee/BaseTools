@@ -17,10 +17,10 @@
     dispatch_once(&onceToken, ^{//保证方法替换只被执行一次
 
         /** removeObjectForKey */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSDictionaryM") OriginalSEL:@selector(removeObjectForKey:) SwizzleNewSEL:@selector(safe_removeObjectForKey:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSDictionaryM") originalSEL:@selector(removeObjectForKey:) swizzleNewSEL:@selector(safe_removeObjectForKey:)];
         
         /** setObject:forKey: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSDictionaryM") OriginalSEL:@selector(setObject:forKey:) SwizzleNewSEL:@selector(safe_setObject:forKey:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSDictionaryM") originalSEL:@selector(setObject:forKey:) swizzleNewSEL:@selector(safe_setObject:forKey:)];
     });
 }
 

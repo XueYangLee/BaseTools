@@ -56,7 +56,7 @@
     return self;
 }
 
-- (NSURLSessionDownloadTask *)downloadFileWithUrl:(NSString*)downloadURL FileName:(NSString *)fileName Progress:(CustomNetWorkDownloadProgress)progress Completion:(CustomNetWorkDownloadCompletion)comp{
+- (NSURLSessionDownloadTask *)downloadFileWithUrl:(NSString*)downloadURL fileName:(NSString *)fileName progress:(CustomNetWorkDownloadProgress)progress completion:(CustomNetWorkDownloadCompletion)comp{
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:downloadURL]];
     NSURLSessionDownloadTask *downloadTask = nil;
@@ -140,7 +140,7 @@
 
 /** 下载模块的关键的代码 包括强退闪退都会有 */
 - (void)taskDataCompleteDispose:(NSNotification *)notification{
-    if ([notification.object isKindOfClass:[ NSURLSessionDownloadTask class]]) {
+    if ([notification.object isKindOfClass:[NSURLSessionDownloadTask class]]) {
         NSURLSessionDownloadTask *task = notification.object;
         //当前下载的url
         NSString *urlHost = [task.currentRequest.URL absoluteString];
@@ -150,7 +150,7 @@
                 NSLog(@"下载出错,看一下网络是否正常");
             }
             NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
-            [self saveDownloadHistoryWithKey:urlHost DownloadTaskResumeData:resumeData];
+            [self saveDownloadHistoryWithKey:urlHost downloadTaskResumeData:resumeData];
             //这个是因为 用户比如强退程序之后 ,再次进来的时候 存进去这个继续的data  需要用户去刷新列表
         }else{
             if ([self.downLoadHistoryDictionary valueForKey:urlHost]) {
@@ -162,7 +162,7 @@
 }
 
 
-- (void)saveDownloadHistoryWithKey:(NSString *)key DownloadTaskResumeData:(NSData *)data{
+- (void)saveDownloadHistoryWithKey:(NSString *)key downloadTaskResumeData:(NSData *)data{
     if (!data) {
         NSString *emptyData = [NSString stringWithFormat:@""];
         [self.downLoadHistoryDictionary setObject:emptyData forKey:key];

@@ -47,7 +47,7 @@
  *  如果同时有image和label，那这时候image的上左下是相对于button，右边是相对于label的；title的上右下是相对于button，左边是相对于image的。
  */
 
-- (void)adjustButtonInsetsWithAdjustStyle:(AdjustInsetsStyle)style Interval:(CGFloat)interval {
+- (void)adjustButtonInsetsWithAdjustStyle:(AdjustInsetsStyle)style interval:(CGFloat)interval {
     // 1. 得到imageView和titleLabel的宽、高
     CGFloat imageWith = self.imageView.image.size.width;
     CGFloat imageHeight = self.imageView.image.size.height;
@@ -75,7 +75,7 @@
             labelEdgeInsets = UIEdgeInsetsMake(0, interval/2.0, 0, -interval/2.0);
         }
             break;
-        case AdjustLeftTitleRightimage://文案在左 图片在右
+        case AdjustLeftTitleRightImage://文案在左 图片在右
         {
             imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth+interval/2.0, 0, -labelWidth-interval/2.0);
             labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith-interval/2.0, 0, imageWith+interval/2.0);

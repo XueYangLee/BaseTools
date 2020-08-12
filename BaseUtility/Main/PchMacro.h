@@ -124,8 +124,8 @@
 /** 自定义颜色 */
 #define UIColorWithRGBA(r,g,b,a)                         [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define UIColorWithHex(a)                                [UIColor colorWithHexString:a]
-#define UIColorWithDarkAdapt(darkColor,defaultColor)     [UIColor colorWithDarkColor:darkColor DefaultColor:defaultColor]
-#define UIColorWithDarkColorName(colorName,defaultColor) [UIColor colorWithDarkAdaptColorName:colorName DefaultColor:defaultColor]
+#define UIColorWithDarkAdapt(darkColor,defaultColor)     [UIColor colorWithDarkColor:darkColor defaultColor:defaultColor]
+#define UIColorWithDarkColorName(colorName,defaultColor) [UIColor colorWithDarkAdaptColorName:colorName defaultColor:defaultColor]
 
 
 /** 字体设置 */

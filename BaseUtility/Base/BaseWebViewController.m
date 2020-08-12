@@ -35,7 +35,7 @@ static CGFloat const progressViewHeight = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNavigationLeftBarBtnItemWithImgName:@"navi_returnBack" Action:@selector(popBackAction)];
+    [self setNavigationLeftBarBtnItemWithImageName:@"navi_returnBack" action:@selector(popBackAction)];
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
@@ -61,7 +61,7 @@ static CGFloat const progressViewHeight = 2;
         
         _wkWebView=[[WKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) configuration:_config];
         _wkWebView.UIDelegate=self;
-        _wkWebView.navigationDelegate=self;//<WKNavigationDelegate, WKUIDelegate>
+        _wkWebView.navigationDelegate=self;//WKNavigationDelegate, WKUIDelegate
         _wkWebView.allowsBackForwardNavigationGestures=YES;//webView中使用侧滑手势
         // KVO
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];

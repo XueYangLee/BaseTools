@@ -14,7 +14,7 @@ static SDImageCache *ImageCache;
 
 @implementation UIImage (ImageSize)
 
-+ (CGSize)imageSizeInCacheWithImageUrl:(id)imageURL Completion:(void (^__nullable)(CGSize imageSize))completion {
++ (CGSize)imageSizeInCacheWithImageUrl:(id)imageURL completion:(void (^__nullable)(CGSize imageSize))completion {
     NSURL * URL = nil;
     if ([imageURL isKindOfClass:[NSURL class]]) {
         URL = imageURL;

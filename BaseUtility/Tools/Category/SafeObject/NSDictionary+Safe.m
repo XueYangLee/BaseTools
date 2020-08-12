@@ -17,7 +17,7 @@
     dispatch_once(&onceToken, ^{//保证方法替换只被执行一次
 
         /** initWithObjects:forKeys:count: */
-        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSPlaceholderDictionary") OriginalSEL:@selector(initWithObjects:forKeys:count:) SwizzleNewSEL:@selector(initWithSafeObjects:forKeys:count:)];
+        [self swizzleInstanceMethodWithClass:NSClassFromString(@"__NSPlaceholderDictionary") originalSEL:@selector(initWithObjects:forKeys:count:) swizzleNewSEL:@selector(initWithSafeObjects:forKeys:count:)];
     });
 }
 

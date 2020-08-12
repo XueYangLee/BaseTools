@@ -11,22 +11,13 @@
 IB_DESIGNABLE
 @interface UIView (IBExtension)
 
-
-/**
- 边框线颜色
- */
+/** 边框线颜色 */
 @property (nonatomic, strong) IBInspectable UIColor *borderColor;
 
-
-/**
- 边框线宽度
- */
+/** 边框线宽度 */
 @property (nonatomic, assign) IBInspectable CGFloat borderWidth;
 
-
-/**
- 半径
- */
+/** 半径 */
 @property (nonatomic, assign) IBInspectable CGFloat cornerRadius;
 
 @end

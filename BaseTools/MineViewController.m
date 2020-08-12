@@ -68,9 +68,9 @@
         }
         self.downloading=YES;
         
-        NSURLSessionDownloadTask *task=[[CustomNetWorkResumeDownload sharedManager]downloadFileWithUrl:@"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4" FileName:@"testDownload.mp4" Progress:^(double progress) {
+        NSURLSessionDownloadTask *task=[[CustomNetWorkResumeDownload sharedManager]downloadFileWithUrl:@"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4" fileName:@"testDownload.mp4" progress:^(double progress) {
             DLog(@"%f>>>>>progress",progress)
-        } Completion:^(BOOL success, NSURLResponse * _Nonnull response, NSURL * _Nullable filePath) {
+        } completion:^(BOOL success, NSURLResponse * _Nonnull response, NSURL * _Nullable filePath) {
             if (success) {
                 DLog(@"%@>response>>\n>%@>>>filePath",response,filePath.absoluteString)
                 // file:///Users/mac/Library/Developer/CoreSimulator/Devices/9A53D572-F5E0-42B3-84B3-88076DED4F1C/data/Containers/Data/Application/C5253674-522A-413F-A93C-FBBA46A126F1/Documents/testDownload.mp4
