@@ -138,8 +138,14 @@
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     NSArray<UICollectionViewLayoutAttributes *> *attributes = [super layoutAttributesForElementsInRect:rect].copy;
-    if (self.alignment == FlowLayoutAlignmentJustify) {
-        return attributes;
+    if (self.alignment == FlowLayoutAlignmentJustify) {//默认排列方式下只对颜色的section模块尺寸属性更改添加
+        NSMutableArray *allAttributes = [NSMutableArray arrayWithArray:attributes];
+        for (UICollectionSectionColorLayoutAttributes *attr in _decorationViewAttrs) {
+            if (CGRectIntersectsRect(rect, attr.frame)) {
+                [allAttributes addObject:attr];
+            }
+        }
+        return allAttributes;
     }
     return [self layoutAttributesForElements:attributes rect:rect];
 }

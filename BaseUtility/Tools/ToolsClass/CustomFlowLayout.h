@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, FlowLayoutAlignment) {
 
 
 @protocol CustomFlowLayout <UICollectionViewDelegateFlowLayout>
-//section背景色   @interface ViewController ()<CustomSectionColorLayout>
+//section背景色   @interface ViewController ()<CustomFlowLayout>
 @optional
 - (UIColor *)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout backgroundColorForSection:(NSInteger)section;
 
