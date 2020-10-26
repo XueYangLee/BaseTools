@@ -13,12 +13,20 @@
 
 @implementation DateOperation
 
-#pragma mark 转化自定义格式日期
-+ (NSString *)convertDateWithFormat:(NSString *)format Date:(NSDate *)date 
+#pragma mark date转为字符串时间 自定义格式日期
++ (NSString *)convertDateStringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:format];//yyyy-MM-dd
+    [formatter setDateFormat:dateFormat];//yyyy-MM-dd
     return [formatter stringFromDate:date];
+}
+
+#pragma mark 字符串时间转为date 自定义格式日期
++ (NSDate *)convertDateWithDateString:(NSString *)dateString dateFormat:(NSString *)dateFormat
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:dateFormat];
+    return [dateFormatter dateFromString:dateString];;
 }
 
 #pragma mark 时间戳转字符串时间
@@ -35,6 +43,18 @@
     {
         [formatter setDateFormat:@"yyyy-MM-dd"];
     }
+    
+    NSString *timeStr=[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000]];
+    return timeStr;
+}
+
+#pragma mark 时间戳转字符串时间 dateFormat自定义
++ (NSString *)dateStringWithTimeStamp:(NSString *)timeStamp dateFormat:(NSString *)dateFormat
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:dateFormat];
     
     NSString *timeStr=[formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[timeStamp doubleValue]/1000]];
     return timeStr;

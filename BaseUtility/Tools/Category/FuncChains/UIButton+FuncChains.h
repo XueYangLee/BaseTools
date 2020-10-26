@@ -25,22 +25,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIButton * (^)(NSString *title))func_title;
 
 /** 文本及按钮状态  (title,state) */
-- (UIButton * (^)(NSString *title,UIControlState state))func_title_state;
+- (UIButton * (^)(NSString *title, UIControlState state))func_title_state;
 
 /** 属性文本及按钮状态 (attributedTitle,state)*/
-- (UIButton * (^)(NSAttributedString *attributedTitle,UIControlState state))func_attributedTitle_state;
+- (UIButton * (^)(NSAttributedString *attributedTitle, UIControlState state))func_attributedTitle_state;
 
 /** 文本颜色 UIControlStateNormal下*/
 - (UIButton * (^)(UIColor *titleColor))func_titleColor;
 
 /** 文本颜色及按钮状态 (titleColor,state) */
-- (UIButton * (^)(UIColor *titleColor,UIControlState state))func_titleColor_state;
+- (UIButton * (^)(UIColor *titleColor, UIControlState state))func_titleColor_state;
 
 /** 图片 UIControlStateNormal下 */
 - (UIButton * (^)(UIImage *image))func_image;
 
 /** 图片及按钮状态 (image,state) */
-- (UIButton * (^)(UIImage *image,UIControlState state))func_image_state;
+- (UIButton * (^)(UIImage *image, UIControlState state))func_image_state;
 
 /** 按钮内容垂直对齐方式 */
 - (UIButton * (^)(UIControlContentVerticalAlignment contentVerticalAlignment))func_contentVerticalAlignment;
@@ -51,8 +51,23 @@ NS_ASSUME_NONNULL_BEGIN
 /** 背景色 */
 - (UIButton * (^)(UIColor *backgroundColor))func_backgroundColor;
 
+/** 背景图片 */
+- (UIButton * (^)(UIImage *backgroundImage, UIControlState state))func_backgroundImage;
+
 /** 按钮点击触发对象及点击事件 (target,action) */
-- (UIButton * (^)(id target,SEL action))func_addTarget_action;
+- (UIButton * (^)(id target, SEL action))func_addTarget_action;
+
+/** 是否可用 */
+- (UIButton * (^)(BOOL enabled))func_enabled;
+
+/** 是否响应用户操作 */
+- (UIButton * (^)(BOOL userInteractionEnabled))func_userInteractionEnabled;
+
+/** 控件透明度 */
+- (UIButton * (^)(CGFloat alpha))func_alpha;
+
+/** 是否隐藏控件 */
+- (UIButton * (^)(BOOL hidden))func_hidden;
 
 
 

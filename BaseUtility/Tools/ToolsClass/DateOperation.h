@@ -13,12 +13,21 @@
 
 
 /**
- 转化自定义格式日期（yyyy-MM-dd）
-
- @param format yyyy 年  MM 月  dd 日
+ date转为字符串时间 自定义格式日期（yyyy-MM-dd）
+ 
  @param date 日期
+ @param dateFormat 自定义format（yyyy-MM-dd HH:mm:ss）
  */
-+ (NSString *)convertDateWithFormat:(NSString *)format Date:(NSDate *)date;
++ (NSString *)convertDateStringFromDate:(NSDate *)date dateFormat:(NSString *)dateFormat;
+
+
+/**
+ 字符串时间转为date 自定义格式日期
+ 
+ @param dateString 字符串时间
+ @param dateFormat 自定义format（yyyy-MM-dd HH:mm:ss）
+ */
++ (NSDate *)convertDateWithDateString:(NSString *)dateString dateFormat:(NSString *)dateFormat;
 
 
 /**
@@ -31,7 +40,16 @@
 
 
 /**
- 获取当前时间时间戳
+ 时间戳转字符串时间 dateFormat自定义
+ 
+ @param timeStamp 时间戳
+ @param dateFormat 自定义format （yyyy-MM-dd HH:mm:ss）
+ */
++ (NSString *)dateStringWithTimeStamp:(NSString *)timeStamp dateFormat:(NSString *)dateFormat;
+
+
+/**
+ 获取当前时间时间戳（毫秒）
  */
 + (NSString *)getCurrentTimeStamp;
 

@@ -15,25 +15,25 @@
 @implementation UUID
 
 + (NSString *)getUUID {
-    NSString * strUUID = (NSString *)[KeyChainStore load:KEY_USERNAME_PASSWORD];
+    NSString * UUIDString = (NSString *)[KeyChainStore load:KEY_USERNAME_PASSWORD];
     
     //首次执行该方法时，uuid为空
-    if ([strUUID isEqualToString:@""] || !strUUID) {
+    if ([UUIDString isEqualToString:@""] || !UUIDString || [UUIDString isKindOfClass:[NSNull class]]) {
         
-        strUUID = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+        UUIDString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
         
-        if (strUUID.length ==0 || [strUUID isEqualToString:@"00000000-0000-0000-0000-000000000000"] || ![[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]){
+        if (UUIDString.length == 0 || [UUIDString isEqualToString:@"00000000-0000-0000-0000-000000000000"] || ![[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]){
             //生成一个uuid的方法
             CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
             
-            strUUID = (NSString *)CFBridgingRelease(CFUUIDCreateString (kCFAllocatorDefault,uuidRef));
+            UUIDString = (NSString *)CFBridgingRelease(CFUUIDCreateString (kCFAllocatorDefault,uuidRef));
         }
         
         //将该uuid保存到keychain
-        [KeyChainStore save:KEY_USERNAME_PASSWORD data:strUUID];
+        [KeyChainStore save:KEY_USERNAME_PASSWORD data:UUIDString];
         
     }
-    return strUUID;
+    return UUIDString;
 }
 
 

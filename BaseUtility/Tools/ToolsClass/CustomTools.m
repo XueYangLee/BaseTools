@@ -590,9 +590,14 @@
 #pragma mark 大图片缩放
 + (UIImage *)scaleImage:(UIImage *)image newSize:(CGSize)newSize
 {
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0);
+    // 绘制改变大小的图片
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    // 从当前context中创建一个改变大小后的图片
     UIImage *newImage=UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
     UIGraphicsEndImageContext();
     
     return newImage;

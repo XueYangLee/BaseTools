@@ -24,7 +24,7 @@
     dispatch_once(&onceToken, ^{
         Class targetClass = [self class];
         SEL originalSelector = @selector(layoutSubviews);
-        SEL swizzledSelector = @selector(sy_borderlayoutSubviews);
+        SEL swizzledSelector = @selector(swizzle_borderlayoutSubviews);
         [self corner_swizzleMethod:targetClass orgSel:originalSelector swizzSel:swizzledSelector];
     });
 }
@@ -55,8 +55,8 @@
     [self layoutIfNeeded];
 }
 
-- (void)sy_borderlayoutSubviews {
-    [self sy_borderlayoutSubviews];
+- (void)swizzle_borderlayoutSubviews {
+    [self swizzle_borderlayoutSubviews];
     if (self.corner_openBorder) {
 //        if (self.borderStatusChange == NO) return;
         self.borderStatusChange = NO;

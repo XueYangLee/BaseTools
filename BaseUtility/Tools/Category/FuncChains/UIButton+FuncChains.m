@@ -16,14 +16,14 @@
 
 - (UIButton * _Nonnull (^)(CGRect))func_frame{
     return ^id(CGRect frame){
-        self.frame=frame;
+        self.frame = frame;
         return self;
     };
 }
 
 - (UIButton * _Nonnull (^)(UIFont * _Nonnull))func_font{
     return ^id(UIFont *font){
-        self.titleLabel.font=font;
+        self.titleLabel.font = font;
         return self;
     };
 }
@@ -36,14 +36,14 @@
 }
 
 - (UIButton * _Nonnull (^)(NSString * _Nonnull, UIControlState))func_title_state{
-    return ^id(NSString *title,UIControlState state){
+    return ^id(NSString *title, UIControlState state){
         [self setTitle:title forState:state];
         return self;
     };
 }
 
 - (UIButton * _Nonnull (^)(NSAttributedString * _Nonnull, UIControlState))func_attributedTitle_state{
-    return ^id(NSAttributedString *attributedTitle,UIControlState state){
+    return ^id(NSAttributedString *attributedTitle, UIControlState state){
         [self setAttributedTitle:attributedTitle forState:state];
         return self;
     };
@@ -57,7 +57,7 @@
 }
 
 - (UIButton * _Nonnull (^)(UIColor * _Nonnull, UIControlState))func_titleColor_state{
-    return ^id(UIColor *titleColor,UIControlState state){
+    return ^id(UIColor *titleColor, UIControlState state){
         [self setTitleColor:titleColor forState:state];
         return self;
     };
@@ -71,7 +71,7 @@
 }
 
 - (UIButton * _Nonnull (^)(UIImage * _Nonnull, UIControlState))func_image_state{
-    return ^id(UIImage *image,UIControlState state){
+    return ^id(UIImage *image, UIControlState state){
         [self setImage:image forState:state];
         return self;
     };
@@ -79,28 +79,63 @@
 
 - (UIButton * _Nonnull (^)(UIControlContentVerticalAlignment))func_contentVerticalAlignment{
     return ^id(UIControlContentVerticalAlignment contentVerticalAlignment){
-        self.contentVerticalAlignment=contentVerticalAlignment;
+        self.contentVerticalAlignment = contentVerticalAlignment;
         return self;
     };
 }
 
 - (UIButton * _Nonnull (^)(UIControlContentHorizontalAlignment))func_contentHorizontalAlignment{
     return ^id(UIControlContentHorizontalAlignment contentHorizontalAlignment){
-        self.contentHorizontalAlignment=contentHorizontalAlignment;
+        self.contentHorizontalAlignment = contentHorizontalAlignment;
         return self;
     };
 }
 
 - (UIButton * _Nonnull (^)(UIColor * _Nonnull))func_backgroundColor{
     return ^id(UIColor *backgroundColor){
-        self.backgroundColor=backgroundColor;
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(UIImage * _Nonnull, UIControlState))func_backgroundImage{
+    return ^id(UIImage *backgroundImage, UIControlState state){
+        [self setBackgroundImage:backgroundImage forState:state];
         return self;
     };
 }
 
 - (UIButton * _Nonnull (^)(id _Nonnull, SEL _Nonnull))func_addTarget_action{
-    return ^id(id target,SEL action){
+    return ^id(id target, SEL action){
         [self addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(BOOL))func_enabled{
+    return ^id(BOOL enabled){
+        self.enabled = enabled;
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(BOOL))func_userInteractionEnabled{
+    return ^id(BOOL userInteractionEnabled){
+        self.userInteractionEnabled = userInteractionEnabled;
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(CGFloat))func_alpha{
+    return ^id(CGFloat alpha){
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UIButton * _Nonnull (^)(BOOL))func_hidden{
+    return ^id(BOOL hidden){
+        self.hidden = hidden;
         return self;
     };
 }

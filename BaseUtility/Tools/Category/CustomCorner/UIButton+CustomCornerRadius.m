@@ -1,12 +1,12 @@
 //
-//  UIView+CustomCornerRadius.m
+//  UIButton+CustomCornerRadius.m
 //  BaseTools
 //
-//  Created by Singularity on 2020/4/28.
+//  Created by Singularity on 2020/9/23.
 //  Copyright © 2020 Singularity. All rights reserved.
 //
 
-#import "UIView+CustomCornerRadius.h"
+#import "UIButton+CustomCornerRadius.h"
 #import <objc/runtime.h>
 
 @interface UIView ()
@@ -17,14 +17,15 @@
 @end
 
 
-@implementation UIView (CustomCornerRadius)
+
+@implementation UIButton (CustomCornerRadius)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class targetClass = [self class];
         SEL originalSelector = @selector(layoutSubviews);
-        SEL swizzledSelector = @selector(swizzle_layoutSubviews);
+        SEL swizzledSelector = @selector(btnSwizzle_layoutSubviews);
         [self corner_swizzleMethod:targetClass orgSel:originalSelector swizzSel:swizzledSelector];
     });
 }
@@ -55,12 +56,12 @@
     [self layoutIfNeeded];
 }
 
-- (void)swizzle_layoutSubviews {
-    [self swizzle_layoutSubviews];
+- (void)btnSwizzle_layoutSubviews {
+    [self btnSwizzle_layoutSubviews];
     if (self.corner_openClip) {
 //        if (self.radiusStatusChange == NO) return;
         self.radiusStatusChange = NO;
-        if (self.corner_clipType == CornerClipTypeNone) {
+        if (self.corner_clipType == BtnCornerClipTypeNone) {
             self.layer.mask = nil;
         } else {
             UIRectCorner rectCorner = [self getRectCorner];
@@ -79,19 +80,19 @@
 
 - (UIRectCorner)getRectCorner {
     UIRectCorner rectCorner = 0;
-    if (self.corner_clipType & CornerClipTypeAllCorners) {
+    if (self.corner_clipType & BtnCornerClipTypeAllCorners) {
         rectCorner = UIRectCornerAllCorners;
     } else {
-        if (self.corner_clipType & CornerClipTypeTopLeft) {
+        if (self.corner_clipType & BtnCornerClipTypeTopLeft) {
             rectCorner = rectCorner | UIRectCornerTopLeft;
         }
-        if (self.corner_clipType & CornerClipTypeTopRight) {
+        if (self.corner_clipType & BtnCornerClipTypeTopRight) {
             rectCorner = rectCorner | UIRectCornerTopRight;
         }
-        if (self.corner_clipType & CornerClipTypeBottomLeft) {
+        if (self.corner_clipType & BtnCornerClipTypeBottomLeft) {
             rectCorner = rectCorner | UIRectCornerBottomLeft;
         }
-        if (self.corner_clipType & CornerClipTypeBottomRight) {
+        if (self.corner_clipType & BtnCornerClipTypeBottomRight) {
             rectCorner = rectCorner | UIRectCornerBottomRight;
         }
     }
@@ -122,7 +123,7 @@ static const char *cornerRadius_radiusKey = "CornerRadius_radius";
 }
 
 static const char *cornerRadius_TypeKey = "cornerRadius_TypeKey";
-- (void)setCorner_clipType:(CornerClipType)corner_clipType {
+- (void)setCorner_clipType:(BtnCornerClipType)corner_clipType {
     if (corner_clipType == self.corner_clipType) {
     } else {
         self.radiusStatusChange = YES;
@@ -130,7 +131,7 @@ static const char *cornerRadius_TypeKey = "cornerRadius_TypeKey";
     objc_setAssociatedObject(self, cornerRadius_TypeKey, @(corner_clipType), OBJC_ASSOCIATION_RETAIN);
 }
 
-- (CornerClipType)corner_clipType {
+- (BtnCornerClipType)corner_clipType {
     return [objc_getAssociatedObject(self, cornerRadius_TypeKey) unsignedIntegerValue];
 }
 

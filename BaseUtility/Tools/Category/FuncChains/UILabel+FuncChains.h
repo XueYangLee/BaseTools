@@ -42,6 +42,22 @@ NS_ASSUME_NONNULL_BEGIN
 /** 背景色 */
 - (UILabel * (^)(UIColor *backgroundColor))func_backgroundColor;
 
+/** 是否可用 */
+- (UILabel * (^)(BOOL enabled))func_enabled;
+
+/** 是否响应用户操作 */
+- (UILabel * (^)(BOOL userInteractionEnabled))func_userInteractionEnabled;
+
+/** 添加轻点手势点击触发对象及点击事件 (target,action) */
+- (UILabel * (^)(id target, SEL action))func_addTapGestureTarget_action;
+
+/** 控件透明度 */
+- (UILabel * (^)(CGFloat alpha))func_alpha;
+
+/** 是否隐藏控件 */
+- (UILabel * (^)(BOOL hidden))func_hidden;
+
+
 
 @end
 

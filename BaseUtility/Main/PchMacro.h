@@ -21,6 +21,7 @@
 #import "UIScreen+Extension.h"
 #import "UITextField+LengthLimit.h"
 #import "UIButton+AdjustInsets.h"
+#import "UIButton+FillColor.h"
 #import "UIView+IBExtension.h"
 #import "UIView+Extension.h"
 #import "UIViewController+CurrentViewController.h"
@@ -28,12 +29,11 @@
 #import "NSObject+SwizzleMethod.h"
 #import "UIView+CustomCornerRadius.h"
 #import "UIView+CustomCornerBorder.h"
+#import "UIButton+CustomCornerRadius.h"
 #import "NSArray+Sudoku.h"
 
 /** FuncControl */
-#import "UILabel+FuncChains.h"
-#import "UIButton+FuncChains.h"
-#import "UITextField+FuncChains.h"
+#import "FuncChains.h"
 
 /** SafeObject */
 #import "NSArray+Safe.h"
@@ -174,8 +174,8 @@
 #define MaxY(v)            CGRectGetMaxY((v).frame) //纵坐标加上控件的高度
 
 /** 以屏幕为比例的数值   比例基准由UI使用的机型宽度为准 */
-#define screen_ratio      ([UIScreen scrnSize].width/375.0)
-#define radio(NUM)        NUM*screen_ratio
+#define SCREEN_RATIO      ([UIScreen scrnSize].width/375.0)
+#define RATIO(NUM)        NUM*SCREEN_RATIO
 
 
 #pragma mark - 图片路径、加载
@@ -191,6 +191,7 @@
 #define kImg(NAME, EXT)        [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(NAME) ofType:(EXT)]]
 
 #define UIImageName(imageName)  [UIImage imageNamed:imageName]
+#define NSURLString(urlString)  [NSURL URLWithString:urlString]
 
 
 #pragma mark - 获取设备
@@ -200,6 +201,8 @@
 #define IS_IPHONE6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
 #define IS_IPHONEPLUS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
 
+/** 是否为iPad设备 */
+#define IS_IPAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 
 
 #pragma mark - 版本信息

@@ -37,5 +37,14 @@
 /** 获取视频首帧图 */
 + (UIImage*)getVideoFirstFPSImage:(NSURL *)videoUrl;
 
+/** 压缩图片到指定大小 */
++ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize;
+
+/** 图片合成 */
++ (UIImage *)compositeImage:(UIImage *)originalImage toImage:(UIImage *)targetImage;
+
+/** 改变图片的透明度 */
++ (UIImage *)imageAlphaWithImage:(UIImage*)image alpha:(CGFloat)alpha;
+
 
 @end

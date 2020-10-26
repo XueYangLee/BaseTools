@@ -11,9 +11,7 @@
 
 @implementation UIImage (Extension)
 
-/**
- *  拉伸图片
- */
+/** 拉伸图片 */
 + (UIImage *)resizedImage:(NSString *)name {
     UIImage *image = [UIImage imageNamed:name];
     return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
@@ -74,24 +72,18 @@
     return [[self alloc] initWithImage:[UIImage imageNamed:imageName]];
 }
 
-/**
- *  圆形图片
- */
+/** 圆形图片 */
 - (UIImage *)circleImage
 {
     // NO代表透明
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
-    
     // 获得上下文
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
     // 添加一个圆
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     CGContextAddEllipseInRect(ctx, rect);
-    
     // 裁剪
     CGContextClip(ctx);
-    
     // 将图片画上去
     [self drawInRect:rect];
     
@@ -107,7 +99,6 @@
     CGSize viewSize = view.bounds.size;
     
     // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了，关键就是第三个参数。
-    
     UIGraphicsBeginImageContextWithOptions(viewSize, NO, [UIScreen mainScreen].scale);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
@@ -120,23 +111,17 @@
 + (UIImage *)screenShot {
     // 1. 获取到窗口
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    
     // 2. 开始上下文
     UIGraphicsBeginImageContextWithOptions(window.bounds.size, YES, 0);
-    
     // 3. 将 window 中的内容绘制输出到当前上下文
     [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:NO];
-    
     // 4. 获取图片
     UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
-    
     // 5. 关闭上下文
     UIGraphicsEndImageContext();
     
     return screenShot;
 }
-
-
 
 
 //获取启动图
@@ -178,5 +163,58 @@
     return videoImage;
 }
 
+
+/** 压缩图片到指定大小 */
++ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize{
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0);
+    // 绘制改变大小的图片
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage *newImage=UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+/** 图片合成 */
++ (UIImage *)compositeImage:(UIImage *)originalImage toImage:(UIImage *)targetImage {
+
+    UIGraphicsBeginImageContext(targetImage.size);
+
+    // Draw image1
+    [originalImage drawInRect:CGRectMake(0, 0, originalImage.size.width, originalImage.size.height)];
+    // Draw image2
+    [targetImage drawInRect:CGRectMake(0, 0, targetImage.size.width, targetImage.size.height)];
+
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resultingImage;
+}
+
+/** 改变图片的透明度 */
++ (UIImage *)imageAlphaWithImage:(UIImage*)image alpha:(CGFloat)alpha{
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
+
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0, 0, image.size.width, image.size.height);
+
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -area.size.height);
+
+    CGContextSetBlendMode(ctx, kCGBlendModeMultiply);
+
+    CGContextSetAlpha(ctx, alpha);
+
+    CGContextDrawImage(ctx, area, image.CGImage);
+
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+
+    return newImage;
+}
 
 @end
