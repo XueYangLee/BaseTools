@@ -11,7 +11,7 @@
 @implementation CustomAlert
 
 
-+ (void)showAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title Message:(NSString *)message CancelBtnTitle:(NSString *)cancelBtnTitle DefaultBtnTitle:(NSString *)defaultBtnTitle ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle defaultBtnTitle:(NSString *_Nullable)defaultBtnTitle actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
@@ -47,7 +47,7 @@
 //    [currentViewController presentViewController:alert animated:YES completion:nil];
 }
 
-+ (void)showAlertWithBtnsAddTarget:(UIViewController *)viewController Title:(NSString *)title Message:(NSString *)message CancelBtnTitle:(NSString *)cancelBtnTitle OtherBtnTitles:(NSArray *)otherBtnTitles ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showAlertWithBtnsAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle otherBtnTitles:(NSArray *_Nullable)otherBtnTitles actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
@@ -81,7 +81,7 @@
 
 
 
-+ (void)showActionSheetAddTarget:(UIViewController *)viewController Title:(NSString *)title Message:(NSString *)message RedWarnBtnTitle:(NSString *)redWarnBtnTitle CancelBtnTitle:(NSString *)cancelBtnTitle OtherBtnTitles:(NSArray *)otherBtnTitles ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showActionSheetAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message redWarnBtnTitle:(NSString *_Nullable)redWarnBtnTitle cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle otherBtnTitles:(NSArray *_Nullable)otherBtnTitles actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -129,19 +129,19 @@
 
 
 
-+ (void)showAlertRemindAddTarget:(UIViewController *)viewController Title:(NSString *)title Message:(NSString *)message ActionTitle:(NSString *)actionTitle{
++ (void)showAlertRemindAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message actionTitle:(NSString *_Nullable)actionTitle{
     
-    [self showAlertAddTarget:viewController Title:title Message:message CancelBtnTitle:actionTitle DefaultBtnTitle:nil ActionHandle:nil];
+    [self showAlertAddTarget:viewController title:title message:message cancelBtnTitle:actionTitle defaultBtnTitle:nil actionHandle:nil];
 }
 
-+ (void)showAlertMessageConfirmAddTarget:(UIViewController *)viewController Message:(NSString *)message{
++ (void)showAlertMessageConfirmAddTarget:(UIViewController *)viewController message:(NSString *_Nullable)message{
     
-    [self showAlertAddTarget:viewController Title:nil Message:message CancelBtnTitle:@"确认" DefaultBtnTitle:nil ActionHandle:nil];
+    [self showAlertAddTarget:viewController title:nil message:message cancelBtnTitle:@"确认" defaultBtnTitle:nil actionHandle:nil];
 }
 
-+ (void)showAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title Message:(NSString *)message ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
-    [self showAlertAddTarget:viewController Title:title Message:message CancelBtnTitle:@"取消" DefaultBtnTitle:@"确认" ActionHandle:actionHandle];
+    [self showAlertAddTarget:viewController title:title message:message cancelBtnTitle:@"取消" defaultBtnTitle:@"确认" actionHandle:actionHandle];
 }
 
 
@@ -149,7 +149,7 @@
 
 
 
-+ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *)title TitleFont:(UIFont *)titleFont TitleColor:(UIColor *)titleColor Message:(NSString *)message MessageFont:(UIFont *)messageFont MessageColor:(UIColor *)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *)cancelBtnTitle CancelBtnColor:(UIColor *)cancelBtnColor DefaultBtnTitle:(NSString *)defaultBtnTitle DefaultBtnColor:(UIColor *)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
++ (void)showCustomAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title titleFont:(UIFont *_Nullable)titleFont titleColor:(UIColor *_Nullable)titleColor message:(NSString *_Nullable)message messageFont:(UIFont *_Nullable)messageFont messageColor:(UIColor *_Nullable)messageColor messageAlignment:(NSTextAlignment)messageAlignment cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle cancelBtnColor:(UIColor *_Nullable)cancelBtnColor defaultBtnTitle:(NSString *_Nullable)defaultBtnTitle defaultBtnColor:(UIColor *_Nullable)defaultBtnColor actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle{
     
     UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     

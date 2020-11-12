@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://qqzx.xc2018.com.cn/htdocs/h5/testBridge.html"]]];
+    self.URLString=@"https://www.jianshu.com/u/e0d9441b4d9b";
 }
 
 /*

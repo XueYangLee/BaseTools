@@ -77,7 +77,7 @@
  @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @param comp 返回的时间
  */
-+ (void)intervalTimeFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp Completion:(void(^)(NSString *year, NSString *month, NSString *day, NSString *hour, NSString *minute, NSString *second))comp;
++ (void)intervalTimeFromTimeStamp:(NSString *)fromTimeStamp toTimeStamp:(NSString *)toTimeStamp completion:(void(^)(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second))comp;
 
 
 
@@ -89,7 +89,7 @@
  @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @return 时分秒
  */
-+ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp;
++ (NSString *)intervalTimeWithHMSFromTimeStamp:(NSString *)fromTimeStamp toTimeStamp:(NSString *)toTimeStamp;
 
 
 
@@ -101,31 +101,7 @@
  @param toTimeStamp 结束时间的时间戳 传nil默认为当前时间
  @return 分秒
  */
-+ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)fromTimeStamp ToTimeStamp:(NSString *)toTimeStamp;
-
-
-
-
-/**
- 秒数倒计时 验证码获取
- 
- @param maxSec 最大秒数
- @param comp isReturnZero 倒计时是否归零   countdownSec 倒计时每秒的秒数
- */
-+ (void)countdownSecWithMaxSec:(NSInteger)maxSec Completion:(void (^)(BOOL isReturnZero, NSString *countdownSec))comp;
-
-
-
-
-/**
- 时间倒计时 活动开始时间到结束时间（nil则为当前时间）的倒计时
-
- @param startTimeStamp 开始时间的时间戳
- @param endTimeStamp 结束时间的时间戳 传nil默认为当前时间
- @param comp 返回的时间
- */
-+ (void)countdownTimeWithStartTimeStamp:(NSString *)startTimeStamp EndTimeStamp:(NSString *)endTimeStamp Completion:(void (^)(BOOL isReturnZero, NSString *day, NSString *hour, NSString *minute, NSString *second))comp;
-
++ (NSString *)intervalTimeWithMinuteSecFromTimeStamp:(NSString *)fromTimeStamp toTimeStamp:(NSString *)toTimeStamp;
 
 
 

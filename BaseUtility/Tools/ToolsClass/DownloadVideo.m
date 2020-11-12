@@ -14,7 +14,7 @@ static DownloadVideoCompletion _downloadCompletion;
 
 
 //-----下载视频--
-+ (void)videoDownloadWithUrl:(NSString *)videoUrl Progress:(void(^)(NSProgress *progress, double downloadProgress))progress Completion:(DownloadVideoCompletion)comp{
++ (void)videoDownloadWithUrl:(NSString *)videoUrl progress:(void(^)(NSProgress *progress, double downloadProgress))progress completion:(DownloadVideoCompletion)comp{
     _downloadCompletion=comp;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

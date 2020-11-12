@@ -26,18 +26,18 @@
 /**
  设置左侧导航栏按钮
 
- @param imageName 图片名
+ @param image 图片
  */
-- (void)setNavigationLeftBarBtnItemWithImageName:(NSString *)imageName action:(SEL)selector;
+- (void)setNavigationLeftBarBtnItemWithImage:(UIImage *)image action:(SEL)selector;
 
 
 /**
  设置右侧导航栏按钮
 
  @param title 标题（无传nil）
- @param imageName 图片名（无传nil）
+ @param image 图片（无传nil）
  */
-- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName action:(SEL)selector;
+- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title image:(UIImage *)image action:(SEL)selector;
 
 
 /**

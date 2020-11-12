@@ -20,7 +20,7 @@ typedef void(^DownloadVideoCompletion)(BOOL success);
 
  @param videoUrl 视频网络地址
  */
-+ (void)videoDownloadWithUrl:(NSString *)videoUrl Progress:(void(^__nullable)(NSProgress *progress, double downloadProgress))progress Completion:(DownloadVideoCompletion)comp;
++ (void)videoDownloadWithUrl:(NSString *)videoUrl progress:(void(^__nullable)(NSProgress *progress, double downloadProgress))progress completion:(DownloadVideoCompletion)comp;
 
 @end
 

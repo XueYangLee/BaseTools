@@ -22,7 +22,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param imageArray 图片数组
  @param comp 保存结果 进行后续操作
  */
-+ (void)saveImages:(NSArray <NSString *>*)imageArray Completion:(nullable SaveImageCompletion)comp;
++ (void)saveImages:(NSArray <NSString *>*)imageArray completion:(nullable SaveImageCompletion)comp;
 
 
 
@@ -32,7 +32,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param imageUrl 图片Url
  @param comp 保存结果 进行后续操作
  */
-+ (void)saveImage:(NSString *)imageUrl Completion:(nullable SaveImageCompletion)comp;
++ (void)saveImage:(NSString *)imageUrl completion:(nullable SaveImageCompletion)comp;
 
 
 
@@ -42,7 +42,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param localImage  需要保存的UIimage
  @param comp 保存结果 进行后续操作
  */
-+ (void)saveLocalImage:(UIImage *)localImage Completion:(SaveImageCompletion)comp;
++ (void)saveLocalImage:(UIImage *)localImage completion:(SaveImageCompletion)comp;
 
 
 /** 相册读写权限弹框 */
@@ -58,7 +58,7 @@ typedef void(^SaveImageCompletion)(BOOL success);
  @param image 图片
  @param comp 回调
  */
-+ (void)writeImage:(UIImage *)image Completion:(void (^__nullable)(BOOL success))comp;
++ (void)writeImage:(UIImage *)image completion:(void (^__nullable)(BOOL success))comp;
 
 
 /**

@@ -31,6 +31,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger refreshPages;
 
 
+
+/** 无数据空页面是否显示  默认显示 */
+@property (nonatomic, assign) BOOL empty_showData;
+/** 无数据空页面是否跟随滚动  默认允许 */
+@property (nonatomic, assign) BOOL empty_allowScroll;
+/** 无数据空页面图片  不传即显示默认图片 */
+@property (nonatomic, strong) UIImage *empty_image;
+/** 无数据空页面标题  不传即显示默认标题 */
+@property (nonatomic, copy) NSString *empty_title;
+/** 无数据空页面副标题 */
+@property (nonatomic, copy) NSString *empty_subTitle;
+/** 无数据空页面按钮文字 */
+@property (nonatomic, copy) NSString *empty_buttonTitle;
+/** 无数据空页面按钮背景图（边框图，位置大小不合适需调整inset） */
+@property (nonatomic, strong) UIImage *empty_buttonBackgroundImage;
+/** 无数据空页面背景色 */
+@property (nonatomic, strong) UIColor *empty_backgroundColor;
+
+/** 无数据空页面按钮点击事件 */
+- (void)empty_buttonClick;
+/** 无数据空页面背景点击事件（图片文字范围） */
+- (void)empty_tapEmptyView;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,12 +10,12 @@
 #import <AdSupport/AdSupport.h>
 #import "KeyChainStore.h"
 
-#define  KEY_USERNAME_PASSWORD @"com.company.app.usernamepassword"
+#define  KEY_UUID_KEKCHAINSTORE  @"com.company.app.UUID"
 
 @implementation UUID
 
 + (NSString *)getUUID {
-    NSString * UUIDString = (NSString *)[KeyChainStore load:KEY_USERNAME_PASSWORD];
+    NSString * UUIDString = (NSString *)[KeyChainStore load:KEY_UUID_KEKCHAINSTORE];
     
     //首次执行该方法时，uuid为空
     if ([UUIDString isEqualToString:@""] || !UUIDString || [UUIDString isKindOfClass:[NSNull class]]) {
@@ -30,7 +30,7 @@
         }
         
         //将该uuid保存到keychain
-        [KeyChainStore save:KEY_USERNAME_PASSWORD data:UUIDString];
+        [KeyChainStore save:KEY_UUID_KEKCHAINSTORE data:UUIDString];
         
     }
     return UUIDString;

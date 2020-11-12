@@ -21,55 +21,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor=UIColorWithRGBA(247, 247, 247, 1);
+    self.view.backgroundColor = UIColorWithRGBA(247, 247, 247, 1);
     
-    [self setEdgesExtendLayout:YES];//坐标是否从导航栏下计算
-    [self setHideNavigationBar:NO];//隐藏显示导航栏
-    [self setHideNaviShadow:NO];//是否隐藏导航栏下阴影线
+    self.edgesExtendLayout = YES;//坐标是否从导航栏下计算
+    self.hideNavigationBar = NO;//隐藏显示导航栏
+    self.hideNaviShadow = YES;//是否隐藏导航栏下阴影线
 }
 
 //坐标是否从导航栏下计算
 - (void)setEdgesExtendLayout:(BOOL)edgesExtendLayout{
-    if (edgesExtendLayout==YES){
+    if (edgesExtendLayout){
         if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-            self.edgesForExtendedLayout=UIRectEdgeNone;
+            self.edgesForExtendedLayout = UIRectEdgeNone;
         }
     }else{
         if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-            self.edgesForExtendedLayout=UIRectEdgeAll;
+            self.edgesForExtendedLayout = UIRectEdgeAll;
         }
     }
 }
 
 //隐藏显示导航栏
 - (void)setHideNavigationBar:(BOOL)hideNavigationBar{
-    self.navigationController.navigationBarHidden=hideNavigationBar;
+    self.navigationController.navigationBarHidden = hideNavigationBar;
+//    self.fd_prefersNavigationBarHidden=hideNavigationBar;
 }
 
 //是否隐藏导航栏下阴影线
 - (void)setHideNaviShadow:(BOOL)hideNaviShadow{
     [self.navigationController.navigationBar setShadowImage:(hideNaviShadow)?[UIImage new]:nil];
+//    [self wr_setNavBarShadowImageHidden:hideNaviShadow];
 }
 
 
 
 //左侧导航栏按钮
-- (void)setNavigationLeftBarBtnItemWithImageName:(NSString *)imageName action:(SEL)selector{
-    UIImage *searchImg=[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+- (void)setNavigationLeftBarBtnItemWithImage:(UIImage *)image action:(SEL)selector{
+    UIImage *searchImg=[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:searchImg style:UIBarButtonItemStylePlain target:self action:selector];
 }
 
 //右侧导航栏按钮
-- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title imageName:(NSString *)imageName action:(SEL)selector{
-    if (imageName) {
-        UIImage *searchImg=[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+- (void)setNavigationRightBarBtnItemWithTitle:(NSString *)title image:(UIImage *)image action:(SEL)selector{
+    if (title) {
+        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:selector];
+    } else{
+        UIImage *searchImg=[image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:searchImg style:UIBarButtonItemStylePlain target:self action:selector];
     }
-    else{
-        self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:selector];
-    }
-    
 }
+
 
 //在 Info.plist 文件中添加 View controller-based status bar appearance 设置为 YES 否则不生效
 - (UIStatusBarStyle)preferredStatusBarStyle {

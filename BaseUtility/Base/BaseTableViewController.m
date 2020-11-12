@@ -7,6 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
+#import "BaseTableViewController+EmptyData.h"
 
 @interface BaseTableViewController ()
 
@@ -29,9 +30,10 @@
     
     [self initTableView];
     [self initRefreshControl];
+    [self initEmptyData];
     
-    self.showRefreshHeader=NO;
-    self.showRefreshFooter=NO;
+    self.showRefreshHeader = NO;
+    self.showRefreshFooter = NO;
 }
 
 - (void)initTableView{
@@ -116,6 +118,15 @@
     return 0.001f;
 }
 
+
+#pragma mark - emptyViewClickMethod
+- (void)empty_tapEmptyView{
+    //无数据空页面背景点击事件（图片文字范围）
+}
+
+- (void)empty_buttonClick{
+    //无数据空页面按钮点击事件
+}
 
 #pragma mark - setRefresh
 - (void)setShowRefreshHeader:(BOOL)showRefreshHeader{

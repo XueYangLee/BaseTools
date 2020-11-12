@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "NetRequestConfig.h"
 
 
 @interface AppDelegate ()
@@ -26,10 +27,13 @@
     RootViewController *root=[RootViewController new];
     _window.rootViewController=root;
     
+    [CustomNetWorkManager sharedManager].config=[NetRequestConfig new];
     
     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.8]];
     [SVProgressHUD setSuccessImage:nil];
     [SVProgressHUD setInfoImage:nil];
     [SVProgressHUD setErrorImage:nil];

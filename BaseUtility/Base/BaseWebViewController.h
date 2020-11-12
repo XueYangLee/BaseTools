@@ -16,15 +16,21 @@
 /** 顶部进度条 */
 @property (nonatomic, strong) UIProgressView *progressView;
 
-/** 进度条颜色(默认绿色) */
-- (void)setProgressColor:(UIColor *)progressColor;
 
 /** wkWeb自定义frame */
 - (void)wkWebViewFrame:(CGRect)frame;
-/** 加载 web */
-- (void)loadRequest:(NSURLRequest *)request;
-/** 加载 HTML */
-- (void)loadHTMLString:(NSString *)HTMLString;
+
+/** 进度条颜色(默认绿色) */
+- (void)setProgressColor:(UIColor *)progressColor;
+
+
+/** 网页加载方式 加载URLRequest */
+@property (nonatomic, strong) NSURLRequest *URLRequest;
+/** 网页加载方式 加载URLString */
+@property (nonatomic, copy) NSString *URLString;
+/** 网页加载方式 加载HTMLString */
+@property (nonatomic, copy) NSString *HTMLString;
+
 
 /** 清除web缓存 */
 - (void)removeWebCache;

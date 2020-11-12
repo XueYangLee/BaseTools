@@ -46,5 +46,8 @@
 /** 改变图片的透明度 */
 + (UIImage *)imageAlphaWithImage:(UIImage*)image alpha:(CGFloat)alpha;
 
+/** 为图片添加高斯模糊效果   blur值 0-1 */
++ (UIImage *)blurryImage:(UIImage *)image blurValue:(CGFloat)blur;
+
 
 @end

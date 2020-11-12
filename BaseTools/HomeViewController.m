@@ -52,7 +52,7 @@
         WKWebViewController *web=[WKWebViewController new];
         NaviRoutePushToVC(web, YES);
     }else if (indexPath.row==3){
-        [CustomAlert showCustomAlertAddTarget:self Title:nil TitleFont:FontRegular(12) TitleColor:[UIColor redColor] Message:@"内容内容内容内容内容内容内容内容" MessageFont:nil MessageColor:nil MessageAlignment:NSTextAlignmentCenter CancelBtnTitle:@"取消" CancelBtnColor:nil DefaultBtnTitle:@"确定" DefaultBtnColor:[UIColor purpleColor] ActionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
+        [CustomAlert showCustomAlertAddTarget:self title:nil titleFont:FontRegular(12) titleColor:[UIColor redColor] message:@"内容内容内容内容内容内容内容内容" messageFont:nil messageColor:nil messageAlignment:NSTextAlignmentCenter cancelBtnTitle:@"取消" cancelBtnColor:nil defaultBtnTitle:@"确定" defaultBtnColor:[UIColor purpleColor] actionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
             DLog(@"%ld>>>>>>>>>>>>",actionIndex);
             if (actionIndex==1) {
                 DLog(@"点击确定");
@@ -60,7 +60,7 @@
         }];
     }else if (indexPath.row==4){
         [SVProgressHUD showWithStatus:@"保存中"];
-        [SaveImageManager saveImage:@"https://file.wchoosemall.com/platform/manager/pic/20190325/7448903938448587.jpg" Completion:^(BOOL success) {
+        [SaveImageManager saveImage:@"https://file.wchoosemall.com/platform/manager/pic/20190325/7448903938448587.jpg" completion:^(BOOL success) {
             if (success) {
                 [SVProgressHUD showSuccessWithStatus:@"保存成功"];
             }else{
@@ -69,9 +69,9 @@
         }];
     }else if (indexPath.row==5){
 
-        [DownloadVideo videoDownloadWithUrl:@"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4" Progress:^(NSProgress * _Nonnull progress, double downloadProgress) {
+        [DownloadVideo videoDownloadWithUrl:@"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4" progress:^(NSProgress * _Nonnull progress, double downloadProgress) {
             [SVProgressHUD showProgress:downloadProgress status:[NSString stringWithFormat:@"%.f%%",downloadProgress*100]];
-        } Completion:^(BOOL success) {
+        } completion:^(BOOL success) {
             [SVProgressHUD showSuccessWithStatus:success?@"保存成功":@"保存失败"];
         }];
     }

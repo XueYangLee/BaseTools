@@ -35,7 +35,7 @@ static CGFloat const progressViewHeight = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNavigationLeftBarBtnItemWithImageName:@"navi_returnBack" action:@selector(popBackAction)];
+    [self setNavigationLeftBarBtnItemWithImage:UIImageName(@"navi_back") action:@selector(popBackAction)];
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
@@ -196,15 +196,21 @@ static CGFloat const progressViewHeight = 2;
     }
 }
 
+/// 加载 web
+- (void)setURLRequest:(NSURLRequest *)URLRequest{
+    [self.wkWebView loadRequest:URLRequest];
+}
 
 /// 加载 web
-- (void)loadRequest:(NSURLRequest *)request {
-    [self.wkWebView loadRequest:request];
+- (void)setURLString:(NSString *)URLString{
+    [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]]];
 }
+
 /// 加载 HTML
-- (void)loadHTMLString:(NSString *)HTMLString {
+- (void)setHTMLString:(NSString *)HTMLString{
     [self.wkWebView loadHTMLString:HTMLString baseURL:nil];
 }
+
 
 
 /// dealloc
@@ -236,7 +242,7 @@ static CGFloat const progressViewHeight = 2;
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     
-    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] Message:message];
+    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] message:message];
     
     if (completionHandler) {
         completionHandler();
@@ -246,7 +252,7 @@ static CGFloat const progressViewHeight = 2;
 
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler {
     
-    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] Message:message];
+    [CustomAlert showAlertMessageConfirmAddTarget:[UIViewController currentViewController] message:message];
     
     if (completionHandler) {
         completionHandler(YES);

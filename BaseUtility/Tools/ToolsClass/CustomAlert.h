@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param defaultBtnTitle 默认按钮文字
  @param actionHandle 操作
  */
-+ (void)showAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title Message:(NSString *_Nullable)message CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle defaultBtnTitle:(NSString *_Nullable)defaultBtnTitle actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 /**
@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param otherBtnTitles 默认按钮文字
  @param actionHandle 操作
  */
-+ (void)showAlertWithBtnsAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title Message:(NSString *_Nullable)message CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle OtherBtnTitles:(NSArray *_Nullable)otherBtnTitles ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showAlertWithBtnsAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle otherBtnTitles:(NSArray *_Nullable)otherBtnTitles actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param otherBtnTitles 默认按钮文字
  @param actionHandle 操作
  */
-+ (void)showActionSheetAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title Message:(NSString *_Nullable)message RedWarnBtnTitle:(NSString *_Nullable)redWarnBtnTitle CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle OtherBtnTitles:(NSArray *_Nullable)otherBtnTitles ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showActionSheetAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message redWarnBtnTitle:(NSString *_Nullable)redWarnBtnTitle cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle otherBtnTitles:(NSArray *_Nullable)otherBtnTitles actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param message 内容
  @param actionTitle 按钮文字
  */
-+ (void)showAlertRemindAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title Message:(NSString *_Nullable)message ActionTitle:(NSString *_Nullable)actionTitle;
++ (void)showAlertRemindAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message actionTitle:(NSString *_Nullable)actionTitle;
 
 
 
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param viewController 来源视图
  @param message 信息内容
  */
-+ (void)showAlertMessageConfirmAddTarget:(UIViewController *)viewController Message:(NSString *_Nullable)message;
++ (void)showAlertMessageConfirmAddTarget:(UIViewController *)viewController message:(NSString *_Nullable)message;
 
 
 
@@ -87,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param message 内容
  @param actionHandle 按钮文字
  */
-+ (void)showAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title Message:(NSString *_Nullable)message ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title message:(NSString *_Nullable)message actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 
@@ -112,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param defaultBtnColor 默认按钮文字颜色
  @param actionHandle 操作
  */
-+ (void)showCustomAlertAddTarget:(UIViewController *)viewController Title:(NSString *_Nullable)title TitleFont:(UIFont *_Nullable)titleFont TitleColor:(UIColor *_Nullable)titleColor Message:(NSString *_Nullable)message MessageFont:(UIFont *_Nullable)messageFont MessageColor:(UIColor *_Nullable)messageColor MessageAlignment:(NSTextAlignment)messageAlignment CancelBtnTitle:(NSString *_Nullable)cancelBtnTitle CancelBtnColor:(UIColor *_Nullable)cancelBtnColor DefaultBtnTitle:(NSString *_Nullable)defaultBtnTitle DefaultBtnColor:(UIColor *_Nullable)defaultBtnColor ActionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
++ (void)showCustomAlertAddTarget:(UIViewController *)viewController title:(NSString *_Nullable)title titleFont:(UIFont *_Nullable)titleFont titleColor:(UIColor *_Nullable)titleColor message:(NSString *_Nullable)message messageFont:(UIFont *_Nullable)messageFont messageColor:(UIColor *_Nullable)messageColor messageAlignment:(NSTextAlignment)messageAlignment cancelBtnTitle:(NSString *_Nullable)cancelBtnTitle cancelBtnColor:(UIColor *_Nullable)cancelBtnColor defaultBtnTitle:(NSString *_Nullable)defaultBtnTitle defaultBtnColor:(UIColor *_Nullable)defaultBtnColor actionHandle:(void (^ __nullable)(NSInteger actionIndex,NSString *btnTitle))actionHandle;
 
 
 
