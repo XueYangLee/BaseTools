@@ -29,6 +29,8 @@
     
     [CustomNetWorkManager sharedManager].config=[NetRequestConfig new];
     
+    [MMKV initializeMMKV:nil logLevel:MMKVLogError];
+    
     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];

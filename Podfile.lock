@@ -22,11 +22,18 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.3.1)
+  - MMKV (1.2.2):
+    - MMKVCore (~> 1.2.2)
+  - MMKVCore (1.2.2)
+  - SAMKeychain (1.5.3)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
   - SVProgressHUD (2.2.5)
   - YYCache (1.0.4)
+  - YYCategories (1.0.4):
+    - YYCategories/no-arc (= 1.0.4)
+  - YYCategories/no-arc (1.0.4)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -37,8 +44,11 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MJRefresh
+  - MMKV
+  - SAMKeychain
   - SDWebImage
   - SVProgressHUD
+  - YYCategories
   - YYModel
 
 SPEC REPOS:
@@ -49,8 +59,12 @@ SPEC REPOS:
     - FuncControl
     - Masonry
     - MBProgressHUD
+    - MMKV
+    - MMKVCore
+    - SAMKeychain
     - SVProgressHUD
     - YYCache
+    - YYCategories
     - YYModel
   trunk:
     - MJRefresh
@@ -64,11 +78,15 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
+  MMKV: b14909757d8b70e2aa89ff1c6d56a7b239e10a29
+  MMKVCore: 6225324fe5006026bc86ef8641d567e00c6582f3
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: af0981de312c6bea564f28fb9c7a161328b5c19f
+PODFILE CHECKSUM: b55bfa19312d8c2768bebfd96555979db6978468
 
 COCOAPODS: 1.9.3

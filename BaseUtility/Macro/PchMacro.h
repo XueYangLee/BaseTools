@@ -63,6 +63,9 @@
 #import "SaveImageManager.h"
 #import "DownloadVideo.h"
 #import "VideoCompress.h"
+#import "UserNotificationManager.h"
+#import "CustomShare.h"
+#import "SignInWithApple.h"
 #import "CustomSlider.h"
 #import "CustomFlowLayout.h"
 #import "CustomWaterLayout.h"
@@ -230,12 +233,14 @@
 
 
 #pragma mark - 版本信息
-/** 获取Xcode的版本号 */
-#define APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-/** Xcode的Build号 */
+/** 获取bundleID */
+#define APP_BUNDLE_ID  [[NSBundle mainBundle] bundleIdentifier]
+/** APP的Version版本号 */
+#define APP_VERSION  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+/** APP的Build号 */
 #define APP_BUILD   [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 /** iOS系统版本  NSString类型*/
-#define IOS_SYSTEM_VERSION [[UIDevice currentDevice] systemVersion]
+#define IOS_SYSTEM_VERSION  [[UIDevice currentDevice] systemVersion]
 /** 当前系统语言 */
 #define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
 /** app名字 （如果发现获取到的appName为空，查看plist下以前默认创建的Bundle display name是否存在 不存在需在info.plist文件下添加 【Bundle display name   ${PRODUCT_NAME} 】） */
@@ -251,8 +256,17 @@
 #pragma mark - 功能宏
 /** NSUSerDefault */
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+/** MMKV */
+#define MMKV_DEFAULT [MMKV defaultMMKV]
 /** NSNotificationCenter */
 #define NOTIFY_CENTER [NSNotificationCenter defaultCenter]
+
+/** 通知传递、获取、删除 */
+#define NOTIFY_POST(name)  [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil]
+#define NOTIFY_POST_OBJECT(name,object)  [[NSNotificationCenter defaultCenter] postNotificationName:name object:object]
+#define NOTIFY_ADD(target,SEL,name)  [[NSNotificationCenter defaultCenter] addObserver:target selector:SEL name:name object:nil]
+#define NOTIFY_REMOVE(target)  [[NSNotificationCenter defaultCenter] removeObserver:observer]
+
 /** weak self */
 #define WS(weakSelf)  __weak typeof(self) weakSelf = self;
 

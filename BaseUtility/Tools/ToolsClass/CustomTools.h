@@ -81,7 +81,7 @@
 + (NSString *_Nullable)ChineseToUnicode:(NSString *_Nullable)chinese;
 
 
-#pragma mark Unicode转中文
+/** Unicode转中文 */
 + (NSString *_Nullable) replaceUnicode:(NSString *_Nullable)TransformUnicodeString;
 
 
@@ -228,7 +228,7 @@
  @param name 文件名
  @return 返回Dictionary结果
  */
-+ (NSDictionary *)readLocalJsonFileWithFileName:(NSString *_Nonnull)name;
++ (id _Nullable )readLocalJsonFileWithFileName:(NSString *_Nonnull)name;
 
 
 
@@ -339,6 +339,24 @@
  @param endPoint 渐变结束点
  */
 + (void)colorGradientWithView:(UIView *_Nonnull)view StartColor:(UIColor *_Nonnull)startColor EndColor:(UIColor *_Nonnull)endColor StartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint;
+
+
+
+
+/**
+ 给视图添加阴影
+ @param view 添加阴影的视图
+ @param shadowColor 阴影颜色
+ */
++ (void)addShadowWithView:(UIView *_Nonnull)view shadowColor:(UIColor *_Nonnull)shadowColor;
+
+
+
+
+/**
+ App Store评分
+ */
++ (void)AppStoreScore;
 
 
 @end

@@ -17,13 +17,13 @@ UINavigationController *navi = [UIViewController currentViewController].navigati
 
 
 /** 跳转新页面同时移除老页面或指定页面 */
-#define NaviRoutePushToNewVCRemoveVC(ViewController,RemoveViewController,beAnimated)\
+#define NaviRoutePushToNewVCRemoveVC(ViewController,RemoveViewControllerClass,beAnimated)\
 UINavigationController *navi = [UIViewController currentViewController].navigationController;\
 [navi pushViewController:ViewController animated:beAnimated];\
 if ([navi.childViewControllers indexOfObject:[UIViewController currentViewController]]!=0) {\
     NSMutableArray *vcs = [navi.viewControllers mutableCopy];\
     for (UIViewController *vc in navi.viewControllers) {\
-        if ([vc isKindOfClass:[RemoveViewController class]] ) {\
+        if ([vc isKindOfClass:RemoveViewControllerClass] ) {\
             [vcs removeObject:vc];}\
     }\
     navi.viewControllers=vcs;}

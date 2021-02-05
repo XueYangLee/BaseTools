@@ -9,6 +9,7 @@
 
 #import "CustomTools.h"
 #import "MD5.h"
+#import <StoreKit/SKStoreReviewController.h>
 
 @interface CustomTools ()
 
@@ -55,7 +56,7 @@
 #pragma mark 判断邮箱是否合法
 + (BOOL)checkEmail:(NSString *)email{
     
-    NSString *regex = @"^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
+    NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [emailTest evaluateWithObject:email];
 }
@@ -441,14 +442,19 @@
 }
 
 #pragma mark 读取本地JSON文件
-+ (NSDictionary *)readLocalJsonFileWithFileName:(NSString *)name {
++ (id)readLocalJsonFileWithFileName:(NSString *)name {
     // 获取文件路径
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
     // 将文件数据化
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSError *error;
     // 对数据进行JSON格式化并返回字典形式
-    NSDictionary *jsonDic=[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    return jsonDic;
+    id jsonData=[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (!jsonData || error) {
+        return nil;
+    }else{
+        return jsonData;
+    }
 }
 
 #pragma mark 检测app版本号（函数放到ViewDidAppear中）
@@ -664,8 +670,34 @@
     gradientLayer.locations = @[@0.0, @1.0];
     gradientLayer.startPoint = startPoint;
     gradientLayer.endPoint = endPoint;
-    gradientLayer.frame = view.bounds;
+//    gradientLayer.frame = view.bounds;
+    gradientLayer.size = view.size;
     [view.layer addSublayer:gradientLayer];
+}
+
+#pragma mark 视图添加阴影
++ (void)addShadowWithView:(UIView *)view shadowColor:(UIColor *)shadowColor{
+    // shadowColor阴影颜色
+    view.layer.shadowColor = shadowColor.CGColor;
+    // shadowOffset阴影偏移,x向右偏移1，y向下偏移1，默认(0, -3),这个跟shadowRadius配合使用
+    view.layer.shadowOffset = CGSizeMake(1,1);
+    // 阴影半径，默认3
+    view.layer.shadowRadius = 4;
+    // 阴影透明度，默认0
+    view.layer.shadowOpacity = 0.5;
+}
+
+#pragma mark App Store评分
++ (void)AppStoreScore{
+    if (@available(iOS 10.3, *)) {
+        if([SKStoreReviewController respondsToSelector:@selector(requestReview)]){
+            [[UIApplication sharedApplication].keyWindow endEditing:YES];
+            [SKStoreReviewController requestReview];
+        }
+    } else {
+        NSString * scoreURL = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"AppID"];//替换为对应的APPID
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:scoreURL] options:@{} completionHandler:nil];
+    }
 }
 
 

@@ -8,14 +8,17 @@
 
 #import "UUID.h"
 #import <AdSupport/AdSupport.h>
-#import "KeyChainStore.h"
+//#import "KeyChainStore.h"
+#import <SAMKeychain.h>
 
-#define  KEY_UUID_KEKCHAINSTORE  @"com.company.app.UUID"
+#define KEY_UUID_KEKCHAINSTORE  [NSString stringWithFormat:@"%@.UUID.KEY",APP_BUNDLE_ID]
+#define SERVICE_UUID_KEKCHAINSTORE  [NSString stringWithFormat:@"%@.UUID",APP_BUNDLE_ID]
 
 @implementation UUID
 
 + (NSString *)getUUID {
-    NSString * UUIDString = (NSString *)[KeyChainStore load:KEY_UUID_KEKCHAINSTORE];
+//    NSString * UUIDString = (NSString *)[KeyChainStore load:KEY_UUID_KEKCHAINSTORE];
+    NSString * UUIDString = [SAMKeychain passwordForService:SERVICE_UUID_KEKCHAINSTORE account:KEY_UUID_KEKCHAINSTORE];
     
     //首次执行该方法时，uuid为空
     if ([UUIDString isEqualToString:@""] || !UUIDString || [UUIDString isKindOfClass:[NSNull class]]) {
@@ -30,7 +33,8 @@
         }
         
         //将该uuid保存到keychain
-        [KeyChainStore save:KEY_UUID_KEKCHAINSTORE data:UUIDString];
+//        [KeyChainStore save:KEY_UUID_KEKCHAINSTORE data:UUIDString];
+        [SAMKeychain setPassword:UUIDString forService:SERVICE_UUID_KEKCHAINSTORE account:KEY_UUID_KEKCHAINSTORE];
         
     }
     return UUIDString;

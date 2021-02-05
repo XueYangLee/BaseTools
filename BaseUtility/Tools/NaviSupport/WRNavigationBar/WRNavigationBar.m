@@ -9,24 +9,22 @@
 
 #import "WRNavigationBar.h"
 #import <objc/runtime.h>
-#import "sys/utsname.h"
 
 @implementation WRNavigationBar
 
 + (BOOL)isIphoneX {
-    struct utsname systemInfo;
-    uname(&systemInfo);
-    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
-        // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height > 0) {
+        return ([[UIApplication sharedApplication] statusBarFrame].size.height > 20) ? YES : NO;
+    }else{
+        return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ((NSInteger)(([[UIScreen mainScreen] currentMode].size.height/[[UIScreen mainScreen] currentMode].size.width)*100) == 216) : NO);
     }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
 }
 + (CGFloat)navBarBottom {
-    return [self isIphoneX] ? 88 : 64;
+    CGFloat statusBarHeight = [self isIphoneX] ? 44 : 20;
+    if ([[UIApplication sharedApplication] statusBarFrame].size.height > 0){
+        statusBarHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
+    }
+    return statusBarHeight + 44;
 }
 + (CGFloat)tabBarHeight {
     return [self isIphoneX] ? 83 : 49;

@@ -10,7 +10,10 @@
 
 @interface BaseWebViewController ()
 
-@property (nonatomic, strong) WKWebViewConfiguration *config;
+@property (nonatomic,strong) WKWebViewConfiguration *config;
+
+@property (nonatomic,strong) UIBarButtonItem *backItem;
+@property (nonatomic,strong) UIBarButtonItem *closeItem;
 
 @end
 
@@ -35,7 +38,7 @@ static CGFloat const progressViewHeight = 2;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNavigationLeftBarBtnItemWithImage:UIImageName(@"navi_back") action:@selector(popBackAction)];
+    self.navigationItem.leftBarButtonItem=self.backItem;
     
     [self.view addSubview:self.wkWebView];
     [self.view addSubview:self.progressView];
@@ -66,6 +69,7 @@ static CGFloat const progressViewHeight = 2;
         // KVO
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:nil];
         [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew context:nil];
+        [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(canGoBack)) options:NSKeyValueObservingOptionNew context:nil];
     }
     return _wkWebView;
 }
@@ -136,6 +140,20 @@ static CGFloat const progressViewHeight = 2;
     }]; //加载请求必须同步在设置UA的后面
 }
 
+- (UIBarButtonItem *)backItem{
+    if (!_backItem) {
+        _backItem=[[UIBarButtonItem alloc]initWithImage:[UIImageName(@"navi_back") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(popBackAction)];
+    }
+    return _backItem;
+}
+
+- (UIBarButtonItem *)closeItem{
+    if (!_closeItem) {
+        _closeItem=[[UIBarButtonItem alloc]initWithImage:[UIImageName(@"navi_close") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(popCloseAction)];
+    }
+    return _closeItem;
+}
+
 - (void)popBackAction{
     if ([self.wkWebView canGoBack]) {
         [self.wkWebView goBack];
@@ -144,6 +162,9 @@ static CGFloat const progressViewHeight = 2;
     }
 }
 
+- (void)popCloseAction{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (UIProgressView *)progressView {
     if (!_progressView) {
@@ -151,7 +172,6 @@ static CGFloat const progressViewHeight = 2;
         _progressView.trackTintColor = [UIColor clearColor];
         // 高度默认有导航栏且有穿透效果
         _progressView.frame = CGRectMake(0, 0, SCREEN_WIDTH, progressViewHeight);
-        // 设置进度条颜色
         _progressView.tintColor = [UIColor greenColor];
     }
     return _progressView;
@@ -174,7 +194,7 @@ static CGFloat const progressViewHeight = 2;
         self.progressView.alpha = 1.0;
         BOOL animated = self.wkWebView.estimatedProgress > self.progressView.progress;
         [self.progressView setProgress:self.wkWebView.estimatedProgress animated:animated];
-        if(self.wkWebView.estimatedProgress >= 0.97) {
+        if(self.wkWebView.estimatedProgress >= 0.99) {
             [UIView animateWithDuration:0.1 delay:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.progressView.alpha = 0.0;
             } completion:^(BOOL finished) {
@@ -183,6 +203,12 @@ static CGFloat const progressViewHeight = 2;
         }
     } else if ([keyPath isEqualToString:NSStringFromSelector(@selector(title))] && object == self.wkWebView){
         self.title = self.wkWebView.title;
+    } else if ([keyPath isEqualToString:NSStringFromSelector(@selector(canGoBack))] && object == self.wkWebView) {
+        if (self.wkWebView.canGoBack){
+            self.navigationItem.leftBarButtonItems = @[self.backItem,self.closeItem];
+        }else{
+            self.navigationItem.leftBarButtonItems = @[self.backItem];
+        }
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -217,6 +243,7 @@ static CGFloat const progressViewHeight = 2;
 - (void)dealloc {
     [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress))];
     [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(title))];
+    [self.wkWebView removeObserver:self forKeyPath:NSStringFromSelector(@selector(canGoBack))];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -228,8 +255,6 @@ static CGFloat const progressViewHeight = 2;
 
 
 //delegate
-
-
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
 //    DLog(@"%@>>>>>>>>>>>>>开始导航时>.",webView.URL);
 }

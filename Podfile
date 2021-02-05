@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, ‘9.0’
+platform :ios, ‘10.0’
 inhibit_all_warnings!
 
 target "BaseTools" do
@@ -14,5 +14,8 @@ target "BaseTools" do
   pod 'MJRefresh'
   pod 'Masonry'
   pod 'YYModel'
+  pod 'YYCategories'
+  pod 'MMKV'
   pod 'DZNEmptyDataSet'
+  pod 'SAMKeychain'
 end

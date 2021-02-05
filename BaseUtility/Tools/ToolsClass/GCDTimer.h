@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param maxSec 最大秒数
  @param comp isReturnZero 倒计时是否归零   second 倒计时每秒的秒数
  */
-+ (void)countdownSecWithMaxSec:(NSInteger)maxSec completion:(void (^)(BOOL isReturnZero, NSInteger second))comp;
++ (dispatch_source_t)countdownSecWithMaxSec:(NSInteger)maxSec completion:(void (^)(BOOL isReturnZero, NSInteger second))comp;
 
 
 

@@ -30,7 +30,7 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
-    if (self.childViewControllers.count>0){
+    if (self.childViewControllers.count > 0){
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setImage:[UIImage imageNamed:@"navi_back"] forState:UIControlStateNormal];
@@ -57,6 +57,14 @@
 
 - (UIViewController *)childViewControllerForStatusBarStyle{
     return self.topViewController;
+}
+
+- (NSArray<__kindof UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+    if (self.viewControllers.count > 1) {
+        self.topViewController.hidesBottomBarWhenPushed = NO;
+    }
+    // self.viewControllers has two items here on iOS14  //https://developer.apple.com/forums/thread/660750 //ios 14popToRoot问题
+    return [super popToRootViewControllerAnimated:animated];
 }
 
 - (void)didReceiveMemoryWarning {

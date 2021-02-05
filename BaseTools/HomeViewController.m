@@ -23,6 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title=@"内容测试";
+    
+    [UUID getUUID];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -74,6 +76,18 @@
         } completion:^(BOOL success) {
             [SVProgressHUD showSuccessWithStatus:success?@"保存成功":@"保存失败"];
         }];
+    }else if (indexPath.row==6){
+        [CustomShare shareWithContent:^(CustomShareModel * _Nonnull shareContent) {
+            shareContent.shareText=@"分享内容";
+            shareContent.shareURL=@"https://www.jianshu.com/u/e0d9441b4d9b";
+        } customActivityAction:^NSArray<CustomShareActivity *> * _Nullable{
+            CustomShareActivity *action=[[CustomShareActivity alloc]initWithTitle:@"自定义分享按钮" image:UIImageName(@"hotImage") type:@"customShareBtnTag" handleAction:^{
+                DLog(@"点击自定义按钮")
+            }];
+            return @[action];
+        } shareCompletion:^(UIActivityType  _Nullable activityType, BOOL completed, NSArray * _Nullable returnedItems) {
+            DLog(@"%d>completed>>>>>>>%@>type>>>>",completed,activityType)
+        }];
     }
 }
 
@@ -97,7 +111,7 @@
 
 - (NSMutableArray *)dataArray{
     if (_dataArray==nil){
-        _dataArray=[NSMutableArray arrayWithArray:@[@"TableViewController",@"CollectionViewController",@"WKWebViewController",@"自定义弹框",@"下载图片",@"下载视频"]];
+        _dataArray=[NSMutableArray arrayWithArray:@[@"TableViewController",@"CollectionViewController",@"WKWebViewController",@"自定义弹框",@"下载图片",@"下载视频",@"调用系统分享"]];
     }
     return _dataArray;
 }

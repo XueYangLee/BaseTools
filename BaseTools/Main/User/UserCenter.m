@@ -40,7 +40,7 @@ static NSString *UserInfoKey = @"UserInfoKey";
 
 - (UserInfoModel *)userInfo{
     if (!_userInfo) {
-        NSString *cacheStr = [[NSUserDefaults standardUserDefaults]objectForKey:UserInfoKey];
+        NSString *cacheStr = [MMKV_DEFAULT getStringForKey:UserInfoKey];
         _userInfo = [UserInfoModel yy_modelWithJSON:cacheStr];
     }
     return _userInfo;
@@ -65,14 +65,12 @@ static NSString *UserInfoKey = @"UserInfoKey";
 }
 
 - (void)saveUserInfo:(UserInfoModel *)model{
-    [[NSUserDefaults standardUserDefaults]setObject:[model yy_modelToJSONString] forKey:UserInfoKey];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [MMKV_DEFAULT setString:[model yy_modelToJSONString] forKey:UserInfoKey];
 }
 
 - (void)removeUserInfo{
     self.userInfo = nil;
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserInfoKey];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [MMKV_DEFAULT removeValueForKey:UserInfoKey];
 }
 
 - (void)cleanUserData{
@@ -108,7 +106,7 @@ static NSString *UserInfoKey = @"UserInfoKey";
     }
     return YES;
 }
-//MARK: - userBase
+//MARK: - userProperty
 
 
 

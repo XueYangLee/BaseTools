@@ -20,6 +20,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImageDownloader.h>
 #import <YYModel.h>
+#import <YYCategories.h>
+#import <MMKV/MMKV.h>
 
 
 #endif /* PrefixHeader_pch */

@@ -81,7 +81,7 @@
 
 
 //MARK: - 秒数倒计时 验证码获取
-+ (void)countdownSecWithMaxSec:(NSInteger)maxSec completion:(void (^)(BOOL isReturnZero, NSInteger second))comp{
++ (dispatch_source_t)countdownSecWithMaxSec:(NSInteger)maxSec completion:(void (^)(BOOL isReturnZero, NSInteger second))comp{
     
     __block NSInteger timeout=maxSec;//倒计时时间
     dispatch_queue_t queue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
@@ -108,6 +108,8 @@
         }
     });
     dispatch_resume(_timer);
+    
+    return _timer;
 }
 
 

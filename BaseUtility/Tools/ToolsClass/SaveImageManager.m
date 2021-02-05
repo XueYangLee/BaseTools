@@ -89,7 +89,11 @@ static SaveImageCompletion _saveCompletion;
     [CustomAlert showAlertAddTarget:[UIViewController currentViewController] title:@"提示" message:[NSString stringWithFormat:@"请在%@的\"设置-隐私\"选项中，\r允许%@访问您照片的读取和写入以下载图片。",[UIDevice currentDevice].model,[[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]] actionHandle:^(NSInteger actionIndex, NSString * _Nonnull btnTitle) {
         if (actionIndex==1) {
             
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            if (@available(iOS 10.0, *)) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+            } else {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+            }
         }
     }];
 }

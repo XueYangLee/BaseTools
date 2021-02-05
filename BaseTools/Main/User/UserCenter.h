@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedCenter;
 
+
+//MARK: - user
+
 @property (nonatomic,strong,readonly) UserInfoModel *userInfo;
 
 /** 获取最新用户信息 */
@@ -24,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 更新用户信息 */
 - (void)updateUserInfo:(NSDictionary *)userInfoDic;
+
+/** 保存用户信息 */
+- (void)saveUserInfo:(UserInfoModel *)model;
 
 /** 移除用户信息 */
 - (void)removeUserInfo;
@@ -45,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 判断是否登陆 没登录跳转登录页面 */
 - (BOOL)judgeLogin;
+
+
+//MARK: - userProperty
 
 @end
 

@@ -34,6 +34,7 @@ static BOOL hasUpdatedTime = NO;
 
     long long localTime = [[NSDate date] timeIntervalSince1970] * 1000;
     long long tmsDistence = serverTiem - localTime;
+    
     [[NSUserDefaults standardUserDefaults]setObject:@(tmsDistence) forKey:APPSystemTimeDifferenceKey];
     [[NSUserDefaults standardUserDefaults]synchronize];
     
