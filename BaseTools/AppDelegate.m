@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
-#import "NetRequestConfig.h"
+#import "AppInitializeSetting.h"
 
 
 @interface AppDelegate ()
@@ -27,9 +27,9 @@
     RootViewController *root=[RootViewController new];
     _window.rootViewController=root;
     
-    [CustomNetWorkManager sharedManager].config=[NetRequestConfig new];
+    [AppInitializeSetting initNetWork];
     
-    [MMKV initializeMMKV:nil logLevel:MMKVLogError];
+    [AppInitializeSetting initMMapKeyValue];
     
     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];

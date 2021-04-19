@@ -11,6 +11,7 @@ target "BaseTools" do
   pod 'MBProgressHUD'
   pod 'SVProgressHUD'
   pod 'SDWebImage'
+  pod 'IQKeyboardManager'
   pod 'MJRefresh'
   pod 'Masonry'
   pod 'YYModel'
