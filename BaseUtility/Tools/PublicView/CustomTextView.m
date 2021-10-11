@@ -59,6 +59,9 @@
         return;
     }
     
+    if (self.textChanged) {
+        self.textChanged(textView.text);
+    }
     
     if ([self.textViewDelegate respondsToSelector:@selector(customTextViewDidChange:)]) {
         [self.textViewDelegate customTextViewDidChange:textView];

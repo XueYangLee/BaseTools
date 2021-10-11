@@ -12,16 +12,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIColor (AppColor)
 
-/** app主色调 */
+/** app主色调  #1825AA */
 + (UIColor *)app_mainColor;
-/** 主文字颜色 */
+/** 辅色 #F7BC32 */
++ (UIColor *)app_subMainColor;
+/** 主文字颜色  #1D1D1F*/
 + (UIColor *)app_titleColor;
-/** 辅助文字颜色 */
+/** 辅文字颜色  #86868B*/
 + (UIColor *)app_subTitleColor;
-/** 按钮背景色 */
-+ (UIColor *)app_btnMainColor;
-/** 警告提示色 */
-+ (UIColor *)app_alertColor;
+/** 背景色  #F7F8FA*/
++ (UIColor *)app_backgroundColor;
+/** 背景色  #FAFAFA */
++ (UIColor *)app_lightBackgroundColor;
+/** 线条色 #EDEDED */
++ (UIColor *)app_lineColor;
+/** 红色  #FF3B30 */
++ (UIColor *)app_redColor;
 
 @end
 

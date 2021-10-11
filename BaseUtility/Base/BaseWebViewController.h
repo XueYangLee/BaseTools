@@ -8,13 +8,14 @@
 
 #import "BaseViewController.h"
 #import <WebKit/WebKit.h>
+#import "CustomProgressView.h"
 
 @interface BaseWebViewController : BaseViewController<WKNavigationDelegate, WKUIDelegate>
 
 /** webView */
 @property (nonatomic, strong) WKWebView *wkWebView;
 /** 顶部进度条 */
-@property (nonatomic, strong) UIProgressView *progressView;
+@property (nonatomic, strong) CustomProgressView *progressView;
 
 
 /** wkWeb自定义frame */

@@ -11,23 +11,35 @@
 @implementation UIColor (AppColor)
 
 + (UIColor *)app_mainColor{
-    return [UIColor colorWithHexString:@"#193F50"];
+    return [UIColor colorWithHexString:@"#1825AA"];
+}
+
++ (UIColor *)app_subMainColor{
+    return [UIColor colorWithHexString:@"#F7BC32"];
 }
 
 + (UIColor *)app_titleColor{
-    return [UIColor colorWithHexString:@"#444444"];
+    return [UIColor colorWithHexString:@"#1D1D1F"];
 }
 
 + (UIColor *)app_subTitleColor{
-    return [UIColor colorWithHexString:@"#8C8D96"];
+    return [UIColor colorWithHexString:@"#86868B"];
 }
 
-+ (UIColor *)app_btnMainColor{
-    return [UIColor colorWithHexString:@"#1E5063"];
++ (UIColor *)app_backgroundColor{
+    return [UIColor colorWithHexString:@"#F7F8FA"];
 }
 
-+ (UIColor *)app_alertColor{
-    return [UIColor colorWithHexString:@"#E74D45"];
++ (UIColor *)app_lightBackgroundColor{
+    return [UIColor colorWithHexString:@"#FAFAFA"];
+}
+
++ (UIColor *)app_lineColor{
+    return [UIColor colorWithHexString:@"#EDEDED"];
+}
+
++ (UIColor *)app_redColor{
+    return [UIColor colorWithHexString:@"#FF3B30"];
 }
 
 @end

@@ -19,8 +19,9 @@
 /** 带边框的图片 */
 + (instancetype)circleImageWithImageName:(NSString *)imageName borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
-/** 使用图像名创建图像视图 */
-+ (instancetype)imageViewWithImageName:(NSString *)imageName;
+/** 获取bundle中的图片 */
++ (UIImage *)imageNamed:(NSString *)name bundleNamed:(NSString *)bundleName;
+
 
 /** 圆形图片 */
 - (UIImage *)circleImage;

@@ -62,11 +62,17 @@
 }
 
 #pragma mark 匹配中文，英文字母和数字及_
-+ (BOOL)isNormalAccount:(NSString *)accountName
-{
++ (BOOL)isCNLetterNumberSymbol:(NSString *)string{
     NSString *account = @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", account];
-    return [pred evaluateWithObject:accountName];
+    return [pred evaluateWithObject:string];
+}
+
+#pragma mark 匹配英文字母和数字
++ (BOOL)isLetterNumber:(NSString *)string{
+    NSString * regex = @"^[a-zA-Z0-9]+$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [pred evaluateWithObject:string];
 }
 
 #pragma mark 判断是否为纯数字

@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 组标题 */
 @property (nonatomic,strong) NSString *sectionTitle;
+/** 组副标题 */
+@property (nonatomic,strong) NSString *sectionSubTitle;
+/** 组按钮标题 */
+@property (nonatomic,strong) NSString *sectionButtonTitle;
 
 /** 组类型 */
 @property (nonatomic,strong) NSString *type;

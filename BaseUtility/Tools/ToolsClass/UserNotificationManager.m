@@ -7,13 +7,14 @@
 
 #import "UserNotificationManager.h"
 
-@interface UserNotificationManager () <UNUserNotificationCenterDelegate>
+@interface UserNotificationManager ()
 
 @end
 
 @implementation UserNotificationManager
 
-+ (void)registerNotificationWithDelegate:(id<UNUserNotificationCenterDelegate>)delegate{
++ (void)registerNotificationWithDelegate:(id<UNUserNotificationCenterDelegate>)delegate application:(UIApplication *)application{
+    application.applicationIconBadgeNumber = 0;
     UNAuthorizationOptions options = UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge;
     UNUserNotificationCenter * center = [UNUserNotificationCenter currentNotificationCenter];
     center.delegate = delegate;
@@ -24,6 +25,8 @@
             // 不允许授权
         }
     }];
+    
+    [application registerForRemoteNotifications];
     
 }
 
@@ -82,7 +85,7 @@
     NSString *title = content.title;
     
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {//应用处于前台时的远程推送接受
-//        DLog(@"iOS10 收到远程通知:%@",userInfo)
+        DLog(@"iOS10 收到远程通知:%@",userInfo)
     } else {//应用处于前台时的本地推送接受
 //        DLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo)
     }
@@ -109,9 +112,9 @@
     NSString *title = content.title;
     
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {//收到远程通知
-//        DLog(@"iOS10 点击远程通知:%@",userInfo)
+        DLog(@"iOS10 点击远程通知:%@",userInfo)
     }else {//收到本地通知
-//        DLog(@"iOS10 点击本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo)
+        DLog(@"iOS10 点击本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo)
     }
 
     completionHandler();
@@ -121,23 +124,31 @@
 #pragma mark - 本地通知推送
 
 //MARK: 本地定时推送
-+ (void)addLocalNotificationDelayTime:(NSInteger)delayTime title:(NSString *_Nullable)title subTitle:(NSString *_Nullable)subTitle content:(NSString *_Nullable)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp{
++ (void)addLocalNotificationDelayTime:(CGFloat)delayTime content:(NotifyContent _Nonnull)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp{
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     UNMutableNotificationContent *notifyContent = [[UNMutableNotificationContent alloc] init];
     
-    if (title) {
-        notifyContent.title = title;
+    UserNotifyContentModel *contentModel = [self disposeNotifyContent:content];
+    if (!contentModel) {
+        DLog(@"推送内容缺失")
+        return;
     }
-    if (subTitle) {
-        notifyContent.subtitle = subTitle;
+    if (contentModel.title) {
+        notifyContent.title = contentModel.title;
     }
-    if (content) {
-        notifyContent.body = content;
+    if (contentModel.subTitle) {
+        notifyContent.subtitle = contentModel.subTitle;
     }
+    if (contentModel.body) {
+        notifyContent.body = contentModel.body;
+    }
+    if (contentModel.userInfo) {
+        notifyContent.userInfo = contentModel.userInfo;
+    }
+    notifyContent.badge = [NSNumber numberWithInteger:contentModel.badge];// 角标
     notifyContent.sound = [UNNotificationSound defaultSound];
-    notifyContent.badge = @0;// 角标
-    if (delayTime <= 1) {
-        delayTime = 1;
+    if (delayTime <= 0.1) {
+        delayTime = 0.1;
     }
     // 多少秒后发送,可以将固定的日期转化为时间
     NSTimeInterval time = [[NSDate dateWithTimeIntervalSinceNow:delayTime] timeIntervalSinceNow];
@@ -162,22 +173,30 @@
 }
 
 //MARK: 本地定期推送
-+ (void)addLocalNotificationDateComponents:(NSDateComponents *)dateComponents repeat:(BOOL)repeat title:(NSString *_Nullable)title subTitle:(NSString *_Nullable)subTitle content:(NSString *_Nullable)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp{
++ (void)addLocalNotificationDateComponents:(NSDateComponents *)dateComponents repeat:(BOOL)repeat content:(NotifyContent _Nonnull)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp{
     
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     UNMutableNotificationContent *notifyContent = [[UNMutableNotificationContent alloc] init];
     
-    if (title) {
-        notifyContent.title = title;
+    UserNotifyContentModel *contentModel = [self disposeNotifyContent:content];
+    if (!contentModel) {
+        DLog(@"推送内容缺失")
+        return;
     }
-    if (subTitle) {
-        notifyContent.subtitle = subTitle;
+    if (contentModel.title) {
+        notifyContent.title = contentModel.title;
     }
-    if (content) {
-        notifyContent.body = content;
+    if (contentModel.subTitle) {
+        notifyContent.subtitle = contentModel.subTitle;
     }
+    if (contentModel.body) {
+        notifyContent.body = contentModel.body;
+    }
+    if (contentModel.userInfo) {
+        notifyContent.userInfo = contentModel.userInfo;
+    }
+    notifyContent.badge = [NSNumber numberWithInteger:contentModel.badge];// 角标
     notifyContent.sound = [UNNotificationSound defaultSound];
-    notifyContent.badge = @0;// 角标
     
     /*
     NSDateComponents *components = [[NSDateComponents alloc] init];//重复,按日期
@@ -204,6 +223,19 @@
 }
 
 
++ (UserNotifyContentModel *)disposeNotifyContent:(NotifyContent)content{
+    UserNotifyContentModel *contentModel = [UserNotifyContentModel new];
+    if (content) {
+        content(contentModel);
+    }
+    
+    if (!contentModel.title && !contentModel.subTitle && !contentModel.body) {
+        return nil;
+    }
+    return contentModel;
+}
+
+
 #pragma mark - 通知推送移除方法
 
 //MARK: 移除指定通知
@@ -227,5 +259,12 @@
     [center removeAllPendingNotificationRequests];//所有未送达的
     [center removeAllDeliveredNotifications];//所有已送达的
 }
+
+@end
+
+
+
+
+@implementation UserNotifyContentModel
 
 @end

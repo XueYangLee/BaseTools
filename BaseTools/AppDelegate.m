@@ -31,6 +31,8 @@
     
     [AppInitializeSetting initMMapKeyValue];
     
+    [AppInitializeSetting initDebugCompileInject];
+    
     [SVProgressHUD setMinimumDismissTimeInterval:0.5];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];

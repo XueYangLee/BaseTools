@@ -42,4 +42,10 @@
     [CustomNetWorkManager sharedManager].config=[NetRequestConfig new];
 }
 
++ (void)initDebugCompileInject{
+#if DEBUG
+    [[NSBundle bundleWithPath:@"/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle"] load];
+#endif
+}
+
 @end

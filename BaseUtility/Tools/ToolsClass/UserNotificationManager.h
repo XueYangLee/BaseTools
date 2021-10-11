@@ -10,10 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class UserNotifyContentModel;
+
+typedef void(^NotifyContent)(UserNotifyContentModel *content);
+
 @interface UserNotificationManager : NSObject
 
 /** APPDelegate  中【注册】 代理   如果另存在远程推送时无需调用，调用远程推送相关的register方法即可  */
-+ (void)registerNotificationWithDelegate:(id<UNUserNotificationCenterDelegate>)delegate;
++ (void)registerNotificationWithDelegate:(id<UNUserNotificationCenterDelegate>)delegate application:(UIApplication *)application;
 
 
 /** APPDelegate  中【-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler】使用    如果另存在远程推送时无需调用，调用远程推送相关方法即可 */
@@ -40,13 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  定时推送  发送一次
  @param delayTime 延迟的秒数
- @param title 标题
- @param subTitle 副标题
- @param content 内容
+ @param content 内容模型数据
  @param identifier 推送标识！
  @param comp 完成回调
  */
-+ (void)addLocalNotificationDelayTime:(NSInteger)delayTime title:(NSString *_Nullable)title subTitle:(NSString *_Nullable)subTitle content:(NSString *_Nullable)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp;
++ (void)addLocalNotificationDelayTime:(CGFloat)delayTime content:(NotifyContent _Nonnull)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp;
 
 
 /**
@@ -54,13 +56,11 @@ NS_ASSUME_NONNULL_BEGIN
  @param dateComponents 日期 (NSDateComponents *components = [[NSDateComponents alloc] init];\components.weekday = 2;//weekday默认是从周日开始\components.hour
  = 8;\components.minute = 20;)
  @param repeat 是否重复 即每到设定时间都提醒
- @param title 标题
- @param subTitle 副标题
- @param content 内容
+ @param content 内容模型数据
  @param identifier 推送标识！
  @param comp 完成回调
  */
-+ (void)addLocalNotificationDateComponents:(NSDateComponents *)dateComponents repeat:(BOOL)repeat title:(NSString *_Nullable)title subTitle:(NSString *_Nullable)subTitle content:(NSString *_Nullable)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp;
++ (void)addLocalNotificationDateComponents:(NSDateComponents *)dateComponents repeat:(BOOL)repeat content:(NotifyContent _Nonnull)content identifier:(NSString *_Nonnull)identifier completion:(void (^__nullable)(BOOL success))comp;
 
 
 
@@ -72,6 +72,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 移除所有通知 */
 + (void)removeAllNotification;
+
+@end
+
+
+
+
+@interface UserNotifyContentModel : NSObject
+
+/** 推送的标题 */
+@property (nonatomic,copy) NSString *title;
+/** 推送的副标题 */
+@property (nonatomic,copy) NSString *subTitle;
+/** 推送的内容 */
+@property (nonatomic,copy) NSString *body;
+/** 推送的用户信息 */
+@property (nonatomic,strong) NSDictionary *userInfo;
+/** 推送的角标 默认0 */
+@property (nonatomic,assign) NSInteger badge;
 
 @end
 

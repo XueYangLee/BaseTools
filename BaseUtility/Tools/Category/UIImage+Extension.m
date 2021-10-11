@@ -69,9 +69,10 @@
     return newImage;
 }
 
-+ (instancetype)imageViewWithImageName:(NSString *)imageName {
-    
-    return [[self alloc] initWithImage:[UIImage imageNamed:imageName]];
++ (UIImage *)imageNamed:(NSString *)name bundleNamed:(NSString *)bundleName{
+    NSString *path = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
+    NSString *imagePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",name]];
+    return [UIImage imageWithContentsOfFile:imagePath];
 }
 
 /** 圆形图片 */

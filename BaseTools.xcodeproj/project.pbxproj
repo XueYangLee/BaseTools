@@ -65,6 +65,8 @@
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
 		F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */ = {isa = PBXBuildFile; fileRef = F12CB25624289CB6005BEAB0 /* NSArray+Sudoku.m */; };
 		F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */; };
+		F16EDCF826FC1ECC00D42753 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */; };
+		F17B8A14263174B6001A1265 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17B8A13263174B6001A1265 /* CustomPickerView.m */; };
 		F18500E6262D248A00A74BDF /* AppInitializeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F18500E5262D248A00A74BDF /* AppInitializeSetting.m */; };
 		F187E9C6224B196A00293096 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C5224B196A00293096 /* AppDelegate.m */; };
 		F187E9C9224B196A00293096 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C8224B196A00293096 /* ViewController.m */; };
@@ -118,6 +120,7 @@
 		F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD2224B570800293096 /* WRCustomNavigationBar.m */; };
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
 		F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */; };
+		F190E6CD263936E6008552BE /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F190E6CC263936E6008552BE /* CustomSegmentView.m */; };
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
 		F1B7451122544B8F00ED5A29 /* SaveImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B7450F22544B8E00ED5A29 /* SaveImageManager.m */; };
@@ -264,6 +267,10 @@
 		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
 		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
 		F15D3AF92497BE6A00A36F0C /* BaseDataRefreshProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDataRefreshProtocol.h; sourceTree = "<group>"; };
+		F16EDCF626FC1ECC00D42753 /* CustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePicker.h; sourceTree = "<group>"; };
+		F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePicker.m; sourceTree = "<group>"; };
+		F17B8A12263174B6001A1265 /* CustomPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPickerView.h; sourceTree = "<group>"; };
+		F17B8A13263174B6001A1265 /* CustomPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPickerView.m; sourceTree = "<group>"; };
 		F18500E4262D248A00A74BDF /* AppInitializeSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInitializeSetting.h; sourceTree = "<group>"; };
 		F18500E5262D248A00A74BDF /* AppInitializeSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInitializeSetting.m; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,6 +369,8 @@
 		F187EBD8224B58D200293096 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F18FB1E2226EF67A00C77619 /* UIImage+ImageSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageSize.h"; sourceTree = "<group>"; };
 		F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageSize.m"; sourceTree = "<group>"; };
+		F190E6CB263936E6008552BE /* CustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegmentView.h; sourceTree = "<group>"; };
+		F190E6CC263936E6008552BE /* CustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentView.m; sourceTree = "<group>"; };
 		F19FC8E4224E05D90044772B /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F19FC8E5224E05D90044772B /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F19FC8E7224E05E80044772B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -844,6 +853,12 @@
 				F114D4A722AF8A480074377E /* CustomProgressView.m */,
 				045358B9246CECD600A32204 /* CustomSlider.h */,
 				045358BA246CECD600A32204 /* CustomSlider.m */,
+				F17B8A12263174B6001A1265 /* CustomPickerView.h */,
+				F17B8A13263174B6001A1265 /* CustomPickerView.m */,
+				F16EDCF626FC1ECC00D42753 /* CustomDatePicker.h */,
+				F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */,
+				F190E6CB263936E6008552BE /* CustomSegmentView.h */,
+				F190E6CC263936E6008552BE /* CustomSegmentView.m */,
 				0457D71624EE5439005E425F /* BaseAlertView.h */,
 				0457D71724EE5439005E425F /* BaseAlertView.m */,
 			);
@@ -1152,6 +1167,7 @@
 				F187EB97224B56A100293096 /* QRCodeScanViewController.m in Sources */,
 				F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */,
 				04370ECD255129F7000A7116 /* AppDebugBtn.m in Sources */,
+				F190E6CD263936E6008552BE /* CustomSegmentView.m in Sources */,
 				047446BE255D385900428DF3 /* UILabel+DigitalAnimation.m in Sources */,
 				04641173254BB18E00AC5D66 /* NetURLManager.m in Sources */,
 				F187EB50224B567F00293096 /* RootViewController.m in Sources */,
@@ -1167,6 +1183,7 @@
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				046759F6256615B20070E61E /* CustomShare.m in Sources */,
 				04641175254BB18E00AC5D66 /* NetRequestConfig.m in Sources */,
+				F16EDCF826FC1ECC00D42753 /* CustomDatePicker.m in Sources */,
 				040C7D21254820D300D5668B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0411F548254C05360025EB32 /* BaseCollectionViewController+EmptyData.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
@@ -1183,6 +1200,7 @@
 				F104D92822844D88004D340F /* DownloadVideo.m in Sources */,
 				F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */,
 				04370ECA25511331000A7116 /* UserInfoModel.m in Sources */,
+				F17B8A14263174B6001A1265 /* CustomPickerView.m in Sources */,
 				F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */,
 				F187EBCA224B56F700293096 /* DateOperation.m in Sources */,
 				F187EB74224B569100293096 /* UIView+IBExtension.m in Sources */,

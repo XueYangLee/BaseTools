@@ -166,19 +166,20 @@ static CGFloat const progressViewHeight = 2;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (UIProgressView *)progressView {
+- (CustomProgressView *)progressView {
     if (!_progressView) {
-        _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _progressView.trackTintColor = [UIColor clearColor];
+//        _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        _progressView = [[CustomProgressView alloc] init];
         // 高度默认有导航栏且有穿透效果
         _progressView.frame = CGRectMake(0, 0, SCREEN_WIDTH, progressViewHeight);
-        _progressView.tintColor = [UIColor greenColor];
+        _progressView.trackTintColor = [UIColor clearColor];
+        _progressView.progressTintColor = [UIColor greenColor];
     }
     return _progressView;
 }
 
 - (void)setProgressColor:(UIColor *)progressColor{
-    _progressView.tintColor = progressColor;
+    _progressView.progressTintColor = progressColor;
 }
 
 

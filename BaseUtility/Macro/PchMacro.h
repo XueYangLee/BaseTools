@@ -67,6 +67,9 @@
 #import "CustomShare.h"
 #import "SignInWithApple.h"
 #import "CustomSlider.h"
+#import "CustomPickerView.h"
+#import "CustomDatePicker.h"
+#import "CustomSegmentView.h"
 #import "CustomFlowLayout.h"
 #import "CustomWaterLayout.h"
 //#import "WRNavigationBar.h"
@@ -204,6 +207,8 @@
 #define SCREEN_RATIO      ([UIScreen scrnSize].width/375.0)
 #define RATIO(NUM)        NUM*SCREEN_RATIO
 
+#define APP_LINE_WIDTH    ([UIScreen scrnScale] >= 3 ? 0.75 : 0.5)
+
 
 #pragma mark - 图片路径、加载
 /** PNG JPG 图片路径 */
@@ -262,10 +267,11 @@
 #define NOTIFY_CENTER [NSNotificationCenter defaultCenter]
 
 /** 通知传递、获取、删除 */
-#define NOTIFY_POST(name)  [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil]
-#define NOTIFY_POST_OBJECT(name,object)  [[NSNotificationCenter defaultCenter] postNotificationName:name object:object]
-#define NOTIFY_ADD(target,SEL,name)  [[NSNotificationCenter defaultCenter] addObserver:target selector:SEL name:name object:nil]
-#define NOTIFY_REMOVE(target)  [[NSNotificationCenter defaultCenter] removeObserver:observer]
+#define NOTIFY_POST(notifyName)  [[NSNotificationCenter defaultCenter] postNotificationName:notifyName object:nil]
+#define NOTIFY_POST_OBJC(notifyName, notifyObjc)  [[NSNotificationCenter defaultCenter] postNotificationName:notifyName object:notifyObjc]
+#define NOTIFY_ADD(SEL, notifyName)  [[NSNotificationCenter defaultCenter] addObserver:self selector:SEL name:notifyName object:nil]
+#define NOTIFY_REMOVE_SELF()  [[NSNotificationCenter defaultCenter] removeObserver:self]
+#define NOTIFY_REMOVE(notifyName)  [[NSNotificationCenter defaultCenter] removeObserver:self name:notifyName object:nil]
 
 /** weak self */
 #define WS(weakSelf)  __weak typeof(self) weakSelf = self;

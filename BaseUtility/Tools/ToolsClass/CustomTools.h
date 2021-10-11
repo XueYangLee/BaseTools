@@ -48,7 +48,13 @@
 /**
  匹配中文，英文字母和数字及_
  */
-+ (BOOL)isNormalAccount:(NSString *_Nullable)accountName;
++ (BOOL)isCNLetterNumberSymbol:(NSString *_Nullable)string;
+
+
+/**
+ 匹配英文字母和数字
+ */
++ (BOOL)isLetterNumber:(NSString *_Nullable)string;
 
 
 /**

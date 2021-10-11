@@ -9,7 +9,7 @@
 #import "UUID.h"
 #import <AdSupport/AdSupport.h>
 //#import "KeyChainStore.h"
-#import <SAMKeychain.h>
+#import <SAMKeychain/SAMKeychain.h>
 
 #define KEY_UUID_KEKCHAINSTORE  [NSString stringWithFormat:@"%@.UUID.KEY",APP_BUNDLE_ID]
 #define SERVICE_UUID_KEKCHAINSTORE  [NSString stringWithFormat:@"%@.UUID",APP_BUNDLE_ID]

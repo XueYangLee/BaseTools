@@ -27,4 +27,6 @@
 
 @property (nonatomic,weak) id<CustomTextViewDelegate>textViewDelegate;
 
+@property (nonatomic,copy) void(^textChanged)(NSString *text);
+
 @end

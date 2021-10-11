@@ -23,6 +23,8 @@
     [self initRefreshControl];
     [self initEmptyData];
     
+    self.refreshPages = 1;
+    
     self.showRefreshHeader = NO;
     self.showRefreshFooter = NO;
 }
@@ -70,7 +72,7 @@
     WS(weakSelf)
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        weakSelf.refreshPages = 0;
+        weakSelf.refreshPages = 1;
         [weakSelf loadRefreshData];
     }];
     header.automaticallyChangeAlpha = YES;

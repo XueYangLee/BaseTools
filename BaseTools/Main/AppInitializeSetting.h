@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 初始化网络请求 */
 + (void)initNetWork;
 
+/** injectionIII */
++ (void)initDebugCompileInject;
+
 @end
 
 NS_ASSUME_NONNULL_END
