@@ -54,6 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) CGSize headerSize;
 /** 组尾尺寸  collectionView */
 @property (nonatomic,assign) CGSize footerSize;
+/** 组行间距  collectionView */
+@property (nonatomic,assign) CGFloat minimumLineSpacing;
+/** 组控件间距  collectionView */
+@property (nonatomic,assign) CGFloat minimumInteritemSpacing;
+/** 组边距  collectionView */
+@property (nonatomic,assign) UIEdgeInsets edgeInsets;
 
 @end
 

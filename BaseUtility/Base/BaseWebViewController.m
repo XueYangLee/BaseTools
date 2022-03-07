@@ -8,9 +8,31 @@
 
 #import "BaseWebViewController.h"
 
-@interface BaseWebViewController ()
+@implementation WeakBaseWebViewScriptMessageDelegate
 
-@property (nonatomic,strong) WKWebViewConfiguration *config;
+- (instancetype)initWithDelegate:(id<WKScriptMessageHandler>)scriptDelegate {
+    self = [super init];
+    if (self) {
+        _scriptDelegate = scriptDelegate;
+    }
+    return self;
+}
+
+#pragma mark - WKScriptMessageHandler
+//遵循WKScriptMessageHandler协议，必须实现如下方法，然后把方法向外传递
+//通过接收JS传出消息的name进行捕捉的回调方法
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    
+    if ([self.scriptDelegate respondsToSelector:@selector(userContentController:didReceiveScriptMessage:)]) {
+        [self.scriptDelegate userContentController:userContentController didReceiveScriptMessage:message];
+    }
+}
+
+@end
+
+
+
+@interface BaseWebViewController ()
 
 @property (nonatomic,strong) UIBarButtonItem *backItem;
 @property (nonatomic,strong) UIBarButtonItem *closeItem;
@@ -173,7 +195,7 @@ static CGFloat const progressViewHeight = 2;
         // 高度默认有导航栏且有穿透效果
         _progressView.frame = CGRectMake(0, 0, SCREEN_WIDTH, progressViewHeight);
         _progressView.trackTintColor = [UIColor clearColor];
-        _progressView.progressTintColor = [UIColor greenColor];
+        _progressView.progressTintColor = [UIColor app_mainColor];
     }
     return _progressView;
 }
@@ -225,16 +247,19 @@ static CGFloat const progressViewHeight = 2;
 
 /// 加载 web
 - (void)setURLRequest:(NSURLRequest *)URLRequest{
+    _URLRequest = URLRequest;
     [self.wkWebView loadRequest:URLRequest];
 }
 
 /// 加载 web
 - (void)setURLString:(NSString *)URLString{
+    _URLString = URLString;
     [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:URLString]]];
 }
 
 /// 加载 HTML
 - (void)setHTMLString:(NSString *)HTMLString{
+    _HTMLString = HTMLString;
     [self.wkWebView loadHTMLString:HTMLString baseURL:nil];
 }
 

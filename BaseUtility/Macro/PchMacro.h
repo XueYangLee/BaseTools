@@ -72,6 +72,7 @@
 #import "CustomSegmentView.h"
 #import "CustomFlowLayout.h"
 #import "CustomWaterLayout.h"
+#import "CustomPagingFlowLayout.h"
 //#import "WRNavigationBar.h"
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 

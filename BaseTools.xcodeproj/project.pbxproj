@@ -65,6 +65,8 @@
 		F126C47D224E283900C24566 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C47C224E283900C24566 /* TableViewController.m */; };
 		F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */ = {isa = PBXBuildFile; fileRef = F12CB25624289CB6005BEAB0 /* NSArray+Sudoku.m */; };
 		F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */; };
+		F166A3D72761E547003CA08E /* CustomSlidePageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F166A3D62761E547003CA08E /* CustomSlidePageControl.m */; };
+		F166A3E527620356003CA08E /* CustomPagingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F166A3E327620356003CA08E /* CustomPagingFlowLayout.m */; };
 		F16EDCF826FC1ECC00D42753 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */; };
 		F17B8A14263174B6001A1265 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17B8A13263174B6001A1265 /* CustomPickerView.m */; };
 		F18500E6262D248A00A74BDF /* AppInitializeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F18500E5262D248A00A74BDF /* AppInitializeSetting.m */; };
@@ -267,6 +269,10 @@
 		F15503C02266BC77001FFE24 /* UITextField+LengthLimit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+LengthLimit.h"; sourceTree = "<group>"; };
 		F15503C12266BC77001FFE24 /* UITextField+LengthLimit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LengthLimit.m"; sourceTree = "<group>"; };
 		F15D3AF92497BE6A00A36F0C /* BaseDataRefreshProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDataRefreshProtocol.h; sourceTree = "<group>"; };
+		F166A3D52761E547003CA08E /* CustomSlidePageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlidePageControl.h; sourceTree = "<group>"; };
+		F166A3D62761E547003CA08E /* CustomSlidePageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlidePageControl.m; sourceTree = "<group>"; };
+		F166A3E327620356003CA08E /* CustomPagingFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPagingFlowLayout.m; sourceTree = "<group>"; };
+		F166A3E427620356003CA08E /* CustomPagingFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPagingFlowLayout.h; sourceTree = "<group>"; };
 		F16EDCF626FC1ECC00D42753 /* CustomDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePicker.h; sourceTree = "<group>"; };
 		F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePicker.m; sourceTree = "<group>"; };
 		F17B8A12263174B6001A1265 /* CustomPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPickerView.h; sourceTree = "<group>"; };
@@ -722,6 +728,8 @@
 				044FE59D2564F3DD00980A86 /* SendMailManager.m */,
 				0454C7E92463F8220092F6FE /* CustomFlowLayout.h */,
 				0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */,
+				F166A3E427620356003CA08E /* CustomPagingFlowLayout.h */,
+				F166A3E327620356003CA08E /* CustomPagingFlowLayout.m */,
 				045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */,
 				045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */,
 				046FF5CD24E3EC230057888D /* CustomFlowLayoutPrimeval.h */,
@@ -859,6 +867,8 @@
 				F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */,
 				F190E6CB263936E6008552BE /* CustomSegmentView.h */,
 				F190E6CC263936E6008552BE /* CustomSegmentView.m */,
+				F166A3D52761E547003CA08E /* CustomSlidePageControl.h */,
+				F166A3D62761E547003CA08E /* CustomSlidePageControl.m */,
 				0457D71624EE5439005E425F /* BaseAlertView.h */,
 				0457D71724EE5439005E425F /* BaseAlertView.m */,
 			);
@@ -1141,6 +1151,7 @@
 				F187EBA9224B56AE00293096 /* TBCityIconInfo.m in Sources */,
 				F187E9C9224B196A00293096 /* ViewController.m in Sources */,
 				04641174254BB18E00AC5D66 /* CustomNetWorkResponseObject+RespDecode.m in Sources */,
+				F166A3D72761E547003CA08E /* CustomSlidePageControl.m in Sources */,
 				0457D71824EE5439005E425F /* BaseAlertView.m in Sources */,
 				045049B0254A66AF007FD2F7 /* ListSectionData.m in Sources */,
 				04370EBC25510407000A7116 /* DeviceModels.m in Sources */,
@@ -1217,6 +1228,7 @@
 				F187EB4E224B567F00293096 /* BaseWebViewController.m in Sources */,
 				F187EB72224B569100293096 /* NSDictionary+LXY.m in Sources */,
 				3D43964D23B9A76200C0244A /* NSObject+SwizzleMethod.m in Sources */,
+				F166A3E527620356003CA08E /* CustomPagingFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

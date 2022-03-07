@@ -8,8 +8,7 @@
 
 #import "SaveImageManager.h"
 #import <Photos/Photos.h>//相册权限
-
-#import "SDWebImageDownloader.h"
+#import <SDWebImage/SDWebImageDownloader.h>
 
 @implementation SaveImageManager
 

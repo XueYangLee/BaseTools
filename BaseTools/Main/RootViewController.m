@@ -34,6 +34,8 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithHexString:@"eeeeee"]];//tabbar背景色
+//    [UITabBar appearance].backgroundImage=[UIImage new];//隐藏tabbar顶部黑线
+//    [UITabBar appearance].shadowImage=[UIImage new];
     
     if ([IOS_SYSTEM_VERSION isEqualToString:@"12.1"]) {
         [UITabBar appearance].translucent = NO;

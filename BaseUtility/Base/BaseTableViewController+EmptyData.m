@@ -33,7 +33,7 @@
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
     NSString *title = self.empty_title?self.empty_title:@"暂无数据";
-    NSDictionary *attributes = @{NSFontAttributeName: FontMedium(16), NSForegroundColorAttributeName: FONT_COLOR333};
+    NSDictionary *attributes = @{NSFontAttributeName: FontMedium(16), NSForegroundColorAttributeName: UIColor.app_subTitleColor};
     
     return [[NSAttributedString alloc] initWithString:title attributes:attributes];
 }
