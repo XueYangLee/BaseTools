@@ -34,8 +34,16 @@
     [item setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
     
     [[UITabBar appearance] setBarTintColor:[UIColor colorWithHexString:@"eeeeee"]];//tabbar背景色
-//    [UITabBar appearance].backgroundImage=[UIImage new];//隐藏tabbar顶部黑线
-//    [UITabBar appearance].shadowImage=[UIImage new];
+
+//    if (@available(iOS 13.0, *)) {//隐藏tabbar顶部黑线
+//        UITabBarAppearance *appearance = [[UITabBarAppearance alloc]init];
+//        appearance.shadowImage = [UIImage new];
+//        appearance.shadowColor = [UIColor clearColor];
+//        [UITabBar appearance].standardAppearance = appearance;
+//    } else {
+//        [UITabBar appearance].shadowImage = [UIImage new];
+//        [UITabBar appearance].backgroundColor = [UIColor clearColor];
+//    }
     
     if ([IOS_SYSTEM_VERSION isEqualToString:@"12.1"]) {
         [UITabBar appearance].translucent = NO;
