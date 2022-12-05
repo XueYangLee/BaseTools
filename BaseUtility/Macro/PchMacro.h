@@ -58,6 +58,7 @@
 #import "MD5.h"
 #import "UUID.h"
 #import "KeyChainStore.h"
+#import "KeyboardHeight.h"
 #import "DeviceModels.h"
 #import "TBCityIconFont.h"
 #import "SaveImageManager.h"
@@ -68,6 +69,7 @@
 #import "SignInWithApple.h"
 #import "CustomSlider.h"
 #import "CustomPickerView.h"
+#import "CustomSelectionPicker.h"
 #import "CustomDatePicker.h"
 #import "CustomSegmentView.h"
 #import "CustomFlowLayout.h"
@@ -111,6 +113,8 @@
 
 /** 判断是否是iPhone X */
 #define IS_IPHONEX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? ((NSInteger)(([[UIScreen mainScreen] currentMode].size.height/[[UIScreen mainScreen] currentMode].size.width)*100) == 216) : NO)
+/** 判断是否是为根页面 导航页面第一层级  */
+#define IS_ROOTPAGE (([[UIViewController currentViewController].navigationController.childViewControllers indexOfObject:[UIViewController currentViewController]] == 0)?YES:NO)
 /** 导航栏高度 */
 #define NAVI_HEIGHT 44
 /** 状态栏高度 */

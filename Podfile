@@ -19,4 +19,5 @@ target "BaseTools" do
   pod 'MMKV'
   pod 'DZNEmptyDataSet'
   pod 'SAMKeychain'
+  pod 'ReactiveObjC'
 end

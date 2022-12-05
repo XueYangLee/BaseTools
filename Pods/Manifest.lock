@@ -26,6 +26,7 @@ PODS:
   - MMKV (1.2.2):
     - MMKVCore (~> 1.2.2)
   - MMKVCore (1.2.2)
+  - ReactiveObjC (3.1.1)
   - SAMKeychain (1.5.3)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - MMKV
+  - ReactiveObjC
   - SAMKeychain
   - SDWebImage
   - SVProgressHUD
@@ -54,7 +56,7 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - CustomNetWorking
     - DZNEmptyDataSet
@@ -65,6 +67,7 @@ SPEC REPOS:
     - MJRefresh
     - MMKV
     - MMKVCore
+    - ReactiveObjC
     - SAMKeychain
     - SDWebImage
     - SVProgressHUD
@@ -83,6 +86,7 @@ SPEC CHECKSUMS:
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   MMKV: b14909757d8b70e2aa89ff1c6d56a7b239e10a29
   MMKVCore: 6225324fe5006026bc86ef8641d567e00c6582f3
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
@@ -90,6 +94,6 @@ SPEC CHECKSUMS:
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 6c79e46cd482e9ac969791322764d3c02020f74f
+PODFILE CHECKSUM: 567da32b59dd78c0efbc57aa627ad9dd00e108e5
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.11.2

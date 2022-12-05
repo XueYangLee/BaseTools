@@ -33,6 +33,37 @@
 }
 
 
+#pragma mark 自定义多条文字大小及颜色
++ (NSMutableAttributedString *)labelDifferentAttributedStringsWithText:(NSString *)lableText attributeStrings:(NSArray <NSString *>*)attributeStrings fonts:(NSArray <UIFont *>*)fonts textColors:(NSArray <UIColor *>*)colors{
+    if (attributeStrings.count != fonts.count) {
+        return nil;
+    }
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc]initWithString:lableText];
+    
+    for (NSInteger i = 0; i<attributeStrings.count; i++) {
+        NSRange range=[lableText rangeOfString:attributeStrings[i]];
+        [attributedStr addAttribute:NSFontAttributeName value:fonts[i] range:NSMakeRange(range.location, range.length)];
+        if (colors.count) {
+            [attributedStr addAttribute:NSForegroundColorAttributeName value:colors[i] range:NSMakeRange(range.location, range.length)];
+        }
+    }
+    return attributedStr;
+}
+
+
+#pragma mark 自定义文字添加图片及位置
++ (NSMutableAttributedString *)labelAttachAttributedImageWithText:(NSString *)lableText image:(UIImage *)image imgX:(CGFloat)imgX imgY:(CGFloat)imgY insertIndex:(NSInteger)insertIndex{
+    
+    NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+    attach.image = image;
+    attach.bounds = CGRectMake(imgX, imgY, attach.image.size.width, attach.image.size.height);
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",lableText]];
+    NSAttributedString *attribute = [NSAttributedString attributedStringWithAttachment:attach];
+    [attributeString insertAttributedString:attribute atIndex:insertIndex];
+    return attributeString;
+}
+
+
 #pragma mark  判断座机号
 +(BOOL)isTelephoneNumber:(NSString *)telephone{
 

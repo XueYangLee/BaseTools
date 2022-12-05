@@ -31,15 +31,13 @@
 
 - (void)initCollectionView {
     
-    UICollectionViewFlowLayout *layout = nil;
-    if (self.flowLayout) {
-        layout = self.flowLayout;
-    }else {
-        layout = [UICollectionViewFlowLayout new];
-        layout.minimumLineSpacing= 10;
-        layout.minimumInteritemSpacing= 10;
-        layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
-    }
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    layout.minimumLineSpacing= 0;
+    layout.minimumInteritemSpacing= 0;
+    layout.sectionInset=UIEdgeInsetsMake(0, 0, 0, 0);
+//    if (self.flowLayout) {
+//        layout = self.flowLayout;
+//    }
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WINDOW_HEIGHT) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
@@ -62,7 +60,7 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"baseCollectionViewCell"];
 }
 
-- (void)setFlowLayout:(UICollectionViewFlowLayout *)flowLayout {
+- (void)setFlowLayout:(UICollectionViewLayout *)flowLayout {
     _flowLayout = flowLayout;
     self.collectionView.collectionViewLayout = flowLayout;
 }

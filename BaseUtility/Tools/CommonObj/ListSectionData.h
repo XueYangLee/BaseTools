@@ -19,10 +19,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 组标题 */
 @property (nonatomic,strong) NSString *sectionTitle;
+/** 组标题字体大小 */
+@property (nonatomic,strong) UIFont *sectionTitleFont;
+/** 组标题字体颜色 */
+@property (nonatomic,strong) UIColor *sectionTitleColor;
+
 /** 组副标题 */
 @property (nonatomic,strong) NSString *sectionSubTitle;
+/** 组副标题字体大小 */
+@property (nonatomic,strong) UIFont *sectionSubTitleFont;
+/** 组副标题字体颜色 */
+@property (nonatomic,strong) UIColor *sectionSubTitleColor;
+
 /** 组按钮标题 */
 @property (nonatomic,strong) NSString *sectionButtonTitle;
+/** 组按钮标题字体大小 */
+@property (nonatomic,strong) UIFont *sectionButtonTitleFont;
+/** 组按钮标题字体颜色 */
+@property (nonatomic,strong) UIColor *sectionButtonTitleColor;
 
 /** 组类型 */
 @property (nonatomic,strong) NSString *type;

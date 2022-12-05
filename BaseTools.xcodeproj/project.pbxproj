@@ -69,6 +69,7 @@
 		F166A3E527620356003CA08E /* CustomPagingFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F166A3E327620356003CA08E /* CustomPagingFlowLayout.m */; };
 		F16EDCF826FC1ECC00D42753 /* CustomDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */; };
 		F17B8A14263174B6001A1265 /* CustomPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F17B8A13263174B6001A1265 /* CustomPickerView.m */; };
+		F1814D302893B90D0016619F /* KeyboardHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = F1814D2F2893B90D0016619F /* KeyboardHeight.m */; };
 		F18500E6262D248A00A74BDF /* AppInitializeSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = F18500E5262D248A00A74BDF /* AppInitializeSetting.m */; };
 		F187E9C6224B196A00293096 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C5224B196A00293096 /* AppDelegate.m */; };
 		F187E9C9224B196A00293096 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F187E9C8224B196A00293096 /* ViewController.m */; };
@@ -129,6 +130,7 @@
 		F1B9297D2462D3E90077969A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B9297C2462D3E90077969A /* BaseViewModel.m */; };
 		F1D2CF0B22560D6700E30B6E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */; };
 		F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D3C0902253108B0008222A /* CollectionViewController.m */; };
+		F1EE40A528AF255F0061BD97 /* CustomSelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F1EE40A428AF255F0061BD97 /* CustomSelectionPicker.m */; };
 		F1F7C3A02269BF49002774B1 /* CustomAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F7C39F2269BF49002774B1 /* CustomAlert.m */; };
 /* End PBXBuildFile section */
 
@@ -277,6 +279,8 @@
 		F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePicker.m; sourceTree = "<group>"; };
 		F17B8A12263174B6001A1265 /* CustomPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomPickerView.h; sourceTree = "<group>"; };
 		F17B8A13263174B6001A1265 /* CustomPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomPickerView.m; sourceTree = "<group>"; };
+		F1814D2E2893B90D0016619F /* KeyboardHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardHeight.h; sourceTree = "<group>"; };
+		F1814D2F2893B90D0016619F /* KeyboardHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardHeight.m; sourceTree = "<group>"; };
 		F18500E4262D248A00A74BDF /* AppInitializeSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInitializeSetting.h; sourceTree = "<group>"; };
 		F18500E5262D248A00A74BDF /* AppInitializeSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInitializeSetting.m; sourceTree = "<group>"; };
 		F187E9C1224B196A00293096 /* BaseTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -389,6 +393,8 @@
 		F1D2CF0A22560D6700E30B6E /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		F1D3C08F2253108B0008222A /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		F1D3C0902253108B0008222A /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		F1EE40A328AF255F0061BD97 /* CustomSelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSelectionPicker.h; sourceTree = "<group>"; };
+		F1EE40A428AF255F0061BD97 /* CustomSelectionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectionPicker.m; sourceTree = "<group>"; };
 		F1F7C39E2269BF49002774B1 /* CustomAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAlert.h; sourceTree = "<group>"; };
 		F1F7C39F2269BF49002774B1 /* CustomAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -736,6 +742,8 @@
 				046FF5CE24E3EC230057888D /* CustomFlowLayoutPrimeval.m */,
 				046FF5B824E3DC810057888D /* CustomSectionColorLayout.h */,
 				046FF5B924E3DC810057888D /* CustomSectionColorLayout.m */,
+				F1814D2E2893B90D0016619F /* KeyboardHeight.h */,
+				F1814D2F2893B90D0016619F /* KeyboardHeight.m */,
 				04370ECB255129F7000A7116 /* AppDebugBtn.h */,
 				04370ECC255129F7000A7116 /* AppDebugBtn.m */,
 			);
@@ -863,6 +871,8 @@
 				045358BA246CECD600A32204 /* CustomSlider.m */,
 				F17B8A12263174B6001A1265 /* CustomPickerView.h */,
 				F17B8A13263174B6001A1265 /* CustomPickerView.m */,
+				F1EE40A328AF255F0061BD97 /* CustomSelectionPicker.h */,
+				F1EE40A428AF255F0061BD97 /* CustomSelectionPicker.m */,
 				F16EDCF626FC1ECC00D42753 /* CustomDatePicker.h */,
 				F16EDCF726FC1ECC00D42753 /* CustomDatePicker.m */,
 				F190E6CB263936E6008552BE /* CustomSegmentView.h */,
@@ -1191,12 +1201,14 @@
 				F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */,
 				04535E39256CBD3100089881 /* UserNotificationManager.m in Sources */,
 				045118092548158300C0EA29 /* NSDate+ServerTime.m in Sources */,
+				F1814D302893B90D0016619F /* KeyboardHeight.m in Sources */,
 				F187E9D4224B196B00293096 /* main.m in Sources */,
 				046759F6256615B20070E61E /* CustomShare.m in Sources */,
 				04641175254BB18E00AC5D66 /* NetRequestConfig.m in Sources */,
 				F16EDCF826FC1ECC00D42753 /* CustomDatePicker.m in Sources */,
 				040C7D21254820D300D5668B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0411F548254C05360025EB32 /* BaseCollectionViewController+EmptyData.m in Sources */,
+				F1EE40A528AF255F0061BD97 /* CustomSelectionPicker.m in Sources */,
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
 				046FF5BA24E3DC810057888D /* CustomSectionColorLayout.m in Sources */,
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,

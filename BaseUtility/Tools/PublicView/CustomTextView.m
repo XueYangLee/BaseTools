@@ -41,7 +41,8 @@
     _maxNumber=200;
     self.layoutManager.allowsNonContiguousLayout=NO;//追加文字上下跳动问题
     
-    self.textContainerInset = UIEdgeInsetsMake(12, 12, 12, 12);//内边距默认12
+//    self.textContainerInset = UIEdgeInsetsMake(12, 12, 12, 12);//内边距默认12
+    self.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.font = [UIFont systemFontOfSize:15];// 设置默认字体
     self.placeholderColor = [UIColor grayColor];// 设置默认颜色
     self.delegate=self;
@@ -68,6 +69,42 @@
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    
+    if ([self.textViewDelegate respondsToSelector:@selector(customTextViewShouldReturn:)]) {
+        //text为输入中的内容的最后一个字符
+        ////判断输入的字是否是回车，即按下【Return】
+        if ([text isEqualToString:@"\n"]){
+            
+            //一般通常也会收键盘，即取消textView的第一响应者
+            [self resignFirstResponder];
+            [self.textViewDelegate customTextViewShouldReturn:textView];
+            /**这里返回NO，就代表【Return】键值失效，即在页面上按下
+          【Return】键，不会出现换行，如果为YES，则输入页面会换行*/
+            return NO;
+        }
+    }
+    
+    if ([self.textViewDelegate respondsToSelector:@selector(customTextView:shouldChangeTextInRange:replacementText:)]) {
+        return [self.textViewDelegate customTextView:textView shouldChangeTextInRange:range replacementText:text];
+    }
+
+    return YES;
+}
+
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    if ([self.textViewDelegate respondsToSelector:@selector(customTextViewDidBeginEditing:)]) {
+        [self.textViewDelegate customTextViewDidBeginEditing:textView];
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if ([self.textViewDelegate respondsToSelector:@selector(customTextViewDidEndEditing:)]) {
+        [self.textViewDelegate customTextViewDidEndEditing:textView];
+    }
+}
 
 - (void)textDidChange:(NSNotification *)note {
     // 会重新调用drawRect:方法
@@ -90,14 +127,14 @@
     attrs[NSFontAttributeName] = self.font;
     attrs[NSForegroundColorAttributeName] = self.placeholderColor;
     
-    // 画文字
+    /*// 画文字  内边距12
     rect.origin.x = 5 + 12;
     rect.origin.y = 8 + 4;
-    rect.size.width -= 2 * (rect.origin.x + 12);
-    /*无内边距12的原始尺寸
+    rect.size.width -= 2 * (rect.origin.x + 12);*/
+    //无内边距12的原始尺寸
      rect.origin.x = 5;
-     rect.origin.y = 8;
-     rect.size.width -= 2 * rect.origin.x;*/
+     rect.origin.y = 0;
+     rect.size.width -= 2 * rect.origin.x;
     [self.placeholder drawInRect:rect withAttributes:attrs];
 }
 
