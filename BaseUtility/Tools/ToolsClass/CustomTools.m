@@ -111,6 +111,36 @@
     return [regextestmobile evaluateWithObject:mobileNum];
 }
 
+#pragma mark 身份证号码性别判断 0未知，1男，2女
++ (NSInteger)genderOfIDNumber:(NSString *)IDNumber
+{
+      //  记录校验结果：0未知，1男，2女
+    NSInteger result = 0;
+    NSString *fontNumer = nil;
+    
+    if (IDNumber.length == 15){ // 15位身份证号码：第15位代表性别，奇数为男，偶数为女。
+        fontNumer = [IDNumber substringWithRange:NSMakeRange(14, 1)];
+ 
+    }else if (IDNumber.length == 18){ // 18位身份证号码：第17位代表性别，奇数为男，偶数为女。
+        fontNumer = [IDNumber substringWithRange:NSMakeRange(16, 1)];
+    }else{ //  不是15位也不是18位，则不是正常的身份证号码，直接返回
+        return result;
+    }
+    
+    NSInteger genderNumber = [fontNumer integerValue];
+    
+    if(genderNumber % 2 == 1){
+        result = 1;
+    }
+    
+    else if (genderNumber % 2 == 0){
+        result = 2;
+    }
+        
+    return result;
+}
+
+
 #pragma mark 判断邮箱是否合法
 + (BOOL)checkEmail:(NSString *)email{
     
@@ -132,6 +162,27 @@
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     return [pred evaluateWithObject:string];
 }
+
+
+#pragma mark 判断是否包含汉字
++ (BOOL)isChineseCharacters:(NSString *)string {
+    if (!string.length) {
+        return NO;
+    }
+    NSString *pattern = @"[\u4e00-\u9fa5]";
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
+    
+    if (error) {
+        return NO;
+    }
+    
+    NSRange range = NSMakeRange(0, string.length);
+    NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:string options:0 range:range];
+    
+    return matches.count > 0;
+}
+
 
 #pragma mark 判断是否为纯数字
 //判断是否为整形：

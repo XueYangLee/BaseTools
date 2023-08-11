@@ -200,6 +200,38 @@
     return interval;
 }
 
+#pragma mark 获取指定日期前后N天日期
++ (NSDate *)getBeforeAndAfterDateFromDate:(NSDate *)fromDate before:(BOOL)before intervalDays:(NSInteger)days{
+    NSDate *currentDate=fromDate;
+    NSDate *date=currentDate;
+    
+    NSTimeInterval oneDay = 24 * 60 * 60;  // 一天长度
+    if (days != 0) {
+        if (before) {
+            date = [currentDate dateByAddingTimeInterval:-(oneDay*days)];
+        }else{
+            date = [currentDate dateByAddingTimeInterval:(oneDay*days)];
+        }
+    }
+    
+    return date;
+}
+
+
+#pragma mark 从出生年月日获取年龄
++ (NSInteger)getAgeFromBirthDate:(NSDate *)birthDate{
+    NSDate *todayDate = [NSDate date];
+    
+    NSInteger time = [todayDate timeIntervalSinceDate:birthDate];
+    NSInteger allDays = (((time/60)/60)/24);
+    
+    NSInteger days = allDays%365;
+    NSInteger years = (allDays-days)/365;
+//    DLog(@"You live since %ld years and %ld days",years,days);
+    
+    return years;
+}
+
 
 
 #pragma mark 获取日期组成

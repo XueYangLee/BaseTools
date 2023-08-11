@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "BaseDataRefreshProtocol.h"
+#import "BaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 修改collectionView的UICollectionViewLayout */
 @property (nonatomic, strong) UICollectionViewLayout *flowLayout;
+
+
+/** 获取cell在一组（section）中的位置 */
+- (BaseCollectionViewCellPosition)base_cellPositionForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 
 

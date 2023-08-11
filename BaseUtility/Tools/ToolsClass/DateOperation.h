@@ -119,6 +119,23 @@
 
 
 /**
+ 获取指定日期前后N天日期
+ 
+ @param fromDate 指定日期
+ @param before 是否指点日期往前推算
+ @param days N天
+ */
++ (NSDate *)getBeforeAndAfterDateFromDate:(NSDate *)fromDate before:(BOOL)before intervalDays:(NSInteger)days;
+
+
+
+/// 从出生年月日获取年龄
++ (NSInteger)getAgeFromBirthDate:(NSDate *)birthDate;
+
+
+
+
+/**
  获取日期组成
  */
 + (NSDateComponents *)getComponents;

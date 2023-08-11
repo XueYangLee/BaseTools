@@ -123,6 +123,7 @@
 		F187EBD6224B570800293096 /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD2224B570800293096 /* WRCustomNavigationBar.m */; };
 		F187EBD7224B570800293096 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F187EBD4224B570800293096 /* WRNavigationBar.m */; };
 		F18FB1E4226EF67A00C77619 /* UIImage+ImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */; };
+		F190BB3729B8326D005D458D /* HealthStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F190BB3629B8326D005D458D /* HealthStoreManager.m */; };
 		F190E6CD263936E6008552BE /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F190E6CC263936E6008552BE /* CustomSegmentView.m */; };
 		F19FC8E6224E05D90044772B /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E5224E05D90044772B /* MineViewController.m */; };
 		F19FC8E9224E05E80044772B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19FC8E8224E05E80044772B /* HomeViewController.m */; };
@@ -379,6 +380,8 @@
 		F187EBD8224B58D200293096 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F18FB1E2226EF67A00C77619 /* UIImage+ImageSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageSize.h"; sourceTree = "<group>"; };
 		F18FB1E3226EF67A00C77619 /* UIImage+ImageSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageSize.m"; sourceTree = "<group>"; };
+		F190BB3529B8326D005D458D /* HealthStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthStoreManager.h; sourceTree = "<group>"; };
+		F190BB3629B8326D005D458D /* HealthStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthStoreManager.m; sourceTree = "<group>"; };
 		F190E6CB263936E6008552BE /* CustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegmentView.h; sourceTree = "<group>"; };
 		F190E6CC263936E6008552BE /* CustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentView.m; sourceTree = "<group>"; };
 		F19FC8E4224E05D90044772B /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
@@ -728,6 +731,8 @@
 				F1129AE822CCC99E00540259 /* VideoCompress.m */,
 				04535E37256CBD3100089881 /* UserNotificationManager.h */,
 				04535E38256CBD3100089881 /* UserNotificationManager.m */,
+				F190BB3529B8326D005D458D /* HealthStoreManager.h */,
+				F190BB3629B8326D005D458D /* HealthStoreManager.m */,
 				045191C42563A67F0097149F /* SignInWithApple.h */,
 				045191C32563A67F0097149F /* SignInWithApple.m */,
 				044FE59E2564F3DD00980A86 /* SendMailManager.h */,
@@ -1187,6 +1192,7 @@
 				F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */,
 				F187EB97224B56A100293096 /* QRCodeScanViewController.m in Sources */,
 				F12CB25724289CB6005BEAB0 /* NSArray+Sudoku.m in Sources */,
+				F190BB3729B8326D005D458D /* HealthStoreManager.m in Sources */,
 				04370ECD255129F7000A7116 /* AppDebugBtn.m in Sources */,
 				F190E6CD263936E6008552BE /* CustomSegmentView.m in Sources */,
 				047446BE255D385900428DF3 /* UILabel+DigitalAnimation.m in Sources */,

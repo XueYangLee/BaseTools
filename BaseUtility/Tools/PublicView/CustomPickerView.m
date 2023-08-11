@@ -105,6 +105,24 @@
     return [self.dataArray objectAtIndex:row];
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    
+    UILabel *pickerLabel = (UILabel*)view;
+    
+    if (!pickerLabel) {
+        pickerLabel=[UILabel new].func_font(FontRegular(16)).func_textColor(UIColor.app_titleColor).func_textAlignment(NSTextAlignmentCenter).func_adjustsFontSizeToFitWidth(YES);
+    }
+    pickerLabel.func_text([self pickerView:pickerView titleForRow:row forComponent:component]);
+    
+    
+    UILabel *selectLabel = (UILabel*)[pickerView viewForRow:row forComponent:0];
+    if (selectLabel) {
+        selectLabel.func_font(FontMedium(16)).func_textColor(UIColor.app_titleColor).func_textAlignment(NSTextAlignmentCenter).func_adjustsFontSizeToFitWidth(YES);
+    }
+    
+    return pickerLabel;
+}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _pickerIndex=row;
     _pickerTitle=[_dataArray objectAtIndex:row];

@@ -26,6 +26,11 @@ typedef void(^selectionCompletion)(NSArray * __nullable indexArray, NSArray * __
 
 @property (nonatomic,copy) selectionCompletion selectionComp;
 
+/// 多选结果是否可为空
+@property (nonatomic,assign) BOOL canMultipleEmpty;
+
+@property (nonatomic,copy) NSString *title;
+
 - (void)show;
 
 @end

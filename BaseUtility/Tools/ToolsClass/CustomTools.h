@@ -62,6 +62,9 @@
 /** 判断是否为浮点形 */
 + (BOOL)isPureFloat:(NSString *_Nullable)string;
 
+/** 判断是否包含汉字 */
++ (BOOL)isChineseCharacters:(NSString *_Nullable)string;
+
 /**
  判断是否是纯数字
  */
@@ -85,6 +88,11 @@
  判断身份证
  */
 + (BOOL)checkUserIdCard:(NSString *_Nullable)idCard;
+
+
+/// 身份证号码性别判断 0未知，1男，2女
+/// @param IDNumber 0未知，1男，2女
++ (NSInteger)genderOfIDNumber:(NSString *_Nullable)IDNumber;
 
 
 

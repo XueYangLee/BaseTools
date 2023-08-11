@@ -118,6 +118,22 @@
 }
 
 
+#pragma mark - baseCellPositionMethod
+- (BaseCollectionViewCellPosition)base_cellPositionForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger numberOfRowsInSection = [self.collectionView.dataSource collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
+    if (numberOfRowsInSection == 1) {
+        return BaseCollectionViewCellPositionSingleInSection;
+    }
+    if (indexPath.row == 0) {
+        return BaseCollectionViewCellPositionFirstInSection;
+    }
+    if (indexPath.row == numberOfRowsInSection - 1) {
+        return BaseCollectionViewCellPositionLastInSection;
+    }
+    return BaseCollectionViewCellPositionMiddleInSection;
+}
+
+
 #pragma mark - emptyViewClickMethod
 - (void)empty_tapEmptyView{
     //无数据空页面背景点击事件（图片文字范围）

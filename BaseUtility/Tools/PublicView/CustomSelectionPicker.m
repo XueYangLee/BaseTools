@@ -87,6 +87,10 @@
     }
 }
 
+- (void)setTitle:(NSString *)title{
+    _titleLabel.func_text(FORMATEString(title));
+}
+
 - (void)initUI{
     
     self.frame=[[UIScreen mainScreen]bounds];
@@ -142,6 +146,11 @@
 }
 
 - (void)saveCompletionClick{
+    
+    if (!self.canMultipleEmpty && !self.titleArray.count) {
+        [SVProgressHUD showInfoWithStatus:@"请选择"];
+        return;
+    }
     
     if (self.comp) {
         self.comp(self.indexArray, self.titleArray);
