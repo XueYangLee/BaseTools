@@ -59,6 +59,7 @@
 		F1129AE922CCC99E00540259 /* VideoCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = F1129AE822CCC99E00540259 /* VideoCompress.m */; };
 		F113F1E822E9A408004F49A7 /* CustomRadianView.m in Sources */ = {isa = PBXBuildFile; fileRef = F113F1E622E9A408004F49A7 /* CustomRadianView.m */; };
 		F114D4A822AF8A480074377E /* CustomProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F114D4A722AF8A480074377E /* CustomProgressView.m */; };
+		F121B6BC2A948E5700AF6F18 /* CustomHoverFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F121B6BA2A948E5700AF6F18 /* CustomHoverFlowLayout.m */; };
 		F126C470224E1C0E00C24566 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C46F224E1C0E00C24566 /* BaseTableViewController.m */; };
 		F126C473224E20BC00C24566 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C472224E20BC00C24566 /* BaseCollectionViewController.m */; };
 		F126C476224E24B600C24566 /* UIViewController+CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F126C475224E24B600C24566 /* UIViewController+CurrentViewController.m */; };
@@ -258,6 +259,8 @@
 		F113F1E722E9A408004F49A7 /* CustomRadianView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRadianView.h; sourceTree = "<group>"; };
 		F114D4A622AF8A480074377E /* CustomProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomProgressView.h; sourceTree = "<group>"; };
 		F114D4A722AF8A480074377E /* CustomProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomProgressView.m; sourceTree = "<group>"; };
+		F121B6BA2A948E5700AF6F18 /* CustomHoverFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHoverFlowLayout.m; sourceTree = "<group>"; };
+		F121B6BB2A948E5700AF6F18 /* CustomHoverFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHoverFlowLayout.h; sourceTree = "<group>"; };
 		F126C46E224E1C0E00C24566 /* BaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		F126C46F224E1C0E00C24566 /* BaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		F126C471224E20BC00C24566 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
@@ -741,6 +744,8 @@
 				0454C7EA2463F8220092F6FE /* CustomFlowLayout.m */,
 				F166A3E427620356003CA08E /* CustomPagingFlowLayout.h */,
 				F166A3E327620356003CA08E /* CustomPagingFlowLayout.m */,
+				F121B6BB2A948E5700AF6F18 /* CustomHoverFlowLayout.h */,
+				F121B6BA2A948E5700AF6F18 /* CustomHoverFlowLayout.m */,
 				045B8CFC2498CD3500647FC5 /* CustomWaterLayout.h */,
 				045B8CFD2498CD3500647FC5 /* CustomWaterLayout.m */,
 				046FF5CD24E3EC230057888D /* CustomFlowLayoutPrimeval.h */,
@@ -1218,6 +1223,7 @@
 				F187EB73224B569100293096 /* UIScreen+Extension.m in Sources */,
 				046FF5BA24E3DC810057888D /* CustomSectionColorLayout.m in Sources */,
 				F187E9C6224B196A00293096 /* AppDelegate.m in Sources */,
+				F121B6BC2A948E5700AF6F18 /* CustomHoverFlowLayout.m in Sources */,
 				F1D3C0912253108B0008222A /* CollectionViewController.m in Sources */,
 				F187EB75224B569100293096 /* CALayer+XibBorderColor.m in Sources */,
 				F15503C22266BC77001FFE24 /* UITextField+LengthLimit.m in Sources */,
